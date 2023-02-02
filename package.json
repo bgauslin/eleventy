@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2"
+    "@11ty/eleventy": "^1.0.2",
+    "eleventy-plugin-rev": "^1.0.2",
+    "eleventy-sass": "^2.1.7"
   }
 }

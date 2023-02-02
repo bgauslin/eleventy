@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-permalink: index
+permalink: index.html
 
 title: Ben Gauslin
 description: Ben Gauslin’s little corner of the internet
