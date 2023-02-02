@@ -2,6 +2,8 @@ Options -Indexes
 
 RewriteEngine on
 
+ErrorDocument 404 /404.html
+
 # Set security policies.
 Header always append X-Frame-Options SAMEORIGIN
 Header set X-XSS-Protection "1; mode=block"
