@@ -4,7 +4,7 @@ permalink: europa/index
 
 title: Europa Sketches & Collages
 images:
-  - europa/sketch-piazza-del-campo-siena-7pm.png
+  - /images/europa/sketch-piazza-del-campo-siena-7pm.png
 ---
 Documenting an experience abroad with pen, pencil, and found materials
 
