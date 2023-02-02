@@ -1,0 +1,16 @@
+@use 'utils';
+
+// Stereogram on the 404 page.
+pre {
+  align-self: start;
+  color: var(--color-text-variant);
+  font-size: clamp(utils.rem(11), utils.rem(11) + 1vw, utils.rem(17));
+  grid-area: pre;
+  max-inline-size: 100%;
+  overflow: scroll hidden;
+  user-select: none;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}

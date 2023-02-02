@@ -1,0 +1,43 @@
+@use 'sass:math';
+
+$button-size: 2em;
+$icon-size: 1.25em;
+
+.contact {
+  display: flex;
+  gap: .5em;
+}
+
+.contact__item {
+  flex: 0 0 $button-size;
+}
+
+.contact__link {
+  background-color: var(--color-surface-1);
+  block-size: $button-size;
+  border-radius: math.div($button-size, 2);
+  color: var(--color-theme);
+  display: grid;
+  margin-inline: 0;
+  place-content: center;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-theme);
+    color: var(--color-surface-1);
+  }
+}
+
+.contact__icon {
+  inline-size: $icon-size;
+}
+
+@media (any-hover: hover) {
+  .contact__link {
+    transition: background-color .2s, color .2s, transform .2s;
+  }
+
+  .contact_icon {
+    transition: fill .2s;
+  }
+}

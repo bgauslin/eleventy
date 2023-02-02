@@ -1,0 +1,11 @@
+/// @param {!Number} $value Pixel value.
+/// @return {String} Pixel value converted to em units.
+@function em($value) {
+  @return #{$value / 16}em;
+}
+
+/// @param {!Number} $value Pixel value.
+/// @return {String} Pixel value converted to rem units.
+@function rem($value) {
+  @return #{$value / 16}rem;
+}

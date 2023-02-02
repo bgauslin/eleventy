@@ -1,0 +1,100 @@
+@use 'const';
+@use 'utils';
+
+@font-face {
+  font-family: 'Avenir Variable';
+  font-weight: 1 999;
+  src: url('https://assets.gauslin.com/fonts/AvenirNext-Variable.woff2') format('woff2');
+}
+
+:root {
+  --color-theme: #{const.$blue};
+  --color-surface: white;
+  --color-surface-1: #{const.$gray6};
+  --color-text: #{const.$gray6-dark};
+  --color-text-variant: #{const.$gray};
+
+  @media (prefers-color-scheme: dark) {
+    --color-theme: #{const.$blue-dark};
+    --color-surface: black;
+    --color-surface-1: #{const.$gray6-dark};
+    --color-text: #{const.$gray4};
+    --color-text-variant: #{const.$gray2-dark};
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  display: grid;
+  font-family: 'Avenir Variable', sans-serif;
+  font-size: clamp(utils.em(14), utils.em(14) + 1vw, utils.em(48));
+  font-variation-settings: 'wght' 500;
+  grid: 1fr / 1fr;
+  line-height: 1.5;
+  margin: 0;
+  min-block-size: 100dvh;
+  padding: 0 0 env(safe-area-inset-bottom, utils.em(24));
+  place-items: center;
+  text-rendering: optimizeSpeed;
+  touch-action: manipulation;
+}
+
+main {
+  max-inline-size: min(100%, utils.em(480));
+  padding: clamp(utils.em(12), utils.em(12) + 1vw, utils.em(72));
+}
+
+h1 {
+  font-size: utils.em(24);
+  margin-block: 0;
+}
+
+ul[role='list'] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:is(img, picture, svg) {
+  display: block;
+  max-inline-size: 100%;
+}
+
+svg {
+  fill: currentColor;
+  pointer-events: none;
+}
+
+a {
+  border-radius: utils.em(4);
+  color: var(--color-theme);
+  display: inline-block;
+  font-variation-settings: 'wght' 600;
+  margin-inline: utils.em(-4);
+  padding-inline: utils.em(4);
+  outline: 0;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-theme);
+    color: var(--color-surface-1);
+  }
+}
+
+@media (any-hover: hover) {
+  a {
+    transition: background-color .2s, color .2s;
+  }
+}

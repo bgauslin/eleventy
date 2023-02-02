@@ -1,0 +1,14 @@
+<ul class="contact" role="list">
+{% for link in contact %}
+  {% if link.enabled %}
+  <li class="contact__item">
+    <a aria-label="{{ link.label }}"
+       class="contact__link"
+       href="{{ link.href }}"
+       title="{{ link.label }}">
+      <svg class="contact__icon" viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons[link.icon] }}"></svg>
+    </a>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>

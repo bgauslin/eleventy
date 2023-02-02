@@ -1,0 +1,15 @@
+// Color via Apple HCI Guidelines.
+// @see https://developer.apple.com/design/human-interface-guidelines/foundations/color/#specifications
+
+// Light mode grays.
+$gray: rgb(142, 142, 147);
+$gray4: rgb(209, 209, 214);
+$gray6: rgb(242, 242, 247);
+
+// Dark mode grays.
+$gray2-dark: rgb(99, 99, 102);
+$gray6-dark: rgb(28, 28, 30);
+
+// System colors.
+$blue: rgb(0, 122, 255);
+$blue-dark: rgb(10, 132, 255);

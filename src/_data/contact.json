@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Send an email",
+    "href": "mailto:ben@gauslin.com?subject=Hello",
+    "icon": "email",
+    "enabled": true
+  },
+  {
+    "label": "Send a text message",
+    "href": "sms:5044057842",
+    "icon": "sms",
+    "enabled": true
+  },
+  {
+    "label": "Place a phone call",
+    "href": "tel:5044057842",
+    "icon": "phone",
+    "enabled": true
+  },
+  {
+    "label": "LinkedIn",
+    "href": "https://linkedin.com",
+    "icon": "linkedin",
+    "enabled": false
+  },
+  {
+    "label": "GitHub",
+    "href": "https://github.com/bgauslin",
+    "icon": "github",
+    "enabled": false
+  }
+]
