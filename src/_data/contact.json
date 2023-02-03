@@ -15,18 +15,18 @@
     "enabled": true,
     "href": "tel:5044057842",
     "icon": "phone",
-    "label": "Place a phone call"
+    "label": "Make a phone call"
   },
   {
     "enabled": false,
     "href": "https://linkedin.com",
     "icon": "linkedin",
-    "label": "LinkedIn"
+    "label": "View LinkedIn profile"
   },
   {
     "enabled": false,
     "href": "https://github.com/bgauslin",
     "icon": "github",
-    "label": "GitHub"
+    "label": "View GitHub projects"
   }
 ]
