@@ -1,28 +1,14 @@
+{# JSON response for all slideshows. #}
 {
   "slideshows": [
-    {
-      "id": "shotgun",
-      "slides": [
-      {% for item in collections.shotgun -%}
-        {
-          "title": "{{ item.data.title }}",
-          "slug": "{{ item.url | replace("/slides/", "") | replace(".json", "") }}"
-        }
-      {%- if not loop.last%},{% endif %}
-      {% endfor -%}
-      ]
-    },
-    {
-      "id": "europa",
-      "slides": [
-      {% for item in collections.europa -%}
-        {
-          "title": "{{ item.data.title }}",
-          "slug": "{{ item.url | replace("/slides/", "") | replace(".json", "") }}"
-        }
-      {%- if not loop.last%},{% endif %}
-      {% endfor -%}
-      ]
-    }
+    {% for item in collections.slideshow -%}
+      {
+        "title": "{{ item.data.title }}",
+        "description": "{{ item.data.content | safe | trim | replace("\n", "") -}}",
+        "image": "{{ item.data.image }}",
+        "slug": "{{ item.data.slug }}"
+      }
+    {%- if not loop.last%},{% endif %}
+    {% endfor -%}
   ]
 }

@@ -4,6 +4,11 @@ RewriteEngine on
 
 ErrorDocument 404 /404.html
 
+# Allow API access.
+<FilesMatch "\.(json)$">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
 # Set security policies.
 Header always append X-Frame-Options SAMEORIGIN
 Header set X-XSS-Protection "1; mode=block"

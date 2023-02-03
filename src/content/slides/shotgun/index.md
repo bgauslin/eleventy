@@ -1,10 +1,10 @@
 ---
-# layout: TODO
-permalink: slides/shotgun/index
+layout: slides
+permalink: slides/{{ slug }}/index.json
+slug: shotgun
 tags: slideshow
 
 title: Shotgun Renovation
-images:
-  - /images/shotgun/listing-dining-living.jpg
+image: listing-dining-living.jpg
 ---
 Breathing new life into an 1890s New Orleans shotgun house.
