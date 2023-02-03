@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: layout
 permalink: index.html
 
 title: Ben Gauslin
