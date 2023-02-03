@@ -1,0 +1,28 @@
+{
+  "slideshows": [
+    {
+      "id": "shotgun",
+      "slides": [
+      {% for item in collections.shotgun -%}
+        {
+          "title": "{{ item.data.title }}",
+          "endpoint": "{{ item.url }}"
+        }
+      {%- if not loop.last%},{% endif %}
+      {% endfor -%}
+      ]
+    },
+    {
+      "id": "europa",
+      "slides": [
+      {% for item in collections.europa -%}
+        {
+          "title": "{{ item.data.title }}",
+          "endpoint": "{{ item.url }}"
+        }
+      {%- if not loop.last%},{% endif %}
+      {% endfor -%}
+      ]
+    }
+  ]
+}
