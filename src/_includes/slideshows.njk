@@ -6,7 +6,7 @@
       {% for item in collections.shotgun -%}
         {
           "title": "{{ item.data.title }}",
-          "endpoint": "{{ item.url }}"
+          "slug": "{{ item.url | replace("/slides/", "") | replace(".json", "") }}"
         }
       {%- if not loop.last%},{% endif %}
       {% endfor -%}
@@ -18,7 +18,7 @@
       {% for item in collections.europa -%}
         {
           "title": "{{ item.data.title }}",
-          "endpoint": "{{ item.url }}"
+          "slug": "{{ item.url | replace("/slides/", "") | replace(".json", "") }}"
         }
       {%- if not loop.last%},{% endif %}
       {% endfor -%}
