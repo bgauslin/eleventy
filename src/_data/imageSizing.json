@@ -1,0 +1,15 @@
+{
+  "publication": {
+    "small": [320, null],
+    "medium": [480, null],
+    "large": [640, null],
+    "placeholder": [60, null]
+  },
+  "slide": {
+    "small": [600, 400],
+    "medium": [900, 600],
+    "large": [1200, 800],
+    "placeholder": [60, 40]
+  },
+  "thumb": [160, 160]
+}
