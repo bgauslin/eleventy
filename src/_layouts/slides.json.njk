@@ -5,12 +5,12 @@
   "image": "{{ image }}",
   "slug": "{{ slug }}",
   "slides": [
-  {% for item in collections[slug] -%}
+  {%- for item in collections[slug] %}
     {
       "title": "{{ item.data.title }}",
       "slug": "{{ item.data.slug }}"
     }
   {%- if not loop.last%},{% endif %}
-  {% endfor -%}
+  {%- endfor %}
   ]
 }
