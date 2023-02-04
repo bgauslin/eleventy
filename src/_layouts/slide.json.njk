@@ -13,11 +13,15 @@
     {% if images and publication %},{% endif %}
     {% if publication -%}
     "publication": {
-      "title": "{{ publication.title }}",
       "publisher": "{{ publication.publisher }}",
-      "publicationDate": "{{ publication.publication_date }}",
-      "photo": "{{ publication.photo }}",
+      "date": "{{ publication.date }}",
+      "image": "{{ publication.image }}"
+      {%- if publication.file or publication.url %},{% endif %}
+      {% if publication.file -%}
       "file": "{{ publication.file }}"
+      {%- elseif publication.url -%}
+      "url": "{{ publication.url }}"
+      {%- endif %}
     }
     {%- endif %}
   }
