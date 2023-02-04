@@ -1,4 +1,5 @@
 {
   "date": "1995-10-01",
-  "layout": "slide.json.njk"
+  "layout": "slide.json.njk",
+  "tags": "europa"
 }
