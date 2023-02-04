@@ -1,14 +1,12 @@
 {#- JSON response for all slideshows. -#}
-{
-  "slideshows": [
-    {% for item in collections.slideshow -%}
-      {
-        "title": "{{ item.data.title }}",
-        "description": "{{ item.data.content | safe | trim | replace("\n", "") -}}",
-        "image": "{{ item.data.image }}",
-        "slug": "{{ item.data.slug }}"
-      }
-    {%- if not loop.last%},{% endif %}
-    {% endfor -%}
-  ]
-}
+[
+  {% for item in collections.slideshow -%}
+    {
+      "title": "{{ item.data.title }}",
+      "description": "{{ item.data.content | safe | trim | replace("\n", "") -}}",
+      "image": "{{ item.data.image }}",
+      "slug": "{{ item.data.slug }}"
+    }
+  {%- if not loop.last%},{% endif %}
+  {% endfor -%}
+]
