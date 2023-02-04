@@ -7,11 +7,11 @@
     "images": [
     {%- for image in images %}
       "{{- image }}"{%- if not loop.last %},{% endif -%}
-    {% endfor %}
+    {%- endfor %}
     ]
     {%- endif -%}
     {% if images and publication %},{% endif %}
-    {% if publication -%}
+    {%- if publication %}
     "publication": {
       "publisher": "{{ publication.publisher }}",
       "date": "{{ publication.date }}",
