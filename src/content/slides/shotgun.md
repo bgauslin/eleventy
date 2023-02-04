@@ -1,6 +1,6 @@
 ---
 layout: slides.json
-permalink: slides/{{ slug }}/index.json
+permalink: slides/{{ slug }}.json
 slug: shotgun
 tags: slideshow
 
