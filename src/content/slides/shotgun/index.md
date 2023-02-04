@@ -1,5 +1,5 @@
 ---
-layout: slides
+layout: slides.json
 permalink: slides/{{ slug }}/index.json
 slug: shotgun
 tags: slideshow
