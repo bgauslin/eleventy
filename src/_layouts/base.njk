@@ -14,7 +14,7 @@ title: Gauslin.com
     <link rel="stylesheet" href="{{ "/css/index.css" | rev }}">
   </head>
   <body>
-    <main>
+    <main{% if class %} class="{{ class }}"{% endif %}>
       {{ content | safe }}
     </main>
   </body>

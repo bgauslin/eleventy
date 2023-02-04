@@ -1,6 +1,15 @@
 @use 'utils';
 
-// Stereogram on the 404 page.
+.error > :not(pre) {
+  text-align: center;
+}
+
+h1 {
+  font-size: 5em;
+  line-height: 1;
+  overflow: hidden;
+}
+
 pre {
   align-self: start;
   color: var(--color-text-variant);
@@ -8,6 +17,7 @@ pre {
   grid-area: pre;
   max-inline-size: 100%;
   overflow: scroll hidden;
+  text-align: left;
   user-select: none;
 }
 
