@@ -87,6 +87,7 @@ a {
   text-decoration: none;
 
   &:hover,
+  &:active,
   &:focus {
     background-color: var(--color-theme);
     color: var(--color-surface-1);
