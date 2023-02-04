@@ -5,6 +5,6 @@ slug: shotgun
 tags: slideshow
 
 title: Shotgun Renovation
-image: listing-dining-living.jpg
+image: listing-dining-living
 ---
 Breathing new life into an 1890s New Orleans shotgun house.
