@@ -2,25 +2,23 @@ const pluginRev = require('eleventy-plugin-rev');
 const sass = require('eleventy-sass');
 
 module.exports = (eleventyConfig) => {
-  // Static assets.
+  // Static files.
   eleventyConfig.addPassthroughCopy('src/.htaccess');
   eleventyConfig.addPassthroughCopy('src/apple-touch-icon.png');
   eleventyConfig.addPassthroughCopy('src/favicon.svg');
-  eleventyConfig.addPassthroughCopy('src/files');
-  eleventyConfig.addPassthroughCopy('src/images');
 
-  // Stylesheet.
+  // Sass stylesheet.
   eleventyConfig.addPlugin(pluginRev);
   eleventyConfig.addPlugin(sass, {
     rev: true,
   });
 
-  // Directory overrides.
+  // Configuration options.
   return {
     dir: {
       input: 'src',
       output: 'dist',
-      layouts: '_layouts'
+      layouts: '_layouts',
     }
   };
 };
