@@ -1,11 +1,15 @@
 @use 'sass:math';
 
-$button-size: 2em;
-$icon-size: 1.25em;
+// Buttons are always the same size and don't scale.
+$button-size: 3rem;
+$icon-size: 1.75rem;
 
 .contact {
   display: flex;
-  gap: .5em;
+  gap: .75em;
+  list-style: none;
+  margin-block: 1em 0;
+  padding: 0;
 }
 
 .contact__item {
@@ -30,7 +34,9 @@ $icon-size: 1.25em;
 }
 
 .contact__icon {
+  fill: currentColor;
   inline-size: $icon-size;
+  pointer-events: none;
 }
 
 @media (any-hover: hover) {
