@@ -23,9 +23,7 @@
   }
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
@@ -51,8 +49,14 @@ body {
 }
 
 main {
+  display: grid;
+  gap: 0 clamp(utils.em(12), utils.em(12) + 1vw, utils.em(72));
+  grid: 1fr / 0 1fr 0;
   max-inline-size: min(100%, utils.em(480));
-  padding: clamp(utils.em(12), utils.em(12) + 1vw, utils.em(72));
+}
+
+main > * {
+  grid-column: 2;
 }
 
 h1 {

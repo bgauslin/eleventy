@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-h1 {
+.error h1 {
   font-size: 5em;
   line-height: 1;
   overflow: hidden;
@@ -14,13 +14,14 @@ pre {
   align-self: start;
   color: var(--color-text-variant);
   font-size: clamp(utils.rem(11), utils.rem(11) + 1vw, utils.rem(17));
-  grid-area: pre;
-  max-inline-size: 100%;
+  grid-column: 1 / -1;
+  max-inline-size: 100vw;
   overflow: scroll hidden;
+  scrollbar-width: none;
   text-align: left;
   user-select: none;
-}
 
-pre::-webkit-scrollbar {
-  display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
