@@ -11,9 +11,8 @@
 }
 
 pre {
-  align-self: start;
   color: var(--color-text-variant);
-  font-size: clamp(utils.rem(11), utils.rem(11) + 1vw, utils.rem(17));
+  font-size: clamp(utils.rem(5), utils.rem(5) + 1vw, utils.rem(17));
   grid-column: 1 / -1;
   max-inline-size: 100vw;
   overflow: scroll hidden;
