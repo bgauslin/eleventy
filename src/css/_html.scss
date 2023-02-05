@@ -1,5 +1,4 @@
 @use 'const';
-@use 'utils';
 
 @font-face {
   font-family: 'Avenir Variable';
@@ -36,13 +35,13 @@ body {
   color: var(--color-text);
   display: grid;
   font-family: 'Avenir Variable', sans-serif;
-  font-size: clamp(utils.em(14), utils.em(14) + 1vw, utils.em(48));
+  font-size: clamp(.875em, .875em + 1vw, 3em);
   font-variation-settings: 'wght' 500;
   grid: 1fr / 1fr;
   line-height: 1.5;
   margin: 0;
   min-block-size: 100dvh;
-  padding: 0 0 env(safe-area-inset-bottom, utils.em(24));
+  padding: 0 0 env(safe-area-inset-bottom, 1.5em);
   place-items: center;
   text-rendering: optimizeSpeed;
   touch-action: manipulation;
@@ -50,9 +49,9 @@ body {
 
 main {
   display: grid;
-  gap: 0 clamp(utils.em(12), utils.em(12) + 1vw, utils.em(72));
+  gap: 0 clamp(.75em, .75em + 1vw, 4.5em);
   grid: 1fr / 0 1fr 0;
-  max-inline-size: min(100%, utils.em(480));
+  max-inline-size: min(100%, 30em);
 }
 
 main > * {
@@ -60,7 +59,7 @@ main > * {
 }
 
 h1 {
-  font-size: utils.em(24);
+  font-size: 1.5em;
   margin-block: 0;
 }
 
@@ -70,12 +69,12 @@ h1 {
 }
 
 a {
-  border-radius: utils.em(4);
+  border-radius: .25em;
   color: var(--color-theme);
   display: inline-block;
   font-variation-settings: 'wght' 600;
-  margin-inline: utils.em(-4);
-  padding-inline: utils.em(4);
+  margin-inline: -.25em;
+  padding-inline: .25em;
   outline: 0;
   text-decoration: none;
 
