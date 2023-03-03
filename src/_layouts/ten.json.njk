@@ -1,0 +1,20 @@
+{#- JSON response for all Powers Of Ten content. -#}
+{
+  "title": "{{ title }}",
+  "content": "{{ content | safe | trim | replace("\n", "") -}}",
+  "items": [
+  {%- for item in collections.ten %}
+    {
+      "power": {{ item.data.power }},
+      "distance": [
+      {%- for value in item.data.distance %}
+        "{{ value }}"{% if not loop.last %},{% endif %}
+      {%- endfor %}
+      ],
+      "image": "{{ item.data.image }}",
+      "content": "{{ item.data.content | safe | trim | replace("\n", "") -}}",
+    }
+  {%- if not loop.last%},{% endif %}
+  {%- endfor %}
+  ]
+}
