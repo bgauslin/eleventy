@@ -5,7 +5,7 @@
   "items": [
   {%- for item in collections.ten %}
     {
-      "power": {{ item.data.power }},
+      "power": "{{ item.data.power }}",
       "distance": [
       {%- for value in item.data.distance %}
         "{{ value }}"{% if not loop.last %},{% endif %}
