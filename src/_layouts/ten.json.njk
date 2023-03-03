@@ -12,7 +12,7 @@
       {%- endfor %}
       ],
       "image": "{{ item.data.image }}",
-      "content": "{{ item.data.content | safe | trim | replace("\n", "") -}}",
+      "content": "{{ item.data.content | safe | trim | replace("\n", "") -}}"
     }
   {%- if not loop.last%},{% endif %}
   {%- endfor %}
