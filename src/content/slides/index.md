@@ -1,5 +1,5 @@
 ---
 layout: slideshows.json
-permalink: slides/index.json
+permalink: api/slides/index.json
 title: Slideshows
 ---
