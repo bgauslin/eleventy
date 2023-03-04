@@ -2,17 +2,17 @@
 {
   "title": "{{ title }}",
   "content": "{{ content | safe | trim | replace("\n", "") -}}",
-  "items": [
-  {%- for item in collections.ten %}
+  "scenes": [
+  {%- for scene in collections.ten %}
     {
-      "power": "{{ item.data.power }}",
+      "power": "{{ scene.data.power }}",
       "distance": [
-      {%- for value in item.data.distance %}
+      {%- for value in scene.data.distance %}
         "{{ value }}"{% if not loop.last %},{% endif %}
       {%- endfor %}
       ],
-      "image": "{{ item.data.image }}",
-      "content": "{{ item.data.content | safe | trim | replace("\n", "") -}}"
+      "image": "{{ scene.data.image }}",
+      "content": "{{ scene.data.content | safe | trim | replace("\n", "") -}}"
     }
   {%- if not loop.last%},{% endif %}
   {%- endfor %}
