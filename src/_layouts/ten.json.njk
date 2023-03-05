@@ -1,7 +1,10 @@
 {#- JSON response for all Powers Of Ten content. -#}
 {
-  "title": "{{ title }}",
-  "content": "{{ content | safe | trim | replace("\n", "") -}}",
+  "intro": {
+    "title": "{{ title }}",
+    "tagline": "{{ tagline }}",
+    "copy": "{{ content | safe | trim | replace("\n", "") -}}"
+  },
   "scenes": [
   {%- for scene in collections.ten %}
     {
@@ -11,8 +14,8 @@
         "{{ value }}"{% if not loop.last %},{% endif %}
       {%- endfor %}
       ],
-      "image": "{{ scene.data.image }}",
-      "content": "{{ scene.data.content | safe | trim | replace("\n", "") -}}"
+      "blurb": "{{ scene.data.content | safe | trim | replace("\n", "") -}}",
+      "image": "{{ scene.data.image }}"
     }
   {%- if not loop.last%},{% endif %}
   {%- endfor %}
