@@ -9,4 +9,4 @@ What would you see if your vision could encompass an expanse of one billion ligh
 
 Or if you could peer inside the microscopic realm of the atom?
 
-In forty-two consecutive scenes, each at a different "power of ten" level of magnification, you will travel from the breathtakingly vast to the extraordinarily small.
+In forty-two consecutive scenes, each at a different “power of ten” level of magnification, you will travel from the breathtakingly vast to the extraordinarily small.
