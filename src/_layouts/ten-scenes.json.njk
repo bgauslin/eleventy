@@ -1,10 +1,5 @@
-{#- JSON response for all Powers Of Ten content. -#}
+{#- JSON response for all Powers Of Ten scenes. -#}
 {
-  "intro": {
-    "title": "{{ title }}",
-    "tagline": "{{ tagline }}",
-    "copy": "{{ content | safe | trim | replace("\n", "") -}}"
-  },
   "scenes": [
   {%- for scene in collections.ten %}
     {

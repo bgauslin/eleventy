@@ -1,0 +1,12 @@
+{#- JSON response for Powers Of Ten intro. -#}
+{
+  "intro": {
+    "title": "{{ title }}",
+    "tagline": "{{ tagline }}",
+    "copy": [
+    {%- for blurb in copy %}
+      "{{ blurb }}"{% if not loop.last %},{% endif %}
+    {%- endfor %}
+    ]
+  }
+}
