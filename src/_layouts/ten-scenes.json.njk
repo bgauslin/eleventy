@@ -1,18 +1,16 @@
 {#- JSON response for all Powers Of Ten scenes. -#}
-{
-  "scenes": [
-  {%- for scene in collections.ten %}
-    {
-      "power": "{{ scene.data.power }}",
-      "distance": [
-      {%- for value in scene.data.distance %}
-        "{{ value }}"{% if not loop.last %},{% endif %}
-      {%- endfor %}
-      ],
-      "blurb": "{{ scene.data.content | safe | trim | replace("\n", "") -}}",
-      "image": "{{ scene.data.image }}"
-    }
+[
+{%- for scene in collections.ten %}
+  {
+    "power": "{{ scene.data.power }}",
+    "distance": [
+    {%- for value in scene.data.distance %}
+      "{{ value }}"{% if not loop.last %},{% endif %}
+    {%- endfor %}
+    ],
+    "blurb": "{{ scene.data.content | safe | trim | replace("\n", "") -}}",
+    "image": "{{ scene.data.image }}"
+  }
   {%- if not loop.last%},{% endif %}
-  {%- endfor %}
-  ]
-}
+{%- endfor %}
+]
