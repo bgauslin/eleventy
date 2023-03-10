@@ -2,7 +2,7 @@
 layout: ten-intro.json
 permalink: api/ten/intro.json
 
-title: Powers Of Ten
+title: Powers of Ten
 tagline: About the Relative Size of Things in the Universe
 copy:
 - What would you see if your vision could encompass an expanse of one billion light years?
