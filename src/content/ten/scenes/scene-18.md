@@ -4,7 +4,7 @@ distance:
 - 100 thousand kilometers
 image: TODO
 ---
-The whole earth appears, isolated, elegant, and fragile.
+The whole Earth appears, isolated, elegant, and fragile.
 
 We recognize our globe in open space, a spacecraft in orbit, no Atlas and no turtles to support it.
 
