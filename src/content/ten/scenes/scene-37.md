@@ -3,7 +3,7 @@ power: -11
 distance:
 - 0.1 angstrom
 - 10 picometers
-image: TODO
+image: scene-37_-11
 ---
 Now we are among the two innermost electrons of the carbon atom. They mark out in their dance a neat sphere of electric charge. 
 

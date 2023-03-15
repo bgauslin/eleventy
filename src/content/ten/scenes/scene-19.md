@@ -2,7 +2,7 @@
 power: 7
 distance:
 - 10 thousand kilometers
-image: TODO
+image: scene-19_7
 ---
 The Earth in detail: blue sky, white clouds, dark seas, brown lands, a globe turning always eastward.
 

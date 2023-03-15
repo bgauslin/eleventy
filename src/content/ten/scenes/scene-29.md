@@ -3,7 +3,7 @@ power: -3
 distance:
 - 0.1 centimeter
 - 1 millimeter
-image: TODO
+image: scene-29_-3
 ---
 Here we share the world of the microscopist, who has unlocked so much of nature.
 

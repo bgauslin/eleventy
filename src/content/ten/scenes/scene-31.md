@@ -2,7 +2,7 @@
 power: -5
 distance:
 - 10 microns
-image: TODO
+image: scene-31_-5
 ---
 We pass through the living skin to enter a capillary vessel, where blood oozes by.
 

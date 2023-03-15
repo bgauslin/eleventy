@@ -3,7 +3,7 @@ power: -1
 distance:
 - 0.1 meter
 - 10 centimeters
-image: TODO
+image: scene-27_-1
 ---
 The scale is now intimate: this is the look of the back of your own hand, a little enlarged.
 

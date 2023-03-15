@@ -2,7 +2,7 @@
 power: 14
 distance:
 - 100 billion kilometers
-image: TODO
+image: scene-12_14
 ---
 All the sun’s planets circulate within the small square.
 

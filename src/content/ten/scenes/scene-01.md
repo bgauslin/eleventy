@@ -2,7 +2,7 @@
 power: 25
 distance:
 - ~ 1 billion light-years
-image: TODO
+image: scene-01_25
 ---
 Most of space looks as empty as this, the glow of distant galaxies like clotted dust. This emptiness is normal; our own bright home-world is the exception.
 

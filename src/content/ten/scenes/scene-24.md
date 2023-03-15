@@ -2,7 +2,7 @@
 power: 2
 distance:
 - 100 meters
-image: TODO
+image: scene-24_2
 ---
 The picnic in the park is not far from the roaring highway and the boats at their docks. The picnickers can enjoy a sense of privacy all the same, for no one else is near.
 

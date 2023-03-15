@@ -2,7 +2,7 @@
 power: -8
 distance:
 - 100 angstroms
-image: TODO
+image: scene-34_-8
 ---
 In this close-up the DNA is seen as a long twisted molecular ladder, the double helix. The individuality of the organism is held in the running sequence of the differing rungs.
 

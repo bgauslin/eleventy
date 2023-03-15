@@ -2,7 +2,7 @@
 power: 10
 distance:
 - 10 million kilometers
-image: TODO
+image: scene-16_10
 ---
 This path marks the Earth’s way for four days in October; within it the moon’s route is indicated relative to Earth.
 

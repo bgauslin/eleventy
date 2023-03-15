@@ -2,7 +2,7 @@
 power: -14
 distance:
 - 10 fermis
-image: TODO
+image: scene-40_-14
 ---
 A transient view of the eternally dancing structure of stable carbon-12.
 

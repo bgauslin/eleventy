@@ -2,7 +2,7 @@
 power: 12
 distance:
 - 1 billion kilometers
-image: TODO
+image: scene-14_12
 ---
 Enclosed in the path of massive Jupiter, these are the orbits of the smaller earthlike inner planets: Mars, Earth, Venus, Mercury.
 

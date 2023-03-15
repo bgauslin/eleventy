@@ -2,7 +2,7 @@
 power: 18
 distance:
 - ~ 100 light-years
-image: TODO
+image: scene-08_18
 ---
 A skyful of distinct stars: one among them, central, but too faint to pick out, is our sun.
 

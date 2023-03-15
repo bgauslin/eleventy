@@ -3,7 +3,7 @@ power: -4
 distance:
 - 0.1 millimeter
 - 100 microns
-image: TODO
+image: scene-30_-4
 ---
 Unexpected detail appears; we can scarcely orient ourselves.
 

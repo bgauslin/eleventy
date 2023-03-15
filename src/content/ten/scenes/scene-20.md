@@ -3,7 +3,7 @@ power: 6
 distance:
 - 1 thousand kilometers
 - 1 million meters
-image: TODO
+image: scene-20_6
 ---
 This region, viewed from a low orbit, holds the whole of Lake Michigan; the broad sheet of water, like the flat silted lands around it, was formed by continental glaciers in the most recent geological past, a few tens of thousands of years ago.
 

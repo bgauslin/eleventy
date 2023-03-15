@@ -2,7 +2,7 @@
 power: 13
 distance:
 - 10 billion kilometers
-image: TODO
+image: scene-13_13
 ---
 The paths of the outer planets fill this picture.
 

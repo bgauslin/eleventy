@@ -2,7 +2,7 @@
 power: 8
 distance:
 - 100 thousand kilometers
-image: TODO
+image: scene-18_8
 ---
 The whole Earth appears, isolated, elegant, and fragile.
 

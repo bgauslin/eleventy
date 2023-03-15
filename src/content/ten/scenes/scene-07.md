@@ -2,7 +2,7 @@
 power: 19
 distance:
 - ~ 1 thousand light-years
-image: TODO
+image: scene-07_19
 ---
 In this view we are within the disk of the Galaxy, right among a host of stars visible here as individuals.
 

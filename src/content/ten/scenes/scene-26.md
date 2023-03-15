@@ -3,7 +3,7 @@ power: 0
 distance:
 - 1 meter
 - ~ 1 yard
-image: TODO
+image: scene-26_0
 ---
 This is the scale of human companionship, conversation, touch: a man is asleep on a warm October day.
 

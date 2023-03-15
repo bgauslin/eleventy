@@ -2,7 +2,7 @@
 power: 20
 distance:
 - ~ 10 thousand light-years
-image: TODO
+image: scene-06_20
 ---
 Clouds of stars and glowing gas, with patches of darkening dust, mark the slow-changing spiral patterns of the Galaxy disk.
 

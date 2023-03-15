@@ -3,7 +3,7 @@ power: -6
 distance:
 - 1 micron
 - 1 micrometer
-image: TODO
+image: scene-32_-6
 ---
 We are inside the ruffly lymphocyte, only to face another surface, a protective membrane within the cell that encloses its nucleus.
 

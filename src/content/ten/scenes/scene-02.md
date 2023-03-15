@@ -2,7 +2,7 @@
 power: 24
 distance:
 - ~ 100 million light-years
-image: TODO
+image: scene-02_24
 ---
 We look toward our distant home in the Milky Way. But we see mostly one large intervening cluster of galaxies, called the Virgo Cluster.
 

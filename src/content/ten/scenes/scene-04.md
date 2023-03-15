@@ -2,7 +2,7 @@
 power: 22
 distance:
 - ~ 1 million light-years
-image: TODO
+image: scene-04_22
 ---
 This flat circular disk is our own Galaxy, the Milky Way, with its spiral structure. It travels in space with two satellite galaxies, the irregular little Clouds of Magellan.
 

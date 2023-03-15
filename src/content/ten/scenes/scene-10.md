@@ -3,7 +3,7 @@ power: 16
 distance:
 - ~ 1 light-year
 - 10 trillion kilometers
-image: TODO
+image: scene-10_16
 ---
 Here one central star is brighter than the rest, only because it is so much nearer. That star is the sun.
 

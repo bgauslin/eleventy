@@ -2,7 +2,7 @@
 power: 15
 distance:
 - 1 trillion kilometers
-image: TODO
+image: scene-11_15
 ---
 Only the sun is to be seen, against a background of fainter stars beyond. Once that was all we knew of the frontier of the sun’s system.
 

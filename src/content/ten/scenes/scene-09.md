@@ -3,7 +3,7 @@ power: 17
 distance:
 - ~ 10 light-years
 - ~ 3 parsecs
-image: TODO
+image: scene-09_17
 ---
 Most of the matter we know is formed into stars, spheres of gas nourished by central nuclear fires that often maintain the glow for a very long time.
 

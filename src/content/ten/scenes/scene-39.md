@@ -3,7 +3,7 @@ power: -13
 distance:
 - 0.1 picometer
 - 100 fermis
-image: TODO
+image: scene-39_-13
 ---
 We see clearly the minute and massive kernel of this particular carbon atom.
 

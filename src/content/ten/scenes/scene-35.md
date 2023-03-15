@@ -3,7 +3,7 @@ power: -9
 distance:
 - 10 angstroms
 - 1 nanometer
-image: TODO
+image: scene-35_-9
 ---
 These building blocks are molecular typography, the letters of the genetic message. It is their particular order that spells out the long text.
 

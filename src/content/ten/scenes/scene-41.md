@@ -2,7 +2,7 @@
 power: -15
 distance:
 - 1 fermi
-image: TODO
+image: scene-41_-15
 ---
 Even the proton has its inner structure, symmetrical, shifting, again untrackable.
 

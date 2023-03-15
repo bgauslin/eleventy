@@ -2,7 +2,7 @@
 power: -12
 distance:
 - 1 picometer
-image: TODO
+image: scene-38_-12
 ---
 The compact core of the atom begins to appear.
 

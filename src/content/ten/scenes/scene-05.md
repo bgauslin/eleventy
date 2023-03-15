@@ -2,7 +2,7 @@
 power: 21
 distance:
 - ~ 100 thousand light-years
-image: TODO
+image: scene-05_21
 ---
 We look face-on directly at the Milky Way spiral. A hundred billion stars mutually bound by gravity encircle the central region, some passing close in, some in wider orbits.
 

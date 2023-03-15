@@ -3,7 +3,7 @@ power: 4
 distance:
 - 10 kilometers
 - ~ 6 miles
-image: TODO
+image: scene-22_4
 ---
 The heart of the city appears, place of home and work for a million people. The whole structure shown here—city districts, parks, harbor—is familiar to them.
 

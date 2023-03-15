@@ -2,7 +2,7 @@
 power: 1
 distance:
 - 10 meters
-image: TODO
+image: scene-25_1
 ---
 A man and a woman are at a picnic in the park.
 

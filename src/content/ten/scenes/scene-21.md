@@ -2,7 +2,7 @@
 power: 5
 distance:
 - 100 kilometers
-image: TODO
+image: scene-21_5
 ---
 The metropolitan area of Chicago nestles at the south end of the lake.
 
