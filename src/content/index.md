@@ -30,5 +30,6 @@ Ben Gauslin is a former NYC Googler and Chicago architect, and is currently base
 [moon]: https://ten.gauslin.com
 [shotgun1]: https://shotgun1.gauslin.com
 [shotgun2]: https://shotgun2.gauslin.com
+[ten]: https://ten.gauslin.com
 
 {% include 'links.njk' %}
