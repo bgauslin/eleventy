@@ -3,15 +3,32 @@ layout: base
 permalink: index.html
 
 title: Ben Gauslin
-description: Ben Gauslin’s little corner of the internet
+description: Ben’s home page.
 ---
 # Hello
 
-Ben Gauslin is a New Orleans-based [frontend developer][github], a [former Chicago architect][hfac] who [renovates old houses][shotgun] on occasion, and a [pretty good drummer][pietasters] and bassist.
+Ben Gauslin is a former NYC Googler and Chicago architect, and is currently based in New Orleans.
 
-[github]: https://github.com/bgauslin
-[hfac]: https://www.shaferarch.com/house-for-an-art-collector
-[shotgun]: https://slides.gauslin.com/shotgun
-[pietasters]: https://itunes.apple.com/us/album/the-pietasters/id279772735
+## Web Apps
+
+- [Clock][clock]
+- [Powers Of Ten][ten]
+- [Calorie Calculator][calories]
+- [Interest Calculator][interest]
+- [Moon][moon]
+
+## Architecture
+
+- [French Quarter Shotgun][shotgun2]
+- [Bayou St. John Shotgun][shotgun1]
+- [Travel Sketches and Collages][europa]
+
+[calories]: https://calories.gauslin.com
+[clock]: https://clock.gauslin.com
+[europa]: https://europa.gauslin.com
+[interest]: https://ten.gauslin.com
+[moon]: https://ten.gauslin.com
+[shotgun1]: https://shotgun1.gauslin.com
+[shotgun2]: https://shotgun2.gauslin.com
 
 {% include 'links.njk' %}
