@@ -26,8 +26,8 @@ Ben Gauslin is a former NYC Googler and Chicago architect, and is currently base
 [calories]: https://calories.gauslin.com
 [clock]: https://clock.gauslin.com
 [europa]: https://europa.gauslin.com
-[interest]: https://ten.gauslin.com
-[moon]: https://ten.gauslin.com
+[interest]: https://interest.gauslin.com
+[moon]: https://moon.gauslin.com
 [shotgun1]: https://shotgun1.gauslin.com
 [shotgun2]: https://shotgun2.gauslin.com
 [ten]: https://ten.gauslin.com
