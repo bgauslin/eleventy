@@ -4,11 +4,18 @@
 $button-size: 3rem;
 $icon-size: 1.75rem;
 
+// Custom property overrides for 'home' view.
+[data-view=home] {
+  --main-max-inline-size: min(100%, 30em);
+  --main-padding-block: 0 2em;
+}
+
+// Contact links
 .contact {
   display: flex;
   gap: .75em;
   list-style: none;
-  margin-block: 1em 0;
+  margin-block: 3em 0;
   padding: 0;
 }
 
