@@ -3,6 +3,7 @@ layout: base
 ---
 {%- set domain = 'https://assets.gauslin.com' -%}
 {%- set imagePath = '/images/slides2023/' -%}
+
 {%- macro renderImage(image, slug) %}
   {%- set imageUrl = domain + imagePath + '/' + slug + '/' + image %}
   {%- set small = imageUrl + '@small.webp' %}
@@ -10,6 +11,14 @@ layout: base
   {%- set large = imageUrl + '@large.webp' %}
   {%- set preview = imageUrl + '@preview.webp' -%}
 
+  <img
+    alt=""
+    loading="lazy"
+    src="{{ medium }}">
+{%- endmacro -%}
+
+
+{%- macro fullRenderImage(image, slug) %}
   <img
     alt=""
     data-preview="{{ preview }}"
@@ -59,6 +68,7 @@ layout: base
     <figcaption>
       <h2>{{ item.data.title }}</h2>
       {{ item.data.content | safe -}}
+      <small>{{ loop.index }} of {{ collections[slug] | length }}</small>
     </figcaption>
   </figure>
 {%- endfor %}
