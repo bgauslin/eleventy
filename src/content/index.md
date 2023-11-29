@@ -4,32 +4,34 @@ permalink: index.html
 
 title: Ben Gauslin
 description: Ben’s home page.
+view: home
 ---
 # Hello
 
-Ben Gauslin is a former NYC Googler and Chicago architect, and is currently based in New Orleans.
+Ben Gauslin is an ex-Google engineer and former Chicago architect currently making music and fixing up an old house in New Orleans.
 
-## Web Apps
+## Web
 
-- [Clock][clock]
-- [Powers Of Ten][ten]
-- [Calorie Calculator][calories]
-- [Interest Calculator][interest]
-- [Moon][moon]
-
-## Architecture
-
-- [French Quarter Shotgun][shotgun2]
-- [Bayou St. John Shotgun][shotgun1]
-- [Travel Sketches and Collages][europa]
+- [Clock][clock] Blurb goes here...
+- [Powers Of Ten][ten] Blurb goes here...
+- [Calorie Calculator][calories] Blurb goes here...
+- [Interest Calculator][interest] Blurb goes here...
+- [Moon][moon] Blurb goes here...
 
 [calories]: https://calories.gauslin.com
 [clock]: https://clock.gauslin.com
-[europa]: https://europa.gauslin.com
 [interest]: https://interest.gauslin.com
 [moon]: https://moon.gauslin.com
-[shotgun1]: https://shotgun1.gauslin.com
-[shotgun2]: https://shotgun2.gauslin.com
 [ten]: https://ten.gauslin.com
+
+## Architecture
+
+- [Vieux Carre Shotgun][shotgun-vc] Blurb goes here...
+- [Faubourg St. John Shotgun][shotgun-fsj] Blurb goes here...
+- [Travel Sketches and Collages][europa] Blurb goes here...
+
+[europa]: /slides/europa.html
+[shotgun-fsj]: /slides/shotgun-fsj
+[shotgun-vc]: /slides/shotgun-vc
 
 {% include 'links.njk' %}

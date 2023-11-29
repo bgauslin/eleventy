@@ -1,12 +1,8 @@
-.error > :not(pre) {
-  text-align: center;
-}
-
-.error h1 {
-  font-size: 5em;
-  line-height: 1;
-  overflow: hidden;
-}
+// .error-404 h1 {
+//   font-size: 5em;
+//   line-height: 1;
+//   overflow: hidden;
+// }
 
 pre {
   color: var(--color-text-variant);
@@ -21,4 +17,8 @@ pre {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.error-404 > :not(pre) {
+  text-align: center;
 }

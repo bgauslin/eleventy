@@ -6,6 +6,7 @@
   src: url('https://assets.gauslin.com/fonts/AvenirNext-Variable.woff2') format('woff2');
 }
 
+// Global custom properties for theming.
 :root {
   --color-theme: #{const.$blue};
   --color-surface: white;
@@ -22,6 +23,15 @@
   }
 }
 
+// TODO: Custom properties scoped to...
+[data-view=home] {
+  --body-grid: 1fr / 1fr;
+  --body-place-content: center;
+  --main-max-inline-size: min(100%, 30em);
+  --main-padding-block: 0 2em;
+}
+
+// Environment elements.
 * {
   box-sizing: border-box;
 }
@@ -33,55 +43,58 @@ html {
 body {
   background-color: var(--color-surface);
   color: var(--color-text);
-  display: grid;
+
   font-family: 'Avenir Variable', sans-serif;
-  font-size: clamp(.875em, .875em + 1vw, 3em);
-  font-variation-settings: 'wght' 500;
-  grid: 1fr / 1fr;
-  line-height: 1.5;
+  font-variation-settings: 'wght' 400;
+  font-size: clamp(.625em, .625em + .5vw, 1.5em); // Master font-size.
+
+  display: grid;
+  gap: var(--body-gap);
+  grid: var(--body-grid);
+  place-items: var(--body-place-content);
+
   margin: 0;
   min-block-size: 100dvh;
-  padding: 0 0 env(safe-area-inset-bottom, 1.5em);
-  place-items: center;
+  padding: 0 0 env(safe-area-inset-bottom);
   text-rendering: optimizeSpeed;
   touch-action: manipulation;
 }
 
 main {
-  display: grid;
-  gap: 0 clamp(.75em, .75em + 1vw, 4.5em);
-  grid: 1fr / 0 1fr 0;
-  max-inline-size: min(100%, 30em);
+  margin-inline: auto;
+  max-inline-size: var(--main-max-inline-size);
+  padding-block: var(--main-padding-block);
 }
 
-main > * {
-  grid-column: 2;
-}
-
-h1 {
-  font-size: 1.5em;
-  margin-block: 0;
-}
-
-:is(img, picture, svg) {
+// Media elements.
+:where(img, picture, svg) {
   display: block;
   max-inline-size: 100%;
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  padding-inline: 1em;
+}
+
+// Links.
 a {
   border-radius: .25em;
   color: var(--color-theme);
   display: inline-block;
   font-variation-settings: 'wght' 600;
   margin-inline: -.25em;
+  outline: 0; // TODO: Safari/macOS a11y update (?)
   padding-inline: .25em;
-  outline: 0;
   text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
-    background-color: var(--color-theme);
+    background-color: var(--color-theme); // Replaces outline for a11y.
     color: var(--color-surface-1);
   }
 }

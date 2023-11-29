@@ -1,0 +1,65 @@
+---
+layout: base
+---
+{%- set domain = 'https://assets.gauslin.com' -%}
+{%- set imagePath = '/images/slides2023/' -%}
+{%- macro renderImage(image, slug) %}
+  {%- set imageUrl = domain + imagePath + '/' + slug + '/' + image %}
+  {%- set small = imageUrl + '@small.webp' %}
+  {%- set medium = imageUrl + '@medium.webp' %}
+  {%- set large = imageUrl + '@large.webp' %}
+  {%- set preview = imageUrl + '@preview.webp' -%}
+
+  <img
+    alt=""
+    data-preview="{{ preview }}"
+    loading="lazy"
+    src="{{ medium }}"
+    srcset="{{ small }} 600w, {{ medium }} 900w, {{ large }} 1200w"
+    sizes="(min-width: 60rem) 896px, 100vw">
+{%- endmacro -%}
+
+{# ========================================================================== #}
+
+<h1>{{ title }}</h1>
+
+{{ content | safe }}
+
+<div role="list">
+{%- for item in collections[slug] %}
+  {%- if item.data.publication %}
+    {%- set media = 'publication' %}
+  {%- elif item.data.images | length > 1 %}
+    {%- set media = 'multi-image' %}
+  {%- else %}
+    {%- set media = 'single-image' %}
+  {%- endif -%}
+  <figure role="listitem">
+    <div class="media" data-type="{{ media }}">
+    {%- if item.data.publication %}
+      {%- set publication = item.data.publication %}
+      
+      {{ renderImage(publication.image, slug) }}
+      <p class="publisher">{{ publication.publisher }}</p>
+      <time datetime="">{{ publication.date }}</time>
+
+      {% if publication.file -%}
+        {%- set fileUrl = domain + '/files/pdf/' + publication.file %}
+        <a href="{{ fileUrl }}" title="View PDF of the article">TODO: pdf</a>
+      {%- elif publication.url -%}
+        <a href="{{ publication.url }}" title="Read the article">TODO: url</a>
+      {%- endif %}
+    {%- elif item.data.images %}
+      {% for image in item.data.images %}
+        {{ renderImage(image, slug) }}
+      {% endfor %}
+    {%- endif %}
+    </div>
+
+    <figcaption>
+      <h2>{{ item.data.title }}</h2>
+      {{ item.data.content | safe -}}
+    </figcaption>
+  </figure>
+{%- endfor %}
+</div>

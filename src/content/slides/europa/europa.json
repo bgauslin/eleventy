@@ -1,5 +1,6 @@
 {
   "date": "1995-10-01",
-  "layout": "slide.json.njk",
+  "layout": "slideshow",
+  "permalink": false,
   "tags": "europa"
 }

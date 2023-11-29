@@ -1,0 +1,40 @@
+[role=list] {
+  display: grid;
+  gap: 4em 0;
+  grid: auto-flow / 1fr;
+}
+
+figcaption > h2 {
+  font-size: 1rem;
+  font-variation-settings: 'wght' 600;
+}
+
+[data-type=multi-image] {
+  display: grid;
+  gap: 1rem;
+  grid: 1fr / repeat(2, 1fr)
+}
+
+// TODO: Breakpoint value in rem units based on image assets.
+@media (min-width: 700px) {
+  [role=list] {
+    gap: 20vh 0;
+  }
+
+  [role=listitem] {
+    display: grid;
+    gap: 0 2em;
+    grid: 'copy media' 1fr / 1fr 3fr;
+  }
+
+  .media {
+    grid-area: media;
+  }
+
+  figcaption {
+    align-self: start;
+    grid-area: copy;
+    inset-block: 0;
+    position: sticky;
+  }
+}

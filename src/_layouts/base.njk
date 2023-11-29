@@ -1,6 +1,3 @@
----
-title: Gauslin.com
----
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,8 +10,8 @@ title: Gauslin.com
     <link rel="preload" href="https://assets.gauslin.com/fonts/AvenirNext-Variable.woff2" as="font" type="font/woff2" crossorigin="crossorigin">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
   </head>
-  <body>
-    <main{% if class %} class="{{ class }}"{% endif %}>
+  <body{% if view %} data-view="{{ view }}"{% endif %}>
+    <main>
       {{ content | safe }}
     </main>
   </body>

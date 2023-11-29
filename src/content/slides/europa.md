@@ -1,6 +1,6 @@
 ---
-layout: slides.json
-permalink: api/slides/{{ slug }}.json
+layout: slideshow
+permalink: slides/europa.html
 slug: europa
 tags: slideshow
 
