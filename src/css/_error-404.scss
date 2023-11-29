@@ -1,24 +1,18 @@
-// .error-404 h1 {
-//   font-size: 5em;
-//   line-height: 1;
-//   overflow: hidden;
-// }
+[data-view='error-404'] {
+  text-align: center;
+}
 
 pre {
   color: var(--color-text-variant);
   font-size: clamp(.3125rem, .3125rem + 1vw, 1.25em);
-  grid-column: 1 / -1;
+  margin: 0;
   max-inline-size: 100vw;
   overflow: scroll hidden;
   scrollbar-width: none;
-  text-align: left;
+  text-align: start;
   user-select: none;
 
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-.error-404 > :not(pre) {
-  text-align: center;
 }
