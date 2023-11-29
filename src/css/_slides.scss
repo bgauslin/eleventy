@@ -1,40 +1,59 @@
-[role=list] {
-  display: grid;
-  gap: 4em 0;
-  grid: auto-flow / 1fr;
-}
+[data-view='slides'] {
+  --figcaption-padding-inline: 1em;
+  --figcaption-place-self: start center;
+  --list-gap: 4em 0;
+  --listitem-grid: 'media' 'copy' / 1fr;
+  --main-max-inline-size: 1232px; // TODO: Breakpoint values.
 
-figcaption > h2 {
-  font-size: 1rem;
-  font-variation-settings: 'wght' 600;
-}
+  @media (min-width: 960px) { // TODO: Breakpoint values.
+    --figcaption-padding-inline: 0;
+    --figcaption-place-self: start;
+    --figcaption-position: sticky;
+    --list-gap: 12em 0;
+    --listitem-gap: 0 2rem;
+    --listitem-grid: 'media copy' 1fr / 3fr 1fr;
+  }
 
-[data-type=multi-image] {
-  display: grid;
-  gap: 1rem;
-  grid: 1fr / repeat(2, 1fr)
-}
-
-// TODO: Breakpoint value in rem units based on image assets.
-@media (min-width: 700px) {
   [role=list] {
-    gap: 20vh 0;
+    display: grid;
+    gap: var(--list-gap);
+    grid: auto-flow / 1fr;
   }
 
   [role=listitem] {
     display: grid;
-    gap: 0 2em;
-    grid: 'copy media' 1fr / 1fr 3fr;
+    gap: var(--listitem-gap);
+    grid: var(--listitem-grid);
   }
 
   .media {
+    display: grid;
     grid-area: media;
+    place-items: center;
+
+    &[data-type='multi-image'] {
+      gap: 0 1rem;
+      grid: 1fr / repeat(2, 1fr)
+    }
   }
 
   figcaption {
-    align-self: start;
     grid-area: copy;
+    inline-size: 100%;
     inset-block: 0;
-    position: sticky;
+    max-inline-size: 36rem; // TODO: Use constant.
+    padding-inline: var(--figcaption-padding-inline);
+    place-self: var(--figcaption-place-self);
+    position: var(--figcaption-position, static);
+
+    > h2 {
+      font-size: 1em;
+      font-variation-settings: 'wght' 600;
+      margin-block: 1em;
+    }
+
+    > small {
+      opacity: .75;
+    }
   }
 }
