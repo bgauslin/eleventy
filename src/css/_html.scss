@@ -8,6 +8,9 @@
 
 // Global custom properties for theming.
 :root {
+  --body-grid: 1fr / 1fr;
+  --body-place-content: center;
+
   --color-theme: #{const.$blue};
   --color-surface: white;
   --color-surface-1: #{const.$gray6};
@@ -21,14 +24,6 @@
     --color-text: #{const.$gray4};
     --color-text-variant: #{const.$gray2-dark};
   }
-}
-
-// TODO: Custom properties scoped to...
-[data-view=home] {
-  --body-grid: 1fr / 1fr;
-  --body-place-content: center;
-  --main-max-inline-size: min(100%, 30em);
-  --main-padding-block: 0 2em;
 }
 
 // Environment elements.
@@ -46,7 +41,7 @@ body {
 
   font-family: 'Avenir Variable', sans-serif;
   font-variation-settings: 'wght' 400;
-  font-size: clamp(.625em, .625em + .5vw, 1.5em); // Master font-size.
+  font-size: clamp(.75em, .75em + .33vw, 1.25em); // Master font-size.
 
   display: grid;
   gap: var(--body-gap);
@@ -76,8 +71,15 @@ figure {
   margin: 0;
 }
 
-figcaption {
-  padding-inline: 1em;
+@media (prefers-color-scheme: dark) {
+  img:not([src*='.svg']) {
+    filter: grayscale(25%);
+  }
+}
+
+// Basic typography.
+p {
+  line-height: 1.5;
 }
 
 // Links.
