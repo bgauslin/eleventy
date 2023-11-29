@@ -3,6 +3,7 @@ layout: slideshow
 permalink: slides/europa.html
 slug: europa
 tags: slideshow
+view: slides
 
 title: Europa Sketches & Collages
 image: sketch-piazza-del-campo-siena-7pm
