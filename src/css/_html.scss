@@ -77,9 +77,17 @@ figure {
   }
 }
 
-// Basic typography.
+// Text elements.
+h1 {
+  margin-block: var(--h1-margin-block);
+}
+
 p {
   line-height: 1.5;
+}
+
+small {
+  opacity: .75;
 }
 
 // Links.
