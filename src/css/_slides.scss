@@ -1,11 +1,8 @@
-[data-view='slides'] {
-  --figcaption-padding-inline: 1em;
-  --figcaption-place-self: start center;
-  --list-gap: 4em 0;
-  --listitem-grid: 'media' 'copy' / 1fr;
+[data-view=slides] {
   --main-max-inline-size: 1232px; // TODO: Breakpoint values.
 
   @media (min-width: 960px) { // TODO: Breakpoint values.
+    --cover-block-size: 75vh;
     --figcaption-padding-inline: 0;
     --figcaption-place-self: start;
     --figcaption-position: sticky;
@@ -14,27 +11,42 @@
     --listitem-grid: 'media copy' 1fr / 3fr 1fr;
   }
 
-  [role=list] {
+  // Slideshow cover elements.
+  .cover {
+    block-size: var(--cover-block-size, 50vh);
     display: grid;
-    gap: var(--list-gap);
+    grid: 1fr 1fr / 1fr;
+    text-align: center;
+  }
+
+  .cover > h1 {
+    place-self: end center;
+  }
+
+  // Slideshow and slide elements.
+  :is([role=list], [role=listitem], .media) {
+    display: grid;
+  }
+
+  [role=list] {
+    gap: var(--list-gap, 4em 0);
     grid: auto-flow / 1fr;
   }
 
   [role=listitem] {
-    display: grid;
-    gap: var(--listitem-gap);
-    grid: var(--listitem-grid);
+    gap: var(--listitem-gap, 0);
+    grid: var(--listitem-grid, 'media' 'copy' / 1fr);
   }
 
   .media {
-    display: grid;
     grid-area: media;
     place-items: center;
-
-    &[data-type='multi-image'] {
-      gap: 0 1rem;
-      grid: 1fr / repeat(2, 1fr)
-    }
+  }
+  
+  // Two columns for side-by-side images.
+  [data-type=multi-image] {
+    gap: 0 1rem;
+    grid: 1fr / 1fr 1fr;
   }
 
   figcaption {
@@ -42,18 +54,14 @@
     inline-size: 100%;
     inset-block: 0;
     max-inline-size: 36rem; // TODO: Use constant.
-    padding-inline: var(--figcaption-padding-inline);
-    place-self: var(--figcaption-place-self);
+    padding-inline: var(--figcaption-padding-inline, 1em);
+    place-self: var(--figcaption-place-self, start center);
     position: var(--figcaption-position, static);
+  }
 
-    > h2 {
-      font-size: 1em;
-      font-variation-settings: 'wght' 600;
-      margin-block: 1em;
-    }
-
-    > small {
-      opacity: .75;
-    }
+  h2 {
+    font-size: 1em;
+    font-variation-settings: 'wght' 600;
+    margin-block: 1em;
   }
 }
