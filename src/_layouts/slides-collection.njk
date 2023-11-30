@@ -26,14 +26,8 @@ layout: base
 
 <div role="list">
 {%- for item in collections[slug] %}  
-  {%- if item.data.images | length > 1 %}
-    {%- set media = 'multi-image' %}
-  {%- else %}
-    {%- set media = 'single-image' %}
-  {%- endif -%}
-  
   <figure role="listitem">
-    <div data-media="{{ media }}">
+    <div data-images="{{ item.data.images | length }}">
     {% for image in item.data.images %}
       {{ renderImage(image, slug) }}
     {% endfor %}
