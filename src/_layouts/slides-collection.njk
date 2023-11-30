@@ -5,7 +5,7 @@ layout: base
 {%- set imagePath = '/images/slides2023/' -%}
 
 {%- macro renderImage(image, slug) %}
-  {%- set imageUrl = domain + imagePath + '/' + slug + '/' + image.src %}
+  {%- set imageUrl = domain + imagePath + slug + '/' + image.src %}
   {%- set small = imageUrl + '@small.webp' %}
   {%- set medium = imageUrl + '@medium.webp' %}
   {%- set large = imageUrl + '@large.webp' %}
