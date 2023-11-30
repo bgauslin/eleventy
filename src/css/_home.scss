@@ -11,28 +11,40 @@ $icon-size: 1.75rem;
 }
 
 // Projects.
-dl {
-  margin-block: 2em;
-}
+.projects {
+  ul {
+    display: grid;
+    gap: 1.5rem;
+    grid: auto-flow / repeat(auto-fill, minmax(320px, 1fr));
+    list-style: none;
+    padding: 0;
+    margin-block: 2em;
+  }
 
-:where(dt, dd) {
-  line-height: 1.5;
-}
+  li {
+    display: grid;
+    grid: 'preview' 'title' 'blurb';
+    gap: 1.5rem;
+  }
 
-dt {
-  display: flex;
-  gap: 1rem;
-  font-size: 1.125em;
-  margin-block: 1em .25em;
-}
+  li > * {
+    margin: 0;
+  }
 
-dd {
-  margin-block: .25em 1em;
-  margin-inline: 0;
-}
+  li > h3 {
+    font-size: 1em;
+    grid-area: title;
+  }
 
-dd > p {
-  margin-block: 0;
+  li > p {
+    grid-area: blurb;
+  }
+
+  li > img {
+    aspect-ratio: 5 / 4;
+    grid-area: preview;
+    object-fit: cover;
+  }
 }
 
 // SVG icons.
@@ -49,7 +61,6 @@ svg.icon {
   display: flex;
   gap: .75em;
   list-style: none;
-  margin-block: 3em 0;
   padding: 0;
 
   li {
@@ -68,7 +79,7 @@ svg.icon {
     &:hover,
     &:active,
     &:focus {
-      background-color: var(--color-theme);
+      background-color: var(--color-text);
       color: var(--color-surface-1);
     }
   

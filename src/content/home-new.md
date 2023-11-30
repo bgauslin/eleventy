@@ -10,6 +10,10 @@ view: home
 
 Ben Gauslin is an ex-Google engineer and former Chicago architect currently making music and fixing up an old house in New Orleans.
 
+## Projects
+
 {% include 'projects.njk' %}
+
+## Contact
 
 {% include 'contact.njk' %}

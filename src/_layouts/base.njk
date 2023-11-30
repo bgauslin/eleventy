@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
   </head>
   <body data-view="{{ view }}">
-    <main data-id="{{ slug }}">
+    <main{% if slug %} data-id="{{ slug }}"{% endif %}>
       {{ content | safe }}
     </main>
   </body>
