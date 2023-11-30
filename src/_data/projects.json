@@ -6,12 +6,14 @@
       {
         "title": "Travel Sketches and Collages",
         "description": "Documenting travel abroad with pen, pencil, and found materials.",
-        "url": "/slides/europa.html"
+        "url": "/slides/europa.html",
+        "preview": "europa/sketch-piazza-del-campo-siena-7pm"
       },
       {
         "title": "Faubourg St. John Shotgun Renovation",
         "description": "Breathing new life into an 1890s New Orleans shotgun house.",
-        "url": "/slides/shotgun-fsj.html"
+        "url": "/slides/shotgun-fsj.html",
+        "preview": "shotgun-fsj/after-exterior-nw-completed"
       },
       {
         "title": "Vieux Carre Shotgun Renovation",

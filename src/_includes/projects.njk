@@ -8,24 +8,23 @@
   {%- for project in group.projects -%}
     <dt>
       <a href="{{ project.url }}">{{ project.title }}</a>
+      {%- if project.repo -%}
+      <a
+        aria-label="GitHub repository for {{ project.title }}"
+        href="https://github.com/bgauslin/{{ project.repo }}"
+        title="GitHub repository for {{ project.title }}">
+        <svg
+          aria-hidden="true"
+          class="icon"
+          viewbox="0 0 24 24">
+          <path d="{{ icons['github'] }}">
+        </svg>
+      </a>
+    {%- endif -%}
     </dt>
     <dd>
-      <p>{{ project.description }}</p>
-      {%- if project.repo -%}
-      <p>
-        <a
-          aria-label="GitHub repository for {{ project.title }}"
-          href="https://github.com/bgauslin/{{ project.repo }}"
-          title="GitHub repository for {{ project.title }}">
-          <svg
-            aria-hidden="true"
-            class="icon"
-            viewbox="0 0 24 24">
-            <path d="{{ icons['github'] }}">
-          </svg>
-        </a>
-      </p>
-      {%- endif -%}
+      {{ project.description }}
+      <img alt="" src="https://assets.gauslin.com/images/slides2023/{{ project.preview }}@small.webp">
     </dd>
   {%- endfor -%}
   </dl>
