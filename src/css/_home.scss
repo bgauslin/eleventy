@@ -10,6 +10,40 @@ $icon-size: 1.75rem;
   --main-padding-block: 0 2em;
 }
 
+// Projects.
+dl {
+  margin-block: 2em;
+}
+
+:where(dt, dd) {
+  line-height: 1.5;
+}
+
+dt {
+  font-size: 1.125em;
+  margin-block: 1em .25em;
+}
+
+dd {
+  margin-block: .25em 1em;
+  margin-inline: 0;
+}
+
+dd > p {
+  margin-block: 0;
+}
+
+// SVG icons.
+.icon {
+  inline-size: $icon-size;
+}
+
+@media (any-hover: hover) {
+  .icon {
+    transition: fill .2s;
+  }
+}
+
 // Contact links
 .contact {
   display: flex;
@@ -40,18 +74,8 @@ $icon-size: 1.75rem;
   }
 }
 
-.contact__icon {
-  fill: currentColor;
-  inline-size: $icon-size;
-  pointer-events: none;
-}
-
 @media (any-hover: hover) {
   .contact__link {
     transition: background-color .2s, color .2s, transform .2s;
-  }
-
-  .contact__icon {
-    transition: fill .2s;
   }
 }

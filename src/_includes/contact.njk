@@ -6,7 +6,9 @@
        class="contact__link"
        href="{{ link.href }}"
        title="{{ link.label }}">
-      <svg class="contact__icon" viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons[link.icon] }}"></svg>
+      <svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+        <path d="{{ icons[link.icon] }}">
+      </svg>
     </a>
   </li>
   {% endif %}

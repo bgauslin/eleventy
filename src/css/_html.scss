@@ -69,6 +69,12 @@ figure {
   margin: 0;
 }
 
+svg {
+  fill: currentColor;
+  pointer-events: none;
+}
+
+// Images in dark mode are slightly grayed out to avoid retinal burns.
 @media (prefers-color-scheme: dark) {
   img:not([src*='.svg']) {
     filter: grayscale(25%);

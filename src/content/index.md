@@ -15,4 +15,4 @@ Ben Gauslin is a New Orleans-based [frontend engineer][github], a [former Chicag
 [shotgun]: https://slides.gauslin.com/shotgun
 [pietasters]: https://itunes.apple.com/us/album/the-pietasters/id279772735
 
-{% include 'links.njk' %}
+{% include 'contact.njk' %}

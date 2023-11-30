@@ -1,5 +1,26 @@
 [
   {
+    "title": "Architecture",
+    "description": "Copy goes here...",
+    "projects": [
+      {
+        "title": "Travel Sketches and Collages",
+        "description": "Documenting travel abroad with pen, pencil, and found materials.",
+        "url": "/slides/europa.html"
+      },
+      {
+        "title": "Faubourg St. John Shotgun Renovation",
+        "description": "Breathing new life into an 1890s New Orleans shotgun house.",
+        "url": "/slides/shotgun-fsj.html"
+      },
+      {
+        "title": "Vieux Carre Shotgun Renovation",
+        "description": "Coming soon...",
+        "url": null
+      }
+    ]
+  },
+  {
     "title": "Web",
     "description": "Copy goes here...",
     "projects": [
@@ -32,27 +53,6 @@
         "description": "Web app for calculating compound interest.",
         "url": "https://ten.gauslin.com",
         "repo": "ten"
-      }
-    ]
-  },
-  {
-    "title": "Architecture",
-    "description": "Copy goes here...",
-    "projects": [
-      {
-        "title": "Travel Sketches and Collages",
-        "description": "Documenting travel abroad with pen, pencil, and found materials.",
-        "url": "/slides/europa.html"
-      },
-      {
-        "title": "Faubourg St. John Shotgun Renovation",
-        "description": "Breathing new life into an 1890s New Orleans shotgun house.",
-        "url": "/slides/shotgun-fsj.html"
-      },
-      {
-        "title": "Vieux Carre Shotgun Renovation",
-        "description": "Coming soon...",
-        "url": null
       }
     ]
   }

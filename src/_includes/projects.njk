@@ -1,13 +1,33 @@
-{% for group in projects %}
-<h2>{{ group.title }}</h2>
-<p>{{ group.description }}
-<dl>
-  {% for project in group.projects %}
-  <dt><a href="{{ project.url }}">{{ project.title }}</a></dt>
-  <dd>
-    {{ project.description }}
-    {% if project.repo %}<a href="https://github.com/bgauslin/{{ project.repo }}">Repo</a>{% endif %}
-  </dd>
-  {% endfor %}
-</dl>
-{% endfor %}
+<section>
+{%- for group in projects -%}
+  <header>
+    <h2>{{ group.title }}</h2>
+    <p>{{ group.description }}</p>
+  </header>
+  <dl>
+  {%- for project in group.projects -%}
+    <dt>
+      <a href="{{ project.url }}">{{ project.title }}</a>
+    </dt>
+    <dd>
+      <p>{{ project.description }}</p>
+      {%- if project.repo -%}
+      <p>
+        <a
+          aria-label="GitHub repository for {{ project.title }}"
+          href="https://github.com/bgauslin/{{ project.repo }}"
+          title="GitHub repository for {{ project.title }}">
+          <svg
+            aria-hidden="true"
+            class="icon"
+            viewbox="0 0 24 24">
+            <path d="{{ icons['github'] }}">
+          </svg>
+        </a>
+      </p>
+      {%- endif -%}
+    </dd>
+  {%- endfor -%}
+  </dl>
+{%- endfor -%}
+</section>

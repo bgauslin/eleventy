@@ -12,4 +12,4 @@ Ben Gauslin is an ex-Google engineer and former Chicago architect currently maki
 
 {% include 'projects.njk' %}
 
-{% include 'links.njk' %}
+{% include 'contact.njk' %}
