@@ -25,34 +25,18 @@ layout: base
 </div>
 
 <div role="list">
-{%- for item in collections[slug] %}
-  {%- if item.data.publication %}
-    {%- set media = 'publication' %}
-  {%- elif item.data.images | length > 1 %}
+{%- for item in collections[slug] %}  
+  {%- if item.data.images | length > 1 %}
     {%- set media = 'multi-image' %}
   {%- else %}
     {%- set media = 'single-image' %}
   {%- endif -%}
+  
   <figure role="listitem">
     <div data-media="{{ media }}">
-    {%- if item.data.publication %}
-      {%- set publication = item.data.publication %}
-      
-      {{ renderImage(publication.image, slug) }}
-      <p class="publisher">{{ publication.publisher }}</p>
-      <time datetime="">{{ publication.date }}</time>
-
-      {% if publication.file -%}
-        {%- set fileUrl = domain + '/files/pdf/' + publication.file %}
-        <a href="{{ fileUrl }}" title="View PDF of the article">TODO: pdf</a>
-      {%- elif publication.url -%}
-        <a href="{{ publication.url }}" title="Read the article">TODO: url</a>
-      {%- endif %}
-    {%- elif item.data.images %}
-      {% for image in item.data.images %}
-        {{ renderImage(image, slug) }}
-      {% endfor %}
-    {%- endif %}
+    {% for image in item.data.images %}
+      {{ renderImage(image, slug) }}
+    {% endfor %}
     </div>
 
     <figcaption>
