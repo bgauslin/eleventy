@@ -3,9 +3,10 @@
 <p>{{ group.description }}
 <dl>
   {% for project in group.projects %}
+  <dt><a href="{{ project.url }}">{{ project.title }}</a></dt>
   <dd>
-    <dt><a href="{{ project.url }}">{{ project.title }}</a></dt>
-    <dd>{{ project.description }}</dd>
+    {{ project.description }}
+    {% if project.repo %}<a href="https://github.com/bgauslin/{{ project.repo }}">Repo</a>{% endif %}
   </dd>
   {% endfor %}
 </dl>

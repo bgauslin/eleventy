@@ -6,27 +6,32 @@
       {
         "title": "Powers Of Ten",
         "description": "Web app based on the book and film by Charles and Ray Eames.",
-        "url": "https://ten.gauslin.com"
+        "url": "https://ten.gauslin.com",
+        "repo": "ten"
       },
       {
         "title": "Clock",
         "description": "Nine analog clocks reveal patterns over time.",
-        "url": "https://clock.gauslin.com"
+        "url": "https://clock.gauslin.com",
+        "repo": "clock"
       },
       {
         "title": "Calorie Calculator",
         "description": "Web app for calculating daily calorie needs.",
-        "url": "https://calories.gauslin.com"
+        "url": "https://calories.gauslin.com",
+        "repo": "calories"
       },
       {
         "title": "Moon",
         "description": "Daily graph for location-based moon phase, moonrise, and moonset.",
-        "url": "https://moon.gauslin.com"
+        "url": "https://moon.gauslin.com",
+        "repo": "moon"
       },
       {
         "title": "Interest Calculator",
         "description": "Web app for calculating compound interest.",
-        "url": "https://ten.gauslin.com"
+        "url": "https://ten.gauslin.com",
+        "repo": "ten"
       }
     ]
   },
