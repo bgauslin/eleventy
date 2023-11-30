@@ -8,4 +8,4 @@ view: slides
 title: Europa Sketches & Collages
 image: sketch-piazza-del-campo-siena-7pm
 ---
-Documenting travel abroad with pen, pencil, and found materials
+Documenting travel abroad with pen, pencil, and found materials.
