@@ -4,7 +4,6 @@ $breakpoint: 1440px;
 $img-max-width: 900px;
 
 [data-view=slides] {
-  --img-max-block-size: min(50dvh, #{math.div($img-max-width, 2)});
   --main-max-inline-size: #{$breakpoint};
 
   @media (min-width: $breakpoint) {
@@ -66,7 +65,7 @@ $img-max-width: 900px;
 
   // Constrain image height for portrait orientation images.
   img {
-    max-block-size: var(--img-max-block-size);
+    max-block-size: var(--img-max-block-size, 66vh);
   }
 
   // Copy.
