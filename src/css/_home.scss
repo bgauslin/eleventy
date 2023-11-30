@@ -6,7 +6,7 @@ $icon-size: 1.75rem;
 
 // Custom property overrides for 'home' view.
 [data-view='home'] {
-  --main-max-inline-size: min(100%, 30em);
+  // --main-max-inline-size: min(100%, 30em);
   --main-padding-block: 0 2em;
 }
 
@@ -20,6 +20,8 @@ dl {
 }
 
 dt {
+  display: flex;
+  gap: 1rem;
   font-size: 1.125em;
   margin-block: 1em .25em;
 }
@@ -34,12 +36,10 @@ dd > p {
 }
 
 // SVG icons.
-.icon {
+svg.icon {
   inline-size: $icon-size;
-}
 
-@media (any-hover: hover) {
-  .icon {
+  @media (any-hover: hover) {
     transition: fill .2s;
   }
 }
@@ -51,31 +51,29 @@ dd > p {
   list-style: none;
   margin-block: 3em 0;
   padding: 0;
-}
 
-.contact__item {
-  flex: 0 0 $button-size;
-}
-
-.contact__link {
-  background-color: var(--color-surface-1);
-  block-size: $button-size;
-  border-radius: math.div($button-size, 2);
-  color: var(--color-theme);
-  display: grid;
-  margin-inline: 0;
-  place-content: center;
-
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: var(--color-theme);
-    color: var(--color-surface-1);
+  li {
+    flex: 0 0 $button-size;
   }
-}
 
-@media (any-hover: hover) {
-  .contact__link {
-    transition: background-color .2s, color .2s, transform .2s;
+  a {
+    background-color: var(--color-surface-1);
+    block-size: $button-size;
+    border-radius: math.div($button-size, 2);
+    color: var(--color-theme);
+    display: grid;
+    margin-inline: 0;
+    place-content: center;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--color-theme);
+      color: var(--color-surface-1);
+    }
+  
+    @media (any-hover: hover) {
+      transition: background-color .2s, color .2s, transform .2s;
+    }
   }
 }
