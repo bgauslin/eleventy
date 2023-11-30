@@ -113,3 +113,10 @@ a {
     transition: background-color .2s, color .2s;
   }
 }
+
+a[href*='.pdf']::after {
+  content: '[PDF]';
+  display: inline-block;
+  font-size: .75em;
+  margin-inline: .75em 0;
+}
