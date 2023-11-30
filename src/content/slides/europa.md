@@ -1,8 +1,8 @@
 ---
-layout: slideshow
+layout: slides-collection
 permalink: slides/europa.html
 slug: europa
-tags: slideshow
+tags: slides
 view: slides
 
 title: Europa Sketches & Collages
