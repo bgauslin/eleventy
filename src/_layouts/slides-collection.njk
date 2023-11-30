@@ -19,10 +19,10 @@ layout: base
 
 {# ========================================================================== #}
 
-<div class="cover">
+<header>
   <h1>{{ title }}</h1>
   {{ content | safe }}
-</div>
+</header>
 
 <div role="list">
 {%- for item in collections[slug] %}  
@@ -41,8 +41,8 @@ layout: base
 
     <figcaption>
       <h2>{{ item.data.title }}</h2>
-      {{ item.data.content | safe -}}
-      <small>{{ loop.index }} of {{ collections[slug] | length }}</small>
+      {{ item.data.content | safe }}
+      <small aria-hidden="true">{{ loop.index }} of {{ collections[slug] | length }}</small>
     </figcaption>
   </figure>
 {%- endfor %}

@@ -1,19 +1,19 @@
 @use 'sass:math';
 
 $breakpoint: 1440px;
+$copy-max-width: 600px;
 $img-max-width: 900px;
 
-[data-view=slides] {
+[data-view='slides'] {
   --img-max-block-size: min(75vh, #{$img-max-width});
   --main-max-inline-size: #{$breakpoint};
 
   @media (min-width: $breakpoint) {
-    --cover-block-size: 75vh;
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center;
     --figcaption-position: sticky;
     --h2-margin-block: 0 1em;
-    --img-max-block-size: min(calc(100dvh - 3rem), #{$img-max-width});
+    --img-max-block-size: min(calc(100vh - 3rem), #{$img-max-width});
     --list-gap: 12em 0;
     --listitem-gap: 0 1.5rem;
     --listitem-grid: '. copy media .' 1fr / 0 1fr 2fr 0;
@@ -23,30 +23,30 @@ $img-max-width: 900px;
     }
   }
 
-  // Slideshow cover elements.
-  .cover {
-    block-size: var(--cover-block-size, 50vh);
+  // Slideshow header.
+  header {
+    block-size: 50vh;
     display: grid;
     grid: 1fr 1fr / 1fr;
-    padding-inline: 1em;
+    padding-inline: 1rem;  // ???
     text-align: center;
   }
 
-  .cover > h1 {
+  header > h1 {
     place-self: end center;
   }
 
   // Slideshow and slide elements.
-  :is([role=list], [role=listitem], [data-media]) {
+  :is([role='list'], [role='listitem'], [data-media]) {
     display: grid;
   }
 
-  [role=list] {
+  [role='list'] {
     gap: var(--list-gap, 6em 0);
     grid: auto-flow / 1fr;
   }
 
-  [role=listitem] {
+  [role='listitem'] {
     gap: var(--listitem-gap, 0);
     grid: var(--listitem-grid, 'media' 'copy' / 1fr);
   }
@@ -58,10 +58,9 @@ $img-max-width: 900px;
   }
   
   // Two columns for side-by-side images.
-  [data-media=multi-image] {
+  [data-media='multi-image'] {
     gap: 0 1rem;
     grid: 1fr / 1fr 1fr;
-    padding-inline: 1rem;
   }
 
   // Constrain image height for portrait orientation images.
@@ -74,7 +73,7 @@ $img-max-width: 900px;
     grid-area: copy;
     inline-size: 100%;
     inset-block: 1.5rem auto; // Only appies when position is sticky.
-    max-inline-size: 36rem; // TODO: Use constant.
+    max-inline-size: $copy-max-width;
     padding-inline: var(--figcaption-padding-inline, 1em);
     place-self: var(--figcaption-place-self, start center);
     position: var(--figcaption-position, static);
@@ -83,11 +82,6 @@ $img-max-width: 900px;
   h2 {
     font-size: 1em;
     font-variation-settings: 'wght' 600;
-    margin-block: var(--h2-margin-block, 2em 1em);
-  }
-
-  small {
-    display: block;
-    margin-block: 3em 0;
+    margin-block: var(--h2-margin-block, 1rem 1em);
   }
 }
