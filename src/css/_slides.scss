@@ -1,14 +1,26 @@
-[data-view=slides] {
-  --main-max-inline-size: 1232px; // TODO: Breakpoint values.
+@use 'sass:math';
 
-  @media (min-width: 960px) { // TODO: Breakpoint values.
+$breakpoint: 1440px;
+$img-max-width: 900px;
+
+[data-view=slides] {
+  --img-max-block-size: min(50dvh, #{math.div($img-max-width, 2)});
+  --main-max-inline-size: #{$breakpoint};
+
+  @media (min-width: $breakpoint) {
     --cover-block-size: 75vh;
     --figcaption-padding-inline: 0;
-    --figcaption-place-self: start;
+    --figcaption-place-self: center;
     --figcaption-position: sticky;
+    --h2-margin-block: 0 1em;
+    --img-max-block-size: min(calc(100dvh - 3rem), #{$img-max-width});
     --list-gap: 12em 0;
-    --listitem-gap: 0 2rem;
-    --listitem-grid: 'media copy' 1fr / 3fr 1fr;
+    --listitem-gap: 0 1.5rem;
+    --listitem-grid: '. copy media .' 1fr / 0 1fr 2fr 0;
+
+    [role=listitem]:nth-child(odd) {
+      --listitem-grid: '. media copy .' 1fr / 0 2fr 1fr 0;
+    }
   }
 
   // Slideshow cover elements.
@@ -16,6 +28,7 @@
     block-size: var(--cover-block-size, 50vh);
     display: grid;
     grid: 1fr 1fr / 1fr;
+    padding-inline: 1em;
     text-align: center;
   }
 
@@ -24,12 +37,12 @@
   }
 
   // Slideshow and slide elements.
-  :is([role=list], [role=listitem], .media) {
+  :is([role=list], [role=listitem], [data-media]) {
     display: grid;
   }
 
   [role=list] {
-    gap: var(--list-gap, 4em 0);
+    gap: var(--list-gap, 6em 0);
     grid: auto-flow / 1fr;
   }
 
@@ -38,21 +51,29 @@
     grid: var(--listitem-grid, 'media' 'copy' / 1fr);
   }
 
-  .media {
+  // Slide elements.
+  [data-media] {
     grid-area: media;
     place-items: center;
   }
   
   // Two columns for side-by-side images.
-  [data-type=multi-image] {
+  [data-media=multi-image] {
     gap: 0 1rem;
     grid: 1fr / 1fr 1fr;
+    padding-inline: 1rem;
   }
 
+  // Constrain image height for portrait orientation images.
+  img {
+    max-block-size: var(--img-max-block-size);
+  }
+
+  // Copy.
   figcaption {
     grid-area: copy;
     inline-size: 100%;
-    inset-block: 0;
+    inset-block: 1.5rem auto; // Only appies when position is sticky.
     max-inline-size: 36rem; // TODO: Use constant.
     padding-inline: var(--figcaption-padding-inline, 1em);
     place-self: var(--figcaption-place-self, start center);
@@ -62,6 +83,11 @@
   h2 {
     font-size: 1em;
     font-variation-settings: 'wght' 600;
-    margin-block: 1em;
+    margin-block: var(--h2-margin-block, 2em 1em);
+  }
+
+  small {
+    display: block;
+    margin-block: 3em 0;
   }
 }

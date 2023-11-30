@@ -15,14 +15,12 @@
   --color-surface: white;
   --color-surface-1: #{const.$gray6};
   --color-text: #{const.$gray6-dark};
-  --color-text-variant: #{const.$gray};
 
   @media (prefers-color-scheme: dark) {
     --color-theme: #{const.$blue-dark};
     --color-surface: black;
     --color-surface-1: #{const.$gray6-dark};
     --color-text: #{const.$gray4};
-    --color-text-variant: #{const.$gray2-dark};
   }
 }
 
@@ -79,6 +77,7 @@ figure {
 
 // Text elements.
 h1 {
+  font-size: var(--h1-font-size, 2em);
   margin-block: var(--h1-margin-block);
 }
 

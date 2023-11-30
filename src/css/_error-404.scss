@@ -1,18 +1,25 @@
 [data-view='error-404'] {
-  text-align: center;
-}
+  --h1-font-size: 6em;
 
-pre {
-  color: var(--color-text-variant);
-  font-size: clamp(.3125rem, .3125rem + 1vw, 1.25em);
-  margin: 0;
-  max-inline-size: 100vw;
-  overflow: scroll hidden;
-  scrollbar-width: none;
-  text-align: start;
-  user-select: none;
+  :is(h1, p) {
+    text-align: center;
+  }
 
-  &::-webkit-scrollbar {
-    display: none;
+  p {
+    margin-inline: 2em;
+  }
+
+  pre {
+    font-size: clamp(.3125rem, .3125rem + 1vw, 1.25em);
+    margin: 0;
+    max-inline-size: 100vw;
+    opacity: .7;
+    overflow: scroll hidden;
+    scrollbar-width: none;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
