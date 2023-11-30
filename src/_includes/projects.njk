@@ -1,0 +1,12 @@
+{% for group in projects %}
+<h2>{{ group.title }}</h2>
+<p>{{ group.description }}
+<dl>
+  {% for project in group.projects %}
+  <dd>
+    <dt><a href="{{ project.url }}">{{ project.title }}</a></dt>
+    <dd>{{ project.description }}</dd>
+  </dd>
+  {% endfor %}
+</dl>
+{% endfor %}
