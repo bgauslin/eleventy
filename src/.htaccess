@@ -2,8 +2,8 @@ Options -Indexes
 
 RewriteEngine on
 
-# Custom 404 page.
-ErrorDocument 404 /404.html
+# Redirect 404s to home page.
+ErrorDocument 404 /
 
 # Remove .html extension from URL.
 RewriteCond %{REQUEST_FILENAME}.html -f

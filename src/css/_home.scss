@@ -1,90 +1,108 @@
-@use 'sass:math';
-
-// Buttons are always the same size and don't scale.
-$button-size: 3rem;
-$icon-size: 1.75rem;
-
-// Custom property overrides for 'home' view.
-[data-view='home'] {
-  // --main-max-inline-size: min(100%, 30em);
-  --main-padding-block: 0 2em;
+:root {
+  --body-background: GhostWhite;
+  --focus-color: DeepPink;
+  --link-color: DodgerBlue;
+  --text-color: black;
+  --visited-color: RebeccaPurple;
 }
 
-// Projects.
-.projects {
-  ul {
-    display: grid;
-    gap: 1.5rem;
-    grid: auto-flow / repeat(auto-fill, minmax(320px, 1fr));
-    list-style: none;
-    padding: 0;
-    margin-block: 2em;
-  }
-
-  li {
-    display: grid;
-    grid: 'preview' 'title' 'blurb';
-    gap: 1.5rem;
-  }
-
-  li > * {
-    margin: 0;
-  }
-
-  li > h3 {
-    font-size: 1em;
-    grid-area: title;
-  }
-
-  li > p {
-    grid-area: blurb;
-  }
-
-  li > img {
-    aspect-ratio: 5 / 4;
-    grid-area: preview;
-    object-fit: cover;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-background: black;
+    --focus-color: HotPink;
+    --link-color: CornflowerBlue;
+    --text-color: Gainsboro;
+    --visited-color: MediumPurple;
   }
 }
 
-// SVG icons.
-svg.icon {
-  inline-size: $icon-size;
+:where(*) {
+  box-sizing: border-box;
+}
 
-  @media (any-hover: hover) {
-    transition: fill .2s;
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--body-background);
+  color: var(--text-color);
+  display: grid;
+  font: clamp(.75em, .75em + 1vw, 1.25em) / 1.5 monospace;
+  grid: auto 1fr / 1fr;
+  margin: 0;
+  min-block-size: 100dvh;
+}
+
+:link {
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+:visited {
+  color: var(--visited-color);
+}
+
+:focus {
+  color: var(--focus-color);
+  outline: none;
+}
+
+:where(a, summary):hover {
+  color: var(--focus-color);
+}
+
+@media (any-hover: hover) {
+  :where(a, summary) {
+    transition: color .3s;
   }
 }
 
-// Contact links
-.contact {
-  display: flex;
-  gap: .75em;
-  list-style: none;
-  padding: 0;
+:where(main, pre) {
+  margin-inline: auto;
+}
 
-  li {
-    flex: 0 0 $button-size;
-  }
+main {
+  backdrop-filter: blur(2px);
+  border-radius: 1em;
+  inline-size: 100%;
+  margin-block: 1em;
+  max-inline-size: 40em;
+  padding: 2em;
+  z-index: 1;
+}
 
-  a {
-    background-color: var(--color-surface-1);
-    block-size: $button-size;
-    border-radius: math.div($button-size, 2);
-    color: var(--color-theme);
-    display: grid;
-    margin-inline: 0;
-    place-content: center;
+h1 {
+  font-size: 1em;
+  margin: 0;
+}
 
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: var(--color-text);
-      color: var(--color-surface-1);
-    }
-  
-    @media (any-hover: hover) {
-      transition: background-color .2s, color .2s, transform .2s;
-    }
-  }
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin-block: 1em 0;
+  margin-inline: -1em 0;
+}
+
+:where(ul, ol) {
+  padding-inline: 1em 0;
+}
+
+li {
+  margin-block: 1em;
+}
+
+pre {
+  font-size: clamp(.5em, .5em + 1vw, 2em);
+  max-inline-size: 100vw;
+  opacity: .75;
+  overflow: auto;
+  place-self: end;
+  scrollbar-width: none;
+  user-select: none;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
 }

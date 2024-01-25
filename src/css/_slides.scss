@@ -4,6 +4,7 @@ $breakpoint: 1440px;
 $copy-max-width: 600px;
 $img-max-width: 900px;
 
+// TODO: Update/simplify 'data-' selectors.
 [data-view='slides'] {
   --img-max-block-size: 100vw;
   --main-max-inline-size: #{$breakpoint};
