@@ -1,15 +1,15 @@
 :root {
   --body-background: GhostWhite;
-  --focus-color: DeepPink;
+  --focus-color: OrangeRed;
   --link-color: DodgerBlue;
-  --text-color: black;
+  --text-color: Black;
   --visited-color: RebeccaPurple;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-background: black;
-    --focus-color: HotPink;
+    --body-background: Black;
+    --focus-color: Tomato;
     --link-color: CornflowerBlue;
     --text-color: Gainsboro;
     --visited-color: MediumPurple;
@@ -27,34 +27,9 @@ html {
 body {
   background: var(--body-background);
   color: var(--text-color);
-  font: clamp(.5em, .5em + 1vw, 1.5em) / 1.5 monospace;
+  font: clamp(.5em, .5em + 1vw, 1.5em) / 1.5 sans-serif;
   margin: 0;
   min-block-size: 100dvh;
-}
-
-:link {
-  color: var(--link-color);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-:visited {
-  color: var(--visited-color);
-}
-
-:focus {
-  color: var(--focus-color);
-  outline: none;
-}
-
-:where(a, summary):hover {
-  color: var(--focus-color);
-}
-
-@media (any-hover: hover) {
-  :where(a, summary) {
-    transition: color .3s;
-  }
 }
 
 main {
@@ -81,4 +56,29 @@ ul {
 
 li {
   margin-block: 1em;
+}
+
+:link {
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+:visited {
+  color: var(--visited-color);
+}
+
+:focus {
+  color: var(--focus-color);
+  outline: none;
+}
+
+:where(a, summary):hover {
+  color: var(--focus-color);
+}
+
+@media (any-hover: hover) {
+  :where(a, summary) {
+    transition: color .3s;
+  }
 }
