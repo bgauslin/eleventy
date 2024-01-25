@@ -4,11 +4,10 @@ permalink: index.html
 
 title: Ben Gauslin
 description: Ben Gauslin’s home page.
-view: home
 ---
 # Hello
 
-Ben Gauslin is a former Chicago architect and ex-Google engineer currently based in New Orleans.
+Ben Gauslin is a former Chicago architect and ex-Google engineer who currently lives in New Orleans.
 
 <details>
   <summary>Projects</summary>
@@ -31,6 +30,7 @@ Ben Gauslin is a former Chicago architect and ex-Google engineer currently based
 
   Thanks for stopping by!
 </details>
+
 
 [calories]: https://calories.gauslin.com "Web app for calculating daily calorie needs"
 [clock]: https://clock.gauslin.com "Nine analog clocks reveal patterns over time"
