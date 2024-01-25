@@ -29,9 +29,8 @@ Ben Gauslin is a former Chicago architect and ex-Google engineer currently based
   
   You can reach me via [email][email], [text][sms], or [voicemail][phone].
 
+  Thanks for stopping by!
 </details>
-
-Thanks for stopping by!
 
 [calories]: https://calories.gauslin.com "Web app for calculating daily calorie needs"
 [clock]: https://clock.gauslin.com "Nine analog clocks reveal patterns over time"

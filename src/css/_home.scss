@@ -27,9 +27,7 @@ html {
 body {
   background: var(--body-background);
   color: var(--text-color);
-  display: grid;
-  font: clamp(.75em, .75em + 1vw, 1.25em) / 1.5 monospace;
-  grid: auto 1fr / 1fr;
+  font: clamp(.5em, .5em + 1vw, 1.5em) / 1.5 monospace;
   margin: 0;
   min-block-size: 100dvh;
 }
@@ -59,18 +57,10 @@ body {
   }
 }
 
-:where(main, pre) {
-  margin-inline: auto;
-}
-
 main {
-  backdrop-filter: blur(2px);
-  border-radius: 1em;
-  inline-size: 100%;
-  margin-block: 1em;
+  margin-inline: auto;
   max-inline-size: 40em;
   padding: 2em;
-  z-index: 1;
 }
 
 h1 {
@@ -85,24 +75,10 @@ summary {
   margin-inline: -1em 0;
 }
 
-:where(ul, ol) {
+ul {
   padding-inline: 1em 0;
 }
 
 li {
   margin-block: 1em;
-}
-
-pre {
-  font-size: clamp(.5em, .5em + 1vw, 2em);
-  max-inline-size: 100vw;
-  opacity: .75;
-  overflow: auto;
-  place-self: end;
-  scrollbar-width: none;
-  user-select: none;
-}
-
-pre::-webkit-scrollbar {
-  display: none;
 }
