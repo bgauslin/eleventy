@@ -64,9 +64,10 @@ details {
   padding-inline: 1em;
 }
 
+// [1]: Default 'display' override removes default marker.
 summary {
   cursor: pointer;
-  display: flex;
+  display: flex; // [1]
   font-weight: bold;
   opacity: .75;
   transition: opacity $duration;
@@ -75,6 +76,11 @@ summary {
 summary:focus,
 summary:hover {
   opacity: 1;
+}
+
+// Safari needs vendor pseudo-element to hide marker.
+summary::-webkit-details-marker {
+  display: none;
 }
 
 summary::after {
@@ -95,7 +101,7 @@ summary::after {
 }
 
 // Text styles.
-h1 {
+:is(h1, h2, h3) {
   font-size: 1em;
   margin: 0;
 }
