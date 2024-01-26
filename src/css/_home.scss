@@ -1,11 +1,11 @@
 // Sass constants.
-$duration: .3s;
+$duration: .2s;
 
 // Vars for light/dark mode.
 :root {
   --background-0: GhostWhite;
   --background-1: white;
-  --focus-color: DeepPink;
+  --focus-color: OrangeRed;
   --link-color: DodgerBlue;
   --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
   --text-color: Black;
@@ -16,7 +16,7 @@ $duration: .3s;
   :root {
     --background-0: Black;
     --background-1: #{rgba(white, .1)};
-    --focus-color: HotPink;
+    --focus-color: DarkOrange;
     --link-color: CornflowerBlue;
     --shadow-1: #{rgba(white, .15)} 0 0 0 1px;
     --text-color: Gainsboro;
@@ -26,7 +26,6 @@ $duration: .3s;
 
 // Layouts.
 .home {
-  --main-margin-inline: auto;
   --main-max-inline-size: 34em;
   --main-padding: 1.5em;
 }
@@ -50,9 +49,9 @@ body {
 }
 
 main {
-  margin-inline: var(--main-margin-inline);
-  max-inline-size: var(--main-max-inline-size);
-  padding: var(--main-padding);
+  margin-inline: var(--main-margin-inline, auto);
+  max-inline-size: var(--main-max-inline-size, 80rem);
+  padding: var(--main-padding, 0);
 }
 
 // Expandable sections.
@@ -69,24 +68,30 @@ summary {
   cursor: pointer;
   display: flex;
   font-weight: bold;
+  opacity: .75;
+  transition: opacity $duration;
+}
+
+summary:focus,
+summary:hover {
+  opacity: 1;
 }
 
 summary::after {
   align-self: center;
-  background: currentColor;
   block-size: .5em;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-block-end: 3px solid currentColor;
+  border-inline-end: 3px solid currentColor;
   content: '';
-  display: inline-flex;
-  flex: 0 0 auto;
-  inline-size: 1em;
+  display: block;
+  inline-size: .5em;
   margin-inline: auto 0;
-  transform-origin: center;
+  transform: rotate(45deg);
   transition: transform $duration;
 }
 
 [open] > summary::after {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
 }
 
 // Text styles.
@@ -104,27 +109,30 @@ li {
 }
 
 // Link styles.
-:link {
+:where(a, summary) {
+  outline: none;
+}
+
+a {
   color: var(--link-color);
   font-weight: bold;
   text-decoration: none;
 }
 
-:visited {
+a:visited {
   color: var(--visited-color);
 }
 
-:focus {
+a:focus {
   color: var(--focus-color);
-  outline: none;
 }
 
-:where(a, summary):hover {
+a:hover {
   color: var(--focus-color);
 }
 
 @media (any-hover: hover) {
-  :where(a, summary) {
+  a {
     transition: color $duration;
   }
 }
