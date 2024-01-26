@@ -8,10 +8,12 @@ view: home
 ---
 # Ben Gauslin
 
+<small>Frontend Engineer · Architect · Musician</small>
+
 <details>
   <summary>About</summary>
 
-  Hello, I’m an ex-Google engineer and former Chicago architect who currently spends quality time in New Orleans with friends, family, and the bass guitar. Thanks for stopping by!
+  Hello, I’m an ex-Google engineer and former Chicago architect who currently spends quality time in New Orleans with friends, family, and the bass guitar.
 
 </details>
 

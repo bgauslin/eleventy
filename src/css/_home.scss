@@ -1,4 +1,5 @@
-// Sass constants.
+// Sass constants for DRYness.
+$arrow-size: .5em;
 $duration: .2s;
 
 // Vars for light/dark mode.
@@ -27,7 +28,6 @@ $duration: .2s;
 // Layouts.
 .home {
   --main-max-inline-size: 34em;
-  --main-padding: 1.5em;
 }
 
 // Global elements.
@@ -49,9 +49,9 @@ body {
 }
 
 main {
-  margin-inline: var(--main-margin-inline, auto);
+  margin-inline: auto;
   max-inline-size: var(--main-max-inline-size, 80rem);
-  padding: var(--main-padding, 0);
+  padding: var(--main-padding, 1.5em);
 }
 
 // Expandable sections.
@@ -60,17 +60,30 @@ details {
   border-radius: .5em;
   box-shadow: var(--shadow-1);
   margin-block: 1.5em;
-  padding-block: .5em;
-  padding-inline: 1em;
+  padding-block: 0;
 }
 
 // [1]: Default 'display' override removes default marker.
 summary {
+  align-items: center;
   cursor: pointer;
   display: flex; // [1]
   font-weight: bold;
   opacity: .75;
+  padding-block: .5em;
   transition: opacity $duration;
+}
+
+summary + * {
+  margin-block-start: 0;
+}
+
+details > * {
+  padding-inline: 1em;
+}
+
+details > *:last-child {
+  padding-block-end: 1em;
 }
 
 summary:focus,
@@ -84,13 +97,13 @@ summary::-webkit-details-marker {
 }
 
 summary::after {
-  align-self: center;
-  block-size: .5em;
-  border-block-end: 3px solid currentColor;
-  border-inline-end: 3px solid currentColor;
+  block-size: $arrow-size;
+  border-block-end: 2px solid currentColor;
+  border-inline-end: 2px solid currentColor;
   content: '';
   display: block;
-  inline-size: .5em;
+  inline-size: $arrow-size;
+  margin-block: -50%;
   margin-inline: auto 0;
   transform: rotate(45deg);
   transition: transform $duration;
@@ -106,8 +119,12 @@ summary::after {
   margin: 0;
 }
 
-ul {
-  padding-inline: 1em 0;
+h1 + p {
+  margin-block-start: 0;
+}
+
+details > ul {
+  padding-inline: 2em 1em;
 }
 
 li {
