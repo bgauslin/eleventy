@@ -3,20 +3,26 @@ layout: base
 permalink: index.html
 
 title: Ben Gauslin
-description: Ben Gauslin’s home page.
+description:  World Wide Web home page for Ben Gauslin
+view: home
 ---
-# Hello
-
-Ben Gauslin is a former Chicago architect and ex-Google engineer who currently lives in New Orleans.
+# Ben Gauslin
 
 <details>
-  <summary>Projects</summary>
+  <summary>About</summary>
 
-  Links to some of my architectural projects with photos and drawings; and a handful of web apps crafted with TypeScript, Sass, and HTML custom elements.
+  Hello, I’m an ex-Google engineer and former Chicago architect who currently spends quality time in New Orleans with friends, family, and the bass guitar. Thanks for stopping by!
 
-  - Barge board [shotgun house renovation][shotgun-fsj] in Faubourg St. John, New Orleans.
-  - Web version of the wonderful Charles and Ray Eames film [Powers Of Ten][ten].
-  - Travel [sketches and collages][europa] I made while wandering Europe.
+</details>
+
+<details>
+  <summary>Selected Works</summary>
+
+  Photos, sketches, and drawings of architectural projects; and a selection of web apps crafted with TypeScript, Sass, and HTML custom elements.
+
+  - [Barge board shotgun house renovation][shotgun-fsj] in Faubourg St. John, New Orleans.
+  - [Powers Of Ten][ten] web adaptation of the wonderful film by Charles and Ray Eames.
+  - [Travel sketches and collages][europa] made while wandering Europe.
   - [Clock][clock] composed of nine sets of hands.
   - [Calorie calculator][calories] for determining daily calorie needs.
   - [Compound interest calculator][interest] with support for multiple currencies.
@@ -25,10 +31,9 @@ Ben Gauslin is a former Chicago architect and ex-Google engineer who currently l
 
 <details>
   <summary>Contact</summary>
-  
+
   You can reach me via [email][email], [text][sms], or [voicemail][phone].
 
-  Thanks for stopping by!
 </details>
 
 

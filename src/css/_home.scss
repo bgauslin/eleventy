@@ -1,31 +1,48 @@
+// Sass constants.
+$duration: .3s;
+
+// Vars for light/dark mode.
 :root {
-  --body-background: GhostWhite;
-  --focus-color: OrangeRed;
+  --background-0: GhostWhite;
+  --background-1: white;
+  --focus-color: DeepPink;
   --link-color: DodgerBlue;
+  --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
   --text-color: Black;
   --visited-color: RebeccaPurple;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-background: Black;
-    --focus-color: Tomato;
+    --background-0: Black;
+    --background-1: #{rgba(white, .1)};
+    --focus-color: HotPink;
     --link-color: CornflowerBlue;
+    --shadow-1: #{rgba(white, .15)} 0 0 0 1px;
     --text-color: Gainsboro;
     --visited-color: MediumPurple;
   }
 }
 
+// Layouts.
+.home {
+  --main-margin-inline: auto;
+  --main-max-inline-size: 34em;
+  --main-padding: 1.5em;
+}
+
+// Global elements.
 :where(*) {
   box-sizing: border-box;
 }
 
 html {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
-  background: var(--body-background);
+  background: var(--background-0);
   color: var(--text-color);
   font: clamp(.875em, .5em + 1vw, 2em) / 1.5 system-ui, sans-serif;
   margin: 0;
@@ -33,21 +50,49 @@ body {
 }
 
 main {
-  margin-inline: auto;
-  max-inline-size: 34em;
-  padding: 2em;
+  margin-inline: var(--main-margin-inline);
+  max-inline-size: var(--main-max-inline-size);
+  padding: var(--main-padding);
 }
 
-h1 {
-  font-size: 1em;
-  margin: 0;
+// Expandable sections.
+details {
+  background: var(--background-1);
+  border-radius: .5em;
+  box-shadow: var(--shadow-1);
+  margin-block: 1.5em;
+  padding-block: .5em;
+  padding-inline: 1em;
 }
 
 summary {
   cursor: pointer;
+  display: flex;
   font-weight: bold;
-  margin-block: 1em 0;
-  margin-inline: -1em 0;
+}
+
+summary::after {
+  align-self: center;
+  background: currentColor;
+  block-size: .5em;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  content: '';
+  display: inline-flex;
+  flex: 0 0 auto;
+  inline-size: 1em;
+  margin-inline: auto 0;
+  transform-origin: center;
+  transition: transform $duration;
+}
+
+[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+// Text styles.
+h1 {
+  font-size: 1em;
+  margin: 0;
 }
 
 ul {
@@ -58,6 +103,7 @@ li {
   margin-block: 1em;
 }
 
+// Link styles.
 :link {
   color: var(--link-color);
   font-weight: bold;
@@ -79,6 +125,6 @@ li {
 
 @media (any-hover: hover) {
   :where(a, summary) {
-    transition: color .3s;
+    transition: color $duration;
   }
 }
