@@ -65,9 +65,7 @@ details {
 
 // [1]: Default 'display' override removes default marker.
 summary {
-  align-items: center;
   cursor: pointer;
-  display: flex; // [1]
   font-weight: bold;
   opacity: .75;
   padding-block: .5em;
@@ -91,28 +89,6 @@ summary:hover {
   opacity: 1;
 }
 
-// Safari needs vendor pseudo-element to hide marker.
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::after {
-  block-size: $arrow-size;
-  border-block-end: 2px solid currentColor;
-  border-inline-end: 2px solid currentColor;
-  content: '';
-  display: block;
-  inline-size: $arrow-size;
-  margin-block: -50%;
-  margin-inline: auto 0;
-  transform: rotate(45deg);
-  transition: transform $duration;
-}
-
-[open] > summary::after {
-  transform: rotate(225deg);
-}
-
 // Text styles.
 :is(h1, h2, h3) {
   font-size: 1em;
@@ -129,6 +105,10 @@ details > ul {
 
 li {
   margin-block: 1em;
+}
+
+li::marker {
+  content: '❉ ';
 }
 
 // Link styles.
