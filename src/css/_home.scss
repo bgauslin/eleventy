@@ -56,20 +56,35 @@ main {
   padding: var(--main-padding, 1.5em);
 }
 
+// Headings.
+:is(h1, h2, h3) {
+  font-size: 1em;
+  margin: 0;
+}
+
+h1 + p {
+  margin-block-start: 0;
+}
+
 // Expandable sections.
 details {
   background: var(--background-1);
   border-radius: .5em;
   box-shadow: var(--shadow-1);
+  box-sizing: content-box;
   margin-block: 1.5em;
-  padding-block: 0; 
 }
 
-.accordion {
-  --details-size: 2.5em;
+details[open] {
+  padding-block: 0 1px;
 }
 
-.accordion details {
+// Scoped styles for animated and accordion UX.
+.fancy-details {
+  --details-size: 2.5em; // TODO: Set via JS (?)
+}
+
+.fancy-details details {
   block-size: var(--details-size, auto);
   overflow: hidden;
   transition: block-size .3s;
@@ -95,16 +110,6 @@ details > * {
 summary:focus,
 summary:hover {
   opacity: 1;
-}
-
-// Text styles.
-:is(h1, h2, h3) {
-  font-size: 1em;
-  margin: 0;
-}
-
-h1 + p {
-  margin-block-start: 0;
 }
 
 details > ul {

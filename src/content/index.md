@@ -10,7 +10,7 @@ view: home
 
 <small>Architect · UX Engineer · Musician</small>
 
-<details data-accordion>
+<details>
   <summary>About</summary>
 
   Hello, I’m a former Chicago architect and Xoogler who lives in New Orleans.
@@ -19,7 +19,7 @@ view: home
 
 </details>
 
-<details data-accordion>
+<details>
   <summary>Selected Works</summary>
 
   Photos, sketches, and drawings of architectural projects; and a selection of web apps crafted with TypeScript, Sass, and HTML custom elements.
@@ -33,7 +33,7 @@ view: home
 
 </details>
 
-<details data-accordion>
+<details>
   <summary>Contact</summary>
 
   You can reach me via [email][email], [text][sms], or [voicemail][phone].

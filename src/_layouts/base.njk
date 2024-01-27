@@ -9,7 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
   </head>
-  <body class="{{ view }}">
+  <body class="{{ view }} fancy-details accordion external-links">
     <main>
       {{ content | safe }}
     </main>
@@ -19,10 +19,14 @@
     class Tools {
       init() {
         this.#externalLinks();
-        // this.#accordion();
+        this.#fancyDetails();
       }
 
       #externalLinks() {
+        if (!document.body.classList.contains('external-links')) {
+          return;
+        }
+
         const home = new URL(window.location);
         const links = document.querySelectorAll('a');
 
@@ -35,12 +39,17 @@
         }
       }
 
-      #accordion() {
-        const details = document.querySelectorAll('details');
+      #fancyDetails() {
+        if (!document.body.classList.contains('fancy-details')) {
+          return;
+        }
 
+        const details = document.querySelectorAll('details');
         if (!details.length) {
           return;
         }
+
+        const sizeProp = '--details-size';
 
         document.body.addEventListener('click', (e) => {
           if (e.target.tagName.toLowerCase() !== 'summary') {
@@ -49,18 +58,22 @@
 
           // Set block-size for transitions.
           const parent = e.target.closest('details');
+
           requestAnimationFrame(() => {
-            parent.style.setProperty('--details-size', `${parent.scrollHeight}px`);
+            parent.style.setProperty(sizeProp, `${parent.scrollHeight}px`);
 
             if (!parent.hasAttribute('open')) {
-              parent.style.removeProperty('--details-size');
+              parent.style.removeProperty(sizeProp);
             }
           });
 
-          for (const detail of details) {
-            if (detail !== parent) {
-              detail.removeAttribute('open');
-              detail.style.removeProperty('--details-size');
+          // Only one element is open at at time.
+          if (document.body.classList.contains('accordion')) {
+            for (const detail of details) {
+              if (detail !== parent) {
+                detail.removeAttribute('open');
+                detail.style.removeProperty(sizeProp);
+              }
             }
           }
         });
