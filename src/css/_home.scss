@@ -2,7 +2,7 @@
   --background-0: GhostWhite;
   --background-1: white;
   --background-theme: #{rgba(DodgerBlue, .2)};
-  --duration: .2s;
+  --duration: .3s;
   --focus-color: OrangeRed;
   --link-color: DodgerBlue;
   --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
@@ -82,11 +82,11 @@ details[open] {
   padding-block: 0 1px; // [1]]
 }
 
-// Scoped styles for animated and accordion UX.
-details[data-animated] {
-  block-size: var(--details-size, 2.5em);
+// Scoped styles for animated UX.
+details.fancy {
+  block-size: var(--block-size, 2.5em);
   overflow: hidden;
-  transition: block-size .3s;
+  transition: block-size var(--duration);
 }
 
 summary {
@@ -105,8 +105,7 @@ details > * {
   padding-inline: 1em;
 }
 
-summary:focus,
-summary:hover {
+summary:is(:focus, :hover) {
   opacity: 1;
 }
 
@@ -118,7 +117,7 @@ li {
   margin-block: 1em;
 }
 
-// Link styles.
+// Generic links.
 a {
   color: var(--link-color);
   font-weight: bold;
@@ -137,12 +136,7 @@ a:hover {
   color: var(--focus-color);
 }
 
-@media (any-hover: hover) {
-  a {
-    transition: color var(--duration);
-  }
-}
-
+// Links styled as buttons.
 .buttons {
   display: flex;
   gap: 0 1em;
@@ -157,7 +151,7 @@ a:hover {
 
 .buttons a {
   aspect-ratio: 1;
-  background: var(--background-theme);
+  background-color: var(--background-theme);
   border-radius: 100%;
   display: grid;
   grid: 1fr / 1fr;
@@ -165,8 +159,28 @@ a:hover {
   place-items: center;
 }
 
+.buttons a:is(:focus, :hover) {
+  background-color: var(--link-color);
+  color: var(--background-0);
+}
+
+.buttons a:active {
+  transform: scale(.8);
+}
+
 .buttons svg {
   aspect-ratio: 1;
   fill: currentColor;
   inline-size: max(24px, 1.75em);
+}
+
+// Only apply transitions on devices that support hover.
+@media (any-hover: hover) {
+  a {
+    transition: background-color var(--duration), color var(--duration), transform var(--duration);
+  }
+
+  svg {
+    transition: fill var(--duration);
+  }
 }

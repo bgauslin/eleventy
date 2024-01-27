@@ -1,4 +1,4 @@
-const DETAILS_SIZE = '--details-size';
+const SIZE_VAR = '--block-size';
 
 class FancyDetails extends HTMLElement {
   static observedAttributes = ['accordion', 'animated'];
@@ -21,7 +21,7 @@ class FancyDetails extends HTMLElement {
   }
 
   disconnectedCallback() {
-    this.removeEventListener('click', this.clickListener);
+    document.body.removeEventListener('click', this.clickListener);
   }
 
   // Sets attribute on elements to activate CSS transitions.
@@ -32,10 +32,10 @@ class FancyDetails extends HTMLElement {
 
     for (const details of this.details) {
       if (this.animated) {
-        details.setAttribute('data-animated', '');
+        details.classList.add('fancy');
       } else {
-        details.removeAttribute('data-animated');
-        details.style.removeProperty(DETAILS_SIZE);
+        details.classList.remove('fancy');
+        details.style.removeProperty(SIZE_VAR);
       }
     }
   }
@@ -47,22 +47,23 @@ class FancyDetails extends HTMLElement {
       return;
     }
 
-    const detailsActive = event.target.closest('details');
+    const current = event.target.closest('details');
 
-    if (this.animated) {  
+    if (this.animated) { 
       window.requestAnimationFrame(() => {
-        detailsActive.style.setProperty(DETAILS_SIZE, `${detailsActive.scrollHeight}px`);
-        if (!detailsActive.hasAttribute('open')) {
-          detailsActive.style.removeProperty(DETAILS_SIZE);
+        if (current.hasAttribute('open')) {
+          current.style.setProperty(SIZE_VAR, `${current.scrollHeight}px`);
+        } else {
+          current.style.removeProperty(SIZE_VAR);
         }
       });
     }
 
     if (this.accordion) {
       for (const details of this.details) {
-        if (details !== detailsActive) {
+        if (details !== current) {
           details.removeAttribute('open');
-          details.style.removeProperty(DETAILS_SIZE);
+          details.style.removeProperty(SIZE_VAR);
         }
       }
     }
