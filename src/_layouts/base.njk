@@ -14,4 +14,59 @@
       {{ content | safe }}
     </main>
   </body>
+
+  <script>
+    class Tools {
+      init() {
+        this.#externalLinks();
+        // this.#accordion();
+      }
+
+      #externalLinks() {
+        const home = new URL(window.location);
+        const links = document.querySelectorAll('a');
+
+        for (const link of links) {
+          const {hostname, protocol} = new URL(link.href);
+          if (protocol === 'https:' && hostname !== home.hostname) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener');
+          }
+        }
+      }
+
+      #accordion() {
+        const details = document.querySelectorAll('details');
+
+        if (!details.length) {
+          return;
+        }
+
+        document.body.addEventListener('click', (e) => {
+          if (e.target.tagName.toLowerCase() !== 'summary') {
+            return;
+          }
+
+          // Set block-size for transitions.
+          const parent = e.target.closest('details');
+          requestAnimationFrame(() => {
+            parent.style.setProperty('--details-size', `${parent.scrollHeight}px`);
+
+            if (!parent.hasAttribute('open')) {
+              parent.style.removeProperty('--details-size');
+            }
+          });
+
+          for (const detail of details) {
+            if (detail !== parent) {
+              detail.removeAttribute('open');
+              detail.style.removeProperty('--details-size');
+            }
+          }
+        });
+      }
+    }
+    
+    new Tools().init();
+  </script>
 </html>

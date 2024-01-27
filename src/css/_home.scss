@@ -11,6 +11,8 @@ $duration: .2s;
   --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
   --text-color: Black;
   --visited-color: RebeccaPurple;
+
+  // --details-size: 2.5em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,7 +62,17 @@ details {
   border-radius: .5em;
   box-shadow: var(--shadow-1);
   margin-block: 1.5em;
-  padding-block: 0;
+  padding-block: 0; 
+}
+
+.accordion {
+  --details-size: 2.5em;
+}
+
+.accordion details {
+  block-size: var(--details-size, auto);
+  overflow: hidden;
+  transition: block-size .3s;
 }
 
 // [1]: Default 'display' override removes default marker.
@@ -78,10 +90,6 @@ summary + * {
 
 details > * {
   padding-inline: 1em;
-}
-
-details > *:last-child {
-  padding-block-end: 1em;
 }
 
 summary:focus,
@@ -105,10 +113,6 @@ details > ul {
 
 li {
   margin-block: 1em;
-}
-
-li::marker {
-  content: '❉ ';
 }
 
 // Link styles.
