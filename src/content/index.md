@@ -42,6 +42,10 @@ view: home
 
 </details>
 
+<div><my-tools accordion animated links></my-tools></div>
+
+<script>{% include 'tools.js' %}</script>
+
 
 [calories]: https://calories.gauslin.com "View the Calorie Calculator web app"
 [clock]: https://clock.gauslin.com "View the Clocks web app"
