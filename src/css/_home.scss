@@ -1,12 +1,8 @@
-// Sass constants for DRYness.
-$arrow-size: .5em;
-$duration: .2s;
-
-// Vars for light/dark mode.
 :root {
   --background-0: GhostWhite;
   --background-1: white;
   --background-theme: #{rgba(DodgerBlue, .2)};
+  --duration: .2s;
   --focus-color: OrangeRed;
   --link-color: DodgerBlue;
   --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
@@ -33,13 +29,13 @@ $duration: .2s;
 }
 
 // Global elements.
-:where(*) {
-  box-sizing: border-box;
-}
-
 html {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+}
+
+:where(*) {
+  box-sizing: border-box;
 }
 
 body {
@@ -66,6 +62,11 @@ h1 + p {
   margin-block-start: 0;
 }
 
+// Remove default outline.
+:where(a, summary) {
+  outline: none;
+}
+
 // Expandable sections.
 details {
   background: var(--background-1);
@@ -75,8 +76,10 @@ details {
   margin-block: 1.5em;
 }
 
+// [1]: 1px forces hidden height to equal scrollHeight; last element's margin
+// breaks out of container otherwise.
 details[open] {
-  padding-block: 0 1px;
+  padding-block: 0 1px; // [1]]
 }
 
 // Scoped styles for animated and accordion UX.
@@ -90,13 +93,12 @@ details[open] {
   transition: block-size .3s;
 }
 
-// [1]: Default 'display' override removes default marker.
 summary {
   cursor: pointer;
   font-weight: bold;
   opacity: .75;
   padding-block: .5em;
-  transition: opacity $duration;
+  transition: opacity var(--duration);
 }
 
 summary + * {
@@ -121,10 +123,6 @@ li {
 }
 
 // Link styles.
-:where(a, summary) {
-  outline: none;
-}
-
 a {
   color: var(--link-color);
   font-weight: bold;
@@ -145,7 +143,7 @@ a:hover {
 
 @media (any-hover: hover) {
   a {
-    transition: color $duration;
+    transition: color var(--duration);
   }
 }
 

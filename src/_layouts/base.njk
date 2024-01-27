@@ -9,7 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
   </head>
-  <body class="{{ view }} fancy-details accordion external-links">
+  <body class="{{ view }} fancy-details accordion">
     <main>
       {{ content | safe }}
     </main>
@@ -23,10 +23,6 @@
       }
 
       #externalLinks() {
-        if (!document.body.classList.contains('external-links')) {
-          return;
-        }
-
         const home = new URL(window.location);
         const links = document.querySelectorAll('a');
 
