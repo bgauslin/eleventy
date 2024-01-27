@@ -9,20 +9,25 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
   </head>
-  <body class="{{ view }} fancy-details accordion">
+  <body class="{{ view }}">
     <main>
       {{ content | safe }}
     </main>
+    <my-tools accordion animated links></my-tools>
   </body>
 
   <script>
-    class Tools {
-      init() {
+    class Tools extends HTMLElement {
+      connectedCallback() {
         this.#externalLinks();
         this.#fancyDetails();
       }
 
       #externalLinks() {
+        if (!this.hasAttribute('links')) {
+          return;
+        }
+
         const home = new URL(window.location);
         const links = document.querySelectorAll('a');
 
@@ -36,7 +41,7 @@
       }
 
       #fancyDetails() {
-        if (!document.body.classList.contains('fancy-details')) {
+        if (!this.hasAttribute('animated')) {
           return;
         }
 
@@ -45,37 +50,43 @@
           return;
         }
 
-        const sizeProp = '--details-size';
+        for (const detail of details) {
+          detail.setAttribute('data-animated', '');
+        }
 
-        document.body.addEventListener('click', (e) => {
+        // Update CSS vars and HTML attributes on click for animated and/or
+        // accordion UX.
+        const update = (e) => {
           if (e.target.tagName.toLowerCase() !== 'summary') {
             return;
           }
 
+          const prop = '--details-size';
+
           // Set block-size for transitions.
           const parent = e.target.closest('details');
-
           requestAnimationFrame(() => {
-            parent.style.setProperty(sizeProp, `${parent.scrollHeight}px`);
-
+            parent.style.setProperty(prop, `${parent.scrollHeight}px`);
             if (!parent.hasAttribute('open')) {
-              parent.style.removeProperty(sizeProp);
+              parent.style.removeProperty(prop);
             }
           });
 
-          // Only one element is open at at time.
-          if (document.body.classList.contains('accordion')) {
+          // Ensure only one element is open at at time.
+          if (this.hasAttribute('accordion')) {
             for (const detail of details) {
               if (detail !== parent) {
                 detail.removeAttribute('open');
-                detail.style.removeProperty(sizeProp);
+                detail.style.removeProperty(prop);
               }
             }
           }
-        });
+        }
+
+        document.body.addEventListener('click', (e) => update(e));
       }
     }
     
-    new Tools().init();
+    customElements.define('my-tools', Tools);
   </script>
 </html>

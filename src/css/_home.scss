@@ -83,12 +83,8 @@ details[open] {
 }
 
 // Scoped styles for animated and accordion UX.
-.fancy-details {
-  --details-size: 2.5em; // TODO: Set via JS (?)
-}
-
-.fancy-details details {
-  block-size: var(--details-size, auto);
+details[data-animated] {
+  block-size: var(--details-size, 2.5em);
   overflow: hidden;
   transition: block-size .3s;
 }
