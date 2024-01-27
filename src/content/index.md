@@ -42,9 +42,15 @@ view: home
 
 </details>
 
-<div><my-tools accordion animated links></my-tools></div>
+<div>
+  <external-links></external-links>
+  <fancy-details accordion animated></fancy-details>
+</div>
 
-<script>{% include 'tools.js' %}</script>
+<script>
+  {% include 'ExternalLinks.js' %}
+  {% include 'FancyDetails.js' %}
+</script>
 
 
 [calories]: https://calories.gauslin.com "View the Calorie Calculator web app"
