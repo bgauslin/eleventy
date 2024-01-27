@@ -1,0 +1,11 @@
+<ul class="buttons">
+{% for link in contact %}
+  <li>
+    <a aria-label="{{ link.label }}"
+       href="{{ link.href }}"
+       title="{{ link.label }}">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons[link.icon] }}"></svg>
+    </a>
+  </li>
+{% endfor %}
+</ul>

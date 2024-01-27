@@ -1,0 +1,17 @@
+[
+  {
+    "href": "mailto:ben@gauslin.com?subject=Hello",
+    "icon": "email",
+    "label": "Send an email"
+  },
+  {
+    "href": "sms:5044057842",
+    "icon": "sms",
+    "label": "Send a text message"
+  },
+  {
+    "href": "tel:5044057842",
+    "icon": "phone",
+    "label": "Make a phone call"
+  }
+]

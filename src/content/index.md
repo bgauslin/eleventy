@@ -36,17 +36,16 @@ view: home
 <details>
   <summary>Contact</summary>
 
-  You can reach me via [email][email], [text][sms], or [voicemail][phone].
+  You can reach me via email, text, or voicemail:
+
+  {% include 'links.njk' %}
 
 </details>
 
 
 [calories]: https://calories.gauslin.com "View the Calorie Calculator web app"
 [clock]: https://clock.gauslin.com "View the Clocks web app"
-[email]: mailto:ben@gauslin.com?subject=Hello "Send an email"
 [europa]: https://slides.gauslin.com/sketches-collages "Documenting travel abroad with pen, pencil, and found materials"
 [interest]: https://interest.gauslin.com "View the Compound Interest Calculator web app"
-[phone]: tel:5044057842 "Make a phone call"
 [shotgun-fsj]: https://slides.gauslin.com/shotgun "Breathing new life into an 1890s New Orleans shotgun house"
-[sms]: sms:5044057842 "Send a text message"
 [ten]: https://ten.gauslin.com "View the Powers Of Ten web app"
