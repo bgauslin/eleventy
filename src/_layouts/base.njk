@@ -41,7 +41,7 @@
       }
 
       #fancyDetails() {
-        if (!this.hasAttribute('animated')) {
+        if (!this.hasAttribute('animated') && !this.hasAttribute('accordion')) {
           return;
         }
 
@@ -50,8 +50,11 @@
           return;
         }
 
-        for (const detail of details) {
-          detail.setAttribute('data-animated', '');
+        // Set attribute om elements to activate CSS.
+        if (this.hasAttribute('animated')) {
+          for (const detail of details) {
+            detail.setAttribute('data-animated', '');
+          }
         }
 
         // Update CSS vars and HTML attributes on click for animated and/or
@@ -64,13 +67,15 @@
           const prop = '--details-size';
 
           // Set block-size for transitions.
-          const parent = e.target.closest('details');
-          requestAnimationFrame(() => {
-            parent.style.setProperty(prop, `${parent.scrollHeight}px`);
-            if (!parent.hasAttribute('open')) {
-              parent.style.removeProperty(prop);
-            }
-          });
+          if (this.hasAttribute('animated')) {
+            const parent = e.target.closest('details');
+            requestAnimationFrame(() => {
+              parent.style.setProperty(prop, `${parent.scrollHeight}px`);
+              if (!parent.hasAttribute('open')) {
+                parent.style.removeProperty(prop);
+              }
+            });
+          }
 
           // Ensure only one element is open at at time.
           if (this.hasAttribute('accordion')) {
