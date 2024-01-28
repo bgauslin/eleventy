@@ -67,15 +67,15 @@ details > * {
 details > ul {
   list-style: none;
   margin-block: 1em 0;
-  padding-block: 0 .5em;
   padding-inline: 0;
 }
 
 details li {
+  border-block-start: .5px solid var(--rule-color);
   align-items: center;
   display: flex;
   gap: 0 1em;
-  padding-block: .5em;
+  padding-block: 1em;
   padding-inline: 1em 2em;
 }
 
@@ -87,5 +87,4 @@ details img {
   aspect-ratio: 1;
   border-radius: .25em;
   inline-size: 4em;
-  object-fit: cover;
 }
