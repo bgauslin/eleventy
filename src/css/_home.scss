@@ -13,8 +13,10 @@ details[open] {
 }
 
 // Styles scoped to className set by JS for animated UX.
+$summary-height: 3em;
+
 details.fancy {
-  block-size: var(--height, 3em);
+  block-size: var(--height, $summary-height);
   overflow: hidden;
   transition: block-size var(--duration);
 }
@@ -22,12 +24,13 @@ details.fancy {
 // Expandable labels/toggles.
 summary {
   align-items: center;
+  block-size: $summary-height;
   cursor: pointer;
   display: flex;
   font-weight: bold;
   opacity: .75;
   outline: none;
-  padding-block: .75em;
+  // padding-block: .75em;
   transition: opacity var(--duration);
 }
 
@@ -69,9 +72,21 @@ details > * {
 }
 
 details > ul {
-  padding-inline: 2em 1em;
+  list-style: none;
+  padding-inline: 0;
 }
 
 details li {
+  align-items: center;
+  display: flex;
+  gap: 0 1em;
   margin-block: 1em;
+  padding-inline: 1em;
+}
+
+details img {
+  aspect-ratio: 1;
+  border-radius: .25em;
+  inline-size: 4em;
+  object-fit: cover;
 }

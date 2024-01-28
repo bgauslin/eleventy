@@ -7,6 +7,9 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/apple-touch-icon.png');
   eleventyConfig.addPassthroughCopy('src/favicon.svg');
 
+  // Images.
+  eleventyConfig.addPassthroughCopy({'src/img/*.*': 'img'});
+
   // Sass stylesheet.
   eleventyConfig.addPlugin(pluginRev);
   eleventyConfig.addPlugin(sass, {
