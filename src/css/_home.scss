@@ -44,15 +44,19 @@ summary::after {
   inline-size: .5em;
   margin-inline: auto 0;
   transform: rotate(45deg);
-  transition: transform var(--duration);
-}
-
-summary::-webkit-details-marker {
-  display: none;
 }
 
 [open] > summary::after {
   transform: rotate(135deg);
+}
+
+details.fancy > summary::after {
+  transition: transform var(--duration);
+}
+
+// Safari needs vendor-prefix selector.
+summary::-webkit-details-marker {
+  display: none;
 }
 
 // Expandable content.
