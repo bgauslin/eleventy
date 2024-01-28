@@ -1,3 +1,7 @@
+/**
+ * Extends all <details> elements in the DOM with open/closing transitions and
+ * accordion behavior based on custom attributes set on the custom element.
+ */
 class FancyDetails extends HTMLElement {
   static observedAttributes = ['accordion', 'animated'];
 
@@ -23,7 +27,8 @@ class FancyDetails extends HTMLElement {
   }
 
   /**
-   * Sets/removes className on elements to enable/disable CSS transitions.
+   * Adds/removes className on each <details> element to enable/disable
+   * CSS transitions.
    */ 
   updateElements() {
     if (!this.details || !this.details.length) {
@@ -41,7 +46,8 @@ class FancyDetails extends HTMLElement {
   }
 
   /**
-   * Updates CSS vars and HTML attributes on click for animated/accordion UX.
+   * Gets current <details> element and updates CSS vars and HTML attributes
+   * for animated/accordion UX.
    */ 
   handleClick(event) {
     if (event.target.tagName.toLowerCase() !== 'summary') {
@@ -50,6 +56,8 @@ class FancyDetails extends HTMLElement {
 
     const current = event.target.closest('details');
 
+    // Set CSS var scoped directly on <details> element if it's open;
+    // otherwise remove the CSS var and fallback to default value.
     if (this.animated) { 
       window.requestAnimationFrame(() => {
         if (current.hasAttribute('open')) {
@@ -60,6 +68,7 @@ class FancyDetails extends HTMLElement {
       });
     }
 
+    // Remove 'open' attributes from all non-active <details> elements.
     if (this.accordion) {
       for (const details of this.details) {
         if (details !== current) {
