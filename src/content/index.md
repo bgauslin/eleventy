@@ -24,13 +24,14 @@ view: home
 
   Photos, sketches, and drawings of architectural projects; and a selection of web apps crafted with TypeScript, Sass, and HTML custom elements.
 
-  - [![''](/img/shotgun-great-room.jpg)][shotgun-fsj] <div>[Shotgun house renovation][shotgun-fsj] of a barge board home in Faubourg St. John, New Orleans.</div>
+  - [![''](/img/shotgun-great-room.jpg)][shotgun-fsj] <div>[Shotgun Renovation][shotgun-fsj] of a barge board house near Bayou St. John in New Orleans.</div>
   - [![''](/img/ten-galaxy.jpg)][ten] <div>[Powers Of Ten][ten] web adaptation of the film by Charles and Ray Eames.</div>
-  - [![''](/img/calories-icon.png)][calories] <div>[Calorie calculator][calories] for determining daily calorie needs.</div>
+  - [![''](/img/calories-icon.png)][calories] <div>[Calorie Calculator][calories] for determining daily calorie needs.</div>
   - [![''](/img/clock-icon.png)][clock] <div>[Clock][clock] composed of nine faces that reveal patterns over time.</div>
-  - [![''](/img/sketch-piazza.png)][europa] <div>[Travel sketches and collages][europa] from time abroad in Europe.</div>
+  - [![''](/img/sketch-piazza.png)][europa] <div>[Travel Sketches and Collages][europa] from time abroad in Europe.</div>
   - [![''](/img/moon-icon.png)][moon] <div>[Moon][moon] tracking for moorise, moonset, sunrise, sunset, and lunar phase.</div>
-  - [![''](/img/interest-icon.png)][interest] <div>[Compound interest calculator][interest] with support for multiple currencies.</div>
+  - [![''](/img/hfac-rear.jpg)][hfac] <div>[House for an Art Collector][hfac] while employed at Shafer Architects in Chicago.</div>
+  - [![''](/img/interest-icon.png)][interest] <div>[Compound Interest Calculator][interest] with support for multiple currencies.</div>
 
 </details>
 
