@@ -5,6 +5,7 @@
   --focus-color: OrangeRed;
   --link-background: #{rgba(DodgerBlue, .2)};
   --link-color: DodgerBlue;
+  --rule: 1px solid #ddd;
   --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
   --text-color: Black;
   --visited-color: RebeccaPurple;
@@ -17,6 +18,7 @@
     --focus-color: DarkOrange;
     --link-background: #{rgba(CornflowerBlue, .2)};
     --link-color: CornflowerBlue;
+    --rule: 1px solid #444;
     --shadow-1: #{rgba(white, .15)} 0 0 0 1px;
     --text-color: Gainsboro;
     --visited-color: MediumPurple;

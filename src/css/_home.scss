@@ -41,10 +41,10 @@ summary:is(:focus, :hover) {
 // Caret to replace default arrow.
 summary::after {
   aspect-ratio: 1;
-  border-block-start: 3px solid currentColor;
-  border-inline-end: 3px solid currentColor;
+  border-block-start: 2px solid currentColor;
+  border-inline-end: 2px solid currentColor;
   content: '';
-  inline-size: .5em;
+  inline-size: .375em;
   margin-inline: auto 0;
   transform: rotate(45deg);
 }
@@ -78,9 +78,10 @@ details > ul {
 
 details li {
   align-items: center;
+  border-block-start: var(--rule);
   display: flex;
   gap: 0 1em;
-  margin-block: 1em;
+  padding-block: 1em;
   padding-inline: 1em;
 }
 

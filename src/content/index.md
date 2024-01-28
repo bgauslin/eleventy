@@ -28,7 +28,7 @@ view: home
   - [![''](/img/ten-galaxy.jpg)][ten] <div>[Powers Of Ten][ten] web adaptation of the film by Charles and Ray Eames.</div>
   - [![''](/img/calories-icon.png)][calories] <div>[Calorie calculator][calories] for determining daily calorie needs.</div>
   - [![''](/img/clock-icon.png)][clock] <div>[Clock][clock] composed of nine faces that reveal patterns over time.</div>
-  - [![''](/img/sketch-verona.png)][europa] <div>[Travel sketches and collages][europa] from time abroad in Europe.</div>
+  - [![''](/img/sketch-piazza.png)][europa] <div>[Travel sketches and collages][europa] from time abroad in Europe.</div>
   - [![''](/img/moon-icon.png)][moon] <div>[Moon][moon] tracking for moorise, moonset, sunrise, sunset, and lunar phase.</div>
   - [![''](/img/interest-icon.png)][interest] <div>[Compound interest calculator][interest] with support for multiple currencies.</div>
 
