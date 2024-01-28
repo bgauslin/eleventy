@@ -1,9 +1,9 @@
 :root {
   --background-0: GhostWhite;
   --background-1: white;
-  --background-theme: #{rgba(DodgerBlue, .2)};
   --duration: .3s;
   --focus-color: OrangeRed;
+  --link-background: #{rgba(DodgerBlue, .2)};
   --link-color: DodgerBlue;
   --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
   --text-color: Black;
@@ -14,8 +14,8 @@
   :root {
     --background-0: Black;
     --background-1: #{rgba(white, .1)};
-    --background-theme: #{rgba(CornflowerBlue, .2)};
     --focus-color: DarkOrange;
+    --link-background: #{rgba(CornflowerBlue, .2)};
     --link-color: CornflowerBlue;
     --shadow-1: #{rgba(white, .15)} 0 0 0 1px;
     --text-color: Gainsboro;
@@ -26,6 +26,19 @@
 // Layouts.
 .home {
   --main-max-inline-size: 34em;
+}
+
+// Font preference.
+[data-font='block'] {
+  --font-family: Avenir Next, sans-serif;
+}
+
+[data-font='sans'] {
+  --font-family: system-ui, sans-serif;
+}
+
+[data-font='serif'] {
+  --font-family: Georgia, serif;
 }
 
 // Global elements.
@@ -41,7 +54,7 @@ html {
 body {
   background: var(--background-0);
   color: var(--text-color);
-  font: clamp(.875em, .5em + 1vw, 2em) / 1.5 system-ui, sans-serif;
+  font: clamp(.875em, .5em + 1vw, 2em) / 1.5 var(--font-family);
   margin: 0;
   min-block-size: 100dvh;
 }
@@ -84,7 +97,7 @@ details[open] {
 
 // Scoped styles for animated UX.
 details.fancy {
-  block-size: var(--block-size, 2.5em);
+  block-size: var(--height, 2.5em);
   overflow: hidden;
   transition: block-size var(--duration);
 }
@@ -97,20 +110,20 @@ summary {
   transition: opacity var(--duration);
 }
 
-summary + * {
-  margin-block-start: 0;
-}
-
 details > * {
   padding-inline: 1em;
 }
 
-summary:is(:focus, :hover) {
-  opacity: 1;
-}
-
 details > ul {
   padding-inline: 2em 1em;
+}
+
+summary + * {
+  margin-block-start: 0;
+}
+
+summary:is(:focus, :hover) {
+  opacity: 1;
 }
 
 li {
@@ -151,7 +164,7 @@ a:hover {
 
 .buttons a {
   aspect-ratio: 1;
-  background-color: var(--background-theme);
+  background-color: var(--link-background);
   border-radius: 100%;
   display: grid;
   grid: 1fr / 1fr;

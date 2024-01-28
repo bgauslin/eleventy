@@ -1,14 +1,12 @@
+/**
+ * Adds attributes to external links to open each in a new window.
+ */ 
 class ExternalLinks extends HTMLElement {
   constructor() {
     super();
   }
-
+  
   connectedCallback() {
-    this.#update();
-  }
-
-  // Adds attributes to external links to open each in a new window.
-  #update() {
     const home = new URL(window.location);
     const links = document.querySelectorAll('a');
 

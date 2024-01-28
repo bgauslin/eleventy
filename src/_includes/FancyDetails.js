@@ -1,31 +1,31 @@
-const SIZE_VAR = '--block-size';
-
 class FancyDetails extends HTMLElement {
   static observedAttributes = ['accordion', 'animated'];
 
   constructor() {
     super();
-    this.clickListener = this.#handleClick.bind(this);
+    this.clickListener = this.handleClick.bind(this);
   }
 
   connectedCallback() {
     this.details = document.querySelectorAll('details');
     document.body.addEventListener('click', this.clickListener);
-    this.#updateElements();
+    this.updateElements();
   }
 
   attributeChangedCallback() {
     this.accordion = this.hasAttribute('accordion');
     this.animated = this.hasAttribute('animated');
-    this.#updateElements();
+    this.updateElements();
   }
 
   disconnectedCallback() {
     document.body.removeEventListener('click', this.clickListener);
   }
 
-  // Sets attribute on elements to activate CSS transitions.
-  #updateElements() {
+  /**
+   * Sets/removes className on elements to enable/disable CSS transitions.
+   */ 
+  updateElements() {
     if (!this.details || !this.details.length) {
       return;
     }
@@ -35,14 +35,15 @@ class FancyDetails extends HTMLElement {
         details.classList.add('fancy');
       } else {
         details.classList.remove('fancy');
-        details.style.removeProperty(SIZE_VAR);
+        details.style.removeProperty('--height');
       }
     }
   }
 
-  // Updates CSS vars and HTML attributes on click for animated and/or
-  // accordion UX.
-  #handleClick(event) {
+  /**
+   * Updates CSS vars and HTML attributes on click for animated/accordion UX.
+   */ 
+  handleClick(event) {
     if (event.target.tagName.toLowerCase() !== 'summary') {
       return;
     }
@@ -52,9 +53,9 @@ class FancyDetails extends HTMLElement {
     if (this.animated) { 
       window.requestAnimationFrame(() => {
         if (current.hasAttribute('open')) {
-          current.style.setProperty(SIZE_VAR, `${current.scrollHeight}px`);
+          current.style.setProperty('--height', `${current.scrollHeight}px`);
         } else {
-          current.style.removeProperty(SIZE_VAR);
+          current.style.removeProperty('--height');
         }
       });
     }
@@ -63,7 +64,7 @@ class FancyDetails extends HTMLElement {
       for (const details of this.details) {
         if (details !== current) {
           details.removeAttribute('open');
-          details.style.removeProperty(SIZE_VAR);
+          details.style.removeProperty('--height');
         }
       }
     }
