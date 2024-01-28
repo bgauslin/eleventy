@@ -6,12 +6,6 @@ details {
   margin-block: 1.5em;
 }
 
-// [1]: 1px forces hidden height to equal scrollHeight; last element's margin
-// breaks out of container otherwise.
-details[open] {
-  padding-block: 0 1px;  // [1]
-}
-
 // Styles scoped to className set by JS for animated UX.
 $summary-height: 3em;
 
@@ -30,7 +24,6 @@ summary {
   font-weight: bold;
   opacity: .75;
   outline: none;
-  // padding-block: .75em;
   transition: opacity var(--duration);
 }
 
@@ -41,8 +34,8 @@ summary:is(:focus, :hover) {
 // Caret to replace default arrow.
 summary::after {
   aspect-ratio: 1;
-  border-block-start: 2px solid currentColor;
-  border-inline-end: 2px solid currentColor;
+  border-block-start: 1px solid currentColor;
+  border-inline-end: 1px solid currentColor;
   content: '';
   inline-size: .375em;
   margin-inline: auto 0;
@@ -73,6 +66,7 @@ details > * {
 
 details > ul {
   list-style: none;
+  margin-block: 1em 0;
   padding-inline: 0;
 }
 
@@ -82,7 +76,7 @@ details li {
   display: flex;
   gap: 0 1em;
   padding-block: 1em;
-  padding-inline: 1em;
+  padding-inline: 1em 2em;
 }
 
 details img {
