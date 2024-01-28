@@ -1,0 +1,53 @@
+// Global elements.
+html {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:where(*) {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background-0);
+  color: var(--text-color);
+  font: clamp(.875em, .5em + 1vw, 2em) / 1.5 var(--font-family);
+  margin: 0;
+  min-block-size: 100dvh;
+}
+
+main {
+  margin-inline: auto;
+  max-inline-size: var(--main-max-inline-size, 80rem);
+  padding: var(--main-padding, 1.5em);
+}
+
+// Headings.
+:is(h1, h2, h3) {
+  font-size: 1em;
+  margin: 0;
+}
+
+h1 + p {
+  margin-block-start: 0;
+}
+
+// Generic links.
+a {
+  color: var(--link-color);
+  font-weight: bold;
+  outline: none;
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--visited-color);
+}
+
+a:focus {
+  color: var(--focus-color);
+}
+
+a:hover {
+  color: var(--focus-color);
+}

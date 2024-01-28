@@ -1,113 +1,63 @@
-:root {
-  --background-0: GhostWhite;
-  --background-1: white;
-  --duration: .3s;
-  --focus-color: OrangeRed;
-  --link-background: #{rgba(DodgerBlue, .2)};
-  --link-color: DodgerBlue;
-  --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
-  --text-color: Black;
-  --visited-color: RebeccaPurple;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-0: Black;
-    --background-1: #{rgba(white, .1)};
-    --focus-color: DarkOrange;
-    --link-background: #{rgba(CornflowerBlue, .2)};
-    --link-color: CornflowerBlue;
-    --shadow-1: #{rgba(white, .15)} 0 0 0 1px;
-    --text-color: Gainsboro;
-    --visited-color: MediumPurple;
-  }
-}
-
-// Layouts.
-.home {
-  --main-max-inline-size: 34em;
-}
-
-// Font preference.
-[data-font='block'] {
-  --font-family: Avenir Next, sans-serif;
-}
-
-[data-font='sans'] {
-  --font-family: system-ui, sans-serif;
-}
-
-[data-font='serif'] {
-  --font-family: Georgia, serif;
-}
-
-// Global elements.
-html {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-:where(*) {
-  box-sizing: border-box;
-}
-
-body {
-  background: var(--background-0);
-  color: var(--text-color);
-  font: clamp(.875em, .5em + 1vw, 2em) / 1.5 var(--font-family);
-  margin: 0;
-  min-block-size: 100dvh;
-}
-
-main {
-  margin-inline: auto;
-  max-inline-size: var(--main-max-inline-size, 80rem);
-  padding: var(--main-padding, 1.5em);
-}
-
-// Headings.
-:is(h1, h2, h3) {
-  font-size: 1em;
-  margin: 0;
-}
-
-h1 + p {
-  margin-block-start: 0;
-}
-
-// Remove default outline.
-:where(a, summary) {
-  outline: none;
-}
-
-// Expandable sections.
+// Expandables.
 details {
   background: var(--background-1);
   border-radius: .5em;
   box-shadow: var(--shadow-1);
-  box-sizing: content-box;
   margin-block: 1.5em;
 }
 
 // [1]: 1px forces hidden height to equal scrollHeight; last element's margin
 // breaks out of container otherwise.
 details[open] {
-  padding-block: 0 1px; // [1]]
+  padding-block: 0 1px;  // [1]
 }
 
-// Scoped styles for animated UX.
+// Styles scoped to className set by JS for animated UX.
 details.fancy {
-  block-size: var(--height, 2.5em);
+  block-size: var(--height, 3em);
   overflow: hidden;
   transition: block-size var(--duration);
 }
 
+// Expandable labels/toggles.
 summary {
+  align-items: center;
   cursor: pointer;
+  display: flex;
   font-weight: bold;
   opacity: .75;
-  padding-block: .5em;
+  outline: none;
+  padding-block: .75em;
   transition: opacity var(--duration);
+}
+
+summary:is(:focus, :hover) {
+  opacity: 1;
+}
+
+// Caret to replace default arrow.
+summary::after {
+  aspect-ratio: 1;
+  border-block-start: 3px solid currentColor;
+  border-inline-end: 3px solid currentColor;
+  content: '';
+  inline-size: .5em;
+  margin-inline: auto 0;
+  transform: rotate(45deg);
+  transition: transform var(--duration);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+[open] > summary::after {
+  transform: rotate(135deg);
+}
+
+// Expandable content.
+summary + * {
+  margin-block-start: 0;
 }
 
 details > * {
@@ -118,82 +68,6 @@ details > ul {
   padding-inline: 2em 1em;
 }
 
-summary + * {
-  margin-block-start: 0;
-}
-
-summary:is(:focus, :hover) {
-  opacity: 1;
-}
-
-li {
+details li {
   margin-block: 1em;
-}
-
-// Generic links.
-a {
-  color: var(--link-color);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:visited {
-  color: var(--visited-color);
-}
-
-a:focus {
-  color: var(--focus-color);
-}
-
-a:hover {
-  color: var(--focus-color);
-}
-
-// Links styled as buttons.
-.buttons {
-  display: flex;
-  gap: 0 1em;
-  list-style: none;
-  padding-block: 0;
-  padding-inline: 1em;
-}
-
-.buttons li {
-  margin: 0;
-}
-
-.buttons a {
-  aspect-ratio: 1;
-  background-color: var(--link-background);
-  border-radius: 100%;
-  display: grid;
-  grid: 1fr / 1fr;
-  inline-size: max(44px, 3em);
-  place-items: center;
-}
-
-.buttons a:is(:focus, :hover) {
-  background-color: var(--link-color);
-  color: var(--background-0);
-}
-
-.buttons a:active {
-  transform: scale(.8);
-}
-
-.buttons svg {
-  aspect-ratio: 1;
-  fill: currentColor;
-  inline-size: max(24px, 1.75em);
-}
-
-// Only apply transitions on devices that support hover.
-@media (any-hover: hover) {
-  a {
-    transition: background-color var(--duration), color var(--duration), transform var(--duration);
-  }
-
-  svg {
-    transition: fill var(--duration);
-  }
 }

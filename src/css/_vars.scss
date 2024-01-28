@@ -1,0 +1,42 @@
+:root {
+  --background-0: GhostWhite;
+  --background-1: white;
+  --duration: .25s;
+  --focus-color: OrangeRed;
+  --link-background: #{rgba(DodgerBlue, .2)};
+  --link-color: DodgerBlue;
+  --shadow-1: #{rgba(black, 0.15)} 0 0 4px;
+  --text-color: Black;
+  --visited-color: RebeccaPurple;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-0: Black;
+    --background-1: #{rgba(white, .1)};
+    --focus-color: DarkOrange;
+    --link-background: #{rgba(CornflowerBlue, .2)};
+    --link-color: CornflowerBlue;
+    --shadow-1: #{rgba(white, .15)} 0 0 0 1px;
+    --text-color: Gainsboro;
+    --visited-color: MediumPurple;
+  }
+}
+
+// Layouts.
+.home {
+  --main-max-inline-size: 34em;
+}
+
+// Font preference.
+[data-font='block'] {
+  --font-family: Avenir Next, sans-serif;
+}
+
+[data-font='sans'] {
+  --font-family: system-ui, sans-serif;
+}
+
+[data-font='serif'] {
+  --font-family: Georgia, serif;
+}

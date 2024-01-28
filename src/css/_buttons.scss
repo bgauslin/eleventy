@@ -1,0 +1,48 @@
+// Links styled as buttons.
+.buttons {
+  display: flex;
+  gap: 0 1em;
+  list-style: none;
+  padding-block: 0;
+  padding-inline: 1em;
+}
+
+.buttons li {
+  margin: 0;
+}
+
+.buttons a {
+  aspect-ratio: 1;
+  background-color: var(--link-background);
+  border-radius: 100%;
+  display: grid;
+  grid: 1fr / 1fr;
+  inline-size: max(44px, 3em);
+  place-items: center;
+}
+
+.buttons a:is(:focus, :hover) {
+  background-color: var(--link-color);
+  color: var(--background-0);
+}
+
+.buttons a:active {
+  transform: scale(.8);
+}
+
+.buttons svg {
+  aspect-ratio: 1;
+  fill: currentColor;
+  inline-size: max(24px, 1.75em);
+}
+
+// Only apply transitions on devices that support hover.
+@media (any-hover: hover) {
+  a {
+    transition: background-color var(--duration), color var(--duration), transform var(--duration);
+  }
+
+  svg {
+    transition: fill var(--duration);
+  }
+}
