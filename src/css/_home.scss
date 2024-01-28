@@ -67,6 +67,7 @@ details > * {
 details > ul {
   list-style: none;
   margin-block: 1em 0;
+  padding-block: 0 .5em;
   padding-inline: 0;
 }
 
@@ -75,8 +76,12 @@ details li {
   border-block-start: var(--rule);
   display: flex;
   gap: 0 1em;
-  padding-block: 1em;
+  padding-block: .5em;
   padding-inline: 1em 2em;
+}
+
+details li > div {
+  font-size: .9em;
 }
 
 details img {

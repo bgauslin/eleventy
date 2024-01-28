@@ -13,16 +13,16 @@ view: home
 <details>
   <summary>About</summary>
 
-  Hello, I’m a former Chicago architect and ex Google engineer who currently lives in New Orleans.
+  Hello, I’m a former Chicago architect and ex-Google engineer who lives in New Orleans, where I’m currently renovating a 140-year old house in the Vieux Carré.
   
-  I’m renovating a 140-year old house in the Vieux Carré these days, and spend quality time with friends, family, and the electric bass whenever I can.
+  I spend as much quality time as I can with friends, family, and the electric bass.
 
 </details>
 
 <details>
-  <summary>Selected Works</summary>
+  <summary>Projects</summary>
 
-  Photos, sketches, and drawings of architectural projects; and a selection of web apps crafted with TypeScript, Sass, and HTML custom elements.
+  Photos, sketches, and drawings of architectural projects; web apps made with TypeScript, Sass, and Web Components; all in no particular order.
 
   - [![''](/img/ten-galaxy.jpg)][ten] <div>[Powers Of Ten][ten] web adaptation of the film by Charles and Ray Eames.</div>
   - [![''](/img/shotgun-front.jpg)][shotgun-fsj] <div>[Shotgun Renovation][shotgun-fsj] of a barge board house near Bayou St. John in New Orleans.</div>
