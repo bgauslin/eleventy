@@ -57,6 +57,7 @@ view: home
 [calories]: https://calories.gauslin.com "View the Calorie Calculator web app"
 [clock]: https://clock.gauslin.com "View the Clock web app"
 [europa]: https://slides.gauslin.com/sketches-collages "Documenting travel abroad with pen, pencil, and found materials"
+[hfac]: https://sckarchitecture.com/house-for-an-art-collector "House For an Art Collector"
 [interest]: https://interest.gauslin.com "View the Compound Interest Calculator web app"
 [moon]: https://moon.gauslin.com "View the Moon web app"
 [shotgun-fsj]: https://slides.gauslin.com/shotgun "Breathing new life into an 1890s New Orleans shotgun house"
