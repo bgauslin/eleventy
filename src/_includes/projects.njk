@@ -1,0 +1,14 @@
+<ul class="projects">
+{% for project in projects -%}
+  <li>
+    <figure>
+      <a href="{{ project.url }}" title="View {{ project.heading }} (opens in new window)" target="_blank" rel="noopener" >
+        <img src="/img/{{ project.img }} ">
+      </a>
+      <figcaption>
+        <p><a href="{{ project.url }}" title="View {{ project.heading }} (opens in new window)" target="_blank" rel="noopener" >{{ project.heading }}</a> {{ project.copy }}</p>
+      </figcaption>
+    </figure>
+  </li>
+{%- endfor %}
+</ul>

@@ -1,0 +1,50 @@
+[
+  {
+    "heading": "Powers Of Ten",
+    "copy": "web adaptation of the film by Charles and Ray Eames.",
+    "img": "ten-galaxy.jpg",
+    "url": "https://ten.gauslin.com"
+  },
+  {
+    "heading": "Shotgun Renovation",
+    "copy": "of a barge board house near Bayou St. John in New Orleans.",
+    "img": "shotgun-front.jpg",
+    "url": "https://slides.gauslin.com/shotgun"
+  },
+  {
+    "heading": "Clock",
+    "copy": "composed of nine faces that reveal patterns over time.",
+    "img": "clock-icon.png",
+    "url": "https://clock.gauslin.com"
+  },
+  {
+    "heading": "Calorie Calculator",
+    "copy": "for determining daily calorie needs.",
+    "img": "calories-icon.png",
+    "url": "https://calories.gauslin.com"
+  },
+  {
+    "heading": "Travel Sketches and Collages",
+    "copy": "from time abroad in Europe.",
+    "img": "sketch-piazza.png",
+    "url": "https://slides.gauslin.com/sketches-collages"
+  },
+  {
+    "heading": "Moon",
+    "copy": "tracker for moorise, moonset, sunrise, sunset, and lunar phase.",
+    "img": "moon-icon.png",
+    "url": "https://moon.gauslin.com"
+  },
+  {
+    "heading": "House for an Art Collector",
+    "copy": "while employed at Shafer Architects in Chicago.",
+    "img": "hfac-hall.jpg",
+    "url": "https://sckarchitecture.com/house-for-an-art-collector"
+  },
+  {
+    "heading": "Compound Interest Calculator",
+    "copy": "with support for multiple currencies.",
+    "img": "interest-icon.png",
+    "url": "https://interest.gauslin.com"
+  }
+]

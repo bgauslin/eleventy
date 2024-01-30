@@ -64,27 +64,32 @@ details > * {
   padding-inline: 1em;
 }
 
-details > ul {
+ul.projects {
   list-style: none;
   margin-block: 1em 0;
   padding-inline: 0;
 }
 
-details li {
-  border-block-start: .5px solid var(--rule-color);
-  align-items: center;
-  display: flex;
+.projects figure {
+  display: grid;
   gap: 0 1em;
-  padding-block: 1em;
-  padding-inline: 1em 2em;
+  grid: 'img copy' / 4em 1fr;
+  margin: 0; // reset defaults
+  padding-inline: 1em 0;
 }
 
-details li > div {
-  font-size: .9em;
-}
-
-details img {
+.projects img {
   aspect-ratio: 1;
   border-radius: .25em;
-  inline-size: 4em;
+  grid-area: img;
+  margin-block: .5em;
+}
+
+.projects figcaption {
+  align-content: center;
+  border-block-start: .5px solid var(--rule-color);
+  display: grid;
+  font-size: .9em;
+  grid-area: copy;
+  line-height: 1.2;
 }
