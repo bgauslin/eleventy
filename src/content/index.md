@@ -38,8 +38,9 @@ view: home
 </details>
 
 <div>
-  <fancy-details accordion animated></fancy-details>
-  <script>
-    {% include 'FancyDetails.js' %}
-  </script>
+  <fancy-details animated></fancy-details>
 </div>
+
+<script>
+  {% include 'FancyDetails.js' %}
+</script>
