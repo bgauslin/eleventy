@@ -1,25 +1,15 @@
 /**
- * Extends all <details> elements in the DOM with open/closing transitions and
- * accordion behavior based on custom attributes set on the custom element.
+ * Extends all <details> elements in the DOM with open/closing transitions.
  */
 class FancyDetails extends HTMLElement {
-  static observedAttributes = ['accordion', 'animated'];
-
   constructor() {
     super();
     this.clickListener = this.handleClick.bind(this);
   }
 
   connectedCallback() {
-    this.details = document.querySelectorAll('details');
+    this.updateElements();
     document.body.addEventListener('click', this.clickListener);
-    this.updateElements();
-  }
-
-  attributeChangedCallback() {
-    this.accordion = this.hasAttribute('accordion');
-    this.animated = this.hasAttribute('animated');
-    this.updateElements();
   }
 
   disconnectedCallback() {
@@ -31,16 +21,10 @@ class FancyDetails extends HTMLElement {
    * CSS transitions.
    */ 
   updateElements() {
-    if (!this.details || !this.details.length) {
-      return;
-    }
-
-    for (const details of this.details) {
-      if (this.animated) {
+    this.details = document.querySelectorAll('details');
+    if (this.details && this.details.length) {
+      for (const details of this.details) {
         details.classList.add('fancy');
-      } else {
-        details.classList.remove('fancy');
-        details.style.removeProperty('--height');
       }
     }
   }
@@ -50,32 +34,28 @@ class FancyDetails extends HTMLElement {
    * for animated/accordion UX.
    */ 
   handleClick(event) {
-    if (event.target.tagName.toLowerCase() !== 'summary') {
+    if (event.target.tagName !== 'SUMMARY') {
       return;
     }
 
-    const current = event.target.closest('details');
+    const details = event.target.closest('details');
 
     // Set CSS var scoped directly on <details> element if it's open;
     // otherwise remove the CSS var and fallback to default value.
-    if (this.animated) { 
+    // If element is already open, hijack click so that arttribute is removed
+    // after the transition. Otherwise, default display is none for content
+    // when 'open' attribute is removed and we want to prevent that until the
+    // after the transition ends.
+    if (details.open) {
+      event.preventDefault();
+      details.style.removeProperty('--height');
+      details.addEventListener('transitionend', () => {
+        details.open = false;
+      }, {once: true});
+    } else {
       window.requestAnimationFrame(() => {
-        if (current.hasAttribute('open')) {
-          current.style.setProperty('--height', `${current.scrollHeight}px`);
-        } else {
-          current.style.removeProperty('--height');
-        }
+        details.style.setProperty('--height', `${details.scrollHeight}px`);
       });
-    }
-
-    // Remove 'open' attributes from all non-active <details> elements.
-    if (this.accordion) {
-      for (const details of this.details) {
-        if (details !== current) {
-          details.removeAttribute('open');
-          details.style.removeProperty('--height');
-        }
-      }
     }
   }
 }

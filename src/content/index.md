@@ -38,7 +38,7 @@ view: home
 </details>
 
 <div>
-  <fancy-details animated></fancy-details>
+  <fancy-details></fancy-details>
 </div>
 
 <script>
