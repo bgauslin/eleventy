@@ -10,7 +10,7 @@
 {% for project in projects -%}
   <li>
     <figure>
-      {%- call linkify(project.url, project.heading, false) -%}
+      {%- call linkify(project.url, project.heading) -%}
         <img src="/img/{{ project.img }}">
       {%- endcall -%}
       <figcaption>
