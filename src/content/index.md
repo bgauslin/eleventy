@@ -25,7 +25,7 @@ view: home
   <details>
     <summary>Projects</summary>
 
-    Photos, sketches, and drawings of architectural projects alongside web apps made with TypeScript, Sass, and Web Components, all in no particular order.
+    Photos, sketches, and drawings of architectural projects alongside web apps made with Web Components and TypeScript (in no particular order).
 
     {% include 'projects.njk' %}
 
