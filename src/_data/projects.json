@@ -3,41 +3,53 @@
     "heading": "Powers Of Ten",
     "copy": "web adaptation of the film by Charles and Ray Eames.",
     "img": "ten-galaxy.jpg",
-    "url": "https://ten.gauslin.com"
+    "url": "https://ten.gauslin.com",
+    "repo": "ten",
+    "tech": ["Web Components", "TypeScript", "JSON", "Lit", "SVG", "Sass"]
   },
   {
     "heading": "Shotgun Renovation",
     "copy": "of a barge board house near Bayou St. John in New Orleans.",
     "img": "shotgun-front.jpg",
-    "url": "https://slides.gauslin.com/shotgun"
+    "url": "https://slides.gauslin.com/shotgun",
+    "repo": "slides_vue",
+    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"] 
   },
   {
     "heading": "Clock",
     "copy": "composed of nine faces that reveal patterns over time.",
     "img": "clock-icon.png",
-    "url": "https://clock.gauslin.com"
+    "url": "https://clock.gauslin.com",
+    "repo": "clock",
+    "tech": ["Web Components", "TypeScript", "Lit", "SVG", "Sass"]
   },
   {
     "heading": "Calorie Calculator",
     "copy": "for determining daily calorie needs.",
     "img": "calories-icon.png",
-    "url": "https://calories.gauslin.com"
+    "url": "https://calories.gauslin.com",
+    "repo": "calories",
+    "tech": ["Custom elements", "TypeScript", "Pug", "Stylus"]
   },
   {
     "heading": "Travel Sketches and Collages",
     "copy": "from time abroad in Europe.",
     "img": "sketch-piazza.png",
-    "url": "https://slides.gauslin.com/sketches-collages"
+    "url": "https://slides.gauslin.com/sketches-collages",
+    "repo": "slides_vue",
+    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"] 
   },
   {
     "heading": "Moon",
-    "copy": "tracker for moorise, moonset, sunrise, sunset, and lunar phase.",
+    "copy": "tracker for moorise, moonset, sunrise, sunset, and lunar phase based on location.",
     "img": "moon-icon.png",
-    "url": "https://moon.gauslin.com"
+    "url": "https://moon.gauslin.com",
+    "repo": "moon",
+    "tech": ["Custom elements", "TypeScript", "Pug", "SVG", "Stylus"]
   },
   {
     "heading": "House for an Art Collector",
-    "copy": "while employed at Shafer Architects in Chicago.",
+    "copy": "while employed as Project Architect at Shafer Architects in Chicago.",
     "img": "hfac-hall.jpg",
     "url": "https://sckarchitecture.com/house-for-an-art-collector"
   },
@@ -45,6 +57,8 @@
     "heading": "Compound Interest Calculator",
     "copy": "with support for multiple currencies.",
     "img": "interest-icon.png",
-    "url": "https://interest.gauslin.com"
+    "url": "https://interest.gauslin.com",
+    "repo": "interest",
+    "tech": ["Web Components", "TypeScript", "Lit", "Sass"]
   }
 ]
