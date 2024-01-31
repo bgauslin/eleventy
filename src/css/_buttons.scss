@@ -3,13 +3,10 @@
   display: flex;
   gap: 0 1em;
   list-style: none;
-  margin-block: revert;
-  padding-block: 0;
-  padding-inline: 1em;
+  padding-inline: 0;
 }
 
 .buttons li {
-  border: revert;
   margin: 0;
   padding: 0;
 }
