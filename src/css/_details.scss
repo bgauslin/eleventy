@@ -1,20 +1,18 @@
-$summary-height: 3em;
-
 // --------------------------------------------------
 // Expandables.
 
 details {
+  --summary-height: 3em;
   background: var(--background-1);
-  block-size: fit-content;
   border-radius: .5em;
   box-shadow: var(--shadow-1);
   margin-block: 1.5em;
+  overflow: auto;
 }
 
 // Styles scoped to className set by JS for animated UX.
-details.fancy { 
-  block-size: var(--height, $summary-height);
-  overflow: hidden;
+fancy-details > details { 
+  block-size: var(--height, var(--summary-height));
   transition: block-size var(--duration);
 }
 
@@ -23,7 +21,7 @@ details.fancy {
 
 summary {
   align-items: center;
-  block-size: $summary-height;
+  block-size: var(--summary-height);
   cursor: pointer;
   display: flex;
   font-weight: bold;
@@ -51,10 +49,6 @@ summary::after {
   transform: rotate(135deg);
 }
 
-details.fancy > summary::after {
-  transition: transform var(--duration);
-}
-
 // Safari needs vendor-prefix selector.
 summary::-webkit-details-marker {
   display: none;
@@ -67,38 +61,4 @@ summary + * {
 
 details > * {
   padding-inline: 1em;
-}
-
-// --------------------------------------------------
-// Projects
-
-ul.projects {
-  list-style: none;
-  margin-block: 1em 0;
-  padding-inline: 0;
-}
-
-.projects figure {
-  display: grid;
-  gap: 0 1em;
-  grid: 'img copy' / 4em 1fr;
-  margin: 0; // reset defaults
-  padding-inline: 1em 0;
-}
-
-.projects img {
-  aspect-ratio: 1;
-  border-radius: .25em;
-  grid-area: img;
-  margin-block: .5em;
-}
-
-.projects figcaption {
-  align-content: center;
-  border-block-start: .5px solid var(--rule-color);
-  display: grid;
-  font-size: .9em;
-  grid-area: copy;
-  line-height: 1.2;
-  padding-inline: 0 1em;
 }

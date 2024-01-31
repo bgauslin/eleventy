@@ -1,0 +1,31 @@
+// The 'projects' classname set on a <ul> element.
+.projects {
+  list-style: none;
+  margin-block: 1em .5em;
+  padding-inline: 0;
+}
+
+.projects figure {
+  display: grid;
+  gap: 0 1em;
+  grid: 'img copy' / 4em 1fr;
+  margin: 0; // reset defaults
+  padding-inline: 1em 0;
+}
+
+.projects img {
+  aspect-ratio: 1;
+  border-radius: .25em;
+  grid-area: img;
+  margin-block: .5em;
+}
+
+.projects figcaption {
+  align-content: center;
+  border-block-start: .5px solid var(--rule-color);
+  display: grid;
+  font-size: .9em;
+  grid-area: copy;
+  line-height: 1.2;
+  padding-inline: 0 1em;
+}
