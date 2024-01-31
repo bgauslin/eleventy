@@ -1,12 +1,24 @@
+{% macro linkify(href, title, blank=true) %}
+  <a href="{{ href }}" title="View {{ title }}
+    {%- if blank %} (opens in new window){% endif -%}"
+    {%- if blank %} target="_blank" rel="noopener"{% endif %}>
+    {{- caller() -}}
+  </a>
+{% endmacro %}
+
 <ul class="projects">
 {% for project in projects -%}
   <li>
     <figure>
-      <a href="{{ project.url }}" title="View {{ project.heading }} (opens in new window)" target="_blank" rel="noopener" >
-        <img src="/img/{{ project.img }} ">
-      </a>
+      {%- call linkify(project.url, project.heading, false) -%}
+        <img src="/img/{{ project.img }}">
+      {%- endcall -%}
       <figcaption>
-        <p><a href="{{ project.url }}" title="View {{ project.heading }} (opens in new window)" target="_blank" rel="noopener" >{{ project.heading }}</a> {{ project.copy }}</p>
+        <p>
+          {%- call linkify(project.url, project.heading) -%}
+            {{- project.heading -}}
+          {%- endcall %} {{ project.copy -}}
+        </p>
       </figcaption>
     </figure>
   </li>
