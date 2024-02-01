@@ -38,7 +38,7 @@ view: home
 
     You can reach me via email, text, or voicemail:
 
-    {% include 'links.njk' %}
+    {% include 'contact.njk' %}
 
   </details>
 </fancy-details>
