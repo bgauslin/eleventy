@@ -1,5 +1,6 @@
 ---
 layout: base
+view: slides
 ---
 {%- set domain = 'https://assets.gauslin.com' -%}
 {%- set imagePath = '/images/slides2023/' -%}
@@ -22,20 +23,22 @@ layout: base
   {{ content | safe }}
 </header>
 
-<div role="list">
-{%- for item in collections[slug] %}  
-  <figure role="listitem">
-    <div data-images="{{ item.data.images | length }}">
-    {% for image in item.data.images %}
-      {{ renderImage(image, slug) }}
-    {% endfor %}
-    </div>
-
-    <figcaption>
-      <h2>{{ item.data.title }}</h2>
-      {{ item.data.content | safe }}
-      <small aria-hidden="true">{{ loop.index }} of {{ collections[slug] | length }}</small>
-    </figcaption>
-  </figure>
+<ul>
+{%- for item in collections[slug] %}
+  <li>
+	  <figure>
+	    <div data-images="{{ item.data.images | length }}">
+	    {% for image in item.data.images %}
+	      {{ renderImage(image, slug) }}
+	    {% endfor %}
+	    </div>
+	
+	    <figcaption>
+	      <h2>{{ item.data.title }}</h2>
+	      {{ item.data.content | safe }}
+	      <small aria-hidden="true">{{ loop.index }} of {{ collections[slug] | length }}</small>
+	    </figcaption>
+	  </figure>
+  </li>
 {%- endfor %}
-</div>
+</ul>
