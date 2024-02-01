@@ -1,102 +1,93 @@
 @use 'sass:math';
 
 $breakpoint: 1440px;
-$copy-max-width: 600px;
-$img-max-width: 900px;
 
-// TODO: Update/simplify 'data-' selectors.
-[data-view='slides'] {
+.slides {
   --img-max-block-size: 100vw;
   --main-max-inline-size: #{$breakpoint};
+}
 
-  [data-id='europa'] {
-    --figcaption-text-align: center;
-  }
+[id='europa'] {
+  --figcaption-text-align: center;
+}
 
-  @media (min-width: $breakpoint) {
+@media (min-width: $breakpoint) {
+  .slides {
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center;
     --figcaption-position: sticky;
     --h2-margin-block: 0 1em;
-    --img-max-block-size: min(calc(100vh - 3rem), #{$img-max-width});
+    --img-max-block-size: min(calc(100vh - 3em), 900px);
     --list-gap: 12em 0;
-    --listitem-gap: 0 1.5rem;
-    --listitem-grid: '. copy images .' 1fr / 0 1fr 2fr 0;
-
-    [role='listitem']:nth-child(odd) {
-      --listitem-grid: '. images copy .' 1fr / 0 2fr 1fr 0;
-    }
-
-    [data-id='europa'] {
-      --figcaption-position: static;
-      --listitem-grid: '. . copy images .' 1fr / 0 1fr 1fr 4fr 0;
-
-      [role='listitem']:nth-child(odd) {
-        --listitem-grid: '. images copy . .' 1fr / 0 4fr 1fr 1fr 0;
-      }
-    }
+    --item-gap: 0 1.5em;
+    --item-grid: '. copy images .' 1fr / 0 1fr 2fr 0;
   }
 
-  // Slideshow header.
-  header {
-    block-size: 75vh;
-    display: grid;
-    grid: 1fr 1fr / 1fr;
-    padding-inline: 1rem;
-    text-align: center;
+  [id='europa'] {
+    --item-grid: '. . copy images .' 1fr / 0 1fr 1fr 4fr 0;
   }
+}
 
-  header > h1 {
-    place-self: end center;
-  }
+// Slideshow header.
+.slides header {
+  block-size: 75vh;
+  display: grid;
+  grid: 1fr 1fr / 1fr;
+  padding-inline: 1em;
+  text-align: center;
+}
 
-  // Slideshow and slide elements.
-  :is([role='list'], [role='listitem'], [data-images]) {
-    display: grid;
-  }
+.slides header > h1 {
+  place-self: end center;
+}
 
-  [role='list'] {
-    gap: var(--list-gap, 6em 0);
-    grid: auto-flow / 1fr;
-  }
+// Slideshow and slide elements.
+.slides :is(li, [data-images]) {
+  display: grid;
+}
 
-  [role='listitem'] {
-    gap: var(--listitem-gap, 0);
-    grid: var(--listitem-grid, 'images' 'copy' / 1fr);
-  }
+.slides ul {
+  gap: var(--list-gap, 6em 0);
+  grid: auto-flow / 1fr;
+}
 
-  // Slide elements.
-  [data-images] {
-    grid-area: images;
-    place-items: center;
-  }
+.slides li {
+  gap: var(--item-gap, 0);
+  grid: var(--item-grid, 'images' 'copy' / 1fr);
+}
+
+// Slide elements.
+.slides [data-images] {
+  grid-area: images;
+  place-items: center;
+}
   
-  // Two columns for side-by-side images.
-  [data-images='2'] {
-    gap: 0 1rem;
-    grid: 1fr / 1fr 1fr;
-  }
+// Two columns for side-by-side images.
+.slides [data-images='2'] {
+  gap: 0 1em;
+  grid: 1fr / 1fr 1fr;
+}
 
-  // Constrain image height for portrait orientation images.
-  img {
-    max-block-size: var(--img-max-block-size);
-  }
+// Constrain image height for portrait orientation images.
+.slides img {
+  max-block-size: var(--img-max-block-size);
+}
 
-  // Copy.
-  figcaption {
-    grid-area: copy;
-    inline-size: 100%;
-    inset-block: 1.5rem auto; // Only appies when position is sticky.
-    max-inline-size: $copy-max-width;
-    padding-inline: var(--figcaption-padding-inline, 1em);
-    place-self: var(--figcaption-place-self, start center);
-    position: var(--figcaption-position, static);
-    text-align: var(--figcaption-text-align, start);
-  }
+// Copy.
+// [1] Only applies when position is sticky. in
+.slides figcaption {
+  grid-area: copy;
+  inline-size: 100%;
+  inset-block: 1.5em auto; // [1]
+  max-inline-size: 37.5em; // = 600px
+  padding-inline: var(--figcaption-padding-inline, 1em);
+  place-self: var(--figcaption-place-self, start center);
+  position: var(--figcaption-position, static);
+  text-align: var(--figcaption-text-align, start);
+}
 
-  h2 {
-    font-size: 1em;
-    font-variation-settings: 'wght' 600;
-    margin-block: var(--h2-margin-block, 1rem 1em);
-  }
+.slides h2 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-block: var(--h2-margin-block, 1em);
 }
