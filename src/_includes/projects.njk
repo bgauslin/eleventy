@@ -1,28 +1,28 @@
-{% macro linkify(href, title, blank=true) %}
+{%- macro linkify(href, title, blank=true) %}
   <a href="{{ href }}" title="View {{ title }}
     {%- if blank %} (opens in new window){% endif -%}"
     {%- if blank %} target="_blank" rel="noopener"{% endif %}>
     {{- caller() -}}
   </a>
-{% endmacro %}
+{% endmacro -%}
 
-{% macro githubify(list, repo) %}
+{%- macro githubify(list, repo) %}
   {%- set list -%}
     {%- for item in list -%}
-      {% if loop.last %}and {% endif %}{{- item -}}{% if not loop.last %}, {% endif %}
+      {% if loop.last %}and {% endif %}{{ item }}{% if not loop.last %}, {% endif %}
     {%- endfor -%}
   {%- endset -%}
-  {%- set label = "Made with " + list + " (View on GitHub)" -%}
+  {%- set label = "Made with " + list + " (View code on GitHub)" -%}
   <a
     aria-label="{{ label }}"
     class="repo"
-    href="https://github.com/bgauslin/{{ repo }}"
+    href="https://github.com/bgauslin/{{ repo }}/tree/main/src"
     rel="noopener"
     target="_blank"
     title="{{ label }}">
     <svg viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons['github'] }}"></svg>
   </a>
-{% endmacro %}
+{% endmacro -%}
 
 <ul class="projects">
 {% for project in projects -%}
