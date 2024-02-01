@@ -35,14 +35,3 @@
   fill: currentColor;
   inline-size: max(24px, 1.75em);
 }
-
-// Only apply transitions on devices that support hover.
-@media (any-hover: hover) {
-  a {
-    transition: background-color var(--duration), color var(--duration), transform var(--duration);
-  }
-
-  svg {
-    transition: fill var(--duration);
-  }
-}

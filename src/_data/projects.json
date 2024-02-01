@@ -5,7 +5,7 @@
     "img": "ten-galaxy.jpg",
     "url": "https://ten.gauslin.com",
     "repo": "ten",
-    "tech": ["Web Components", "TypeScript", "JSON", "Lit", "SVG", "Sass"]
+    "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"]
   },
   {
     "heading": "Shotgun Renovation",
@@ -13,7 +13,7 @@
     "img": "shotgun-front.jpg",
     "url": "https://slides.gauslin.com/shotgun",
     "repo": "slides_vue",
-    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"] 
+    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"]
   },
   {
     "heading": "Clock",
@@ -21,7 +21,7 @@
     "img": "clock-icon.png",
     "url": "https://clock.gauslin.com",
     "repo": "clock",
-    "tech": ["Web Components", "TypeScript", "Lit", "SVG", "Sass"]
+    "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"]
   },
   {
     "heading": "Calorie Calculator",
@@ -29,7 +29,7 @@
     "img": "calories-icon.png",
     "url": "https://calories.gauslin.com",
     "repo": "calories",
-    "tech": ["Custom elements", "TypeScript", "Pug", "Stylus"]
+    "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
   },
   {
     "heading": "Travel Sketches and Collages",
@@ -37,7 +37,7 @@
     "img": "sketch-piazza.png",
     "url": "https://slides.gauslin.com/sketches-collages",
     "repo": "slides_vue",
-    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"] 
+    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"]
   },
   {
     "heading": "Moon",
@@ -45,13 +45,7 @@
     "img": "moon-icon.png",
     "url": "https://moon.gauslin.com",
     "repo": "moon",
-    "tech": ["Custom elements", "TypeScript", "Pug", "SVG", "Stylus"]
-  },
-  {
-    "heading": "House for an Art Collector",
-    "copy": "while employed as Project Architect at Shafer Architects in Chicago.",
-    "img": "hfac-hall.jpg",
-    "url": "https://sckarchitecture.com/house-for-an-art-collector"
+    "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
   },
   {
     "heading": "Compound Interest Calculator",
@@ -59,6 +53,12 @@
     "img": "interest-icon.png",
     "url": "https://interest.gauslin.com",
     "repo": "interest",
-    "tech": ["Web Components", "TypeScript", "Lit", "Sass"]
+    "tech": ["TypeScript", "Web Components", "Lit", "Sass"]
+  },
+  {
+    "heading": "House for an Art Collector",
+    "copy": "while employed as Project Architect at Shafer Architects in Chicago.",
+    "img": "hfac-hall.jpg",
+    "url": "https://sckarchitecture.com/house-for-an-art-collector"
   }
 ]

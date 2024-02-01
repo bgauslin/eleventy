@@ -6,6 +6,24 @@
   </a>
 {% endmacro %}
 
+{% macro githubify(list, repo) %}
+  {%- set list -%}
+    {%- for item in list -%}
+      {% if loop.last %}and {% endif %}{{- item -}}{% if not loop.last %}, {% endif %}
+    {%- endfor -%}
+  {%- endset -%}
+  {%- set label = "Made with " + list + " (View on GitHub)" -%}
+  <a
+    aria-label="{{ label }}"
+    class="repo"
+    href="https://github.com/bgauslin/{{ repo }}"
+    rel="noopener"
+    target="_blank"
+    title="{{ label }}">
+    <svg viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons['github'] }}"></svg>
+  </a>
+{% endmacro %}
+
 <ul class="projects">
 {% for project in projects -%}
   <li>
@@ -19,6 +37,9 @@
             {{- project.heading -}}
           {%- endcall %} {{ project.copy -}}
         </p>
+        {%- if project.repo -%}
+          {{ githubify(project.tech, project.repo) }}
+        {%- endif -%}
       </figcaption>
     </figure>
   </li>

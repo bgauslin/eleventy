@@ -52,7 +52,18 @@ a:hover {
   color: var(--focus-color);
 }
 
-// Responsive images.
+// Only apply transitions on devices that support hover.
+@media (any-hover: hover) {
+  a {
+    transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
+  }
+
+  svg {
+    transition: fill var(--duration);
+  }
+}
+
+// Responsive media.
 :is(img, svg) {
   block-size: auto;
   inline-size: 100%;

@@ -21,11 +21,30 @@
 }
 
 .projects figcaption {
-  align-content: center;
+  align-items: center;
   border-block-start: .5px solid var(--rule-color);
   display: grid;
   font-size: .9em;
+  gap: 0 1em;
+  grid: 'info repo' / 1fr max(24px, 1.5em);
   grid-area: copy;
   line-height: 1.2;
-  padding-inline: 0 1em;
+  padding-inline: 0 .75em;
+}
+
+.projects .repo {
+  grid-area: repo;
+  opacity: .5;
+}
+
+.repo:is(:link, :visited, :focus, :hover) {
+  color: var(--text-color);
+}
+
+.repo:is(:focus, :hover) {
+  opacity: 1;
+}
+
+.repo svg {
+  fill: currentColor;
 }
