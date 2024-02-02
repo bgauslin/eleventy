@@ -23,7 +23,7 @@ view: slides
   {{ content | safe }}
 </header>
 
-<ul>
+<ol>
 {%- for item in collections[slug] %}
   <li>
 	  <figure>
@@ -36,9 +36,8 @@ view: slides
 	    <figcaption>
 	      <h2>{{ item.data.title }}</h2>
 	      {{ item.data.content | safe }}
-	      <small aria-hidden="true">{{ loop.index }} of {{ collections[slug] | length }}</small>
 	    </figcaption>
-	  </figure>
+	  </figure>    
   </li>
 {%- endfor %}
-</ul>
+</ol>

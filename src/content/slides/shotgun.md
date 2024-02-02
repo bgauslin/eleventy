@@ -1,7 +1,7 @@
 ---
 layout: slides-collection
 permalink: slides/shotgun.html
-slug: shotgun
+slug: shotgun-fsj
 tags: slides
 view: slides
 

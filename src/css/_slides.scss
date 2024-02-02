@@ -1,36 +1,6 @@
-@use 'sass:math';
-
-$breakpoint: 1440px;
-
-.slides {
-  --img-max-block-size: 100vw;
-  --main-max-inline-size: #{$breakpoint};
-}
-
-[id='europa'] {
-  --figcaption-text-align: center;
-}
-
-@media (min-width: $breakpoint) {
-  .slides {
-    --figcaption-padding-inline: 0;
-    --figcaption-place-self: center;
-    --figcaption-position: sticky;
-    --h2-margin-block: 0 1em;
-    --img-max-block-size: min(calc(100vh - 3em), 900px);
-    --list-gap: 12em 0;
-    --item-gap: 0 1.5em;
-    --item-grid: '. copy images .' 1fr / 0 1fr 2fr 0;
-  }
-
-  [id='europa'] {
-    --item-grid: '. . copy images .' 1fr / 0 1fr 1fr 4fr 0;
-  }
-}
-
-// Slideshow header.
+// Slideshow cover.
 .slides header {
-  block-size: 75vh;
+  block-size: 100vh;
   display: grid;
   grid: 1fr 1fr / 1fr;
   padding-inline: 1em;
@@ -41,53 +11,54 @@ $breakpoint: 1440px;
   place-self: end center;
 }
 
-// Slideshow and slide elements.
-.slides :is(li, [data-images]) {
+// Slideshow wrapper.
+.slides ol {
+  counter-reset: slides;
   display: grid;
-}
-
-.slides ul {
-  gap: var(--list-gap, 6em 0);
   grid: auto-flow / 1fr;
+  list-style: none;
+  padding: 0;
 }
 
-.slides li {
-  gap: var(--item-gap, 0);
-  grid: var(--item-grid, 'images' 'copy' / 1fr);
+// Slide media and copy.
+.slides figure {
+  margin: 0;
 }
 
-// Slide elements.
-.slides [data-images] {
-  grid-area: images;
+// Slide media.
+.slides figure > div {
+  gap: 1em;
+  display: grid;
+  grid: 1fr / auto-flow;
   place-items: center;
 }
-  
-// Two columns for side-by-side images.
-.slides [data-images='2'] {
-  gap: 0 1em;
-  grid: 1fr / 1fr 1fr;
+
+.slides [data-images='1'] img {
+  inline-size: auto;
+  max-block-size: 100vh;
+  max-inline-size: 100%;
 }
 
-// Constrain image height for portrait orientation images.
-.slides img {
-  max-block-size: var(--img-max-block-size);
-}
-
-// Copy.
-// [1] Only applies when position is sticky. in
+// Slide copy.
 .slides figcaption {
-  grid-area: copy;
-  inline-size: 100%;
-  inset-block: 1.5em auto; // [1]
-  max-inline-size: 37.5em; // = 600px
-  padding-inline: var(--figcaption-padding-inline, 1em);
-  place-self: var(--figcaption-place-self, start center);
-  position: var(--figcaption-position, static);
-  text-align: var(--figcaption-text-align, start);
+  margin: 0 auto;
+  max-inline-size: var(--copy-max-width, 60ch);
+  padding-block: 1em 4em;
+  padding-inline: 1em;
 }
 
 .slides h2 {
+  display: flex;
   font-size: 1em;
   font-weight: bold;
-  margin-block: var(--h2-margin-block, 1em);
+  margin-block-start: 0;
+}
+
+h2::after {
+  content: counter(slides);
+  counter-increment: slides;
+  font-size: .9em;
+  font-weight: normal;
+  margin-inline: auto 0;
+  opacity: .8;
 }
