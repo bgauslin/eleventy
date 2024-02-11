@@ -5,15 +5,8 @@
     "img": "ten-galaxy.jpg",
     "url": "https://ten.gauslin.com",
     "repo": "ten",
-    "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"]
-  },
-  {
-    "heading": "Shotgun Renovation",
-    "copy": "of a barge board house near Bayou St. John in New Orleans.",
-    "img": "shotgun-front.jpg",
-    "url": "https://slides.gauslin.com/shotgun",
-    "repo": "slides_vue",
-    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"]
+    "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"],
+    "type": "web"
   },
   {
     "heading": "Clock",
@@ -21,7 +14,8 @@
     "img": "clock-icon.png",
     "url": "https://clock.gauslin.com",
     "repo": "clock",
-    "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"]
+    "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"],
+    "type": "web"
   },
   {
     "heading": "Calorie Calculator",
@@ -29,15 +23,8 @@
     "img": "calories-icon.png",
     "url": "https://calories.gauslin.com",
     "repo": "calories",
-    "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
-  },
-  {
-    "heading": "Travel Sketches and Collages",
-    "copy": "from time abroad in Europe.",
-    "img": "sketch-piazza.png",
-    "url": "https://slides.gauslin.com/sketches-collages",
-    "repo": "slides_vue",
-    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"]
+    "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"],
+    "type": "web"
   },
   {
     "heading": "Moon",
@@ -45,7 +32,8 @@
     "img": "moon-icon.png",
     "url": "https://moon.gauslin.com",
     "repo": "moon",
-    "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
+    "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"],
+    "type": "web"
   },
   {
     "heading": "Compound Interest Calculator",
@@ -53,12 +41,53 @@
     "img": "interest-icon.png",
     "url": "https://interest.gauslin.com",
     "repo": "interest",
-    "tech": ["TypeScript", "Web Components", "Lit", "Sass"]
+    "tech": ["TypeScript", "Web Components", "Lit", "Sass"],
+    "type": "web"
+  },
+  {
+    "heading": "Shotgun Renovation",
+    "copy": "of a barge board house near Bayou St. John in New Orleans.",
+    "img": "shotgun-front.jpg",
+    "url": "https://slides.gauslin.com/shotgun",
+    "repo": "slides_vue",
+    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"],
+    "type": "architecture"
+  },
+  {
+    "heading": "Travel Sketches and Collages",
+    "copy": "from time abroad in Europe.",
+    "img": "sketch-piazza.png",
+    "url": "https://slides.gauslin.com/sketches-collages",
+    "repo": "slides_vue",
+    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"],
+    "type": "architecture"
   },
   {
     "heading": "House for an Art Collector",
     "copy": "while employed as Project Architect at Shafer Architects in Chicago.",
     "img": "hfac-hall.jpg",
-    "url": "https://sckarchitecture.com/house-for-an-art-collector"
+    "url": "https://sckarchitecture.com/house-for-an-art-collector",
+    "type": "architecture"
+  },
+  {
+    "heading": "The Pietasters",
+    "copy": "8-piece ska band I formed with college and high school friends that’s still together after dozens of releases and tours over the years.",
+    "img": null,
+    "url": "https://en.wikipedia.org/wiki/The_Pietasters",
+    "type": "music"
+  },
+  {
+    "heading": "ThumpDaddy",
+    "copy": "5-piece Memphis-based party band I helped land bigger and better gigs as their session drummer and chart transcriber.",
+    "img": null,
+    "url": "https://southeasternattractions.com/thump-daddy/",
+    "type": "music"
+  },
+  {
+    "heading": "Twelve Modern",
+    "copy": "Experimental 5-piece band whose recordings and performances were unrehearsed in order to focus on making music in the moment.",
+    "img": null,
+    "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
+    "type": "music"
   }
 ]
