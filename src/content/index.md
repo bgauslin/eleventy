@@ -25,7 +25,7 @@ view: home
   <details>
     <summary>Projects</summary>
 
-    A selection of apps made with Web Components alongside photos, sketches, and drawings of a few of my architectural projects.
+    A selection of apps I made with Web Components, vanilla JavaScript, and browser APIs alongside a few of my architecture and music projects.
 
     {% include 'projects.njk' %}
 
