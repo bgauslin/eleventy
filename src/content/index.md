@@ -3,7 +3,7 @@ layout: base
 permalink: index.html
 
 title: Ben Gauslin
-description:  World Wide Web home page for Ben Gauslin
+description: Ben Gauslin’s World Wide Web home page.
 view: home
 ---
 # Ben Gauslin
@@ -25,7 +25,7 @@ view: home
   <details>
     <summary>Projects</summary>
 
-    Photos, sketches, and drawings of architectural projects alongside web apps made with Web Components and TypeScript (in no particular order).
+    A selection of apps made with Web Components alongside photos, sketches, and drawings of a few of my architectural projects.
 
     {% include 'projects.njk' %}
 
