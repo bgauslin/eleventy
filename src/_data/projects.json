@@ -70,24 +70,24 @@
     "type": "architecture"
   },
   {
-    "heading": "ThumpDaddy",
-    "copy": "5-piece Memphis-based party band I helped land bigger and better gigs as their session drummer and chart transcriber.",
-    "img": "thumpdaddy.png",
-    "url": "https://southeasternattractions.com/thump-daddy/",
+    "heading": "The Pietasters",
+    "copy": "Co-founder of 8-piece ska band that still performs nearly three decades later.",
+    "img": "piestomp.jpg",
+    "url": "https://en.wikipedia.org/wiki/The_Pietasters",
     "type": "music"
   },
   {
     "heading": "Twelve Modern",
-    "copy": "Experimental 5-piece band whose recordings and performances were unrehearsed in order to focus on making music in the moment.",
+    "copy": "Experimental 5-piece band that only performed in the moment and without rehearsals.",
     "img": "twelve-modern.jpg",
     "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
     "type": "music"
   },
   {
-    "heading": "The Pietasters",
-    "copy": "8-piece ska band I formed with college and high school friends that’s still together after dozens of releases and tours over the years.",
-    "img": "piestomp.jpg",
-    "url": "https://en.wikipedia.org/wiki/The_Pietasters",
+    "heading": "ThumpDaddy",
+    "copy": "Drummer and chart writer for 5-piece Memphis-based party band.",
+    "img": "thumpdaddy.png",
+    "url": "https://southeasternattractions.com/thump-daddy/",
     "type": "music"
   }
 ]
