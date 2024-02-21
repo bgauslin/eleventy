@@ -10,7 +10,6 @@ details {
   overflow: auto;
 }
 
-// Styles scoped to className set by JS for animated UX.
 fancy-details > details { 
   block-size: var(--height, var(--summary-height));
   transition: block-size var(--duration);
@@ -18,23 +17,31 @@ fancy-details > details {
 
 // --------------------------------------------------
 // Expandable labels/toggles.
+// [1] Default 'display' override hides default marker.
+// [2] Safari needs vendor-prefix selector to hide default marker.
 
 summary {
   align-items: center;
   block-size: var(--summary-height);
   cursor: pointer;
-  display: flex;
+  display: flex; // [1]
   font-weight: bold;
   opacity: .75;
   outline: none;
   transition: opacity var(--duration);
 }
 
+summary::-webkit-details-marker {
+  display: none; // [2]
+}
+
 summary:is(:focus, :hover) {
   opacity: 1;
 }
 
-// Caret to replace default arrow.
+// --------------------------------------------------
+// Custom caret to replace default marker.
+
 summary::after {
   aspect-ratio: 1;
   border-block-start: 1px solid currentColor;
@@ -42,19 +49,21 @@ summary::after {
   content: '';
   inline-size: .375em;
   margin-inline: auto 0;
-  transform: rotate(45deg);
+  transition: transform var(--duration);
 }
 
 [open] > summary::after {
   transform: rotate(135deg);
 }
 
-// Safari needs vendor-prefix selector.
-summary::-webkit-details-marker {
-  display: none;
+summary::after,
+fancy-details > [closing] > summary::after {
+  transform: rotate(45deg);
 }
 
+// --------------------------------------------------
 // Expandable content.
+
 summary + * {
   margin-block-start: 0;
 }
