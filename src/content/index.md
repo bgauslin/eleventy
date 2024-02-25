@@ -3,20 +3,20 @@ layout: base
 permalink: index.html
 
 title: Ben Gauslin
-description: Ben Gauslin’s World Wide Web home page.
+description: Ben’s home page on the World Wide Web
 view: home
 ---
 # Ben Gauslin
 
-<small>Architect · UXE · Musician</small>
+<small>Engineer · Architect · Musician</small>
 
 <fancy-details>
   <details>
     <summary>About</summary>
 
-    Hello, I’m a former Chicago architect and ex-Google engineer who currently lives in New Orleans.
+    Hello, I’m an ex-Google engineer and former Chicago architect who currently lives in New Orleans.
     
-    When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and the electric bass.
+    When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and electric bass.
 
   </details>
 </fancy-details>
@@ -25,7 +25,7 @@ view: home
   <details>
     <summary>Projects</summary>
 
-    Selection of web apps powered by Web Components alongside a few architecture and music projects.
+    A selection of apps built with Web Components alongside a few architecture and music projects.
 
     {% include 'projects.njk' %}
 
