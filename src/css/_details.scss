@@ -28,7 +28,7 @@ summary {
   font-weight: bold;
   opacity: .75;
   outline: none;
-  transition: opacity var(--duration);
+  transition: opacity var(--duration) ease;
 }
 
 summary::-webkit-details-marker {
@@ -57,7 +57,7 @@ summary::after {
 }
 
 summary::after,
-fancy-details > [closing] > summary::after {
+fancy-details > [data-state='closing'] > summary::after {
   transform: rotate(45deg);
 }
 

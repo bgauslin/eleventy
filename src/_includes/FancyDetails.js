@@ -32,10 +32,10 @@ class FancyDetails extends HTMLElement {
     if (element.open) {
       event.preventDefault();
       element.style.removeProperty('--height');
-      element.setAttribute('closing', '');
+      element.setAttribute('data-state', 'closing');
       element.addEventListener('transitionend', () => {
         element.open = false;
-        element.removeAttribute('closing');
+        element.removeAttribute('data-state');
       }, {once: true});
     } else {
       window.requestAnimationFrame(() => {
