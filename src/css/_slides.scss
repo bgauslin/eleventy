@@ -33,32 +33,26 @@
   place-items: center;
 }
 
-.slides [data-images='1'] img {
-  inline-size: auto;
-  max-block-size: 100vh;
-  max-inline-size: 100%;
-}
-
 // Slide copy.
-.slides figcaption {
+.slides :is(h2, figcaption) {
   margin: 0 auto;
-  max-inline-size: var(--copy-max-width, 60ch);
-  padding-block: 1em 4em;
   padding-inline: 1em;
 }
 
 .slides h2 {
-  display: flex;
-  font-size: 1em;
-  font-weight: bold;
-  margin-block-start: 0;
+  font-weight: normal;
+  margin-block-end: 1em;
+  text-align: center;
 }
 
-h2::after {
+.slides h2::after {
   content: counter(slides);
   counter-increment: slides;
-  font-size: .9em;
-  font-weight: normal;
-  margin-inline: auto 0;
-  opacity: .8;
+  margin-inline: .5ch 0;
+  opacity: .5;
+}
+
+.slides figcaption {
+  max-inline-size: 48rem;
+  padding-block: 0 4em;
 }

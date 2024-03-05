@@ -25,8 +25,10 @@ view: slides
 
 <ol>
 {%- for item in collections[slug] %}
-  <li>
+  <li id="{{ item.data.slug }}">
 	  <figure>
+      <h2>{{ item.data.title }}</h2>
+
 	    <div data-images="{{ item.data.images | length }}">
 	    {% for image in item.data.images %}
 	      {{ renderImage(image, slug) }}
@@ -34,8 +36,7 @@ view: slides
 	    </div>
 	
 	    <figcaption>
-	      <h2>{{ item.data.title }}</h2>
-	      {{ item.data.content | safe }}
+        {{ item.data.content | safe }}
 	    </figcaption>
 	  </figure>    
   </li>
