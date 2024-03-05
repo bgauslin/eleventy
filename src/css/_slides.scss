@@ -52,7 +52,19 @@
   opacity: .5;
 }
 
+// NOTE: max-width is based on viewport *height*
+.slides img {
+  max-inline-size: 150vh;
+}
+
+// Prevent comically large images with portait orientation by limiting their
+// height and inverting default responsive media styles.
+img[data-orientation='portrait'] {
+  inline-size: auto;
+  max-block-size: 100vh;
+}
+
 .slides figcaption {
-  max-inline-size: 48rem;
+  max-inline-size: 36em;
   padding-block: 0 4em;
 }
