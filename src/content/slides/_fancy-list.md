@@ -32,6 +32,8 @@ permalink: fancy-list.html
     margin: 0
   }
   
+
+  /* TODO: Shadow styles(?) */
   :is(ol, li) {
     display: grid;
     inline-size: 100vw;
@@ -51,57 +53,15 @@ permalink: fancy-list.html
   
   li {
     aspect-ratio: 4 / 3;
-    
     place-content: center;
     scroll-snap-align: start;
     user-select: none;
   }
   
   /* Debug styles. */
-  li:nth-child(odd) {background: rgba(0,0,0,.1)}
-  li:nth-child(even) {background: rgba(0,0,0,.15)}
-  
+  li:nth-child(odd) {background: rgba(0, 0, 0, .1)}
+  li:nth-child(even) {background: rgba(0, 0, 0, .15)}
 
-  /* TODO: Move controls to shadow DOM. */
-  .controls {
-    display: grid;
-    gap: 0 .5rem;
-    grid: 'prev count next' / auto 1fr auto;
-    inline-size: 100vw;
-    padding-inline: .5rem;
-  }
-  
-  :is(button, p) {
-    margin: 0;
-  }
-  
-  button {
-    appearance: none;
-    background: rgba(0,0,0,.05);
-    border: none;
-    border-radius: 3rem;
-    cursor: pointer;
-    font: inherit;
-    padding: .375rem 1rem;
-    transition: opacity .3s;
-  }
-  
-  button[disabled] {
-    opacity: 0;
-  }
-  
-  [data-direction='prev'] {
-    grid-area: prev;
-  }
-  
-  [data-direction='next'] {
-    grid-area: next;
-  }
-  
-  .count {
-    grid-area: count;
-    place-self: center;
-  }
 </style>
 
 <script>

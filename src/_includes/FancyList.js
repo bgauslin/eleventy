@@ -11,18 +11,20 @@ class FancyList extends HTMLElement {
   }
 
   setupControls() {
-    const shadow = this.attachShadow({mode: 'open'});
-    shadow.innerHTML = `
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `
       <slot></slot>
       <p></p>
       <button data-direction="prev" disabled>Prev</button>
       <button data-direction="next">Next</button>
     `;
 
-    // this.prevButton = this.querySelector('[data-direction="prev"]');
-    // this.nextButton = this.querySelector('[data-direction="next"]');
-    this.count = this.querySelector('p');
+    // References to shadow elements that update on interaction.
+    this.prevButton = this.shadowRoot.querySelector('[data-direction="prev"]');
+    this.nextButton = this.shadowRoot.querySelector('[data-direction="next"]');
+    this.count = this.shadowRoot.querySelector('p');
 
+    // Set default prev/next item indexes.
     this.prev = -1;
     this.next = 1;
   }
@@ -58,9 +60,9 @@ class FancyList extends HTMLElement {
           this.next = (index < this.total - 1) ? index + 1 : false;
           
           // Update elements.
-          // this.prevButton.disabled = this.prev < 0;
-          // this.nextButton.disabled = !this.next;
-          // this.count.textContent = `${index + 1}/${this.total}`;
+          this.prevButton.disabled = this.prev < 0;
+          this.nextButton.disabled = !this.next;
+          this.count.textContent = `${index + 1}/${this.total}`;
         }
       }
     }
@@ -70,8 +72,14 @@ class FancyList extends HTMLElement {
    * Scrolls next or previous item into view on button click.
    */
   handleClick(event) {
+    // Only accept clicks from buttons with a data-attribute.
+    const path = event.composedPath();
+    const direction = path[0].dataset.direction;
+    if (!direction) {
+      return;
+    }
+
     let offset = 0;
-    const direction = event.target.dataset.direction;
 
     if (direction === 'prev') {
       const {width} = this.items[this.prev].getBoundingClientRect();
@@ -88,6 +96,50 @@ class FancyList extends HTMLElement {
       left: this.list.scrollLeft + offset,
       behavior: 'smooth',
     });
+  }
+
+  stylesTodo() {
+    const styles = `
+    .controls {
+      display: grid;
+      gap: 0 .5rem;
+      grid: 'prev count next' / auto 1fr auto;
+      inline-size: 100vw;
+      padding-inline: .5rem;
+    }
+    
+    :is(button, p) {
+      margin: 0;
+    }
+    
+    button {
+      appearance: none;
+      background: rgba(0, 0, 0, .05);
+      border: none;
+      border-radius: 3rem;
+      cursor: pointer;
+      font: inherit;
+      padding: .375rem 1rem;
+      transition: opacity .3s;
+    }
+    
+    button[disabled] {
+      opacity: 0;
+    }
+    
+    [data-direction='prev'] {
+      grid-area: prev;
+    }
+    
+    [data-direction='next'] {
+      grid-area: next;
+    }
+    
+    .count {
+      grid-area: count;
+      place-self: center;
+    }
+    `;
   }
 }
 
