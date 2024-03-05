@@ -19,12 +19,33 @@ permalink: fancy-list.html
 
 
 <style>
-  html {
-    touch-action: manipulation;
+  /* Fancy list styles set in light DOM */
+  fancy-list :is(ol, li) {
+    display: grid;
+    inline-size: 100vw;
+  }
+  
+  fancy-list ol {
+    grid: 1fr / auto-flow;
+    overflow: scroll hidden;
+    margin: 0;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  
+  fancy-list ol::-webkit-scrollbar {
+    display: none;
+  }
+  
+  fancy-list li {
+    scroll-snap-align: start;
+    user-select: none;
   }
 
-  :where(*) {
-    box-sizing: border-box;
+  /* Debug styles: REMOVE. */
+  html {
+    touch-action: manipulation;
   }
 
   body {
@@ -32,37 +53,20 @@ permalink: fancy-list.html
     margin: 0
   }
   
-
-  /* TODO: Shadow styles(?) */
-  :is(ol, li) {
-    display: grid;
-    inline-size: 100vw;
-  }
-  
-  ol {
-    grid: 1fr / auto-flow;
-    overflow: scroll hidden;
-    padding: 0;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-  
-  ol::-webkit-scrollbar {
-    display: none;
-  }
-  
-  li {
+  fancy-list li {
     aspect-ratio: 4 / 3;
     place-content: center;
-    scroll-snap-align: start;
-    user-select: none;
   }
-  
-  /* Debug styles. */
-  li:nth-child(odd) {background: rgba(0, 0, 0, .1)}
-  li:nth-child(even) {background: rgba(0, 0, 0, .15)}
 
+  fancy-list li:nth-child(odd) {
+    background: rgba(0, 0, 0, .1);
+  }
+
+  fancy-list li:nth-child(even) {
+    background: rgba(0, 0, 0, .15);
+  }
 </style>
+
 
 <script>
   {% include 'FancyList.js' %}

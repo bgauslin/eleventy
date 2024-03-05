@@ -6,29 +6,45 @@ class FancyList extends HTMLElement {
 
   connectedCallback() {
     this.setupControls();
+    this.addStyles();
     this.watchItems();
     this.addEventListener('click', this.handleClick);
   }
 
+  /**
+   * Creates widget-specific controls in the shadow DOM.
+   */
   setupControls() {
     this.attachShadow({mode: 'open'});
-    this.shadowRoot.innerHTML = `
-      <slot></slot>
-      <p></p>
-      <button data-direction="prev" disabled>Prev</button>
-      <button data-direction="next">Next</button>
-    `;
 
-    // References to shadow elements that update on interaction.
-    this.prevButton = this.shadowRoot.querySelector('[data-direction="prev"]');
-    this.nextButton = this.shadowRoot.querySelector('[data-direction="next"]');
-    this.count = this.shadowRoot.querySelector('p');
+    const slot = document.createElement('slot');
+    this.count = document.createElement('div');
+    this.prevButton = this.createButton('Prev');
+    this.nextButton = this.createButton('Next');
+
+    this.shadowRoot.appendChild(slot);
+    this.shadowRoot.appendChild(this.count);
+    this.shadowRoot.appendChild(this.prevButton);
+    this.shadowRoot.appendChild(this.nextButton);
 
     // Set default prev/next item indexes.
     this.prev = -1;
     this.next = 1;
   }
 
+  /**
+   * Helper function for rendering prev-next buttons.
+   */
+  createButton(direction) {
+    const button = document.createElement('button');
+    button.dataset.direction = direction.toLowerCase();
+    button.textContent = direction;
+    return button;
+  }
+
+  /**
+   * Sets up Intersection Observer to watch list items.
+   */
   watchItems() {
     this.list = this.querySelector('ol');
     this.items = this.list.querySelectorAll('li');
@@ -46,7 +62,7 @@ class FancyList extends HTMLElement {
   }
 
   /**
-   * IntersectionObserver callback that updates controls.
+   * IntersectionObserver callback that updates the controls.
    */
   update(entries) {
     for (const entry of entries) {
@@ -69,10 +85,10 @@ class FancyList extends HTMLElement {
   }
 
   /**
-   * Scrolls next or previous item into view on button click.
+   * Scrolls next or previous item into view on button click and only accepts
+   * clicks from buttons with a data-attribute.
    */
   handleClick(event) {
-    // Only accept clicks from buttons with a data-attribute.
     const path = event.composedPath();
     const direction = path[0].dataset.direction;
     if (!direction) {
@@ -98,49 +114,43 @@ class FancyList extends HTMLElement {
     });
   }
 
-  stylesTodo() {
-    const styles = `
-    .controls {
-      display: grid;
-      gap: 0 .5rem;
-      grid: 'prev count next' / auto 1fr auto;
-      inline-size: 100vw;
-      padding-inline: .5rem;
-    }
-    
-    :is(button, p) {
-      margin: 0;
-    }
-    
-    button {
-      appearance: none;
-      background: rgba(0, 0, 0, .05);
-      border: none;
-      border-radius: 3rem;
-      cursor: pointer;
-      font: inherit;
-      padding: .375rem 1rem;
-      transition: opacity .3s;
-    }
-    
-    button[disabled] {
-      opacity: 0;
-    }
-    
-    [data-direction='prev'] {
-      grid-area: prev;
-    }
-    
-    [data-direction='next'] {
-      grid-area: next;
-    }
-    
-    .count {
-      grid-area: count;
-      place-self: center;
-    }
-    `;
+  /**
+   * Renders encapsulated styles for shadow DOM.
+   */
+  addStyles() {
+    const styles = new CSSStyleSheet();
+    styles.replaceSync(`
+      :host {
+        display: grid;
+        gap: 1em;
+        grid: 'slot slot slot slot slot' 1fr '. prev count next .' / 0 auto 1fr auto 0;
+        inline-size: 100vw;
+        margin-block: 0 1em;
+      }
+
+      slot { grid-area: slot }
+      div { grid-area: count; place-self: center }
+      [data-direction='prev'] { grid-area: prev }
+      [data-direction='next'] { grid-area: next }
+
+      button {
+        appearance: none;
+        background: rgba(0, 0, 0, .05);
+        border: none;
+        border-radius: 3em;
+        cursor: pointer;
+        font: inherit;
+        inline-size: fit-content;
+        margin: 0;
+        padding: .375em 1em;
+        transition: opacity .3s;
+      }
+
+      button[disabled] { opacity: 0 }
+    `);
+    this.shadowRoot.adoptedStyleSheets = [styles];
   }
 }
 
 customElements.define('fancy-list', FancyList);
+
