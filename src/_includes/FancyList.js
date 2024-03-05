@@ -1,20 +1,24 @@
-
 class FancyList extends HTMLElement {
   constructor() {
     super();
   }
 
   connectedCallback() {
-    this.setupControls();
-    this.addStyles();
+    this.setupShadowDOM();
+    this.shadowStyles();
     this.watchItems();
     this.addEventListener('click', this.handleClick);
   }
 
+  disconnectedCallback() {
+    this.observer.disconnect();
+    this.removeEventListener('click', this.handleClick);
+  }
+
   /**
-   * Creates widget-specific controls in the shadow DOM.
+   * Creates prev-next controls and a count label in the shadow DOM.
    */
-  setupControls() {
+  setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
     const slot = document.createElement('slot');
@@ -26,10 +30,6 @@ class FancyList extends HTMLElement {
     this.shadowRoot.appendChild(this.count);
     this.shadowRoot.appendChild(this.prevButton);
     this.shadowRoot.appendChild(this.nextButton);
-
-    // Set default prev/next item indexes.
-    this.prev = -1;
-    this.next = 1;
   }
 
   /**
@@ -48,16 +48,20 @@ class FancyList extends HTMLElement {
   watchItems() {
     this.list = this.querySelector('ol');
     this.items = this.list.querySelectorAll('li');
-    this.total = this.items.length;
 
-    const observer = new IntersectionObserver(this.update.bind(this), {
+    // Set total for the counter and starting prev/next values.
+    this.total = this.items.length;
+    this.prev = -1;
+    this.next = 1;
+
+    this.observer = new IntersectionObserver(this.update.bind(this), {
       root: this.list,
       rootMargin: '0px',
       threshold: .66,
     });
   
     for (const item of this.items) {
-      observer.observe(item);
+      this.observer.observe(item);
     }
   }
 
@@ -117,7 +121,7 @@ class FancyList extends HTMLElement {
   /**
    * Renders encapsulated styles for shadow DOM.
    */
-  addStyles() {
+  shadowStyles() {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       :host {
