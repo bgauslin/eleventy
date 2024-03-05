@@ -50,11 +50,6 @@ class FancyList extends HTMLElement {
     this.list = this.querySelector('ol');
     this.items = this.list.querySelectorAll('li');
 
-    // Set total for the counter and starting prev/next values.
-    this.total = this.items.length;
-    this.prev = -1;
-    this.next = 1;
-
     this.observer = new IntersectionObserver(this.update.bind(this), {
       root: this.list,
       rootMargin: '0px',
@@ -64,6 +59,11 @@ class FancyList extends HTMLElement {
     for (const item of this.items) {
       this.observer.observe(item);
     }
+    
+    // Set total for the counter and starting prev/next values.
+    this.total = this.items.length;
+    this.prev = -1;
+    this.next = 1;
   }
 
   /**
@@ -96,10 +96,9 @@ class FancyList extends HTMLElement {
   handleClick(event) {
     const path = event.composedPath();
     const direction = path[0].dataset.direction;
-    if (!direction) {
-      return;
+    if (direction) {
+      this.scrollToItem(direction);
     }
-    this.scrollToItem(direction);
   }
 
   /**
@@ -107,6 +106,7 @@ class FancyList extends HTMLElement {
    */
   scrollToItem(direction) {
     let offset = 0;
+
     if (direction === 'prev') {
       const {width} = this.items[this.prev].getBoundingClientRect();
       offset = -width;
