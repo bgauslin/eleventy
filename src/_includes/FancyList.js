@@ -5,23 +5,14 @@ class FancyList extends HTMLElement {
   }
 
   connectedCallback() {
-    this.getElements();
-    this.setup();
+    this.watchItems();
+    this.setupControls();
     this.addEventListener('click', this.handleClick);
   }
 
-  getElements() {
+  watchItems() {
     this.list = this.querySelector('ol');
     this.items = this.list.querySelectorAll('li');
-
-    this.count = document.getElementById('count');
-    this.prevButton = document.getElementById('prev');
-    this.nextButton = document.getElementById('next');
-  }
-
-  setup() {
-    this.prev = -1;
-    this.next = 1;
     this.total = this.items.length;
 
     const observer = new IntersectionObserver(this.update.bind(this), {
@@ -35,9 +26,17 @@ class FancyList extends HTMLElement {
     }
   }
 
+  setupControls() {
+    this.prevButton = this.querySelector('[data-direction="prev"]');
+    this.nextButton = this.querySelector('[data-direction="next"]');
+    this.count = this.querySelector('.count');
+
+    this.prev = -1;
+    this.next = 1;
+  }
+
   /**
-   * IntersectionObserver callback that updates prev, next, and count
-   * for other controls.
+   * IntersectionObserver callback that updates controls.
    */
   update(entries) {
     for (const entry of entries) {
@@ -49,11 +48,10 @@ class FancyList extends HTMLElement {
         if (entry.target === item) {
           this.prev = (index > 0) ? index - 1 : -1;
           this.next = (index < this.total - 1) ? index + 1 : false;
+          this.count.textContent = `${index + 1}/${this.total}`;
 
           this.prevButton.disabled = this.prev < 0;
-          this.nextButton.disabled = !this.next;
-          
-          this.count.textContent = `${index + 1}/${this.total}`;
+          this.nextButton.disabled = !this.next;          
         }
       }
     }
@@ -64,7 +62,7 @@ class FancyList extends HTMLElement {
    */
   handleClick(event) {
     let offset = 0;
-    const direction = event.target.id;
+    const direction = event.target.dataset.direction;
 
     if (direction === 'prev') {
       const {width} = this.items[this.prev].getBoundingClientRect();

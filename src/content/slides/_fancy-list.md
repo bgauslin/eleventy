@@ -17,12 +17,13 @@ permalink: fancy-list.html
   </ol>
   
   <!-- TODO: shadow DOM with default slot -->
-  <div id="controls">
-    <p id="count"></p>
-    <button id="prev" disabled>Prev</button>
-    <button id="next">Next</button>
+  <div class="controls">
+    <p class="count"></p>
+    <button data-direction="prev" disabled>Prev</button>
+    <button data-direction="next">Next</button>
   </div>
 </fancy-list>
+
 
 
 <style>
@@ -58,17 +59,19 @@ permalink: fancy-list.html
   
   li {
     aspect-ratio: 4 / 3;
-    background: rgba(0,0,0,.1);
+    
     place-content: center;
     scroll-snap-align: start;
     user-select: none;
   }
   
-  li:nth-child(even) {
-    background: rgba(0,0,0,.15);
-  }
+  /* Debug styles. */
+  li:nth-child(odd) {background: rgba(0,0,0,.1)}
+  li:nth-child(even) {background: rgba(0,0,0,.15)}
   
-  [id='controls'] {
+
+  /* TODO: Move controls to shadow DOM. */
+  .controls {
     display: grid;
     gap: 0 .5rem;
     grid: 'prev count next' / auto 1fr auto;
@@ -95,20 +98,19 @@ permalink: fancy-list.html
     opacity: 0;
   }
   
-  [id='prev'] {
+  [data-direction='prev'] {
     grid-area: prev;
   }
   
-  [id='next'] {
+  [data-direction='next'] {
     grid-area: next;
   }
   
-  [id='count'] {
+  .count {
     grid-area: count;
     place-self: center;
   }
 </style>
-
 
 <script>
   {% include 'FancyList.js' %}
