@@ -15,15 +15,7 @@ permalink: fancy-list.html
     <li>nine</li>
     <li>ten</li>
   </ol>
-  
-  <!-- TODO: shadow DOM with default slot -->
-  <div class="controls">
-    <p class="count"></p>
-    <button data-direction="prev" disabled>Prev</button>
-    <button data-direction="next">Next</button>
-  </div>
 </fancy-list>
-
 
 
 <style>

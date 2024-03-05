@@ -5,9 +5,26 @@ class FancyList extends HTMLElement {
   }
 
   connectedCallback() {
-    this.watchItems();
     this.setupControls();
+    this.watchItems();
     this.addEventListener('click', this.handleClick);
+  }
+
+  setupControls() {
+    const shadow = this.attachShadow({mode: 'open'});
+    shadow.innerHTML = `
+      <slot></slot>
+      <p></p>
+      <button data-direction="prev" disabled>Prev</button>
+      <button data-direction="next">Next</button>
+    `;
+
+    // this.prevButton = this.querySelector('[data-direction="prev"]');
+    // this.nextButton = this.querySelector('[data-direction="next"]');
+    this.count = this.querySelector('p');
+
+    this.prev = -1;
+    this.next = 1;
   }
 
   watchItems() {
@@ -26,15 +43,6 @@ class FancyList extends HTMLElement {
     }
   }
 
-  setupControls() {
-    this.prevButton = this.querySelector('[data-direction="prev"]');
-    this.nextButton = this.querySelector('[data-direction="next"]');
-    this.count = this.querySelector('.count');
-
-    this.prev = -1;
-    this.next = 1;
-  }
-
   /**
    * IntersectionObserver callback that updates controls.
    */
@@ -48,10 +56,11 @@ class FancyList extends HTMLElement {
         if (entry.target === item) {
           this.prev = (index > 0) ? index - 1 : -1;
           this.next = (index < this.total - 1) ? index + 1 : false;
-          this.count.textContent = `${index + 1}/${this.total}`;
-
-          this.prevButton.disabled = this.prev < 0;
-          this.nextButton.disabled = !this.next;          
+          
+          // Update elements.
+          // this.prevButton.disabled = this.prev < 0;
+          // this.nextButton.disabled = !this.next;
+          // this.count.textContent = `${index + 1}/${this.total}`;
         }
       }
     }
