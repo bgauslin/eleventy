@@ -8,11 +8,13 @@ class FancyList extends HTMLElement {
     this.shadowStyles();
     this.watchItems();
     this.addEventListener('click', this.handleClick);
+    this.addEventListener('keypress', this.handleKey);
   }
 
   disconnectedCallback() {
     this.observer.disconnect();
     this.removeEventListener('click', this.handleClick);
+    this.removeEventListener('keypress', this.handleKey);
   }
 
   /**
@@ -98,9 +100,14 @@ class FancyList extends HTMLElement {
     if (!direction) {
       return;
     }
+    this.scrollToItem(direction);
+  }
 
+  /**
+   * Scrolls item into view based on scroll direction.
+   */
+  scrollToItem(direction) {
     let offset = 0;
-
     if (direction === 'prev') {
       const {width} = this.items[this.prev].getBoundingClientRect();
       offset = -width;
@@ -116,6 +123,19 @@ class FancyList extends HTMLElement {
       left: this.list.scrollLeft + offset,
       behavior: 'smooth',
     });
+  }
+
+  /**
+   * Scrolls item into view with left and right arrows for better a11y.
+   */
+  handleKey(event) {
+    if (event.code === 'ArrowLeft') {
+      this.scrollToItem('prev');
+    }
+
+    if (event.code === 'ArrowRight') {
+      this.scrollToItem('next');
+    }
   }
 
   /**
