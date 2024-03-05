@@ -28,10 +28,9 @@ class FancyList extends HTMLElement {
     this.prevButton = this.createButton('Prev');
     this.nextButton = this.createButton('Next');
 
-    this.shadowRoot.appendChild(slot);
-    this.shadowRoot.appendChild(this.count);
-    this.shadowRoot.appendChild(this.prevButton);
-    this.shadowRoot.appendChild(this.nextButton);
+    [slot, this.count, this.prevButton, this.nextButton].forEach((element) => {
+      this.shadowRoot.appendChild(element);
+    });
   }
 
   /**
