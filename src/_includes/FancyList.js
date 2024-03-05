@@ -162,6 +162,7 @@ class FancyList extends HTMLElement {
         background: rgba(0, 0, 0, .05);
         border: none;
         border-radius: 3em;
+        color: inherit;
         cursor: pointer;
         font: inherit;
         inline-size: fit-content;
