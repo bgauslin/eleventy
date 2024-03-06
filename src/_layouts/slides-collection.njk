@@ -5,7 +5,7 @@ view: slides
 {%- set domain = 'https://assets.gauslin.com' -%}
 {%- set imagePath = '/images/slides2023/' -%}
 
-{%- macro renderImage(image, slug) %}
+{%- macro renderImage(image, slug, loading) %}
   {%- set imageUrl = domain + imagePath + slug + '/' + image.src %}
   {%- set small = imageUrl + '@small.webp' %}
   {%- set medium = imageUrl + '@medium.webp' %}
@@ -20,7 +20,7 @@ view: slides
   <img
     alt=""
     {%- if orientation %} data-orientation="{{ orientation }}"{% endif %}
-    loading="lazy"
+    loading="{{ loading }}"
     src="{{ medium }}"
     srcset="{{ small }} 600w, {{ medium }} 900w, {{ large }} 1200w"
     sizes="(min-width: 1440px) 900px, 100vw"
@@ -34,8 +34,9 @@ view: slides
     <li id="{{ item.data.slug }}">
       <figure>
         <div data-images="{{ item.data.images | length }}">
+        {%- set loading = 'eager' if loop.first else 'lazy' %}
         {% for image in item.data.images %}
-          {{ renderImage(image, slug) }}
+          {{ renderImage(image, slug, loading) }}
         {% endfor %}
         </div>
     
