@@ -1,4 +1,8 @@
 // Fancy list styles set in light DOM.
+fancy-list {
+  block-size: 100dvh;
+}
+
 fancy-list :is(ol, li) {
   inline-size: 100vw;
 }
@@ -6,7 +10,7 @@ fancy-list :is(ol, li) {
 fancy-list ol {
   display: grid;
   grid: 1fr / auto-flow;
-  margin: 0;
+  margin: 0;  
   overflow: scroll hidden;
   padding: 0;
   scroll-snap-type: x mandatory;

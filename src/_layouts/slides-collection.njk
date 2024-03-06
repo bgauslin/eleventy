@@ -27,31 +27,24 @@ view: slides
     sizes="(min-width: 1440px) 900px, 100vw">
 {%- endmacro -%}
 
-<header>
-  <h1>{{ title }}</h1>
-  {{ content | safe }}
-</header>
-
 <fancy-list>
-<ol>
-{%- for item in collections[slug] %}
-  <li id="{{ item.data.slug }}">
-	  <figure>
-      <h2>{{ item.data.title }}</h2>
-
-	    <div data-images="{{ item.data.images | length }}">
-	    {% for image in item.data.images %}
-	      {{ renderImage(image, slug) }}
-	    {% endfor %}
-	    </div>
-	
-	    <figcaption>
-        {{ item.data.content | safe }}
-	    </figcaption>
-	  </figure>    
-  </li>
-{%- endfor %}
-</ol>
+  <ol>
+  {%- for item in collections[slug] %}
+    <li id="{{ item.data.slug }}" data-title="{{ item.data.title }}">
+      <figure>
+        <div data-images="{{ item.data.images | length }}">
+        {% for image in item.data.images %}
+          {{ renderImage(image, slug) }}
+        {% endfor %}
+        </div>
+    
+        <figcaption>
+          {{ item.data.content | safe }}
+        </figcaption>
+      </figure>    
+    </li>
+  {%- endfor %}
+  </ol>
 </fancy-list>
 
 <script>

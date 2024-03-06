@@ -14,7 +14,7 @@ layout: base
       <h2>
         <a href="/{{ item.data.permalink }}" title="{{ linkTitle }}">{{ heading }}</a>
       </h2>
-      {{ item.data.content | safe -}}
+      <p>{{ item.data.description }}</p>
     <figcaption>
   </figure>
 {% endfor %}
