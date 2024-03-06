@@ -11,13 +11,12 @@ view: slides
   {%- set medium = imageUrl + '@medium.webp' %}
   {%- set large = imageUrl + '@large.webp' %}
   
-  {%- set orientation %}
-    {%- if image.orientation %}
-      {{- image.orientation }}
-    {%- elif image.height and image.width %}
+  {%- if image.height and image.width %}
+    {%- set orientation %}
       {{- 'portrait' if (image.height > image.width) else 'landscape' }}
-    {%- endif %}
-  {%- endset %}
+    {%- endset %}
+  {%- endif %}
+  
   <img
     alt=""
     {%- if orientation %} data-orientation="{{ orientation }}"{% endif %}
