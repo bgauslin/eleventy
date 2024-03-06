@@ -1,0 +1,36 @@
+.error {
+  --main-max-inline-size: none;
+  --main-padding: 0;
+}
+
+[data-error] {
+  block-size: 100dvh;
+  display: grid;
+  grid: 'heading' 1fr 'blurb' 'graphic' 2fr / 1fr;
+
+  h1 {
+    grid-area: heading;
+    place-self: end center;
+  }
+
+  p {
+    grid-area: blurb;
+    margin: 0;
+    place-self: center;
+  }
+
+  pre {
+    font-size: clamp(.5em, .5em + 1vw, 1.1em);
+    margin-inline: auto;
+    max-inline-size: 100vw;
+    opacity: .75;
+    overflow: auto;
+    place-self: center;
+    scrollbar-width: none;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
