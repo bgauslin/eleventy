@@ -52,6 +52,24 @@ a:hover {
   color: var(--focus-color);
 }
 
+// Responsive media.
+:where(img, svg) {
+  block-size: auto;
+  inline-size: 100%;
+  vertical-align: middle;
+}
+
+// Media layout resets/defaults.
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin: 0 auto;
+  max-inline-size: 36em;
+  padding: 1em;
+}
+
 // Only apply transitions on devices that support hover.
 @media (any-hover: hover) {
   a {
@@ -61,11 +79,4 @@ a:hover {
   svg {
     transition: fill var(--duration);
   }
-}
-
-// Responsive media.
-:is(img, svg) {
-  block-size: auto;
-  inline-size: 100%;
-  vertical-align: middle;
 }

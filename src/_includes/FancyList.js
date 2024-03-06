@@ -25,14 +25,24 @@ class FancyList extends HTMLElement {
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
+    // Attach the default slot.
     const slot = document.createElement('slot');
+    this.shadowRoot.appendChild(slot);
+
+    // Build and attach the controls.
+    const controls = document.createElement('div');
     this.count = document.createElement('div');
     this.prev = this.createButton('Prev');
     this.next = this.createButton('Next');
 
-    for (const element of [slot, this.count, this.prev, this.next]) {
-      this.shadowRoot.appendChild(element);
+    controls.dataset.controls = '';
+    this.count.dataset.count = '';
+
+    for (const element of [this.count, this.prev, this.next]) {
+      controls.appendChild(element);
     }
+
+    this.shadowRoot.appendChild(controls);
   }
 
   /**
@@ -84,6 +94,12 @@ class FancyList extends HTMLElement {
           this.prev.disabled = this.indexPrev < 0;
           this.next.disabled = !this.indexNext;
           this.count.textContent = `${index + 1}/${this.total}`;
+
+          // Preload next item's images.
+          const images = this.items[this.indexNext].querySelectorAll('img');
+          for (const image of images) {
+            image.setAttribute('loading', 'eager');
+          }
         }
       }
     }
@@ -145,14 +161,21 @@ class FancyList extends HTMLElement {
     styles.replaceSync(`
       :host {
         display: grid;
-        gap: 1em;
-        grid: 'slot slot slot slot slot' 1fr '. prev count next .' / 0 auto 1fr auto 0;
+        grid: 'slot' 1fr 'controls' / 1fr;
         inline-size: 100vw;
-        margin-block: 0 1em;
       }
 
       slot { grid-area: slot }
-      div { grid-area: count; place-self: center }
+      [data-controls] { grid-area: controls }
+      
+      [data-controls] {
+        display: grid;
+        gap: 0 1em;
+        grid: 'prev count next' / auto 1fr auto;
+        padding: 1em;
+      }
+
+      [data-count] { grid-area: count; place-self: center }
       [data-direction='prev'] { grid-area: prev }
       [data-direction='next'] { grid-area: next }
 
@@ -166,7 +189,7 @@ class FancyList extends HTMLElement {
         font: inherit;
         inline-size: fit-content;
         margin: 0;
-        padding: .375em 1em;
+        padding: .75em 1.5em;
         transition: opacity .3s;
       }
 

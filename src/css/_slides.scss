@@ -3,34 +3,17 @@
   padding: 0;
 }
 
-// Slide media and copy.
-.slides figure {
-  margin: 0;
-}
-
 // Slide media.
-.slides figure > div {
+[data-images] {
   gap: 1em;
   display: grid;
   grid: 1fr / auto-flow;
   place-items: center;
 }
 
-// NOTE: max-width is based on viewport *height*
-.slides img {
-  max-inline-size: 150vh;
-}
-
-// Prevent comically large images with portait orientation by limiting their
-// height and inverting default responsive media styles.
-.slides img[data-orientation='portrait'] {
+// Prevent comically large images with portait orientation by limiting
+// height to viewport width and inverting responsive media styles.
+[data-orientation='portrait'] {
   inline-size: auto;
-  max-block-size: 100vh;
-}
-
-// Slide copy.
-.slides figcaption {
-  margin: 0 auto;
-  max-inline-size: 36em;
-  padding: 1em;
+  max-block-size: 100vw; // TODO: scope to media query
 }

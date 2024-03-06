@@ -24,3 +24,17 @@ fancy-list ol {
 fancy-list li {
   scroll-snap-align: start;
 }
+
+fancy-list figure {
+  block-size: 100%;
+  display: grid;
+  grid: 'media' 'copy' / 1fr;
+}
+
+fancy-list [data-images] {
+  grid-area: media;
+}
+
+fancy-list figcaption {
+  grid-area: copy;
+}
