@@ -6,7 +6,8 @@
 [data-error] {
   block-size: 100dvh;
   display: grid;
-  grid: 'heading' 1fr 'blurb' 'graphic' 2fr / 1fr;
+  // gap: 1em 0;
+  grid: 'heading' 1fr 'blurb' 1fr 'graphic' 2fr '.' 1fr / 1fr;
 
   h1 {
     grid-area: heading;
@@ -16,7 +17,7 @@
   p {
     grid-area: blurb;
     margin: 0;
-    place-self: center;
+    place-self: start center;
   }
 
   pre {
