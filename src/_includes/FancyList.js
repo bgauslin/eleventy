@@ -165,13 +165,15 @@ class FancyList extends HTMLElement {
         inline-size: 100vw;
       }
 
-      slot { grid-area: slot }
-      [data-controls] { grid-area: controls }
+      slot {
+        grid-area: slot;
+      }
       
       [data-controls] {
         display: grid;
         gap: 0 1em;
         grid: '. prev count next .' / 0 auto 1fr auto 0;
+        grid-area: controls;
         place-content: center;
       }
 
@@ -182,8 +184,13 @@ class FancyList extends HTMLElement {
         place-self: center;
       }
       
-      [data-direction='prev'] { grid-area: prev }
-      [data-direction='next'] { grid-area: next }
+      [data-direction='prev'] {
+        grid-area: prev;
+      }
+      
+      [data-direction='next'] {
+        grid-area: next;
+      }
 
       button {
         appearance: none;
@@ -198,14 +205,16 @@ class FancyList extends HTMLElement {
         margin: 0;
         padding: .5em 1.25em;
         transition: background-color .3s, color .3s, opacity .3s;
-      }
 
-      button:is(:focus, :hover) {
-        background-color: var(--link-color);
-        color: var(--background-0);
-      }
+        &:is(:focus, :hover) {
+          background-color: var(--link-color);
+          color: var(--background-0);
+        }
 
-      button[disabled] { opacity: 0 }
+        &[disabled] {
+          opacity: 0;
+        }
+      }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
   }
