@@ -1,15 +1,22 @@
-.slides {
+// All slideshows.
+.slideshows {
+  --main-max-inline-size: 32em;
+  --main-padding: 0;
+}
+
+:where(.slideshows, .slideshow) h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+// Individual collection of slides.
+.slideshow {
   --main-max-inline-size: none;
   --main-padding: 0;
 
   ol {
     list-style: none;
     padding: 0;
-  }
-
-  h2 {
-    font-size: 1em;
-    margin: 0;
   }
 
   dl {
@@ -19,10 +26,14 @@
     grid: auto-flow / auto 1fr;
     opacity: .75;
   }
+
+  figcaption {
+    max-inline-size: 36em;
+  }
 }
 
 // Slideshow-specific override since location may follow the title heading.
-.europa h2 + p {
+:where(.slideshows, .europa) h2 + p {
   margin-block-start: 0;
 }
 

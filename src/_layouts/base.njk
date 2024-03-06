@@ -9,7 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
   </head>
-  <body class="{{ view }}">
+  <body{% if view %} class="{{ view }}"{% endif %}>
     <main>
       {{ content | safe }}
     </main>

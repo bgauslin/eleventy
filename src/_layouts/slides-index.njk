@@ -1,7 +1,7 @@
 ---
 layout: base
 ---
-{% for item in collections.slides -%}
+{% for item in collections.slideshow -%}
   {%- set heading = item.data.title | safe %}
   {%- set linkTitle = 'View slideshow for ' + heading %}
   {%- set imageUrl = 'https://assets.gauslin.com/images/slides2023/' + item.data.slug + '/' + item.data.image + '@small.webp' %}
@@ -16,6 +16,6 @@ layout: base
         <a href="/{{ permalink }}" title="{{ linkTitle }}">{{ heading }}</a>
       </h2>
       <p>{{ item.data.description }}</p>
-    <figcaption>
+    </figcaption>
   </figure>
 {% endfor %}
