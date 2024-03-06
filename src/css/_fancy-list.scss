@@ -1,25 +1,22 @@
 // Fancy list styles set in light DOM.
-.slides fancy-list {
-  :is(ol, li) {
-    display: grid;
-    inline-size: 100vw;
-  }
+fancy-list :is(ol, li) {
+  inline-size: 100vw;
+}
 
-  ol {
-    grid: 1fr / auto-flow;
-    overflow: scroll hidden;
-    margin: 0;
-    padding: 0;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
+fancy-list ol {
+  display: grid;
+  grid: 1fr / auto-flow;
+  margin: 0;
+  overflow: scroll hidden;
+  padding: 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 
-  ol::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
+}
 
-  li {
-    scroll-snap-align: start;
-    user-select: none;
-  }
+fancy-list li {
+  scroll-snap-align: start;
 }
