@@ -32,6 +32,7 @@ view: slides
   {{ content | safe }}
 </header>
 
+<fancy-list>
 <ol>
 {%- for item in collections[slug] %}
   <li id="{{ item.data.slug }}">
@@ -51,3 +52,9 @@ view: slides
   </li>
 {%- endfor %}
 </ol>
+</fancy-list>
+
+<script>
+  {% include 'FancyList.js' %}
+</script>
+

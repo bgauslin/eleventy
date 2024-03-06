@@ -1,6 +1,8 @@
 class FancyList extends HTMLElement {
   constructor() {
     super();
+    this.indexPrev = -1;
+    this.indexNext = 1;
   }
 
   connectedCallback() {
@@ -23,12 +25,12 @@ class FancyList extends HTMLElement {
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
-    this.slot = document.createElement('slot');
+    const slot = document.createElement('slot');
     this.count = document.createElement('div');
     this.prev = this.createButton('Prev');
     this.next = this.createButton('Next');
 
-    for (const element of [this.slot, this.count, this.prev, this.next]) {
+    for (const element of [slot, this.count, this.prev, this.next]) {
       this.shadowRoot.appendChild(element);
     }
   }
@@ -60,10 +62,8 @@ class FancyList extends HTMLElement {
       this.observer.observe(item);
     }
     
-    // Set total for the counter and starting prev/next values.
+    // Set total for the count.
     this.total = this.items.length;
-    this.indexPrev = -1;
-    this.indexNext = 1;
   }
 
   /**
