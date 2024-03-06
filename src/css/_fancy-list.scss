@@ -1,5 +1,7 @@
 // Fancy list styles set in light DOM.
 fancy-list {
+  block-size: 100dvh;
+
   --controls-size: 4em;
   --figure-grid: 'media' 'copy' / 1fr;
 
@@ -7,45 +9,42 @@ fancy-list {
     --figure-grid: 'media copy' / 1fr 1fr;
     --figcaption-place-self: center;
   }
-}
 
-fancy-list {
-  block-size: 100dvh;
-}
-
-fancy-list :is(ol, li) {
-  inline-size: 100vw;
-}
-
-fancy-list ol {
-  display: grid;
-  grid: 1fr / auto-flow;
-  margin: 0;  
-  overflow: scroll hidden;
-  padding: 0;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
+  ol,
+  li {
+    inline-size: 100vw;
   }
-}
 
-fancy-list li {
-  scroll-snap-align: start;
-}
+  ol {
+    display: grid;
+    grid: 1fr / auto-flow;
+    margin: 0;  
+    overflow: scroll hidden;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 
-fancy-list figure {
-  block-size: 100%;
-  display: grid;
-  grid: var(--figure-grid);
-}
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 
-fancy-list [data-images] {
-  grid-area: media;
-}
+  li {
+    scroll-snap-align: start;
+  }
 
-fancy-list figcaption {
-  grid-area: copy;
-  place-self: var(--figcaption-place-self);
+  figure {
+    block-size: 100%;
+    display: grid;
+    grid: var(--figure-grid);
+  }
+
+  [data-images] {
+    grid-area: media;
+  }
+
+  figcaption {
+    grid-area: copy;
+    place-self: var(--figcaption-place-self);
+  }
 }

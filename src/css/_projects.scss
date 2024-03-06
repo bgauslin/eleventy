@@ -7,48 +7,45 @@
   list-style: none;
   margin-block: 1em .5em;
   padding-inline: 0;
+
+  figure {
+    display: grid;
+    gap: 0 1em;
+    grid: 'img copy' / 4em 1fr;
+    margin: 0; // reset defaults
+    padding-inline: 1em 0;
+  }
+
+  img {
+    aspect-ratio: 1;
+    border-radius: .25em;
+    grid-area: img;
+    margin-block: .5em;
+  }
+
+  figcaption {
+    align-items: center;
+    border-block-start: .5px solid var(--rule-color);
+    display: grid;
+    font-size: .9em;
+    gap: 0 1em;
+    grid: 'info repo' / 1fr max(24px, 1.5em);
+    grid-area: copy;
+    inline-size: 100%;
+    line-height: 1.2;
+    padding-inline: 0 .75em;
+  }
 }
 
-.projects figure {
-  display: grid;
-  gap: 0 1em;
-  grid: 'img copy' / 4em 1fr;
-  margin: 0; // reset defaults
-  padding-inline: 1em 0;
-}
-
-.projects img {
-  aspect-ratio: 1;
-  border-radius: .25em;
-  grid-area: img;
-  margin-block: .5em;
-}
-
-.projects figcaption {
-  align-items: center;
-  border-block-start: .5px solid var(--rule-color);
-  display: grid;
-  font-size: .9em;
-  gap: 0 1em;
-  grid: 'info repo' / 1fr max(24px, 1.5em);
-  grid-area: copy;
-  line-height: 1.2;
-  padding-inline: 0 .75em;
-}
-
-.projects .repo {
+.repo {
   grid-area: repo;
   opacity: .5;
-}
 
-.repo:is(:link, :visited, :focus, :hover) {
-  color: var(--text-color);
-}
+  &:is(:link, :visited, :focus, :hover) {
+    color: var(--text-color);
+  }
 
-.repo:is(:focus, :hover) {
-  opacity: 1;
-}
-
-.repo svg {
-  fill: currentColor;
+  &:is(:focus, :hover) {
+    opacity: 1;
+  }
 }

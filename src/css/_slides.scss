@@ -1,11 +1,29 @@
 .slides {
   --main-max-inline-size: none;
   --main-padding: 0;
+
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  dl {
+    display: grid;
+    font-size: .8em;
+    gap: 0 1em;
+    grid: auto-flow / auto 1fr;
+    opacity: .75;
+  }
 }
 
-.slides ol {
-  list-style: none;
-  padding: 0;
+// Slideshow-specific override since location may follow the title heading.
+.europa h2 + p {
+  margin-block-start: 0;
 }
 
 // Images container.
@@ -25,23 +43,4 @@
   @media (orientation: landscape) {
     max-block-size: calc(100dvh - var(--controls-size));
   }
-}
-
-.slides h2 {
-  font-size: 1em;
-  margin: 0;
-}
-
-// Slideshow-specific override since location may follow the title heading.
-.europa h2 + p {
-  margin-block-start: 0;
-}
-
-// Media info.
-.slides dl {
-  display: grid;
-  font-size: .8em;
-  gap: 0 1em;
-  grid: auto-flow / auto 1fr;
-  opacity: .75;
 }
