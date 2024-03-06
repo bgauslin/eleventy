@@ -8,11 +8,11 @@ details {
   box-shadow: var(--shadow-1);
   margin-block: 1.5em;
   overflow: auto;
-}
 
-fancy-details > details { 
-  block-size: var(--height, var(--summary-height));
-  transition: block-size var(--duration);
+  fancy-details > & { 
+    block-size: var(--height, var(--summary-height));
+    transition: block-size var(--duration);
+  }
 }
 
 // --------------------------------------------------
@@ -29,14 +29,14 @@ summary {
   opacity: .75;
   outline: none;
   transition: opacity var(--duration) ease;
-}
 
-summary::-webkit-details-marker {
-  display: none; // [2]
-}
+  &::-webkit-details-marker {
+    display: none; // [2]
+  }
 
-summary:is(:focus, :hover) {
-  opacity: 1;
+  &:is(:focus, :hover) {
+    opacity: 1;
+  }
 }
 
 // --------------------------------------------------
@@ -50,15 +50,15 @@ summary::after {
   inline-size: .375em;
   margin-inline: auto 0;
   transition: transform var(--duration);
-}
 
-[open] > summary::after {
-  transform: rotate(135deg);
-}
+  [open] > & {
+    transform: rotate(135deg);
+  }
 
-summary::after,
-fancy-details > [data-state='closing'] > summary::after {
-  transform: rotate(45deg);
+  &,
+  fancy-details > [data-state='closing'] > & {
+    transform: rotate(45deg);
+  }
 }
 
 // --------------------------------------------------
