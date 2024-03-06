@@ -32,7 +32,7 @@ view: slides
 <fancy-list>
   <ol>
   {%- for item in collections[slug] %}
-    <li id="{{ item.data.slug }}" data-title="{{ item.data.title }}">
+    <li id="{{ item.data.slug }}">
       <figure>
         <div data-images="{{ item.data.images | length }}">
         {% for image in item.data.images %}

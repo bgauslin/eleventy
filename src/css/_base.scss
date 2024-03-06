@@ -70,6 +70,10 @@ figcaption {
   padding: 1em;
 }
 
+dd {
+  margin: 0;
+}
+
 // Only apply transitions on devices that support hover.
 @media (any-hover: hover) {
   a {

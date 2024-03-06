@@ -1,4 +1,8 @@
-// The 'projects' classname set on a <ul> element.
+.home {
+  --main-max-inline-size: 34em;
+}
+
+// The 'projects' classname is set on a <ul> element.
 .projects {
   list-style: none;
   margin-block: 1em .5em;

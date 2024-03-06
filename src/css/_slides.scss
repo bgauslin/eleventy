@@ -1,3 +1,8 @@
+.slides {
+  --main-max-inline-size: none;
+  --main-padding: 0;
+}
+
 .slides ol {
   list-style: none;
   padding: 0;
@@ -15,10 +20,6 @@
   gap: 0 1em;
   grid: auto-flow / auto 1fr;
   opacity: .8;
-}
-
-.slides dd {
-  margin: 0;
 }
 
 // Slide images.
