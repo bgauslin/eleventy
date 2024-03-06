@@ -7,8 +7,8 @@ pre {
   place-self: end;
   scrollbar-width: none;
   user-select: none;
-}
 
-pre::-webkit-scrollbar {
-  display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
