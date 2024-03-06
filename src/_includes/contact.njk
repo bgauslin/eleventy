@@ -1,7 +1,8 @@
-<ul class="buttons">
+<ul class="contact">
 {% for link in contact %}
   <li>
     <a aria-label="{{ link.label }}"
+       class="button"
        href="{{ link.href }}"
        title="{{ link.label }}">
       <svg viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons[link.icon] }}"></svg>

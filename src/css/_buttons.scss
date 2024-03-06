@@ -1,17 +1,5 @@
-// Links styled as buttons.
-.buttons {
-  display: flex;
-  gap: 0 1em;
-  list-style: none;
-  padding-inline: 0;
-}
-
-.buttons li {
-  margin: 0;
-  padding: 0;
-}
-
-.buttons a {
+// Links styled as buttons via class.
+.button {
   aspect-ratio: 1;
   background-color: var(--link-background);
   border-radius: 100%;
@@ -19,19 +7,19 @@
   grid: 1fr / 1fr;
   inline-size: max(44px, 3em);
   place-items: center;
-}
 
-.buttons a:is(:focus, :hover) {
-  background-color: var(--link-color);
-  color: var(--background-0);
-}
+  &:is(:focus, :hover) {
+    background-color: var(--link-color);
+    color: var(--background-0);
+  }
 
-.buttons a:active {
-  transform: scale(.8);
-}
+  &:active {
+    transform: scale(.8);
+  }
 
-.buttons svg {
-  aspect-ratio: 1;
-  fill: currentColor;
-  inline-size: max(24px, 1.75em);
+  // Button icons.
+  svg {
+    aspect-ratio: 1;
+    inline-size: max(24px, 1.75em);
+  }
 }

@@ -19,6 +19,7 @@ body {
 main {
   margin-inline: auto;
   max-inline-size: var(--main-max-inline-size, 80rem);
+  min-block-size: 100dvh;
   padding: var(--main-padding, 1.5em);
 }
 
@@ -57,6 +58,10 @@ a:hover {
   block-size: auto;
   inline-size: 100%;
   vertical-align: middle;
+}
+
+svg {
+  fill: currentColor;
 }
 
 // Media layout resets/defaults.
