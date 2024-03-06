@@ -23,14 +23,14 @@ class FancyList extends HTMLElement {
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
-    const slot = document.createElement('slot');
+    this.slot = document.createElement('slot');
     this.count = document.createElement('div');
-    this.prevButton = this.createButton('Prev');
-    this.nextButton = this.createButton('Next');
+    this.prev = this.createButton('Prev');
+    this.next = this.createButton('Next');
 
-    [slot, this.count, this.prevButton, this.nextButton].forEach((element) => {
+    for (const element of [this.slot, this.count, this.prev, this.next]) {
       this.shadowRoot.appendChild(element);
-    });
+    }
   }
 
   /**
@@ -62,8 +62,8 @@ class FancyList extends HTMLElement {
     
     // Set total for the counter and starting prev/next values.
     this.total = this.items.length;
-    this.prev = -1;
-    this.next = 1;
+    this.indexPrev = -1;
+    this.indexNext = 1;
   }
 
   /**
@@ -77,12 +77,12 @@ class FancyList extends HTMLElement {
       
       for (const [index, item] of this.items.entries()) {
         if (entry.target === item) {
-          this.prev = (index > 0) ? index - 1 : -1;
-          this.next = (index < this.total - 1) ? index + 1 : false;
+          this.indexPrev = (index > 0) ? index - 1 : -1;
+          this.indexNext = (index < this.total - 1) ? index + 1 : false;
           
           // Update elements.
-          this.prevButton.disabled = this.prev < 0;
-          this.nextButton.disabled = !this.next;
+          this.prev.disabled = this.indexPrev < 0;
+          this.next.disabled = !this.indexNext;
           this.count.textContent = `${index + 1}/${this.total}`;
         }
       }
@@ -108,12 +108,12 @@ class FancyList extends HTMLElement {
     let offset = 0;
 
     if (direction === 'prev') {
-      const {width} = this.items[this.prev].getBoundingClientRect();
+      const {width} = this.items[this.indexPrev].getBoundingClientRect();
       offset = -width;
     }
     
     if (direction === 'next') {
-      const {x} = this.items[this.next].getBoundingClientRect();
+      const {x} = this.items[this.indexNext].getBoundingClientRect();
       offset = x;
     }
     
