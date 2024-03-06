@@ -197,7 +197,7 @@ class FancyList extends HTMLElement {
         background-color: var(--link-background);
         border: none;
         border-radius: 3em;
-        color: inherit;color: var(--link-color);
+        color: var(--link-color);
         cursor: pointer;
         font: inherit;
         font-weight: bold;
