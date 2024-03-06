@@ -20,11 +20,13 @@ view: slides
   {%- endset %}
   <img
     alt=""
-    {%- if orientation %}data-orientation="{{ orientation }}"{% endif %}
+    {%- if orientation %} data-orientation="{{ orientation }}"{% endif %}
     loading="lazy"
     src="{{ medium }}"
     srcset="{{ small }} 600w, {{ medium }} 900w, {{ large }} 1200w"
-    sizes="(min-width: 1440px) 900px, 100vw">
+    sizes="(min-width: 1440px) 900px, 100vw"
+    {%- if image.width %} width="{{ image.width }}"{% endif %}
+    {%- if image.height %} height="{{ image.height }}"{% endif %}>
 {%- endmacro -%}
 
 <fancy-list>
@@ -39,7 +41,17 @@ view: slides
         </div>
     
         <figcaption>
+          <h2>{{ item.data.title }}</h2>
           {{ item.data.content | safe }}
+          
+          {%- if item.data.media and item.data.size %}
+          <dl>
+            <dt>Media</dt>
+            <dd>{{ item.data.media }}</dd>
+            <dt>Size</dt>
+            <dd>{{ item.data.size }}</dd>
+          </dl>
+          {%- endif %}
         </figcaption>
       </figure>    
     </li>

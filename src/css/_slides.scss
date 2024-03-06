@@ -3,7 +3,25 @@
   padding: 0;
 }
 
-// Slide media.
+.slides h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+// Slide media info.
+.slides dl {
+  display: grid;
+  font-size: .8em;
+  gap: 0 1em;
+  grid: auto-flow / auto 1fr;
+  opacity: .8;
+}
+
+.slides dd {
+  margin: 0;
+}
+
+// Slide images.
 [data-images] {
   gap: 1em;
   display: grid;
@@ -15,5 +33,11 @@
 // height to viewport width and inverting responsive media styles.
 [data-orientation='portrait'] {
   inline-size: auto;
-  max-block-size: 100vw; // TODO: scope to media query
+  max-block-size: min(840px, 100vw); // TODO: scope to media query
+}
+
+
+// TODO: Slideshow-specific override...
+.europa h2 + p {
+  margin-block-start: 0;
 }
