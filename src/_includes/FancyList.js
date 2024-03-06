@@ -93,7 +93,7 @@ class FancyList extends HTMLElement {
           // Update elements.
           this.prev.disabled = this.indexPrev < 0;
           this.next.disabled = !this.indexNext;
-          this.count.textContent = `${index + 1}/${this.total}`;
+          this.count.textContent = `${index + 1} of ${this.total}`;
 
           // Preload next item's images.
           const images = this.items[this.indexNext].querySelectorAll('img');
@@ -161,7 +161,7 @@ class FancyList extends HTMLElement {
     styles.replaceSync(`
       :host {
         display: grid;
-        grid: 'slot' 1fr 'controls' / 1fr;
+        grid: 'slot' 1fr 'controls' var(--controls-size) / 1fr;
         inline-size: 100vw;
       }
 
@@ -171,26 +171,38 @@ class FancyList extends HTMLElement {
       [data-controls] {
         display: grid;
         gap: 0 1em;
-        grid: 'prev count next' / auto 1fr auto;
-        padding: 1em;
+        grid: '. prev count next .' / 0 auto 1fr auto 0;
+        place-content: center;
       }
 
-      [data-count] { grid-area: count; place-self: center }
+      [data-count] {
+        font-weight: bold;
+        grid-area: count;
+        opacity: .75;
+        place-self: center;
+      }
+      
       [data-direction='prev'] { grid-area: prev }
       [data-direction='next'] { grid-area: next }
 
       button {
         appearance: none;
-        background: rgba(0, 0, 0, .05);
+        background-color: var(--link-background);
         border: none;
         border-radius: 3em;
-        color: inherit;
+        color: inherit;color: var(--link-color);
         cursor: pointer;
         font: inherit;
+        font-weight: bold;
         inline-size: fit-content;
         margin: 0;
-        padding: .75em 1.5em;
-        transition: opacity .3s;
+        padding: .5em 1.25em;
+        transition: background-color .3s, color .3s, opacity .3s;
+      }
+
+      button:is(:focus, :hover) {
+        background-color: var(--link-color);
+        color: var(--background-0);
       }
 
       button[disabled] { opacity: 0 }

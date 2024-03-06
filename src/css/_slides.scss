@@ -19,7 +19,7 @@
   font-size: .8em;
   gap: 0 1em;
   grid: auto-flow / auto 1fr;
-  opacity: .8;
+  opacity: .75;
 }
 
 // Slide images.
@@ -34,9 +34,12 @@
 // height to viewport width and inverting responsive media styles.
 [data-orientation='portrait'] {
   inline-size: auto;
-  max-block-size: min(840px, 100vw); // TODO: scope to media query
-}
+  max-block-size: min(840px, 100vw);
 
+  @media (orientation: landscape) {
+    max-block-size: calc(100dvh - var(--controls-size));
+  }
+}
 
 // TODO: Slideshow-specific override...
 .europa h2 + p {

@@ -1,6 +1,14 @@
 // Fancy list styles set in light DOM.
 fancy-list {
   block-size: 100dvh;
+
+  --controls-size: 4em;
+  --figure-grid: 'media' 'copy' / 1fr;
+
+  @media (orientation: landscape) {
+    --figure-grid: 'media copy' / 1fr 1fr;
+    --figcaption-place-self: center;
+  }
 }
 
 fancy-list :is(ol, li) {
@@ -28,7 +36,7 @@ fancy-list li {
 fancy-list figure {
   block-size: 100%;
   display: grid;
-  grid: 'media' 'copy' / 1fr;
+  grid: var(--figure-grid);
 }
 
 fancy-list [data-images] {
@@ -37,4 +45,5 @@ fancy-list [data-images] {
 
 fancy-list figcaption {
   grid-area: copy;
+  place-self: var(--figcaption-place-self);
 }
