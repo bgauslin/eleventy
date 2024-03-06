@@ -2,17 +2,18 @@
 layout: base
 ---
 {% for item in collections.slides -%}
-  {% set heading = item.data.title | safe %}
-  {% set linkTitle = 'View slideshow for ' + heading %}
-  {% set imageUrl = 'https://assets.gauslin.com/images/slides2023/' + item.data.slug + '/' + item.data.image + '@small.webp' %}
+  {%- set heading = item.data.title | safe %}
+  {%- set linkTitle = 'View slideshow for ' + heading %}
+  {%- set imageUrl = 'https://assets.gauslin.com/images/slides2023/' + item.data.slug + '/' + item.data.image + '@small.webp' %}
+  {%- set permalink = item.data.permalink | replace('.html', '') %}
 
   <figure>
-    <a href="/{{ item.data.permalink }}" title="{{ linkTitle }}">
+    <a href="/{{ permalink }}" title="{{ linkTitle }}">
       <img src="{{ imageUrl }}" alt="">
     </a>
     <figcaption> 
       <h2>
-        <a href="/{{ item.data.permalink }}" title="{{ linkTitle }}">{{ heading }}</a>
+        <a href="/{{ permalink }}" title="{{ linkTitle }}">{{ heading }}</a>
       </h2>
       <p>{{ item.data.description }}</p>
     <figcaption>
