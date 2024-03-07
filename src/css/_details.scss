@@ -3,11 +3,14 @@
 
 details {
   --summary-height: 3em;
-  background: var(--background-1);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-1);
-  margin-block: 1.5em;
-  overflow: auto;
+
+  & {
+    background: var(--background-1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-1);
+    margin-block: 1.5em;
+    overflow: auto;
+  }
 
   fancy-details > & { 
     block-size: var(--height, var(--summary-height));
