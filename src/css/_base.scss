@@ -1,4 +1,6 @@
+// --------------------------------------------------
 // Global elements.
+
 html {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -23,7 +25,9 @@ main {
   padding: var(--main-padding, 1.5em);
 }
 
+// --------------------------------------------------
 // Headings.
+
 h1 {
   font-size: 1em;
   margin: 0;
@@ -33,27 +37,27 @@ h1 + p {
   margin-block-start: 0;
 }
 
+// --------------------------------------------------
 // Generic links.
+
 a {
   color: var(--link-color);
   font-weight: bold;
   outline: none;
   text-decoration: none;
+
+  &:visited {
+    color: var(--visited-color);
+  }
+  
+  &:is(:focus, :hover) {
+    color: var(--focus-color);
+  }
 }
 
-a:visited {
-  color: var(--visited-color);
-}
-
-a:focus {
-  color: var(--focus-color);
-}
-
-a:hover {
-  color: var(--focus-color);
-}
-
+// --------------------------------------------------
 // Responsive media.
+
 :where(img, svg) {
   block-size: auto;
   inline-size: 100%;
@@ -64,7 +68,9 @@ svg {
   fill: currentColor;
 }
 
+// --------------------------------------------------
 // Media layout resets/defaults.
+
 figure {
   margin: 0;
 }
@@ -74,11 +80,9 @@ figcaption {
   padding: 1em;
 }
 
-dd {
-  margin: 0;
-}
-
+// --------------------------------------------------
 // Only apply transitions on devices that support hover.
+
 @media (any-hover: hover) {
   a {
     transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
