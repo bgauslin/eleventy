@@ -1,18 +1,23 @@
+// --------------------------------------------------
+// Base layout overrides.
+
 .home {
   --main-max-inline-size: 34em;
 }
 
+// --------------------------------------------------
 // The 'projects' classname is set on a <ul> element.
+
 .projects {
   list-style: none;
   margin-block: 1em .5em;
-  padding-inline: 0;
+  padding: 0;
 
   figure {
     display: grid;
     gap: 0 1em;
     grid: 'img copy' / 4em 1fr;
-    margin: 0; // reset defaults
+    margin: 0;
     padding-inline: 1em 0;
   }
 
@@ -36,6 +41,9 @@
     padding-inline: 0 .75em;
   }
 }
+
+// --------------------------------------------------
+// Icon link for GitHub repos.
 
 .repo {
   grid-area: repo;
