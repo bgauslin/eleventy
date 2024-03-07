@@ -1,12 +1,17 @@
+// --------------------------------------------------
+// Base layout overrides.
+
 .error {
   --main-max-inline-size: none;
   --main-padding: 0;
 }
 
+// --------------------------------------------------
+// Error page content.
+
 [data-error] {
   block-size: 100dvh;
   display: grid;
-  // gap: 1em 0;
   grid: 'heading' 1fr 'blurb' 1fr 'graphic' 2fr '.' 1fr / 1fr;
 
   h1 {
