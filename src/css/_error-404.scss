@@ -12,7 +12,7 @@
 [data-error] {
   block-size: 100dvh;
   display: grid;
-  grid: 'heading' 1fr 'blurb' 1fr 'graphic' 2fr '.' 1fr / 1fr;
+  grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
 
   h1 {
     font: normal 5em / 1 monospace;
@@ -26,7 +26,7 @@
   }
 
   pre {
-    margin-inline: auto;
+    margin: 0;
     max-inline-size: 100vw;
     opacity: var(--text-opacity);
     overflow: auto;

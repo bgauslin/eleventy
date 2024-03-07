@@ -3,6 +3,10 @@
 
 .home {
   --main-max-inline-size: 34em;
+
+  h1 + p {
+    margin: 0;
+  }
 }
 
 // --------------------------------------------------
@@ -11,7 +15,7 @@
 .projects {
   & {
     list-style: none;
-    margin-block: 1em .5em;
+    margin-block-end: 0;
     padding: 0;
   }
 
