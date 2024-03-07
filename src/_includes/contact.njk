@@ -5,7 +5,9 @@
        class="button"
        href="{{ link.href }}"
        title="{{ link.label }}">
-      <svg viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons[link.icon] }}"></svg>
+      <svg aria-hidden="true" viewbox="0 0 24 24">
+        <path d="{{ icons[link.icon] }}"/>
+      </svg>
     </a>
   </li>
 {% endfor %}
