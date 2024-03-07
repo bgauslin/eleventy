@@ -20,7 +20,9 @@
     rel="noopener"
     target="_blank"
     title="{{ label }}">
-    <svg viewbox="0 0 24 24" aria-hidden="true"><path d="{{ icons['github'] }}"></svg>
+    <svg viewbox="0 0 24 24" aria-hidden="true">
+      <path d="{{ icons['github'] }}">
+    </svg>
   </a>
 {% endmacro -%}
 
@@ -29,7 +31,7 @@
   <li>
     <figure>
       {%- call linkify(project.url, project.heading) -%}
-        <img src="/img/{{ project.img }}">
+        <img src="/img/{{ project.img }}" alt="">
       {%- endcall -%}
       <figcaption>
         <p>
