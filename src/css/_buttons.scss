@@ -4,10 +4,10 @@
 .button {
   aspect-ratio: 1;
   background-color: var(--link-background);
-  border-radius: 100%;
+  border-radius: var(--button-size);
   display: grid;
   grid: 1fr / 1fr;
-  inline-size: max(44px, 3em);
+  inline-size: var(--button-size);
   place-items: center;
 
   &:is(:focus, :hover) {
@@ -21,6 +21,6 @@
 
   svg {
     aspect-ratio: 1;
-    inline-size: max(24px, 1.75em);
+    inline-size: var(--icon-size);
   }
 }

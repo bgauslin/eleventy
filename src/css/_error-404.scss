@@ -29,7 +29,7 @@
     font-size: clamp(.5em, .5em + 1vw, 1.1em);
     margin-inline: auto;
     max-inline-size: 100vw;
-    opacity: .75;
+    opacity: var(--text-opacity);
     overflow: auto;
     place-self: center;
     scrollbar-width: none;

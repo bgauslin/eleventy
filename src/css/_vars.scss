@@ -1,9 +1,16 @@
 :root {
+  // Global vars.
+  --button-size: max(44px, 3em);
+  --border-radius: .5em;
+  --duration: .25s;
+  --font-family: system-ui, sans-serif;
+  --icon-size: max(24px, 1.75em);
+  --text-opacity: .75;
+
+  // Theming.
   --background-0: GhostWhite;
   --background-1: white;
-  --duration: .25s;
   --focus-color: OrangeRed;
-  --font-family: system-ui, sans-serif;
   --link-background: #{rgba(DodgerBlue, .2)};
   --link-color: DodgerBlue;
   --rule-color: #{rgba(black, .2)};
@@ -14,6 +21,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+
+    // Dark mode theming.
     --background-0: Black;
     --background-1: #{rgba(white, .1)};
     --focus-color: DarkOrange;
