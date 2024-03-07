@@ -39,6 +39,7 @@
     align-items: center;
     border-block-start: .5px solid var(--rule-color);
     display: grid;
+    font-size: var(--font-size-small);
     gap: 0 1em;
     grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
     grid-area: copy;
