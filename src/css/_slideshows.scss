@@ -9,9 +9,10 @@
     border-radius: var(--border-radius);
     display: grid;
     gap: 0 .5em;
-    grid: 'image blurb' / 6em 1fr;
+    grid: 'image blurb' / 1fr 3fr;
     margin-block: 1em;
     overflow: hidden;
+    place-items: center;
   }
 
   figure > a {
