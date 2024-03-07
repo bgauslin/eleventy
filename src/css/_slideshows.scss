@@ -1,10 +1,40 @@
 // --------------------------------------------------
-// All slideshows; content layout overrides.
+// All slideshows.
 
 .slideshows {
-  --main-max-inline-size: 32em;
-  --main-padding: 0;
+  --main-max-inline-size: 34em;
+
+  figure {
+    background: var(--background-1);
+    border-radius: var(--border-radius);
+    display: grid;
+    gap: 0 .5em;
+    grid: 'image blurb' / 6em 1fr;
+    margin-block: 1em;
+    overflow: hidden;
+  }
+
+  figure > a {
+    grid-area: image;
+  }
+
+  img {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  p {
+    font-size: .9em;
+    margin: 0;
+  }
+
+  figcaption {
+    grid-area: blurb;
+  }
 }
+
+// --------------------------------------------------
+// Content layout overrides.
 
 :where(.slideshows, .slideshow) h2 {
   font-size: 1em;
@@ -30,15 +60,19 @@
 
   dl {
     display: grid;
-    font-size: .8em;
-    gap: 0 1em;
+    font-size: .9em;
+    gap: 0 .5em;
     grid: auto-flow / auto 1fr;
     margin-block: 1em;
-    opacity: .75;
+    opacity: var(--text-opacity);
   }
 
   dt::after {
     content: ':';
+  }
+
+  dd {
+    margin: 0;
   }
 
   figcaption {
