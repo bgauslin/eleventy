@@ -12,7 +12,9 @@ view: home
 
 <fancy-details>
   <details>
-    <summary>About</summary>
+    <summary>
+      <h2>About</h2>
+    </summary>
 
     Hello, I’m an ex-Google engineer and former Chicago architect who currently lives in New Orleans.
     
@@ -23,7 +25,9 @@ view: home
 
 <fancy-details>
   <details>
-    <summary>Projects</summary>
+    <summary>
+      <h2>Projects</h2>
+    </summary>
 
     A selection of apps built with Web Components alongside a few architecture and music projects.
 
@@ -34,7 +38,9 @@ view: home
 
 <fancy-details>
   <details>
-    <summary>Contact</summary>
+    <summary>
+      <h2>Contact</h2>
+    </summary>
 
     You can reach me via email, text, or voicemail.
 

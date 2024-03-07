@@ -3,6 +3,11 @@
 
 .home {
   --main-max-inline-size: 34em;
+
+  h2 {
+    font-size: 1em;
+    margin: 0;
+  }
 }
 
 // --------------------------------------------------
@@ -40,7 +45,7 @@
     padding-inline: 0 .75em;
   }
 
-  h2 {
+  h3 {
     font-size: 1em;
     grid-area: heading;
     margin: 0;
