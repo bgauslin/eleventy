@@ -2,11 +2,23 @@
 // Light DOM styles for <carousel-widget> slotted content.
 
 carousel-widget {
-  --figure-grid: 'media' 'copy' / 1fr; // TODO: Experiment with sizes and placement
+  --figure-grid: 'media' 'copy' max-content / 1fr;
+
+  .shotgun & {
+    --figure-grid: 'media' 'copy' minmax(max-content, 1fr) / 1fr;
+  }
+
+  .europa & {
+    --figure-grid: 'media' 'copy' max-content / 1fr;
+  }
 
   @media (orientation: landscape) {
-    --figure-grid: 'media copy' / 1fr 1fr; // TODO: Experiment with sizes and placement
     --figcaption-place-self: center;
+
+    &,
+    :is(.shotgun, .europa) & {
+      --figure-grid: 'media copy' / 2fr 1fr;
+    }
   }
 
   & {
@@ -21,6 +33,7 @@ carousel-widget {
   }
 
   ol {
+    block-size: calc(100dvh - var(--button-size));
     display: grid;
     grid: 1fr / auto-flow;
     margin: 0;  
@@ -44,7 +57,6 @@ carousel-widget {
   figure {
     block-size: 100%;
     display: grid;
-    // gap: var(--figure-gap);
     grid: var(--figure-grid);
   }
 
@@ -61,7 +73,6 @@ carousel-widget {
   @media (orientation: landscape) {
     figure {
       gap: 2em;
-      padding: 1.5em;
     }
 
     [data-orientation='portrait'] {
