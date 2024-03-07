@@ -26,11 +26,22 @@ main {
 }
 
 // --------------------------------------------------
-// Headings.
+// Headings. If vars are undefined, the 'font-size'
+// and 'margin' properties default to 1em and 0.
 
 h1 {
-  font-size: 1em;
-  margin: 0;
+  font-size: var(--h1-font-size);
+  margin: var(--h1-margin);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  margin: var(--h2-margin);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  margin: var(--h3-margin);
 }
 
 h1 + p {

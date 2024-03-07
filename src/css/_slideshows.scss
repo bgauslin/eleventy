@@ -25,25 +25,12 @@
   }
 
   p {
-    font-size: .9em;
     margin: 0;
   }
 
   figcaption {
     grid-area: blurb;
   }
-}
-
-// --------------------------------------------------
-// Content layout overrides.
-
-:where(.slideshows, .slideshow) h2 {
-  font-size: 1em;
-  margin: 0;
-}
-
-:where(.slideshows, .europa) h2 + p {
-  margin-block-start: 0;
 }
 
 // --------------------------------------------------
@@ -79,6 +66,13 @@
   figcaption {
     max-inline-size: 36em;
   }
+}
+
+// --------------------------------------------------
+// Content layout overrides for specific slideshows.
+
+.europa h2 + p {
+  margin-block-start: 0;
 }
 
 // --------------------------------------------------

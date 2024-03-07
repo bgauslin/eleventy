@@ -3,20 +3,17 @@
 
 .home {
   --main-max-inline-size: 34em;
-
-  h2 {
-    font-size: 1em;
-    margin: 0;
-  }
 }
 
 // --------------------------------------------------
 // The 'projects' classname is set on a <ul> element.
 
 .projects {
-  list-style: none;
-  margin-block: 1em .5em;
-  padding: 0;
+  & {
+    list-style: none;
+    margin-block: 1em .5em;
+    padding: 0;
+  }
 
   figure {
     align-items: center;
@@ -46,9 +43,7 @@
   }
 
   h3 {
-    font-size: 1em;
     grid-area: heading;
-    margin: 0;
   }
 
   p {
