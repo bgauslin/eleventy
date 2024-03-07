@@ -1,4 +1,6 @@
+// --------------------------------------------------
 // All slideshows.
+
 .slideshows {
   --main-max-inline-size: 32em;
   --main-padding: 0;
@@ -9,7 +11,13 @@
   margin: 0;
 }
 
+:where(.slideshows, .europa) h2 + p {
+  margin-block-start: 0;
+}
+
+// --------------------------------------------------
 // Individual collection of slides.
+
 .slideshow {
   --main-max-inline-size: none;
   --main-padding: 0;
@@ -27,26 +35,29 @@
     opacity: .75;
   }
 
+  dd {
+    margin: 0;
+  }
+
   figcaption {
     max-inline-size: 36em;
   }
 }
 
-// Slideshow-specific override since location may follow the title heading.
-:where(.slideshows, .europa) h2 + p {
-  margin-block-start: 0;
-}
-
+// --------------------------------------------------
 // Images container.
+
 [data-images] {
-  gap: 1em;
   display: grid;
+  gap: 1em;
   grid: 1fr / auto-flow;
   place-items: center;
 }
 
+// --------------------------------------------------
 // Prevent comically large images with portait orientation by limiting
 // height to viewport width and inverting responsive media styles.
+
 [data-orientation='portrait'] {
   inline-size: auto;
   max-block-size: min(840px, 100vw);
