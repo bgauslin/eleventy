@@ -7,5 +7,8 @@ view: slideshow
 
 title: Shotgun House Renovation
 description: Breathing new life into an 1890s New Orleans shotgun house.
-image: after-exterior-nw-completed
+image:
+  src: after-exterior-nw-completed
+  width: 600
+  height: 450
 ---
