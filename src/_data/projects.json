@@ -1,7 +1,7 @@
 [
   {
     "heading": "Powers Of Ten",
-    "copy": "web adaptation of the film by Charles and Ray Eames.",
+    "copy": "Web adaptation of the film by Charles and Ray Eames",
     "img": "ten-galaxy.jpg",
     "url": "https://ten.gauslin.com",
     "repo": "ten",
@@ -10,7 +10,7 @@
   },
   {
     "heading": "Clock",
-    "copy": "composed of nine faces that reveal patterns over time.",
+    "copy": "Composition of nine clock faces reveal patterns over time",
     "img": "clock-icon.png",
     "url": "https://clock.gauslin.com",
     "repo": "clock",
@@ -19,7 +19,7 @@
   },
   {
     "heading": "Calorie Calculator",
-    "copy": "for determining daily calorie needs.",
+    "copy": "App for determining daily calorie needs",
     "img": "calories-icon.png",
     "url": "https://calories.gauslin.com",
     "repo": "calories",
@@ -28,7 +28,7 @@
   },
   {
     "heading": "Moon",
-    "copy": "tracker for moorise, moonset, sunrise, sunset, and lunar phase based on location.",
+    "copy": "Tracking app for moorise, moonset, sunrise, sunset, and lunar phase based on location",
     "img": "moon-icon.png",
     "url": "https://moon.gauslin.com",
     "repo": "moon",
@@ -37,7 +37,7 @@
   },
   {
     "heading": "Compound Interest Calculator",
-    "copy": "with support for multiple currencies.",
+    "copy": "Simple calculator with support for multiple currencies",
     "img": "interest-icon.png",
     "url": "https://interest.gauslin.com",
     "repo": "interest",
@@ -46,7 +46,7 @@
   },
   {
     "heading": "Shotgun House Renovation",
-    "copy": "of a barge board home in Faubourg St. John, New Orleans.",
+    "copy": "Breathing new life into an 1890s New Orleans shotgun house",
     "img": "shotgun-front.jpg",
     "url": "https://slides.gauslin.com/shotgun",
     "repo": "slides_vue",
@@ -55,7 +55,7 @@
   },
   {
     "heading": "Travel Sketches and Collages",
-    "copy": "from time abroad in Europe.",
+    "copy": "Documenting an experience abroad with pen, pencil, and found materials",
     "img": "sketch-piazza.png",
     "url": "https://slides.gauslin.com/sketches-collages",
     "repo": "slides_vue",
@@ -64,28 +64,28 @@
   },
   {
     "heading": "House for an Art Collector",
-    "copy": "while employed as Project Architect at Shafer Architects in Chicago.",
+    "copy": "Project Architect at Shafer Architects in Chicago",
     "img": "hfac-hall.jpg",
     "url": "https://sckarchitecture.com/house-for-an-art-collector",
     "type": "architecture"
   },
   {
     "heading": "The Pietasters",
-    "copy": "Co-founder of 8-piece ska band that still performs nearly three decades later.",
+    "copy": "Drummer and co-founder of 8-piece ska band with over 30 years of shows and recordings",
     "img": "piestomp.jpg",
     "url": "https://en.wikipedia.org/wiki/The_Pietasters",
     "type": "music"
   },
   {
     "heading": "Twelve Modern",
-    "copy": "Experimental 5-piece band that only performed in the moment and without rehearsals.",
+    "copy": "Drummer for experimental band that only performed live and never rehearsed",
     "img": "twelve-modern.jpg",
     "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
     "type": "music"
   },
   {
     "heading": "Thump Daddy",
-    "copy": "Drummer and chart writer for 5-piece Memphis-based party band.",
+    "copy": "Drummer and transcriber for 5-piece Memphis-based party band",
     "img": "thumpdaddy.png",
     "url": "https://southeasternattractions.com/thump-daddy/",
     "type": "music"
