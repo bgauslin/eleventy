@@ -34,10 +34,21 @@
     border-block-start: .5px solid var(--rule-color);
     display: grid;
     gap: 0 1em;
-    grid: 'info repo' / 1fr max(24px, 1.5em);
+    grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
     grid-area: copy;
     inline-size: 100%;
     padding-inline: 0 .75em;
+  }
+
+  h2 {
+    font-size: 1em;
+    grid-area: heading;
+    margin: 0;
+  }
+
+  p {
+    grid-area: blurb;
+    margin: 0;
   }
 }
 
