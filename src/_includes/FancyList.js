@@ -31,14 +31,14 @@ class FancyList extends HTMLElement {
 
     // Build and attach the controls.
     const controls = document.createElement('div');
-    this.count = document.createElement('div');
+    this.counter = document.createElement('span');
     this.prev = this.createButton('Prev');
     this.next = this.createButton('Next');
 
-    controls.dataset.controls = '';
-    this.count.dataset.count = '';
+    controls.classList.add('controls');
+    this.counter.classList.add('counter');
 
-    for (const element of [this.count, this.prev, this.next]) {
+    for (const element of [this.counter, this.prev, this.next]) {
       controls.appendChild(element);
     }
 
@@ -93,7 +93,7 @@ class FancyList extends HTMLElement {
           // Update elements.
           this.prev.disabled = this.indexPrev < 0;
           this.next.disabled = !this.indexNext;
-          this.count.textContent = `${index + 1} of ${this.total}`;
+          this.counter.textContent = `${index + 1} of ${this.total}`;
 
           // Preload next item's images.
           const images = this.items[this.indexNext].querySelectorAll('img');
@@ -169,18 +169,18 @@ class FancyList extends HTMLElement {
         grid-area: slot;
       }
       
-      [data-controls] {
+      .controls {
         display: grid;
+        font-weight: bold;
         gap: 0 1em;
-        grid: '. prev count next .' / 0 auto 1fr auto 0;
+        grid: '. prev counter next .' / 0 auto 1fr auto 0;
         grid-area: controls;
         place-content: center;
       }
 
-      [data-count] {
-        font-weight: bold;
-        grid-area: count;
-        opacity: .75;
+      .counter {
+        grid-area: counter;
+        opacity: var(--text-opacity);
         place-self: center;
       }
       
@@ -195,16 +195,15 @@ class FancyList extends HTMLElement {
       button {
         appearance: none;
         background-color: var(--link-background);
+        block-size: var(--button-size);
         border: none;
-        border-radius: 3em;
+        border-radius: var(--button-size);
         color: var(--link-color);
         cursor: pointer;
-        font: inherit;
-        font-weight: bold;
-        inline-size: fit-content;
+        font: inherit; /* TODO: remove */
         margin: 0;
-        padding: .5em 1.25em;
-        transition: background-color .3s, color .3s, opacity .3s;
+        padding-inline: 1.25em; /* TODO: remove */
+        transition: background-color var(--duration), color var(--duration), opacity var(--duration);
 
         &:is(:focus, :hover) {
           background-color: var(--link-color);
