@@ -1,8 +1,7 @@
-// Fancy list styles set in light DOM.
-fancy-list {
-  block-size: 100dvh;
+// --------------------------------------------------
+// Light DOM styles for <fancy-list> slotted content.
 
-  --controls-size: 4em;
+fancy-list {
   --figure-grid: 'media' 'copy' / 1fr;
 
   @media (orientation: landscape) {
@@ -10,8 +9,11 @@ fancy-list {
     --figcaption-place-self: center;
   }
 
-  ol,
-  li {
+  & {
+    block-size: 100dvh;
+  }
+
+  :is(ol, li) {
     inline-size: 100vw;
   }
 

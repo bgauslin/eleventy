@@ -1,5 +1,5 @@
 // --------------------------------------------------
-// All slideshows.
+// All slideshows; content layout overrides.
 
 .slideshows {
   --main-max-inline-size: 32em;
@@ -16,9 +16,10 @@
 }
 
 // --------------------------------------------------
-// Individual collection of slides.
+// Individual slideshow.
 
 .slideshow {
+  --controls-size: 4em;
   --main-max-inline-size: none;
   --main-padding: 0;
 
@@ -32,11 +33,12 @@
     font-size: .8em;
     gap: 0 1em;
     grid: auto-flow / auto 1fr;
+    margin-block: 1em;
     opacity: .75;
   }
 
-  dd {
-    margin: 0;
+  dt::after {
+    content: ':';
   }
 
   figcaption {
