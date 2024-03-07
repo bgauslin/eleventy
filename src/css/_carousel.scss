@@ -1,17 +1,20 @@
 // --------------------------------------------------
-// Light DOM styles for <fancy-list> slotted content.
+// Light DOM styles for <carousel-widget> slotted content.
 
-fancy-list {
-  --figure-grid: 'media' 'copy' / 1fr;
+carousel-widget {
+  --figure-grid: 'media' 'copy' / 1fr; // TODO: Experiment with sizes and placement
 
   @media (orientation: landscape) {
-    --figure-grid: 'media copy' / 1fr 1fr;
+    --figure-grid: 'media copy' / 1fr 1fr; // TODO: Experiment with sizes and placement
     --figcaption-place-self: center;
   }
 
   & {
     block-size: 100dvh;
   }
+
+  // ---------------------------------------------
+  // Scroll snap container and items.
 
   :is(ol, li) {
     inline-size: 100vw;
@@ -35,6 +38,9 @@ fancy-list {
     scroll-snap-align: start;
   }
 
+  // ---------------------------------------------
+  // Slideshow contents.
+
   figure {
     block-size: 100%;
     display: grid;
@@ -45,6 +51,7 @@ fancy-list {
     grid-area: media;
   }
 
+  // TODO: We need overflow for long blocks of copy. Via child element(?)
   figcaption {
     grid-area: copy;
     place-self: var(--figcaption-place-self);

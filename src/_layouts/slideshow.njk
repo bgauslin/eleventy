@@ -2,7 +2,7 @@
 layout: base
 ---
 {%- set domain = 'https://assets.gauslin.com' -%}
-{%- set imagePath = '/images/slides2023/' -%}
+{%- set imagePath = '/images/slides2023/' -%}{# TODO: Update directory, coordinate with Vue app and assets. #}
 
 {%- macro renderImage(image, slug, loading) %}
   {%- set imageUrl = domain + imagePath + slug + '/' + image.src %}
@@ -27,7 +27,7 @@ layout: base
     {%- if image.height %} height="{{ image.height }}"{% endif %}>
 {%- endmacro -%}
 
-<fancy-list>
+<carousel-widget>
   <ol>
   {%- for item in collections[slug] %}
     <li id="{{ item.data.slug }}">
@@ -56,9 +56,9 @@ layout: base
     </li>
   {%- endfor %}
   </ol>
-</fancy-list>
+</carousel-widget>
 
 <script>
-  {% include 'FancyList.js' %}
+  {% include 'CarouselWidget.js' %}
 </script>
 

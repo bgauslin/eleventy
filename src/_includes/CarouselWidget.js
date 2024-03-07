@@ -1,4 +1,4 @@
-class FancyList extends HTMLElement {
+class CarouselWidget extends HTMLElement {
   constructor() {
     super();
     this.indexPrev = -1;
@@ -219,5 +219,5 @@ class FancyList extends HTMLElement {
   }
 }
 
-customElements.define('fancy-list', FancyList);
+customElements.define('carousel-widget', CarouselWidget);
 
