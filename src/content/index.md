@@ -36,7 +36,7 @@ view: home
   <details>
     <summary>Contact</summary>
 
-    You can reach me via email, text, or voicemail:
+    You can reach me via email, text, or voicemail.
 
     {% include 'contact.njk' %}
 
