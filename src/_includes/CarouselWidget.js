@@ -32,8 +32,8 @@ class CarouselWidget extends HTMLElement {
     // Build and attach the controls.
     const controls = document.createElement('div');
     this.counter = document.createElement('span');
-    this.prev = this.createButton('Prev');
-    this.next = this.createButton('Next');
+    this.prev = this.createButton('prev');
+    this.next = this.createButton('next');
 
     controls.classList.add('controls');
     this.counter.classList.add('counter');
@@ -49,9 +49,20 @@ class CarouselWidget extends HTMLElement {
    * Helper function for rendering prev-next buttons.
    */
   createButton(direction) {
+    const label = direction === 'prev' ? 'Previous' : 'Next';
+    const path = direction === 'prev' ? 'M15,4 L7,12 L15,20' : 'M9,4 L17,12 L9,20';
+
     const button = document.createElement('button');
-    button.dataset.direction = direction.toLowerCase();
-    button.textContent = direction;
+    button.ariaLabel = label;
+    button.title = label;
+    button.dataset.direction = direction;
+    
+    button.innerHTML = `
+      <svg aria-hidden="true" viewbox="0 0 24 24">
+        <path d="${path}"/>
+      </svg>
+    `;
+    
     return button;
   }
 
@@ -161,7 +172,7 @@ class CarouselWidget extends HTMLElement {
     styles.replaceSync(`
       :host {
         display: grid;
-        grid: 'slot' 1fr 'controls' var(--controls-size) / 1fr;
+        grid: 'slot' 1fr 'controls' var(--button-size) '.' 1em / 1fr;
         inline-size: 100vw;
       }
 
@@ -171,7 +182,6 @@ class CarouselWidget extends HTMLElement {
       
       .controls {
         display: grid;
-        font-weight: bold;
         gap: 0 1em;
         grid: '. prev counter next .' / 0 auto 1fr auto 0;
         grid-area: controls;
@@ -194,15 +204,17 @@ class CarouselWidget extends HTMLElement {
 
       button {
         appearance: none;
+        aspect-ratio: 1;
         background-color: var(--link-background);
         block-size: var(--button-size);
         border: none;
         border-radius: var(--button-size);
         color: var(--link-color);
         cursor: pointer;
-        font: inherit; /* TODO: remove */
+        display: grid;
+        grid: 1fr / 1fr;
         margin: 0;
-        padding-inline: 1.25em; /* TODO: remove */
+        place-items: center;
         transition: background-color var(--duration), color var(--duration), opacity var(--duration);
 
         &:is(:focus, :hover) {
@@ -213,6 +225,14 @@ class CarouselWidget extends HTMLElement {
         &[disabled] {
           opacity: 0;
         }
+      }
+
+      svg {
+        block-size: var(--icon-size);
+        fill: none;
+        pointer-events: none;
+        stroke: currentColor;
+        stroke-width: 3px;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];

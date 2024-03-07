@@ -1,4 +1,4 @@
-// --------------------------------------------------
+// -----------------------------------------------------------------------------
 // Light DOM styles for <carousel-widget> slotted content.
 
 carousel-widget {
@@ -13,7 +13,7 @@ carousel-widget {
     block-size: 100dvh;
   }
 
-  // ---------------------------------------------
+  // ---------------------------------------------------------------------------
   // Scroll snap container and items.
 
   :is(ol, li) {
@@ -38,12 +38,13 @@ carousel-widget {
     scroll-snap-align: start;
   }
 
-  // ---------------------------------------------
+  // ---------------------------------------------------------------------------
   // Slideshow contents.
 
   figure {
     block-size: 100%;
     display: grid;
+    // gap: var(--figure-gap);
     grid: var(--figure-grid);
   }
 
@@ -55,5 +56,20 @@ carousel-widget {
   figcaption {
     grid-area: copy;
     place-self: var(--figcaption-place-self);
+  }
+
+  @media (orientation: landscape) {
+    figure {
+      gap: 2em;
+      padding: 1.5em;
+    }
+
+    [data-orientation='portrait'] {
+      max-block-size: calc(100dvh - var(--button-size) - 4em); // TODO: Refactor
+    }
+
+    figcaption {
+      padding: 0;
+    }
   }
 }
