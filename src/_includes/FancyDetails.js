@@ -40,6 +40,9 @@ class FancyDetails extends HTMLElement {
     } else {
       window.requestAnimationFrame(() => {
         element.style.setProperty('--height', `${element.scrollHeight}px`);
+        element.addEventListener('transitionend', () => {
+          element.style.setProperty('--height', 'auto');
+        }, {once: true});
       });
     }
   }
