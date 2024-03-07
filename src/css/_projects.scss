@@ -1,15 +1,4 @@
 // --------------------------------------------------
-// Base layout overrides.
-
-.home {
-  --main-max-inline-size: 34em;
-
-  h1 + p {
-    margin: 0;
-  }
-}
-
-// --------------------------------------------------
 // The 'projects' classname is set on a <ul> element.
 
 .projects {

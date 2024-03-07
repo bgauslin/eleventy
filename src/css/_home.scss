@@ -1,0 +1,21 @@
+// --------------------------------------------------
+// Home page overrides.
+
+.home {
+  --main-max-inline-size: 34em;
+
+  h1 + ul {
+    display: flex;
+    font-size: var(--font-size-small);
+    list-style: none;
+    margin: 0;
+    opacity: var(--text-opacity);
+    padding: 0;
+  }
+
+  h1 + ul > li:not(:last-child)::after {
+    content: '·';
+    display: inline-block;
+    margin-inline: .5em;
+  }
+}

@@ -8,7 +8,9 @@ view: home
 ---
 # Ben Gauslin
 
-<small>Engineer · Architect · Musician</small>
+- Engineer
+- Architect
+- Musician
 
 <fancy-details>
   <details>
