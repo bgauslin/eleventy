@@ -1,7 +1,9 @@
+// --------------------------------------------------
 // The 'contact' classname is set on a <ul> element.
+
 .contact {
   display: flex;
   gap: 0 1em;
   list-style: none;
-  padding-inline: 0;
+  padding: 0;
 }
