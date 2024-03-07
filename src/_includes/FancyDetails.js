@@ -31,12 +31,15 @@ class FancyDetails extends HTMLElement {
 
     if (element.open) {
       event.preventDefault();
-      element.style.removeProperty('--height');
-      element.setAttribute('data-state', 'closing');
-      element.addEventListener('transitionend', () => {
-        element.open = false;
-        element.removeAttribute('data-state');
-      }, {once: true});
+      element.style.setProperty('--height', `${element.scrollHeight}px`);
+      window.requestAnimationFrame(() => {
+        element.style.removeProperty('--height');
+        element.setAttribute('data-state', 'closing');
+        element.addEventListener('transitionend', () => {
+          element.open = false;
+          element.removeAttribute('data-state');
+        }, {once: true});
+      });
     } else {
       window.requestAnimationFrame(() => {
         element.style.setProperty('--height', `${element.scrollHeight}px`);
