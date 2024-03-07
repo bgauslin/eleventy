@@ -13,7 +13,7 @@ view: home
 - Musician
 
 <fancy-details>
-  <details>
+  <details id="about">
     <summary>
       <h2>About</h2>
     </summary>
@@ -22,11 +22,13 @@ view: home
     
     When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and electric bass.
 
+    ![](/img/selfie.jpg)
+
   </details>
 </fancy-details>
 
 <fancy-details>
-  <details>
+  <details id="projects">
     <summary>
       <h2>Projects</h2>
     </summary>
@@ -39,7 +41,7 @@ view: home
 </fancy-details>
 
 <fancy-details>
-  <details>
+  <details id="contact">
     <summary>
       <h2>Contact</h2>
     </summary>
