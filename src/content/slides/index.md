@@ -1,5 +1,5 @@
 ---
-layout: slides-index
+layout: slideshows
 permalink: slides/index.html
 title: Slideshows
 view: slideshows

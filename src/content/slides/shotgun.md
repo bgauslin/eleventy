@@ -1,11 +1,11 @@
 ---
-layout: slides-collection
+layout: slideshow
 permalink: slides/shotgun.html
 slug: shotgun-fsj
 tags: slideshow
 view: slideshow
 
-title: Shotgun Renovation in Faubourg Saint John
+title: Shotgun House Renovation
 description: Breathing new life into an 1890s New Orleans shotgun house.
-image: listing-dining-living
+image: after-exterior-nw-completed
 ---
