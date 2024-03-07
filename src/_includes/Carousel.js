@@ -1,4 +1,4 @@
-class CarouselWidget extends HTMLElement {
+class Carousel extends HTMLElement {
   constructor() {
     super();
     this.indexPrev = -1;
@@ -189,6 +189,7 @@ class CarouselWidget extends HTMLElement {
       }
 
       .counter {
+        font-size: var(--font-size-small);
         grid-area: counter;
         opacity: var(--text-opacity);
         place-self: center;
@@ -239,5 +240,5 @@ class CarouselWidget extends HTMLElement {
   }
 }
 
-customElements.define('carousel-widget', CarouselWidget);
+customElements.define('carousel-widget', Carousel);
 
