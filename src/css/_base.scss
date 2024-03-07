@@ -13,7 +13,7 @@ html {
 body {
   background: var(--background-0);
   color: var(--text-color);
-  font: clamp(.875em, .5em + 1vw, 2em) / 1.5 var(--font-family);
+  font: clamp(.875em, .5em + 1vw, 2em) / 1.4 var(--font-family);
   margin: 0;
   min-block-size: 100dvh;
 }

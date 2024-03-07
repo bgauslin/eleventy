@@ -7,9 +7,9 @@
   figure {
     background: var(--background-1);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow-1);
     display: grid;
-    gap: 0 .5em;
-    grid: 'image blurb' / 1fr 3fr;
+    grid: 'image blurb' / 2fr 3fr;
     margin-block: 1em;
     overflow: hidden;
     place-items: center;
@@ -27,10 +27,12 @@
   p {
     font-size: var(--font-size-small);
     margin: 0;
+    opacity: var(--text-opacity);
   }
 
   figcaption {
     grid-area: blurb;
+    padding-block: 0;
   }
 }
 
