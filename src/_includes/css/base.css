@@ -21,7 +21,7 @@ main {
   margin-inline: auto;
   max-inline-size: var(--main-max-inline-size, 80rem);
   min-block-size: 100dvh;
-  padding: var(--main-padding, 1.5em);
+  padding: var(--main-padding, var(--gap));
 }
 
 /* Headings. If vars are undefined, the 'font-size'

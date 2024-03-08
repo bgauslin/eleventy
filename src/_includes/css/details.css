@@ -3,7 +3,7 @@ details {
   background: var(--background-1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
-  margin-block: 1.5em;
+  margin-block: var(--gap);
   overflow: auto;
 }
 

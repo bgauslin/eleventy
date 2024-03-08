@@ -1,5 +1,6 @@
 .slideshows {
   --main-max-inline-size: 34em;
+  --figure-size: 10em;
 }
 
 .slideshows figure {
@@ -7,8 +8,8 @@
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
   display: grid;
-  grid: 'image blurb' / 2fr 3fr;
-  margin-block: 1em;
+  grid: 'image blurb' var(--figure-size) / var(--figure-size) 1fr;
+  margin-block: var(--gap);
   overflow: hidden;
   place-items: center;
 }
