@@ -9,8 +9,8 @@ title: Travel Sketches and Collages
 description: Documenting travel abroad with pen, pencil, and found materials
 image:
   src: sketch-parc-de-la-villette
-  width: 600
-  height: 458
+  width: 320
+  height: 243
 ---
 
 <style>

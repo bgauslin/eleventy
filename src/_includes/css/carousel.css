@@ -35,6 +35,7 @@ carousel-widget li {
 carousel-widget figure {
   block-size: 100%;
   display: grid;
+  gap: var(--figure-gap);
   grid: var(--figure-grid);
 }
 
@@ -42,7 +43,6 @@ carousel-widget [data-images] {
   grid-area: media;
 }
 
-/* TODO: We need overflow for long blocks of copy. Via child element(?) */
 carousel-widget figcaption {
   grid-area: copy;
   place-self: var(--figcaption-place-self);
@@ -52,15 +52,12 @@ carousel-widget figcaption {
   carousel-widget {
     --figcaption-place-self: center;
     --figure-grid: 'media copy .' / 2fr 1fr 0;
+    --figure-gap: 2em;
   }
 
-  carousel-widget figure {
-    gap: 2em;
-  }
-
-  /* TODO: Refactor. */
-  carousel-widget [data-orientation='portrait'] {
-    max-block-size: calc(100dvh - var(--button-size) - 4em);
+  carousel-widget figure,
+  carousel-widget [data-orientation] {
+    max-block-size: calc(100dvh - var(--button-size));
   }
 
   carousel-widget figcaption {

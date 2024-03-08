@@ -12,7 +12,7 @@ layout: base
   
   {%- if image.height and image.width %}
     {%- set orientation %}
-      {{- 'portrait' if (image.height > image.width) else 'landscape' }}
+      {{- 'portrait' if (image.height >= image.width) else 'landscape' }}
     {%- endset %}
   {%- endif %}
   
