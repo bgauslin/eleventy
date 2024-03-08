@@ -25,24 +25,16 @@ class Carousel extends HTMLElement {
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
-    // Attach the default slot.
     const slot = document.createElement('slot');
-    this.shadowRoot.appendChild(slot);
-
-    // Build and attach the controls.
-    const controls = document.createElement('div');
-    this.counter = document.createElement('span');
+    this.counter = document.createElement('div');
     this.prev = this.createButton('prev');
     this.next = this.createButton('next');
 
-    controls.classList.add('controls');
     this.counter.classList.add('counter');
 
-    for (const element of [this.counter, this.prev, this.next]) {
-      controls.appendChild(element);
+    for (const element of [slot, this.counter, this.prev, this.next]) {
+      this.shadowRoot.appendChild(element);
     }
-
-    this.shadowRoot.appendChild(controls);
   }
 
   /**
@@ -176,23 +168,17 @@ class Carousel extends HTMLElement {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       :host {
+        block-size: 100dvh;
         display: grid;
-        grid: 'slot' 1fr 'controls' var(--button-size) '.' 1em / 1fr;
+        grid: 'slot slot slot' 1fr 'prev counter next' / auto 1fr auto;;
         inline-size: 100vw;
-      }
-
-      slot {
-        grid-area: slot;
-      }
-      
-      .controls {
-        display: grid;
-        gap: 0 1em;
-        grid: '. prev counter next .' / 0 auto 1fr auto 0;
-        grid-area: controls;
         place-content: center;
       }
 
+      ::slotted(ol) {
+        grid-area: slot;
+      }
+      
       .counter {
         font-size: var(--font-size-small);
         grid-area: counter;
@@ -202,10 +188,12 @@ class Carousel extends HTMLElement {
       
       [data-direction='prev'] {
         grid-area: prev;
+        z-index: 1;
       }
       
       [data-direction='next'] {
         grid-area: next;
+        z-index: 1;
       }
 
       button {
