@@ -1,8 +1,23 @@
 /* Light DOM styles for <carousel-widget> slotted content. */
 
 carousel-widget {
-  --figure-grid: 'media' 'copy' max-content / 1fr;
   block-size: 100dvh;
+  --figure-grid: 'media' 'copy' max-content / 1fr;
+}
+
+@media (orientation: landscape) {
+  carousel-widget {
+    --figcaption-padding: 0;
+    --figcaption-place-self: center;
+    --figure-grid: 'media copy .' / 2fr 1fr 0;
+    --figure-gap: 2em;
+  }
+
+  /* TODO: refactor/rewrite... */
+  carousel-widget [data-orientation] {
+    max-block-size: calc(100dvh - var(--button-size));
+    max-block-size: 100dvh;
+  }
 }
 
 /* Scroll snap container and items. */
@@ -12,7 +27,6 @@ carousel-widget :is(ol, li) {
 }
 
 carousel-widget ol {
-  block-size: calc(100dvh - var(--button-size));
   display: grid;
   grid: 1fr / auto-flow;
   margin: 0;  
@@ -45,22 +59,6 @@ carousel-widget [data-images] {
 
 carousel-widget figcaption {
   grid-area: copy;
+  padding: var(--figcaption-padding, var(--gap));
   place-self: var(--figcaption-place-self);
-}
-
-@media (orientation: landscape) {
-  carousel-widget {
-    --figcaption-place-self: center;
-    --figure-grid: 'media copy .' / 2fr 1fr 0;
-    --figure-gap: 2em;
-  }
-
-  carousel-widget figure,
-  carousel-widget [data-orientation] {
-    max-block-size: calc(100dvh - var(--button-size));
-  }
-
-  carousel-widget figcaption {
-    padding: 0;
-  }
 }
