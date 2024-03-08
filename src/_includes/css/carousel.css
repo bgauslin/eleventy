@@ -1,7 +1,8 @@
-// -----------------------------------------------------------------------------
-// Light DOM styles for <carousel-widget> slotted content.
+/* Light DOM styles for <carousel-widget> slotted content. */
 
 carousel-widget {
+  block-size: 100dvh;
+
   --figure-grid: 'media' 'copy' max-content / 1fr;
 
   .shotgun & {
@@ -21,12 +22,7 @@ carousel-widget {
     }
   }
 
-  & {
-    block-size: 100dvh;
-  }
-
-  // ---------------------------------------------------------------------------
-  // Scroll snap container and items.
+  /* Scroll snap container and items. */
 
   :is(ol, li) {
     inline-size: 100vw;
@@ -51,8 +47,7 @@ carousel-widget {
     scroll-snap-align: start;
   }
 
-  // ---------------------------------------------------------------------------
-  // Slideshow contents.
+  /* Slideshow contents. */
 
   figure {
     block-size: 100%;
@@ -64,7 +59,7 @@ carousel-widget {
     grid-area: media;
   }
 
-  // TODO: We need overflow for long blocks of copy. Via child element(?)
+  /* TODO: We need overflow for long blocks of copy. Via child element(?) */
   figcaption {
     grid-area: copy;
     place-self: var(--figcaption-place-self);
@@ -75,8 +70,9 @@ carousel-widget {
       gap: 2em;
     }
 
+    /* TODO: Refactor */
     [data-orientation='portrait'] {
-      max-block-size: calc(100dvh - var(--button-size) - 4em); // TODO: Refactor
+      max-block-size: calc(100dvh - var(--button-size) - 4em);
     }
 
     figcaption {
