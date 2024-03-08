@@ -22,3 +22,11 @@ layout: base
     </figcaption>
   </figure>
 {%- endfor %}
+
+{%- set css -%}
+  {%- include 'css/slideshows.css' -%}
+{%- endset -%}
+
+<style>
+  {{ css | safe }}
+</style>
