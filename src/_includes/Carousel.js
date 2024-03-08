@@ -49,8 +49,13 @@ class Carousel extends HTMLElement {
    * Helper function for rendering prev-next buttons.
    */
   createButton(direction) {
-    const label = direction === 'prev' ? 'Previous' : 'Next';
-    const path = direction === 'prev' ? 'M15,4 L7,12 L15,20' : 'M9,4 L17,12 L9,20';
+    let label = 'Next';
+    let path = 'M9,4 L17,12 L9,20';
+
+    if (direction === 'prev') {
+      label = 'Previous';
+      path = 'M15,4 L7,12 L15,20';
+    }
 
     const button = document.createElement('button');
     button.ariaLabel = label;
