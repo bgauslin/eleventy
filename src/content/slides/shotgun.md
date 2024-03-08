@@ -1,7 +1,7 @@
 ---
 layout: slideshow
 permalink: slides/shotgun.html
-slug: shotgun-fsj
+slug: shotgun
 tags: slideshow
 view: slideshow
 
@@ -9,8 +9,8 @@ title: Shotgun House Renovation
 description: Breathing new life into an 1890s New Orleans shotgun house
 image:
   src: after-exterior-nw-completed
-  width: 600
-  height: 450
+  width: 320
+  height: 240
 ---
 
 <style>

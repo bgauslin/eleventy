@@ -8,7 +8,7 @@ view: slideshow
 title: Travel Sketches and Collages
 description: Documenting travel abroad with pen, pencil, and found materials
 image:
-  src: sketch-piazza-del-campo-siena-7pm
+  src: sketch-parc-de-la-villette
   width: 600
   height: 458
 ---
