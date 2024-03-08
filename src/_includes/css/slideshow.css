@@ -41,16 +41,3 @@
   inline-size: 50%;
   place-self: center;
 }
-
-/* Prevent comically large images with portait orientation by limiting
-   height to viewport width and inverting responsive media styles. */
-[data-orientation='portrait'] {
-  inline-size: auto;
-  max-block-size: 100vw;
-}
-
-@media (orientation: landscape) {
-  [data-orientation] {
-    max-block-size: 100dvh;
-  }
-}

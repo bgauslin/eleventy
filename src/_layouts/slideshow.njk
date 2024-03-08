@@ -9,16 +9,8 @@ layout: base
   {%- set small = imageUrl + '@small.webp' %}
   {%- set medium = imageUrl + '@medium.webp' %}
   {%- set large = imageUrl + '@large.webp' %}
-  
-  {%- if image.height and image.width %}
-    {%- set orientation %}
-      {{- 'portrait' if (image.height >= image.width) else 'landscape' }}
-    {%- endset %}
-  {%- endif %}
-  
   <img
     alt=""
-    {%- if orientation %} data-orientation="{{ orientation }}"{% endif %}
     loading="{{ loading }}"
     src="{{ medium }}"
     srcset="{{ small }} 600w, {{ medium }} 900w, {{ large }} 1200w"

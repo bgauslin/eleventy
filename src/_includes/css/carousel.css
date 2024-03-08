@@ -3,39 +3,34 @@
 carousel-widget {
   block-size: 100dvh;
 
-  --figcaption-padding-block: var(--gap) var(--button-size);
-  --figure-grid: 'media' 'copy' max-content / 1fr;
-  
+  --figure-grid: 'media' 'copy' / 1fr;
+  --img-max-block-size: min(800px, 100vw);
 }
 
 @media (orientation: landscape) {
   carousel-widget {
-    --figcaption-padding-block: var(--gap);
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center;
     --figure-grid: 'media copy .' / 2fr 1fr 0;
     --figure-gap: 2em;
+    --img-max-block-size: 90dvh;
   }
 }
 
 /* Scroll snap container and items. */
 
 carousel-widget :is(ol, li) {
+  display: grid;
   inline-size: 100vw;
 }
 
 carousel-widget ol {
-  display: grid;
   grid: 1fr / auto-flow;
   margin: 0;  
   overflow: scroll hidden;
   padding: 0;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-}
-
-carousel-widget ol::-webkit-scrollbar {
-  display: none;
 }
 
 carousel-widget li {
@@ -48,9 +43,6 @@ carousel-widget figure {
   display: grid;
   gap: var(--figure-gap);
   grid: var(--figure-grid);
-  max-block-size: 100dvh;
-  overflow: auto;
-  scrollbar-width: none;
 }
 
 carousel-widget figure::-webkit-scrollbar {
@@ -61,9 +53,21 @@ carousel-widget [data-images] {
   grid-area: media;
 }
 
+carousel-widget img {
+  max-block-size: var(--img-max-block-size);
+  object-fit: contain;
+}
+
 carousel-widget figcaption {
   grid-area: copy;
-  padding-block: var(--figcaption-padding-block, var(--gap));
+  max-block-size: 50dvh; /* TODO: Keep tinkering... */
+  overflow: auto;
+  padding-block: var(--gap);
   padding-inline: var(--figcaption-padding-inline, var(--gap));
   place-self: var(--figcaption-place-self);
+  scrollbar-width: none;
+}
+
+carousel-widget figcaption::-webkit-scrollbar {
+  display: none;
 }
