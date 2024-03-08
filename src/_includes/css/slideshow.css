@@ -33,8 +33,13 @@
 [data-images] {
   display: grid;
   gap: 1em;
-  grid: 1fr / auto-flow;
+  grid: auto-flow / 1fr;
   place-items: center;
+}
+
+[data-images='2'] {
+  inline-size: 50%;
+  place-self: center;
 }
 
 /* Prevent comically large images with portait orientation by limiting
