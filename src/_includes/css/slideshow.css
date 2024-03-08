@@ -29,11 +29,6 @@
   }
 }
 
-/* Content layout overrides for specific slideshows. */
-.europa h2 + p {
-  margin-block-start: 0;
-}
-
 /* Images container. */
 [data-images] {
   display: grid;

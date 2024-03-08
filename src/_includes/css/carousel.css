@@ -3,23 +3,11 @@
 carousel-widget {
   --figure-grid: 'media' 'copy' max-content / 1fr;
 
-  .shotgun & {
-    --figure-grid: 'media' 'copy' minmax(max-content, 1fr) / 1fr;
-  }
-}
-
-@media (orientation: landscape) {
-  carousel-widget,
-  :is(.shotgun, .europa) carousel-widget {
-    --figure-grid: 'media copy' / 2fr 1fr;
-  }
-
-  carousel-widget {
+  @media (orientation: landscape) {
     --figcaption-place-self: center;
+    --figure-grid: 'media copy .' / 2fr 1fr 0;
   }
-}
 
-carousel-widget {
   block-size: 100dvh;
 
   /* Scroll snap container and items. */

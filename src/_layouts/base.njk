@@ -1,3 +1,17 @@
+{%- set css -%}
+  {%- if view == 'home' -%}
+    {%- include 'css/home.css' -%}
+    {%- include 'css/buttons.css' -%}
+    {%- include 'css/details.css' -%}
+    {%- include 'css/projects.css' -%}
+  {%- elif view == 'slideshows' -%}
+    {%- include 'css/slideshows.css' -%}
+  {%- elif view == 'slideshow' -%}
+    {%- include 'css/slideshow.css' -%}
+    {%- include 'css/carousel.css' -%}
+  {% endif %}
+{%- endset -%}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,22 +22,11 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
+    <style>{{ css | safe }}</style>
   </head>
   <body{% if view %} class="{{ view }}"{% endif %}>
     <main>
       {{ content | safe }}
     </main>
   </body>
-
-  {%- set css -%}
-    {%- if view == 'home' -%}
-      {%- include 'css/home.css' -%}
-      {%- include 'css/buttons.css' -%}
-      {%- include 'css/details.css' -%}
-      {%- include 'css/projects.css' -%}
-    {% endif %}
-  {%- endset -%}
-  <style>
-    {{ css | safe }}
-  </style>
 </html>

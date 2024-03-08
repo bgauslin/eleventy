@@ -3,7 +3,7 @@ layout: slideshow
 permalink: slides/europa.html
 slug: europa
 tags: slideshow
-view: slideshow europa
+view: slideshow
 
 title: Travel Sketches and Collages
 description: Documenting travel abroad with pen, pencil, and found materials
@@ -13,3 +13,8 @@ image:
   height: 458
 ---
 
+<style>
+  h2 + p {
+    margin-block-start: 0;
+  }
+</style>

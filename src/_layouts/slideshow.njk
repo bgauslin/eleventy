@@ -58,14 +58,7 @@ layout: base
   </ol>
 </carousel-widget>
 
-{%- set css -%}
-  {%- include 'css/carousel.css' -%}
-  {%- include 'css/slideshow.css' -%}
-{%- endset -%}
-
-<style>
-  {{ css | safe }}
-</style>
+{{ content | safe }}
 
 {%- set js -%}
   {%- include 'js/Carousel.js' -%}
