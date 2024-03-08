@@ -1,3 +1,4 @@
+const CleanCSS = require('clean-css');
 const { minify } = require('terser');
 const Nunjucks = require('nunjucks');
 const pluginRev = require('eleventy-plugin-rev');
@@ -8,6 +9,15 @@ module.exports = (eleventyConfig) => {
   let nunjucksEnvironment = new Nunjucks.Environment(
       new Nunjucks.FileSystemLoader('src/_includes'));
   eleventyConfig.setLibrary('njk', nunjucksEnvironment);
+
+  // Sass for base styles.
+  eleventyConfig.addPlugin(pluginRev);
+  eleventyConfig.addPlugin(sass, {rev: true});
+
+  // CSS minification.  
+  eleventyConfig.addFilter('cssmin', (code) => {
+    return new CleanCSS({}).minify(code).styles;
+  });
 
   // JS minification.
   eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (
@@ -28,10 +38,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/apple-touch-icon.png');
   eleventyConfig.addPassthroughCopy('src/favicon.svg');
   eleventyConfig.addPassthroughCopy({'src/img/*.*': 'img'});
-
-  // Sass stylesheet.
-  eleventyConfig.addPlugin(pluginRev);
-  eleventyConfig.addPlugin(sass, {rev: true});
 
   // Configuration options.
   return {

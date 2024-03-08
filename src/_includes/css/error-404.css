@@ -1,39 +1,38 @@
 /* Base layout overrides. */
-
 .error {
   --main-max-inline-size: none;
   --main-padding: 0;
 }
 
-/* Error page content. */
-
+/* Error page content wrapper. */
 [data-error] {
   block-size: 100dvh;
   display: grid;
   grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
-
-  h1 {
-    font: normal 5em / 1 monospace;
-    grid-area: heading;
-    place-self: end center;
-  }
-
-  p {
-    grid-area: blurb;
-    place-self: start center;
-  }
-
-  pre {
-    margin: 0;
-    max-inline-size: 100vw;
-    opacity: var(--text-opacity);
-    overflow: auto;
-    place-self: center;
-    scrollbar-width: none;
-    user-select: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
 }
+
+[data-error] h1 {
+  font: normal 5em / 1 monospace;
+  grid-area: heading;
+  place-self: end center;
+}
+
+[data-error] p {
+  grid-area: blurb;
+  place-self: start center;
+}
+
+pre {
+  margin: 0;
+  max-inline-size: 100vw;
+  opacity: var(--text-opacity);
+  overflow: auto;
+  place-self: center;
+  scrollbar-width: none;
+  user-select: none;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+

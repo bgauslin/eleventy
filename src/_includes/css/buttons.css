@@ -8,15 +8,15 @@
   grid: 1fr / 1fr;
   inline-size: var(--button-size);
   place-items: center;
+}
 
-  &:is(:focus, :hover) {
-    background-color: var(--link-color);
-    color: var(--background-0);
-  }
+.button:is(:focus, :hover) {
+  background-color: var(--link-color);
+  color: var(--background-0);
+}
 
-  &:active {
-    transform: scale(.8);
-  }
+.button:active {
+  transform: scale(.8);
 }
 
 .button svg {

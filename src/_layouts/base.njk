@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
-    <style>{{ css | safe }}</style>
+    <style>{{ css | cssmin | safe }}</style>
   </head>
   <body{% if view %} class="{{ view }}"{% endif %}>
     <main>

@@ -1,6 +1,5 @@
 details {
   --summary-height: 3em;
-
   background: var(--background-1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
@@ -18,14 +17,14 @@ summary {
   opacity: var(--text-opacity);
   outline: none;
   transition: opacity var(--duration) ease;
+}
 
-  &::-webkit-details-marker {
-    display: none; /* [2] */
-  }
+summary::-webkit-details-marker {
+  display: none; /* [2] */
+}
 
-  &:is(:focus, :hover) {
-    opacity: 1;
-  }
+summary:is(:focus, :hover) {
+  opacity: 1;
 }
 
 /* Custom caret to replace default marker. */

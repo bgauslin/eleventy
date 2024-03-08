@@ -1,35 +1,35 @@
 .slideshows {
   --main-max-inline-size: 34em;
+}
 
-  figure {
-    background: var(--background-1);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-1);
-    display: grid;
-    grid: 'image blurb' / 2fr 3fr;
-    margin-block: 1em;
-    overflow: hidden;
-    place-items: center;
-  }
+.slideshows figure {
+  background: var(--background-1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-1);
+  display: grid;
+  grid: 'image blurb' / 2fr 3fr;
+  margin-block: 1em;
+  overflow: hidden;
+  place-items: center;
+}
 
-  figure > a {
-    grid-area: image;
-  }
+.slideshows figure > a {
+  grid-area: image;
+}
 
-  img {
-    aspect-ratio: 1;
-    object-fit: cover;
-  }
+.slideshows img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
 
-  p {
-    font-size: var(--font-size-small);
-    margin: 0;
-    opacity: var(--text-opacity);
-  }
+.slideshows p {
+  font-size: var(--font-size-small);
+  margin: 0;
+  opacity: var(--text-opacity);
+}
 
-  figcaption {
-    grid-area: blurb;
-    padding-block: 0;
-  }
+.slideshows figcaption {
+  grid-area: blurb;
+  padding-block: 0;
 }
 

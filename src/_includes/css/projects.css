@@ -1,59 +1,57 @@
 /* The 'projects' classname is set on a <ul> element. */
 .projects {
-  & {
-    list-style: none;
-    margin-block-end: .25em;
-    padding: 0;
-  }
+  list-style: none;
+  margin-block-end: .25em;
+  padding: 0;
+}
 
-  figure {
-    align-items: center;
-    display: grid;
-    gap: 0 1em;
-    grid: 'img copy' / 4em 1fr;
-    margin: 0;
-    padding-inline: 1em 0;
-  }
+.projects figure {
+  align-items: center;
+  display: grid;
+  gap: 0 1em;
+  grid: 'img copy' / 4em 1fr;
+  margin: 0;
+  padding-inline: 1em 0;
+}
 
-  img {
-    aspect-ratio: 1;
-    border-radius: .25em;
-    grid-area: img;
-    margin-block: .5em;
-  }
+.projects img {
+  aspect-ratio: 1;
+  border-radius: .25em;
+  grid-area: img;
+  margin-block: .5em;
+}
 
-  figcaption {
-    align-items: center;
-    border-block-start: .5px solid var(--rule-color);
-    display: grid;
-    font-size: var(--font-size-small);
-    gap: 0 1em;
-    grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
-    grid-area: copy;
-    inline-size: 100%;
-    padding-inline: 0 .75em;
-  }
+.projects figcaption {
+  align-items: center;
+  border-block-start: .5px solid var(--rule-color);
+  display: grid;
+  font-size: var(--font-size-small);
+  gap: 0 1em;
+  grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
+  grid-area: copy;
+  inline-size: 100%;
+  padding-inline: 0 .75em;
+}
 
-  h3 {
-    grid-area: heading;
-  }
+.projects h3 {
+  grid-area: heading;
+}
 
-  p {
-    grid-area: blurb;
-    margin: 0;
-  }
+.projects p {
+  grid-area: blurb;
+  margin: 0;
 }
 
 /* Icon link for GitHub repos. */
 .repo {
   grid-area: repo;
   opacity: .5;
+}
 
-  &:is(:link, :visited, :focus, :hover) {
-    color: var(--text-color);
-  }
+.repo:is(:link, :visited, :focus, :hover) {
+  color: var(--text-color);
+}
 
-  &:is(:focus, :hover) {
-    opacity: 1;
-  }
+.repo:is(:focus, :hover) {
+  opacity: 1;
 }

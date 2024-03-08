@@ -4,17 +4,15 @@
 }
 
 /* About section profile photo. */
-[id='about'] {
-  img {
-    block-size: 6em;
-    border-radius: 100%;
-    inline-size: 6em;
-  }
+[id='about'] img {
+  block-size: 6em;
+  border-radius: 100%;
+  inline-size: 6em;
+}
 
-  p:has(img) {
-    margin-block: 2em;
-    text-align: center;
-  }
+[id='about'] p:has(img) {
+  margin-block: 2em;
+  text-align: center;
 }
 
 /* The 'contact' classname is set on a <ul> element. */

@@ -2,67 +2,68 @@
 
 carousel-widget {
   --figure-grid: 'media' 'copy' max-content / 1fr;
+  block-size: 100dvh;
+}
 
-  @media (orientation: landscape) {
+/* Scroll snap container and items. */
+
+carousel-widget :is(ol, li) {
+  inline-size: 100vw;
+}
+
+carousel-widget ol {
+  block-size: calc(100dvh - var(--button-size));
+  display: grid;
+  grid: 1fr / auto-flow;
+  margin: 0;  
+  overflow: scroll hidden;
+  padding: 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+carousel-widget ol::-webkit-scrollbar {
+  display: none;
+}
+
+carousel-widget li {
+  scroll-snap-align: start;
+}
+
+/* Slideshow contents. */
+
+carousel-widget figure {
+  block-size: 100%;
+  display: grid;
+  grid: var(--figure-grid);
+}
+
+carousel-widget [data-images] {
+  grid-area: media;
+}
+
+/* TODO: We need overflow for long blocks of copy. Via child element(?) */
+carousel-widget figcaption {
+  grid-area: copy;
+  place-self: var(--figcaption-place-self);
+}
+
+@media (orientation: landscape) {
+  carousel-widget {
     --figcaption-place-self: center;
     --figure-grid: 'media copy .' / 2fr 1fr 0;
   }
 
-  block-size: 100dvh;
-
-  /* Scroll snap container and items. */
-  :is(ol, li) {
-    inline-size: 100vw;
+  carousel-widget figure {
+    gap: 2em;
   }
 
-  ol {
-    block-size: calc(100dvh - var(--button-size));
-    display: grid;
-    grid: 1fr / auto-flow;
-    margin: 0;  
-    overflow: scroll hidden;
+  /* TODO: Refactor. */
+  carousel-widget [data-orientation='portrait'] {
+    max-block-size: calc(100dvh - var(--button-size) - 4em);
+  }
+
+  carousel-widget figcaption {
     padding: 0;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  li {
-    scroll-snap-align: start;
-  }
-
-  /* Slideshow contents. */
-  figure {
-    block-size: 100%;
-    display: grid;
-    grid: var(--figure-grid);
-  }
-
-  [data-images] {
-    grid-area: media;
-  }
-
-  /* TODO: We need overflow for long blocks of copy. Via child element(?) */
-  figcaption {
-    grid-area: copy;
-    place-self: var(--figcaption-place-self);
-  }
-
-  @media (orientation: landscape) {
-    figure {
-      gap: 2em;
-    }
-
-    /* TODO: Refactor. */
-    [data-orientation='portrait'] {
-      max-block-size: calc(100dvh - var(--button-size) - 4em);
-    }
-
-    figcaption {
-      padding: 0;
-    }
   }
 }

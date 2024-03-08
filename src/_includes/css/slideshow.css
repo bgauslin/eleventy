@@ -1,32 +1,32 @@
 .slideshow {
   --main-max-inline-size: none;
   --main-padding: 0;
+}
 
-  ol {
-    list-style: none;
-    padding: 0;
-  }
+.slideshow ol {
+  list-style: none;
+  padding: 0;
+}
 
-  dl {
-    display: grid;
-    font-size: .9em;
-    gap: 0 .5em;
-    grid: auto-flow / auto 1fr;
-    margin-block: 1em;
-    opacity: var(--text-opacity);
-  }
+.slideshow dl {
+  display: grid;
+  font-size: .9em;
+  gap: 0 .5em;
+  grid: auto-flow / auto 1fr;
+  margin-block: 1em;
+  opacity: var(--text-opacity);
+}
 
-  dt::after {
-    content: ':';
-  }
+.slideshow dt::after {
+  content: ':';
+}
 
-  dd {
-    margin: 0;
-  }
+.slideshow dd {
+  margin: 0;
+}
 
-  figcaption {
-    max-inline-size: 36em;
-  }
+.slideshow figcaption {
+  max-inline-size: 36em;
 }
 
 /* Images container. */
