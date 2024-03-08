@@ -16,6 +16,7 @@
     "eleventy-sass": "^2.1.7"
   },
   "dependencies": {
-    "nunjucks": "^3.2.4"
+    "nunjucks": "^3.2.4",
+    "terser": "^5.29.1"
   }
 }

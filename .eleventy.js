@@ -1,3 +1,4 @@
+const { minify } = require('terser');
 const Nunjucks = require('nunjucks');
 const pluginRev = require('eleventy-plugin-rev');
 const sass = require('eleventy-sass');
@@ -7,6 +8,20 @@ module.exports = (eleventyConfig) => {
   let nunjucksEnvironment = new Nunjucks.Environment(
       new Nunjucks.FileSystemLoader('src/_includes'));
   eleventyConfig.setLibrary('njk', nunjucksEnvironment);
+
+  // JS minification.
+  eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (
+    code,
+    callback
+  ) {
+    try {
+      const minified = await minify(code);
+      callback(null, minified.code);
+    } catch (err) {
+      console.error('Terser error: ', err);
+      callback(null, code); // Fail gracefully.
+    }
+  });
 
   // Static files.
   eleventyConfig.addPassthroughCopy('src/.htaccess');
