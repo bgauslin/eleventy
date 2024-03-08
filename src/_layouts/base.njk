@@ -1,4 +1,6 @@
 {%- set css -%}
+  {%- include 'css/vars.css' -%}
+  {%- include 'css/base.css' -%}
   {%- if view == 'home' -%}
     {%- include 'css/home.css' -%}
     {%- include 'css/buttons.css' -%}
@@ -23,7 +25,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="{{ "/css/styles.css" | rev }}">
     <style>{{ css | cssmin | safe }}</style>
   </head>
   <body{% if view %} class="{{ view }}"{% endif %}>

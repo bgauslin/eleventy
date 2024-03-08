@@ -1,0 +1,38 @@
+/* Global vars for layout, typography, theming. */
+
+:root {
+  /* Layout, typography. */
+  --button-size: max(44px, 3em);
+  --border-radius: .5em;
+  --duration: .25s;
+  --font-family: system-ui, sans-serif;
+  --font-size-small: .9em;
+  --icon-size: max(24px, 1.75em);
+  --text-opacity: .75;
+
+  /* Theming. */
+  --background-0: rgb(248, 248, 255);  /* GhostWhite */
+  --background-1: rgb(255, 255, 255); 
+  --focus-color: rgb(255, 69, 0);  /* OrangeRed */
+  --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */
+  --link-color: rgb(30, 144, 255);  /* DodgerBlue */
+  --rule-color: rgba(0, 0, 0, .2);
+  --shadow-1: rgba(0, 0, 0, 0.15) 0 0 4px;
+  --text-color: rgb(0, 0, 0);
+  --visited-color: rgb(102, 51, 153);  /* RebeccaPurple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode theming. */
+    --background-0: Black;
+    --background-1: rgba(255, 255, 255, .1);
+    --focus-color: rgb(255, 140, 0);  /* DarkOrange */
+    --link-background: rgba(100, 149, 237, .2);  /* CornflowerBlue */
+    --link-color: rgb(100, 149, 237);  /* CornflowerBlue */
+    --rule-color: rgba(255, 255, 255, .2);
+    --shadow-1: rgba(255, 255, 255, .15) 0 0 0 1px;
+    --text-color: rgb(220, 220, 220);  /* Gainsboro */
+    --visited-color: rgb(147, 112, 216);  /* MediumPurple */
+  }
+}

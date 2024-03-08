@@ -1,18 +1,12 @@
 const CleanCSS = require('clean-css');
 const { minify } = require('terser');
 const Nunjucks = require('nunjucks');
-const pluginRev = require('eleventy-plugin-rev');
-const sass = require('eleventy-sass');
 
 module.exports = (eleventyConfig) => {
   // Use nunjucks for templating.
   let nunjucksEnvironment = new Nunjucks.Environment(
       new Nunjucks.FileSystemLoader('src/_includes'));
   eleventyConfig.setLibrary('njk', nunjucksEnvironment);
-
-  // Sass for base styles.
-  eleventyConfig.addPlugin(pluginRev);
-  eleventyConfig.addPlugin(sass, {rev: true});
 
   // CSS minification.  
   eleventyConfig.addFilter('cssmin', (code) => {
