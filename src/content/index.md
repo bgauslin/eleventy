@@ -8,19 +8,15 @@ view: home
 ---
 # Ben Gauslin
 
-- Engineer
-- Architect
-- Musician
-
 <fancy-details>
   <details id="about">
     <summary>
       <h2>About</h2>
     </summary>
 
-    Hello, I’m an ex-Google engineer and former Chicago architect who currently lives in New Orleans.
+    Hello, I’m a former Chicago architect and ex-Google engineer who currently lives in New Orleans.
     
-    When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and electric bass.
+    When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and the electric bass.
 
     ![](/img/selfie.jpg)
 
