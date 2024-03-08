@@ -1,6 +1,4 @@
-// --------------------------------------------------
-// The 'projects' classname is set on a <ul> element.
-
+/* The 'projects' classname is set on a <ul> element. */
 .projects {
   & {
     list-style: none;
@@ -46,9 +44,7 @@
   }
 }
 
-// --------------------------------------------------
-// Icon link for GitHub repos.
-
+/* Icon link for GitHub repos. */
 .repo {
   grid-area: repo;
   opacity: .5;

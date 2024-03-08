@@ -1,0 +1,64 @@
+details {
+  --summary-height: 3em;
+
+  background: var(--background-1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-1);
+  margin-block: 1.5em;
+  overflow: auto;
+}
+
+/* [1] Default 'display' override hides default marker. */
+/* [2] Safari needs vendor-prefix selector to hide default marker. */
+summary {
+  align-items: center;
+  block-size: var(--summary-height);
+  cursor: pointer;
+  display: flex; /* [1] */
+  opacity: var(--text-opacity);
+  outline: none;
+  transition: opacity var(--duration) ease;
+
+  &::-webkit-details-marker {
+    display: none; /* [2] */
+  }
+
+  &:is(:focus, :hover) {
+    opacity: 1;
+  }
+}
+
+/* Custom caret to replace default marker. */
+summary::after {
+  aspect-ratio: 1;
+  border-block-start: 1px solid currentColor;
+  border-inline-end: 1px solid currentColor;
+  content: '';
+  inline-size: .375em;
+  margin-inline: auto 0;
+  transform: rotate(45deg);
+  transition: transform var(--duration);
+}
+
+[open] > summary::after {
+  transform: rotate(135deg);
+}
+
+/* Expandable content. */
+details > * {
+  padding-inline: 1em;
+}
+
+summary + * {
+  margin-block-start: 0;
+}
+
+/* Custom element wrapper. */
+fancy-details > details { 
+  block-size: var(--height, var(--summary-height));
+  transition: block-size var(--duration);
+}
+
+fancy-details > [data-state='closing'] > summary::after {
+  transform: rotate(45deg);
+}

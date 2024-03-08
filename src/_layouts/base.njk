@@ -14,4 +14,16 @@
       {{ content | safe }}
     </main>
   </body>
+
+  {%- set css -%}
+    {%- if view == 'home' -%}
+      {%- include 'css/home.css' -%}
+      {%- include 'css/buttons.css' -%}
+      {%- include 'css/details.css' -%}
+      {%- include 'css/projects.css' -%}
+    {% endif %}
+  {%- endset -%}
+  <style>
+    {{ css | safe }}
+  </style>
 </html>

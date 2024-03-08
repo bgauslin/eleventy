@@ -1,29 +1,28 @@
 /* Light DOM styles for <carousel-widget> slotted content. */
 
 carousel-widget {
-  block-size: 100dvh;
-
   --figure-grid: 'media' 'copy' max-content / 1fr;
 
   .shotgun & {
     --figure-grid: 'media' 'copy' minmax(max-content, 1fr) / 1fr;
   }
+}
 
-  .europa & {
-    --figure-grid: 'media' 'copy' max-content / 1fr;
+@media (orientation: landscape) {
+  carousel-widget,
+  :is(.shotgun, .europa) carousel-widget {
+    --figure-grid: 'media copy' / 2fr 1fr;
   }
 
-  @media (orientation: landscape) {
+  carousel-widget {
     --figcaption-place-self: center;
-
-    &,
-    :is(.shotgun, .europa) & {
-      --figure-grid: 'media copy' / 2fr 1fr;
-    }
   }
+}
+
+carousel-widget {
+  block-size: 100dvh;
 
   /* Scroll snap container and items. */
-
   :is(ol, li) {
     inline-size: 100vw;
   }
@@ -48,7 +47,6 @@ carousel-widget {
   }
 
   /* Slideshow contents. */
-
   figure {
     block-size: 100%;
     display: grid;
@@ -70,7 +68,7 @@ carousel-widget {
       gap: 2em;
     }
 
-    /* TODO: Refactor */
+    /* TODO: Refactor. */
     [data-orientation='portrait'] {
       max-block-size: calc(100dvh - var(--button-size) - 4em);
     }

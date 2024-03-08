@@ -1,13 +1,11 @@
-/* -----------------------------------------------------------------------------
-Base layout overrides. */
+/* Base layout overrides. */
 
 .error {
   --main-max-inline-size: none;
   --main-padding: 0;
 }
 
-/* -----------------------------------------------------------------------------
-Error page content. */
+/* Error page content. */
 
 [data-error] {
   block-size: 100dvh;

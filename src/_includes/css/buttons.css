@@ -1,5 +1,4 @@
-// --------------------------------------------------
-// Links styled as buttons via class.
+/* Links styled as buttons via class. */
 
 .button {
   aspect-ratio: 1;
@@ -18,9 +17,9 @@
   &:active {
     transform: scale(.8);
   }
+}
 
-  svg {
-    aspect-ratio: 1;
-    inline-size: var(--icon-size);
-  }
+.button svg {
+  aspect-ratio: 1;
+  inline-size: var(--icon-size);
 }

@@ -49,9 +49,9 @@ view: home
   </details>
 </fancy-details>
 
-{% set js %}
-  {% include 'js/FancyDetails.js' %}
-{% endset %}
+{%- set js -%}
+  {%- include 'js/FancyDetails.js' -%}
+{%- endset -%}
 
 <script>
   {{ js | jsmin | safe }}
