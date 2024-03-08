@@ -1,0 +1,50 @@
+.slideshow {
+  --main-max-inline-size: none;
+  --main-padding: 0;
+
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  dl {
+    display: grid;
+    font-size: .9em;
+    gap: 0 .5em;
+    grid: auto-flow / auto 1fr;
+    margin-block: 1em;
+    opacity: var(--text-opacity);
+  }
+
+  dt::after {
+    content: ':';
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  figcaption {
+    max-inline-size: 36em;
+  }
+}
+
+/* Content layout overrides for specific slideshows. */
+.europa h2 + p {
+  margin-block-start: 0;
+}
+
+/* Images container. */
+[data-images] {
+  display: grid;
+  gap: 1em;
+  grid: 1fr / auto-flow;
+  place-items: center;
+}
+
+/* Prevent comically large images with portait orientation by limiting
+   height to viewport width and inverting responsive media styles. */
+[data-orientation='portrait'] {
+  inline-size: auto;
+  max-block-size: min(840px, 100vw);
+}
