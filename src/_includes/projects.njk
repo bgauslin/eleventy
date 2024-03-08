@@ -37,10 +37,10 @@
         <h3>
           {%- call linkify(project.url, project.heading) -%}
             {{- project.heading -}}
-          {%- endcall %}
+          {%- endcall -%}
         </h3>
         
-        <p>{{ project.copy -}}</p>
+        <p>{{ project.copy }}</p>
 
         {%- if project.repo -%}
           {{ githubify(project.tech, project.repo) }}

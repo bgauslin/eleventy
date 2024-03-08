@@ -1,5 +1,5 @@
 <ul class="contact">
-{% for link in contact %}
+{% for link in contact -%}
   <li>
     <a aria-label="{{ link.label }}"
        class="button"
@@ -10,5 +10,5 @@
       </svg>
     </a>
   </li>
-{% endfor %}
+{%- endfor %}
 </ul>
