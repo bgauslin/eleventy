@@ -49,6 +49,10 @@ view: home
   </details>
 </fancy-details>
 
+{% set js %}
+  {% include 'js/FancyDetails.js' %}
+{% endset %}
+
 <script>
-  {% include 'FancyDetails.js' %}
+  {{ js | jsmin | safe }}
 </script>

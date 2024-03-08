@@ -29,12 +29,12 @@ layout: base
 
 <carousel-widget>
   <ol>
-  {%- for item in collections[slug] %}
+  {% for item in collections[slug] -%}
     <li id="{{ item.data.slug }}">
       <figure>
         <div data-images="{{ item.data.images | length }}">
         {%- set loading = 'eager' if loop.first else 'lazy' %}
-        {% for image in item.data.images %}
+        {% for image in item.data.images -%}
           {{ renderImage(image, slug, loading) }}
         {% endfor %}
         </div>
@@ -58,7 +58,10 @@ layout: base
   </ol>
 </carousel-widget>
 
-<script>
-  {% include 'Carousel.js' %}
-</script>
+{%- set js -%}
+  {%- include 'js/Carousel.js' -%}
+{%- endset -%}
 
+<script>
+  {{ js | jsmin | safe }}
+</script>
