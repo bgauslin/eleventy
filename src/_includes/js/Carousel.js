@@ -170,7 +170,7 @@ class Carousel extends HTMLElement {
       :host {
         block-size: 100dvh;
         display: grid;
-        grid: 'slot slot slot' 1fr 'prev counter next' / auto 1fr auto;;
+        grid: 'slot slot slot' 1fr 'prev counter next' / auto 1fr auto;
         inline-size: 100vw;
         place-content: center;
       }
