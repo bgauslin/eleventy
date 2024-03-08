@@ -12,13 +12,3 @@ image:
   width: 320
   height: 240
 ---
-
-<style>
-  carousel-widget {
-    --figure-grid: 'media' 'copy' minmax(max-content, 1fr) / 1fr;
-  
-    @media (orientation: landscape) {
-      --figure-grid: 'media copy .' / 2fr 1fr 0;
-    }
-  }
-</style>

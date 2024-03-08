@@ -46,5 +46,11 @@
    height to viewport width and inverting responsive media styles. */
 [data-orientation='portrait'] {
   inline-size: auto;
-  max-block-size: min(840px, 100vw);
+  max-block-size: 100vw;
+}
+
+@media (orientation: landscape) {
+  [data-orientation] {
+    max-block-size: 100dvh;
+  }
 }
