@@ -1,14 +1,13 @@
 class Carousel extends HTMLElement {
   constructor() {
     super();
-    this.indexPrev = -1;
-    this.indexNext = 1;
   }
 
   connectedCallback() {
+    this.setup();
     this.setupShadowDOM();
     this.shadowStyles();
-    this.watchItems();
+    this.watch();
     this.addEventListener('click', this.handleClick);
     this.addEventListener('keypress', this.handleKey);
   }
@@ -19,6 +18,18 @@ class Carousel extends HTMLElement {
     this.removeEventListener('keypress', this.handleKey);
   }
 
+  /**
+   * Initializes properties and light DOM references.
+   */
+  setup() {
+    this.list = this.querySelector('ol');
+    this.items = this.list.querySelectorAll('li');
+
+    this.total = this.items.length;
+    this.indexPrev = -1;
+    this.indexNext = 1;
+  }
+  
   /**
    * Creates prev-next controls and a count label in the shadow DOM.
    */
@@ -66,10 +77,7 @@ class Carousel extends HTMLElement {
   /**
    * Sets up Intersection Observer to watch list items.
    */
-  watchItems() {
-    this.list = this.querySelector('ol');
-    this.items = this.list.querySelectorAll('li');
-
+  watch() {
     this.observer = new IntersectionObserver(this.update.bind(this), {
       root: this.list,
       rootMargin: '0px',
@@ -79,9 +87,6 @@ class Carousel extends HTMLElement {
     for (const item of this.items) {
       this.observer.observe(item);
     }
-    
-    // Set total for the count.
-    this.total = this.items.length;
   }
 
   /**
@@ -110,6 +115,11 @@ class Carousel extends HTMLElement {
               image.setAttribute('loading', 'eager');
             }
           }
+          
+          // TODO: Update address bar.
+          const url = new URL();
+          url.hash = item.id;
+          console.log(url.href);
         }
       }
     }
