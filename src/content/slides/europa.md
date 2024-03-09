@@ -14,7 +14,6 @@ image:
 ---
 
 <style>
-  h2 + p {
-    margin-block-start: 0;
-  }
+  carousel-widget { --item-display: grid; }
+  h2 + p { margin-block-start: 0; }
 </style>
