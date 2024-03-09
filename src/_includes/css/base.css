@@ -50,14 +50,14 @@ a {
   font-weight: bold;
   outline: none;
   text-decoration: none;
+}
 
-  &:visited {
-    color: var(--visited-color);
-  }
-  
-  &:is(:focus, :hover) {
-    color: var(--focus-color);
-  }
+a:visited {
+  color: var(--visited-color);
+}
+
+a:is(:focus, :hover) {
+  color: var(--focus-color);
 }
 
 /* Responsive media. */
