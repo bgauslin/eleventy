@@ -7,6 +7,7 @@ class Carousel extends HTMLElement {
     this.setup();
     this.setupShadowDOM();
     this.shadowStyles();
+    this.scrollToHash();
     this.watch();
     this.addEventListener('click', this.handleClick);
     this.addEventListener('keypress', this.handleKey);
@@ -25,9 +26,11 @@ class Carousel extends HTMLElement {
     this.list = this.querySelector('ol');
     this.items = this.list.querySelectorAll('li');
 
+    // Properties.
     this.total = this.items.length;
     this.indexPrev = -1;
     this.indexNext = 1;
+    this.url = new URL(window.location);
   }
   
   /**
@@ -100,26 +103,70 @@ class Carousel extends HTMLElement {
       
       for (const [index, item] of this.items.entries()) {
         if (entry.target === item) {
-          this.indexPrev = (index > 0) ? index - 1 : -1;
-          this.indexNext = (index < this.total - 1) ? index + 1 : false;
-          
-          // Update elements.
-          this.prev.disabled = this.indexPrev < 0;
-          this.next.disabled = !this.indexNext;
-          this.counter.textContent = `${index + 1} of ${this.total}`;
+          this.updateControls(index);
+          this.url.hash = item.id;
+          history.replaceState(null, '', this.url.href);
+        }
+      }
+    }
+  }
 
-          // Preload next item's images.
-          if (this.indexNext) {
-            const images = this.items[this.indexNext].querySelectorAll('img');
-            for (const image of images) {
-              image.setAttribute('loading', 'eager');
-            }
-          }
-          
-          // TODO: Update address bar.
-          const url = new URL(window.location);
-          url.hash = item.id;
-          console.log(url.href);
+  /**
+   * Updates controls and preloads next slide's images based on current item.
+   */
+  updateControls(index) {
+    this.indexPrev = (index > 0) ? index - 1 : -1;
+    this.indexNext = (index < this.total - 1) ? index + 1 : false;
+    
+    // Update controls.
+    this.prev.disabled = this.indexPrev < 0;
+    this.next.disabled = !this.indexNext;
+    this.counter.textContent = `${index + 1} of ${this.total}`;
+
+    // Preload next item's images.
+    if (this.indexNext) {
+      const images = this.items[this.indexNext].querySelectorAll('img');
+      for (const image of images) {
+        image.setAttribute('loading', 'eager');
+      }
+    }
+  }
+
+  /**
+   * Scrolls item into view based on scroll direction.
+   */
+  scrollToItem(direction) {
+    let offset = 0;
+
+    if (direction === 'prev') {
+      const {width} = this.items[this.indexPrev].getBoundingClientRect();
+      offset = -width;
+    }
+    
+    if (direction === 'next') {
+      const {x} = this.items[this.indexNext].getBoundingClientRect();
+      offset = x;
+    }
+    
+    this.list.scrollTo({
+      top: 0,
+      left: this.list.scrollLeft + offset,
+      behavior: 'smooth',
+    });
+  }
+
+  /**
+   * Scrolls to individual item by ID if there's a hash in the URL on load.
+   */
+  scrollToHash() {
+    const hash = this.url.hash.replace('#', '');
+    if (hash) {
+      for (const [index, item] of this.items.entries()) {
+        if (item.id === hash) {
+          const {left} = item.getBoundingClientRect();
+          this.list.scrollTo(left, 0);
+          this.updateControls(index);
+          break;
         }
       }
     }
@@ -148,29 +195,6 @@ class Carousel extends HTMLElement {
     if (event.code === 'ArrowRight') {
       this.scrollToItem('next');
     }
-  }
-
-  /**
-   * Scrolls item into view based on scroll direction.
-   */
-  scrollToItem(direction) {
-    let offset = 0;
-
-    if (direction === 'prev') {
-      const {width} = this.items[this.indexPrev].getBoundingClientRect();
-      offset = -width;
-    }
-    
-    if (direction === 'next') {
-      const {x} = this.items[this.indexNext].getBoundingClientRect();
-      offset = x;
-    }
-    
-    this.list.scrollTo({
-      top: 0,
-      left: this.list.scrollLeft + offset,
-      behavior: 'smooth',
-    });
   }
 
   /**
