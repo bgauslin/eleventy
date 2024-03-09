@@ -2,7 +2,7 @@
 layout: base
 ---
 <h1>{{ title }}</h1>
-
+{# TODO: Rename 'slides2023' directory, coordinate with assets. #}
 {% for item in collections.slideshow -%}
   {%- set heading = item.data.title | safe %}
   {%- set linkTitle = 'View slideshow for ' + heading %}

@@ -1,8 +1,9 @@
 ---
 layout: base
 ---
+{# TODO: Rename 'slides2023' directory, coordinate with assets. #}
 {%- set domain = 'https://assets.gauslin.com' -%}
-{%- set imagePath = '/images/slides2023/' -%}{# TODO: Update directory, coordinate with Vue app and assets. #}
+{%- set imagePath = '/images/slides2023/' -%}
 
 {%- macro renderImage(image, slug, loading) %}
   {%- set imageUrl = domain + imagePath + slug + '/' + image.src %}
