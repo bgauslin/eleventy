@@ -117,7 +117,7 @@ class Carousel extends HTMLElement {
           }
           
           // TODO: Update address bar.
-          const url = new URL();
+          const url = new URL(window.location);
           url.hash = item.id;
           console.log(url.href);
         }
@@ -180,21 +180,21 @@ class Carousel extends HTMLElement {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       :host {
+        --counter-grid-area: 2 / 3 / 2 / 4;
         --gap: 1em;
         --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr var(--button-size) 0;
-        --slot-grid-area: 1 / 1 / 2 / -1;
-        --counter-grid-area: 2 / 3 / 2 / 4;
-        --prev-grid-area: 2 / 2 / 2 / 3;
         --next-grid-area: 2 / 4 / 2 / 5;
+        --prev-grid-area: 2 / 2 / 2 / 3;
+        --slot-grid-area: 1 / 1 / 2 / -1;
       }
 
       @media (orientation: landscape) {
         :host {
-          --grid: 1fr / 0 var(--button-size) 2fr 1fr var(--button-size) 0;
-          --slot-grid-area: 1 / 1 / -1 / -1;
           --counter-grid-area: 1 / 4 / 1 / 5;
-          --prev-grid-area: 1 / 2 / 1 / 3;
+          --grid: 1fr / 0 var(--button-size) 2fr 1fr var(--button-size) 0;
           --next-grid-area: 1 / 5 / 1 / 6;
+          --prev-grid-area: 1 / 2 / 1 / 3;
+          --slot-grid-area: 1 / 1 / -1 / -1;
         }
       }
 
@@ -213,8 +213,8 @@ class Carousel extends HTMLElement {
       
       .counter {
         block-size: var(--button-size);
-        font-size: var(--font-size-small);
         display: grid;
+        font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
         opacity: var(--text-opacity);
         place-content: center;
@@ -242,22 +242,23 @@ class Carousel extends HTMLElement {
         display: grid;
         grid: 1fr / 1fr;
         margin: 0;
+        outline: none;
         place-items: center;
         place-self: center;
         transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
+      }
+      
+      button:is(:focus, :hover) {
+        background-color: var(--text-color);
+        color: var(--background-0);
+      }
 
-        &:is(:focus, :hover) {
-          background-color: var(--text-color);
-          color: var(--background-0);
-        }
+      button:active {
+        transform: scale(.8);
+      }
 
-        &:active {
-          transform: scale(.8);
-        }
-
-        &[disabled] {
-          opacity: 0;
-        }
+      button[disabled] {
+        opacity: 0;
       }
 
       svg {
