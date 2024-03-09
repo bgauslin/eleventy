@@ -4,7 +4,7 @@
     "copy": "Web adaptation of the film by Charles and Ray Eames",
     "img": "ten-galaxy.jpg",
     "url": "https://ten.gauslin.com",
-    "repo": "ten",
+    "repo": "https://github.com/bgauslin/ten/tree/main/src",
     "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"],
     "type": "web"
   },
@@ -13,7 +13,7 @@
     "copy": "Composition of nine clock faces reveal patterns over time",
     "img": "clock-icon.png",
     "url": "https://clock.gauslin.com",
-    "repo": "clock",
+    "repo": "https://github.com/bgauslin/clock/tree/main/src",
     "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"],
     "type": "web"
   },
@@ -22,7 +22,7 @@
     "copy": "App for determining daily calorie needs",
     "img": "calories-icon.png",
     "url": "https://calories.gauslin.com",
-    "repo": "calories",
+    "repo": "https://github.com/bgauslin/calories/tree/main/src",
     "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"],
     "type": "web"
   },
@@ -31,7 +31,7 @@
     "copy": "Tracking app for moorise, moonset, sunrise, sunset, and lunar phase based on location",
     "img": "moon-icon.png",
     "url": "https://moon.gauslin.com",
-    "repo": "moon",
+    "repo": "https://github.com/bgauslin/moon/tree/main/src",
     "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"],
     "type": "web"
   },
@@ -40,7 +40,7 @@
     "copy": "Simple calculator with support for multiple currencies",
     "img": "interest-icon.png",
     "url": "https://interest.gauslin.com",
-    "repo": "interest",
+    "repo": "https://github.com/bgauslin/interest/tree/main/src",
     "tech": ["TypeScript", "Web Components", "Lit", "Sass"],
     "type": "web"
   },
@@ -49,6 +49,7 @@
     "copy": "Breathing new life into an 1890s New Orleans shotgun house",
     "img": "shotgun-front.jpg",
     "url": "/slides/shotgun",
+    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/js/Carousel.js",
     "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
@@ -57,6 +58,7 @@
     "copy": "Documenting an experience abroad with pen, pencil, and found materials",
     "img": "sketch-piazza.png",
     "url": "/slides/europa",
+    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/js/Carousel.js",
     "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
