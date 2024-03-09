@@ -6,7 +6,6 @@
 }
 
 .projects figure {
-  align-items: center;
   display: grid;
   gap: 0 1em;
   grid: 'img copy' / 4em 1fr;
@@ -35,11 +34,13 @@
 
 .projects h3 {
   grid-area: heading;
+  place-self: end start;
 }
 
 .projects p {
   grid-area: blurb;
   margin: 0;
+  place-self: start;
 }
 
 /* Icon link for GitHub repos. */

@@ -48,18 +48,18 @@
     "heading": "Shotgun House Renovation",
     "copy": "Breathing new life into an 1890s New Orleans shotgun house",
     "img": "shotgun-front.jpg",
-    "url": "https://slides.gauslin.com/shotgun",
+    "url": "/slides/shotgun",
     "repo": "slides_vue",
-    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"],
+    "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
   {
     "heading": "Travel Sketches and Collages",
     "copy": "Documenting an experience abroad with pen, pencil, and found materials",
     "img": "sketch-piazza.png",
-    "url": "https://slides.gauslin.com/sketches-collages",
+    "url": "/slides/europa",
     "repo": "slides_vue",
-    "tech": ["Vue", "Vuex", "JavaScript", "Pug", "Stylus"],
+    "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
   {
