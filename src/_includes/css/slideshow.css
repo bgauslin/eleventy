@@ -1,5 +1,4 @@
 .slideshow {
-  --figcaption-max-block-size: 50dvh;
   --figure-grid: 'images' 'copy' / 1fr;
   --img-max-block-size: min(800px, 100vw);
   --main-max-inline-size: none;
@@ -8,9 +7,7 @@
 
 @media (orientation: landscape) {
   .slideshow {
-    --figcaption-max-block-size: 100dvh;
     --figcaption-padding-inline: 0;
-    --figcaption-place-self: center;
     --figure-gap: var(--gap);
     --figure-grid: '. images copy .' / var(--button-size) 2fr 1fr var(--button-size);
     --img-max-block-size: 100dvh;
@@ -25,7 +22,8 @@
 }
 
 .slideshow li {
-  display: var(--item-display);
+  display: var(--item-display, block);
+  margin-block: var(--item-margin-block, 10vh);
 }
 
 .slideshow figure {
@@ -36,17 +34,9 @@
 
 .slideshow figcaption {
   grid-area: copy;
-  max-block-size: var(--figcaption-max-block-size);
   max-inline-size: 36em;
-  overflow: auto;
   padding-block: var(--gap) var(--button-size);
   padding-inline: var(--figcaption-padding-inline, var(--gap));
-  place-self: var(--figcaption-place-self);
-  scrollbar-width: none;
-}
-
-.slideshow figcaption::-webkit-scrollbar {
-  display: none;
 }
 
 /* Images container. */

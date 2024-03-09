@@ -1,7 +1,16 @@
 /* Light DOM styles for <carousel-widget> slotted content. */
 
 carousel-widget {
+  --figcaption-max-block-size: 50dvh;
+  --item-margin-block: 0;
   block-size: 100dvh;
+}
+
+@media (orientation: landscape) {
+  carousel-widget {
+    --figcaption-max-block-size: 100dvh;
+    --figcaption-place-self: center;
+  }
 }
 
 carousel-widget :is(ol, li) {
@@ -24,4 +33,15 @@ carousel-widget ol::-webkit-scrollbar {
 
 carousel-widget li {
   scroll-snap-align: start;
+}
+
+carousel-widget figcaption {
+  max-block-size: var(--figcaption-max-block-size);
+  overflow: auto;
+  place-self: var(--figcaption-place-self);
+  scrollbar-width: none;
+}
+
+carousel-widget figcaption::-webkit-scrollbar {
+  display: none;
 }
