@@ -1,17 +1,18 @@
-/* Home page overrides. */
+/* Home page. */
 .home {
+  --avatar-size: 8em;
   --main-max-inline-size: 34em;
 }
 
 /* About section profile photo. */
 [id='about'] img {
-  block-size: 6em;
+  block-size: var(--avatar-size);
   border-radius: 100%;
-  inline-size: 6em;
+  inline-size: var(--avatar-size);
 }
 
 [id='about'] p:has(img) {
-  margin-block: 2em;
+  margin-block: var(--gap);
   text-align: center;
 }
 
