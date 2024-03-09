@@ -6,6 +6,7 @@
 }
 
 .projects figure {
+  align-items: center;
   display: grid;
   gap: 0 1em;
   grid: 'img copy' / 4em 1fr;
@@ -29,18 +30,17 @@
   grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
   grid-area: copy;
   inline-size: 100%;
+  padding-block: 1em;
   padding-inline: 0 .75em;
 }
 
 .projects h3 {
   grid-area: heading;
-  place-self: end start;
 }
 
 .projects p {
   grid-area: blurb;
   margin: 0;
-  place-self: start;
 }
 
 /* Icon link for GitHub repos. */
