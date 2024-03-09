@@ -222,22 +222,27 @@ class Carousel extends HTMLElement {
       button {
         appearance: none;
         aspect-ratio: 1;
-        background-color: var(--link-background);
+        background-color: var(--background-1);
         block-size: var(--button-size);
         border: none;
         border-radius: var(--button-size);
-        color: var(--link-color);
+        box-shadow: var(--shadow-1);
+        color: var(--text-color);
         cursor: pointer;
         display: grid;
         grid: 1fr / 1fr;
         margin: 0;
         place-items: center;
         place-self: center;
-        transition: background-color var(--duration), color var(--duration), opacity var(--duration);
+        transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
 
         &:is(:focus, :hover) {
-          background-color: var(--link-color);
+          background-color: var(--text-color);
           color: var(--background-0);
+        }
+
+        &:active {
+          transform: scale(.8);
         }
 
         &[disabled] {
