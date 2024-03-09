@@ -1,13 +1,5 @@
 /**
  * Extends <details> elements with open/close transitions.
- * 
- * When opened, a CSS var is set directly on the <details> element; otherwise
- * the CSS var is removed so that layout falls back to default.
- * 
- * If a <details> element is already open when clicked, the click is hijacked
- * so that the 'open' attribute is removed after the transition. Otherwise,
- * the default display is 'none' for its content when a <details> element is
- * closed, and we want to prevent that until the transition ends.
  */
 class FancyDetails extends HTMLElement {
   constructor() {
@@ -22,6 +14,18 @@ class FancyDetails extends HTMLElement {
     this.removeEventListener('click', this.handleClick);
   }
 
+  /**
+   * When opened, a CSS var is set directly on the <details> element to force
+   * a height transition. When the transtion completes, the var is set to
+   * 'auto' to ensure element dimensions change as expected on resize.
+   * 
+   * When closed, a data attribute and pixel value height are set to force a
+   * transition, and the 'open' attribute isn't removed until after it ends.
+   * Otherwise, the default display is 'none' for content when a <details>
+   * element is closed, and we want to prevent that until transitions end, so
+   * we hijack the click, do stuff, then close the element manually.
+   * @param {Event} event
+   */
   handleClick(event) {
     if (event.target.tagName !== 'SUMMARY') {
       return;

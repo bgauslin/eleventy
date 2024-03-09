@@ -53,6 +53,8 @@ class Carousel extends HTMLElement {
 
   /**
    * Helper function for rendering prev-next buttons.
+   * @param {string} direction - 'prev' or 'next'
+   * @returns {HTMLButtonElement}
    */
   createButton(direction) {
     let label = 'Next';
@@ -93,7 +95,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * IntersectionObserver callback that updates the controls.
+   * IntersectionObserver callback that updates the controls and URL.
+   * @param {IntersectionObserverEntry[]} entries - observed items
    */
   update(entries) {
     for (const entry of entries) {
@@ -113,6 +116,7 @@ class Carousel extends HTMLElement {
 
   /**
    * Updates controls and preloads next slide's images based on current item.
+   * @param {number} index - current item
    */
   updateControls(index) {
     this.indexPrev = (index > 0) ? index - 1 : -1;
@@ -134,6 +138,7 @@ class Carousel extends HTMLElement {
 
   /**
    * Scrolls item into view based on scroll direction.
+   * @param {string} direction - 'prev' or 'next'
    */
   scrollToItem(direction) {
     let offset = 0;
@@ -175,6 +180,7 @@ class Carousel extends HTMLElement {
   /**
    * Scrolls next or previous item into view on button click and only accepts
    * clicks from buttons with a data-attribute.
+   * @param {Event} event
    */
   handleClick(event) {
     const path = event.composedPath();
@@ -186,6 +192,7 @@ class Carousel extends HTMLElement {
 
   /**
    * Scrolls item into view with left and right arrows for better a11y.
+   * @param {KeyboardEvent} event
    */
   handleKey(event) {
     if (event.code === 'ArrowLeft') {
