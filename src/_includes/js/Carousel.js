@@ -106,7 +106,7 @@ class Carousel extends HTMLElement {
       
       for (const [index, item] of this.items.entries()) {
         if (entry.target === item) {
-          this.updateControls(index);
+          this.updateElements(index);
           this.url.hash = item.id;
           history.replaceState(null, '', this.url.href);
         }
@@ -116,22 +116,35 @@ class Carousel extends HTMLElement {
 
   /**
    * Updates controls and preloads next slide's images based on current item.
-   * @param {number} index - current item
+   * @param {number} indexCurrent - current item
    */
-  updateControls(index) {
-    this.indexPrev = (index > 0) ? index - 1 : -1;
-    this.indexNext = (index < this.total - 1) ? index + 1 : false;
+  updateElements(indexCurrent) {
+    this.indexPrev = (indexCurrent > 0) ? indexCurrent - 1 : -1;
+    this.indexNext = (indexCurrent < this.total - 1) ? indexCurrent + 1 : false;
     
     // Update controls.
     this.prev.disabled = this.indexPrev < 0;
     this.next.disabled = !this.indexNext;
-    this.counter.textContent = `${index + 1} of ${this.total}`;
+    this.counter.textContent = `${indexCurrent + 1} of ${this.total}`;
 
     // Preload next item's images.
     if (this.indexNext) {
       const images = this.items[this.indexNext].querySelectorAll('img');
       for (const image of images) {
         image.setAttribute('loading', 'eager');
+      }
+    }
+    
+    // Disable tabbable links outside of the viewport; only enable those that
+    // are visible.
+    for (const [index, item] of this.items.entries()) {
+      let links = item.querySelectorAll('a');
+      for (const link of links) {
+        if (index === indexCurrent) {
+          link.removeAttribute('tabindex');
+        } else {
+          link.setAttribute('tabindex', '-1');
+        }
       }
     }
   }
@@ -170,7 +183,7 @@ class Carousel extends HTMLElement {
         if (item.id === hash) {
           const {left} = item.getBoundingClientRect();
           this.list.scrollTo(left, 0);
-          this.updateControls(index);
+          this.updateElements(index);
           break;
         }
       }
