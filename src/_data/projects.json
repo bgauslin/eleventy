@@ -49,7 +49,6 @@
     "copy": "Breathing new life into an 1890s New Orleans shotgun house",
     "img": "shotgun-front.jpg",
     "url": "/slides/shotgun",
-    "repo": "slides_vue",
     "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
@@ -58,7 +57,6 @@
     "copy": "Documenting an experience abroad with pen, pencil, and found materials",
     "img": "sketch-piazza.png",
     "url": "/slides/europa",
-    "repo": "slides_vue",
     "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
