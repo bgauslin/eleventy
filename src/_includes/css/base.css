@@ -80,7 +80,6 @@ figure {
 
 figcaption {
   margin: 0 auto;
-  padding: 1em;
 }
 
 /* Only apply transitions on devices that support hover. */

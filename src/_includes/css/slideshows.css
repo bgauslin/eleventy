@@ -7,8 +7,9 @@
   background: var(--background-1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
+  gap: var(--gap);
   display: grid;
-  grid: 'image blurb' var(--figure-size) / var(--figure-size) 1fr;
+  grid: 'image blurb .' var(--figure-size) / var(--figure-size) 1fr 0;
   margin-block: var(--gap);
   overflow: hidden;
   place-items: center;

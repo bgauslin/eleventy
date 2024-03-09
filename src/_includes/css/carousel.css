@@ -2,21 +2,6 @@
 
 carousel-widget {
   block-size: 100dvh;
-
-  --figure-grid: 'media' 'copy' / 1fr;
-  --img-max-block-size: min(800px, 100vw);
-}
-
-@media (orientation: landscape) {
-  carousel-widget {
-    --figcaption-padding-inline: 0;
-    --figcaption-place-self: center;
-    --figure-gap: var(--gap);
-    --figure-grid: '. media copy .' / var(--button-size) 2fr 1fr var(--button-size);
-    --img-max-block-size: 100dvh;
-    --img-max-inline-size: 100vh;
-    --item-display: grid;
-  }
 }
 
 /* Scroll snap container and items. */
@@ -40,35 +25,14 @@ carousel-widget::-webkit-scrollbar {
 }
 
 carousel-widget li {
-  display: var(--item-display);
   scroll-snap-align: start;
 }
 
 /* Slideshow contents. */
 
-carousel-widget figure {
-  display: grid;
-  gap: var(--figure-gap);
-  grid: var(--figure-grid);
-}
-
-carousel-widget [data-images] {
-  grid-area: media;
-}
-
-carousel-widget img {
-  max-block-size: var(--img-max-block-size);
-  max-inline-size: var(--img-max-inline-size);
-  object-fit: contain;
-}
-
 carousel-widget figcaption {
-  grid-area: copy;
   max-block-size: 50dvh; /* TODO: Keep tinkering... */
   overflow: auto;
-  padding-block: var(--gap);
-  padding-inline: var(--figcaption-padding-inline, var(--gap));
-  place-self: var(--figcaption-place-self);
   scrollbar-width: none;
 }
 
