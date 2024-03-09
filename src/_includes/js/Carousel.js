@@ -126,6 +126,19 @@ class Carousel extends HTMLElement {
   }
 
   /**
+   * Scrolls item into view with left and right arrows for better a11y.
+   */
+  handleKey(event) {
+    if (event.code === 'ArrowLeft') {
+      this.scrollToItem('prev');
+    }
+
+    if (event.code === 'ArrowRight') {
+      this.scrollToItem('next');
+    }
+  }
+
+  /**
    * Scrolls item into view based on scroll direction.
    */
   scrollToItem(direction) {
@@ -146,19 +159,6 @@ class Carousel extends HTMLElement {
       left: this.list.scrollLeft + offset,
       behavior: 'smooth',
     });
-  }
-
-  /**
-   * Scrolls item into view with left and right arrows for better a11y.
-   */
-  handleKey(event) {
-    if (event.code === 'ArrowLeft') {
-      this.scrollToItem('prev');
-    }
-
-    if (event.code === 'ArrowRight') {
-      this.scrollToItem('next');
-    }
   }
 
   /**
