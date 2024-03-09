@@ -1,7 +1,8 @@
-{%- macro linkify(href, title, blank=true) %}
+{%- macro linkify(href, title, tabindex=null, blank=true) %}
   <a href="{{ href }}" title="View {{ title }}
     {%- if blank %} (opens in new window){% endif -%}"
-    {%- if blank %} target="_blank" rel="noopener"{% endif %}>
+    {%- if blank %} target="_blank" rel="noopener"{% endif -%}
+    {%- if tabindex %} tabindex="{{ tabindex }}"{% endif %}>
     {{- caller() -}}
   </a>
 {% endmacro -%}
@@ -30,7 +31,7 @@
 {% for project in projects -%}
   <li>
     <figure>
-      {%- call linkify(project.url, project.heading) -%}
+      {%- call linkify(project.url, project.heading, -1) -%}
         <img src="/img/{{ project.img }}" alt="">
       {%- endcall -%}
       <figcaption>
