@@ -16,6 +16,14 @@
   {% endif %}
 {%- endset -%}
 
+{%- set js -%}
+  {%- if view == 'home' -%}
+    {%- include 'js/FancyDetails.js' -%}
+  {%- elif view == 'slideshow' -%}
+    {%- include 'js/Carousel.js' -%}
+  {%- endif -%}
+{%- endset -%}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,5 +39,6 @@
     <main>
       {{ content | safe }}
     </main>
+    {% if js %}<script>{{ js | jsmin | safe }}</script>{% endif -%}
   </body>
 </html>

@@ -51,11 +51,3 @@ layout: base
 </carousel-widget>
 
 {{ content | safe }}
-
-{%- set js -%}
-  {%- include 'js/Carousel.js' -%}
-{%- endset -%}
-
-<script>
-  {{ js | jsmin | safe }}
-</script>
