@@ -127,10 +127,16 @@ class Carousel extends HTMLElement {
     this.next.disabled = !this.indexNext;
     this.counter.textContent = `${indexCurrent + 1} of ${this.total}`;
 
+    // Load current item's images in case there's a hash in the URL on load.
+    const imagesCurrent = this.items[indexCurrent].querySelectorAll('img');
+    for (const image of imagesCurrent) {
+      image.setAttribute('loading', 'eager');
+    }
+
     // Preload next item's images.
     if (this.indexNext) {
-      const images = this.items[this.indexNext].querySelectorAll('img');
-      for (const image of images) {
+      const imagesNext = this.items[this.indexNext].querySelectorAll('img');    
+      for (const image of imagesNext) {
         image.setAttribute('loading', 'eager');
       }
     }
