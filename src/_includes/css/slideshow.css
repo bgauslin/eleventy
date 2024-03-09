@@ -1,5 +1,5 @@
 .slideshow {
-  --figure-grid: 'media' 'copy' / 1fr;
+  --figure-grid: 'images' 'copy' / 1fr;
   --img-max-block-size: min(800px, 100vw);
   --main-max-inline-size: none;
   --main-padding: 0;
@@ -9,13 +9,10 @@
   .slideshow {
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center;
-
     --figure-gap: var(--gap);
-    --figure-grid: '. media copy .' / var(--button-size) 2fr 1fr var(--button-size);
-    
+    --figure-grid: '. images copy .' / var(--button-size) 2fr 1fr var(--button-size);
     --img-max-block-size: 100dvh;
     --img-max-inline-size: 100vh;
-
     --item-display: grid;
   }
 }
@@ -27,6 +24,48 @@
 
 .slideshow li {
   display: var(--item-display);
+}
+
+.slideshow figure {
+  display: grid;
+  gap: var(--figure-gap);
+  grid: var(--figure-grid);
+}
+
+/* TODO: Keep tinkering with max-block-size... */
+.slideshow figcaption {
+  grid-area: copy;
+  max-block-size: 50dvh;
+  max-inline-size: 36em;
+  overflow: auto;
+  padding-block: var(--gap);
+  padding-inline: var(--figcaption-padding-inline, var(--gap));
+  place-self: var(--figcaption-place-self);
+  scrollbar-width: none;
+}
+
+.slideshow figcaption::-webkit-scrollbar {
+  display: none;
+}
+
+/* Images container. */
+[data-images] {
+  display: grid;
+  gap: var(--gap);
+  grid: auto-flow / 1fr;
+  grid-area: images;
+  place-items: center;
+}
+
+[data-images='2'] {
+  inline-size: 50%;
+  place-self: center;
+}
+
+.slideshow img {
+  max-block-size: var(--img-max-block-size);
+  max-inline-size: var(--img-max-inline-size);
+  object-fit: contain;
 }
 
 .slideshow dl {
@@ -44,38 +83,4 @@
 
 .slideshow dd {
   margin: 0;
-}
-
-.slideshow figure {
-  display: grid;
-  gap: var(--figure-gap);
-  grid: var(--figure-grid);
-}
-
-.slideshow figcaption {
-  grid-area: copy;
-  max-inline-size: 36em;
-  padding-block: var(--gap);
-  padding-inline: var(--figcaption-padding-inline, var(--gap));
-  place-self: var(--figcaption-place-self);
-}
-
-/* Images container. */
-[data-images] {
-  display: grid;
-  gap: 1em;
-  grid: auto-flow / 1fr;
-  grid-area: media;
-  place-items: center;
-}
-
-[data-images='2'] {
-  inline-size: 50%;
-  place-self: center;
-}
-
-.slideshow img {
-  max-block-size: var(--img-max-block-size);
-  max-inline-size: var(--img-max-inline-size);
-  object-fit: contain;
 }

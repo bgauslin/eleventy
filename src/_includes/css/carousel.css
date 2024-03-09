@@ -16,26 +16,14 @@ carousel-widget ol {
   margin: 0;  
   overflow: scroll hidden;
   padding: 0;
-  scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  scroll-snap-type: x mandatory;
 }
 
-carousel-widget::-webkit-scrollbar {
+carousel-widget ol::-webkit-scrollbar {
   display: none;
 }
 
 carousel-widget li {
   scroll-snap-align: start;
-}
-
-/* Slideshow contents. */
-
-carousel-widget figcaption {
-  max-block-size: 50dvh; /* TODO: Keep tinkering... */
-  overflow: auto;
-  scrollbar-width: none;
-}
-
-carousel-widget figcaption::-webkit-scrollbar {
-  display: none;
 }
