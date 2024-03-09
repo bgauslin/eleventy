@@ -11,20 +11,22 @@ carousel-widget {
   carousel-widget {
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center;
-    --figure-grid: 'media copy .' / 2fr 1fr 0;
-    --figure-gap: 2em;
-    --img-max-block-size: 90dvh;
+    --figure-gap: var(--gap);
+    --figure-grid: '. media copy .' / var(--button-size) 2fr 1fr var(--button-size);
+    --img-max-block-size: 100dvh;
+    --img-max-inline-size: 100vh;
+    --item-display: grid;
   }
 }
 
 /* Scroll snap container and items. */
 
 carousel-widget :is(ol, li) {
-  display: grid;
   inline-size: 100vw;
 }
 
 carousel-widget ol {
+  display: grid;
   grid: 1fr / auto-flow;
   margin: 0;  
   overflow: scroll hidden;
@@ -33,7 +35,12 @@ carousel-widget ol {
   scrollbar-width: none;
 }
 
+carousel-widget::-webkit-scrollbar {
+  display: none;
+}
+
 carousel-widget li {
+  display: var(--item-display);
   scroll-snap-align: start;
 }
 
@@ -45,16 +52,13 @@ carousel-widget figure {
   grid: var(--figure-grid);
 }
 
-carousel-widget figure::-webkit-scrollbar {
-  display: none;
-}
-
 carousel-widget [data-images] {
   grid-area: media;
 }
 
 carousel-widget img {
   max-block-size: var(--img-max-block-size);
+  max-inline-size: var(--img-max-inline-size);
   object-fit: contain;
 }
 
