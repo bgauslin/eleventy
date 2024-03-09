@@ -212,7 +212,6 @@ class Carousel extends HTMLElement {
     styles.replaceSync(`
       :host {
         --counter-grid-area: 2 / 3 / 2 / 4;
-        --gap: 1em;
         --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr var(--button-size) 0;
         --next-grid-area: 2 / 4 / 2 / 5;
         --prev-grid-area: 2 / 2 / 2 / 3;
@@ -240,16 +239,21 @@ class Carousel extends HTMLElement {
 
       ::slotted(ol) {
         grid-area: var(--slot-grid-area);
+        z-index: 1;
       }
       
-      .counter {
+      :is(.counter, button) {
         block-size: var(--button-size);
+      }
+
+      .counter {
         display: grid;
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
-        opacity: var(--text-opacity);
+        padding-inline: var(--gap);
         place-content: center;
         place-self: end center;
+        z-index: 3;
       }
       
       [data-direction='prev'] {
@@ -264,7 +268,6 @@ class Carousel extends HTMLElement {
         appearance: none;
         aspect-ratio: 1;
         background-color: var(--background-1);
-        block-size: var(--button-size);
         border: none;
         border-radius: var(--button-size);
         box-shadow: var(--shadow-1);
@@ -277,6 +280,7 @@ class Carousel extends HTMLElement {
         place-items: center;
         place-self: center;
         transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
+        z-index: 2;
       }
       
       button:is(:focus, :hover) {

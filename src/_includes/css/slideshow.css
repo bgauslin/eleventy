@@ -39,7 +39,7 @@
   max-block-size: var(--figcaption-max-block-size);
   max-inline-size: 36em;
   overflow: auto;
-  padding-block: var(--gap);
+  padding-block: var(--gap) var(--button-size);
   padding-inline: var(--figcaption-padding-inline, var(--gap));
   place-self: var(--figcaption-place-self);
   scrollbar-width: none;

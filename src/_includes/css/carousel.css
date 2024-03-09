@@ -4,8 +4,6 @@ carousel-widget {
   block-size: 100dvh;
 }
 
-/* Scroll snap container and items. */
-
 carousel-widget :is(ol, li) {
   inline-size: 100vw;
 }
