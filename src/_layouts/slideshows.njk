@@ -2,11 +2,10 @@
 layout: base
 ---
 <h1>{{ title }}</h1>
-{# TODO: Rename 'slides2023' directory, coordinate with assets. #}
 {% for item in collections.slideshow -%}
   {%- set heading = item.data.title | safe %}
   {%- set linkTitle = 'View slideshow for ' + heading %}
-  {%- set imageUrl = 'https://assets.gauslin.com/images/slides2023/' + item.data.slug + '/' + item.data.image.src + '@thumb.webp' %}
+  {%- set imageUrl = 'https://assets.gauslin.com/images/slides/' + item.data.slug + '/' + item.data.image.src + '@thumb.webp' %}
   {%- set imageWidth = item.data.image.width %}
   {%- set imageHeight = item.data.image.height %}
   {%- set permalink = item.data.permalink | replace('.html', '') %}
