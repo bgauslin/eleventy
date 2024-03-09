@@ -11,7 +11,7 @@ layout: base
   {%- set imageHeight = item.data.image.height %}
   {%- set permalink = item.data.permalink | replace('.html', '') %}
   <figure>
-    <a href="/{{ permalink }}" title="{{ linkTitle }}">
+    <a href="/{{ permalink }}" title="{{ linkTitle }}" tabindex="-1">
       <img alt="" src="{{ imageUrl }}" width="{{ imageWidth }}" height="{{ imageHeight }}">
     </a>
     <figcaption> 
