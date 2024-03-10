@@ -4,6 +4,7 @@
 carousel-widget {
   --figcaption-max-block-size: 50dvh;
   --item-margin-block: 0;
+  --list-margin-block: 0;
 }
 
 @media (orientation: landscape) {
@@ -24,9 +25,7 @@ carousel-widget :is(ol, li) {
 carousel-widget ol {
   display: grid;
   grid: 1fr / auto-flow;
-  margin: 0;  
   overflow: scroll hidden;
-  padding: 0;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }

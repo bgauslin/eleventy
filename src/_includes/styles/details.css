@@ -54,7 +54,7 @@ summary::after {
 /**
  * Expandable content.
  */
-details > * {
+details > :is(summary, p) {
   padding-inline: 1em;
 }
 

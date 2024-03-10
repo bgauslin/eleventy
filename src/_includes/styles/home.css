@@ -21,11 +21,11 @@
 }
 
 /**
- * Contact section. Classname is set on a <ul> element.
+ * Contact section.
  */
 .contact {
-  display: flex;
-  gap: 0 1em;
-  list-style: none;
-  padding: 0;
+  --list-display: flex;
+  --list-gap: 0 1em;
+  --list-padding-inline: 0;
+  --list-style: none;
 }

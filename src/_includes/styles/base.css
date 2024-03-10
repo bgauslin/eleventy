@@ -66,6 +66,18 @@ a:is(:focus, :hover) {
 }
 
 /**
+ * Lists.
+ */
+ul,
+ol {
+  display: var(--list-display, initial);
+  gap: var(--list-gap, initial);
+  list-style: var(--list-style, initial);
+  margin-block: var(--list-margin-block, initial);
+  padding-inline: var(--list-padding-inline, initial);
+}
+
+/**
  * Media container.
  */
 figure {
