@@ -243,6 +243,7 @@ class Carousel extends HTMLElement {
         --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr var(--button-size) 0;
         --slot-grid-area: 1 / 1 / -1 / -1;
         --counter-grid-area: 2 / 3 / 2 / 4;
+        --counter-place-self: end center;
         --next-grid-area: 2 / 4 / 2 / 5;
         --prev-grid-area: 2 / 2 / 2 / 3;
         
@@ -250,10 +251,11 @@ class Carousel extends HTMLElement {
 
       @media (orientation: landscape) {
         :host {
-          --grid: 1fr / 0 var(--button-size) 2fr 3fr var(--button-size) 0;
-          --counter-grid-area: 1 / 3 / 1 / 4;
-          --next-grid-area: 1 / 5 / 1 / 6;
-          --prev-grid-area: 1 / 2 / 1 / 3;
+          --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 2fr 3fr var(--button-size) 0;
+          --counter-grid-area: 2 / 3 / 2 / 4;
+          --counter-place-self: end start;
+          --next-grid-area: 1 / 5 / 4 / 6;
+          --prev-grid-area: 1 / 2 / 4 / 3;
         }
       }
 
@@ -273,16 +275,20 @@ class Carousel extends HTMLElement {
       
       :is(.counter, button) {
         block-size: var(--button-size);
+        z-index: 2;
       }
 
       .counter {
+        backdrop-filter: blur(4px);
+        block-size: var(--button-size);
+        border-radius: var(--button-size);
         display: grid;
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
-        padding-inline: var(--gap);
+        margin-inline: -1em;
+        padding-inline: 1em;
         place-content: center;
-        place-self: end center;
-        z-index: 3;
+        place-self: var(--counter-place-self);
       }
       
       button {
@@ -301,7 +307,6 @@ class Carousel extends HTMLElement {
         place-items: center;
         place-self: center;
         transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
-        z-index: 2;
       }
       
       button:focus,

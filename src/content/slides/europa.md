@@ -12,8 +12,18 @@ image:
   width: 320
   height: 243
 ---
-
 <style>
-  carousel-widget { --item-display: grid; }
-  h2 + p { margin-block-start: 0; }
+  carousel-widget {
+    --item-display: grid;
+  }
+
+  @media (orientation: landscape) {
+    carousel-widget {
+      --counter-place-self: center;
+    }
+  }
+
+  h2 + p {
+    margin-block-start: 0;
+  }
 </style>

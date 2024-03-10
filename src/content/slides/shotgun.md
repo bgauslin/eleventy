@@ -12,3 +12,8 @@ image:
   width: 320
   height: 240
 ---
+<style>
+carousel-widget {
+  --figcaption-inline-size: 100%;
+}
+</style>
