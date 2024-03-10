@@ -70,12 +70,20 @@ a:is(:focus, :hover) {
  */
 ul,
 ol {
-  display: var(--list-display, initial);
-  gap: var(--list-gap, initial);
+  display: var(--list-display);
+  gap: var(--list-gap);
   grid: var(--list-grid);
-  list-style: var(--list-style, initial);
-  margin-block: var(--list-margin-block, initial);
-  padding-inline: var(--list-padding-inline, initial);
+  inline-size: var(--list-inline-size);
+  list-style: var(--list-style);
+  margin-block: var(--list-margin-block);
+  overflow: var(--list-overflow);
+  padding-inline: var(--list-padding-inline);
+}
+
+li {
+  display: var(--item-display);
+  inline-size: var(--item-inline-size);
+  margin-block: var(--item-margin-block);
 }
 
 /**
@@ -101,8 +109,8 @@ figcaption {
   max-block-size: var(--figcaption-max-block-size);
   max-inline-size: var(--figcaption-max-inline-size);
   overflow: var(--figcaption-overflow);
-  padding-block: var(--figcaption-padding-block, initial);
-  padding-inline: var(--figcaption-padding-inline, initial);
+  padding-block: var(--figcaption-padding-block);
+  padding-inline: var(--figcaption-padding-inline);
   place-self: var(--figcaption-place-self);
 }
 

@@ -7,6 +7,8 @@
   --figcaption-padding-inline: var(--gap);
   --figure-grid: 'images' 'copy' / 1fr;
   --img-max-block-size: min(800px, 100vw);
+  --item-display: block;
+  --item-margin-block: 10vh;
   --list-padding-inline: 0;
   --list-style: none;
   --main-max-inline-size: none;
@@ -21,11 +23,6 @@
     --img-max-inline-size: 100vh;
     --item-display: grid;
   }
-}
-
-.slideshow li {
-  display: var(--item-display, block);
-  margin-block: var(--item-margin-block, 10vh);
 }
 
 .slideshow figcaption {
