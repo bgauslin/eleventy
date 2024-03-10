@@ -3,9 +3,11 @@
  */
 .slideshow {
   --figcaption-max-inline-size: 36em;
-  --figcaption-padding-block: var(--gap) var(--button-size);
+  --figcaption-padding-block: 0 calc(var(--button-size) + var(--gap));
   --figcaption-padding-inline: var(--gap);
   --figure-grid: 'images' 'copy' / 1fr;
+  --figure-margin-block: 0;
+  --images-inline-size: 50%;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
   --item-display: block;
@@ -18,21 +20,49 @@
 
 @media (orientation: landscape) {
   .slideshow {
+    --figcaption-padding-block: var(--gap) var(--button-size);
     --figcaption-padding-inline: 0;
-    --figure-grid: '. images copy .' / var(--button-size) 2fr 1fr var(--button-size);
+    --figure-grid: '. copy images .' / var(--button-size) 2fr 3fr var(--button-size);
+    --images-inline-size: 75%;
     --img-max-block-size: 100dvh;
     --img-max-inline-size: 100vh;
     --item-display: grid;
   }
+
+  figure:has([data-images='2']) {
+    --figure-grid: '. copy images .' / var(--button-size) 1fr 1fr var(--button-size);
+  }
+}
+
+[data-images] {
+  grid-area: images;
 }
 
 .slideshow figcaption {
   grid-area: copy;
 }
 
+/**
+ * Image container for better layout control.
+ */
+[data-images] {
+  display: grid;
+  gap: var(--gap);
+  grid: auto-flow / 1fr;
+  place-items: center;
+}
+
+[data-images='2'] {
+  inline-size: var(--images-inline-size);
+  place-self: center;
+}
+
+/**
+ * Slide metadata.
+ */
 .slideshow dl {
   display: grid;
-  font-size: .9em;
+  font-size: var(--font-size-small);
   gap: 0 .5em;
   grid: auto-flow / auto 1fr;
   margin-block: 1em;
@@ -45,17 +75,4 @@
 
 .slideshow dd {
   margin: 0;
-}
-
-[data-images] {
-  display: grid;
-  gap: var(--gap);
-  grid: auto-flow / 1fr;
-  grid-area: images;
-  place-items: center;
-}
-
-[data-images='2'] {
-  inline-size: 50%;
-  place-self: center;
 }
