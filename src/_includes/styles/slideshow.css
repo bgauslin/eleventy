@@ -5,18 +5,13 @@
   --figcaption-max-inline-size: 36em;
   --figcaption-padding-block: var(--gap) var(--button-size);
   --figcaption-padding-inline: var(--gap);
-
   --figure-grid: 'images' 'copy' / 1fr;
-  
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
-  
   --item-display: block;
   --item-margin-block: 10vh;
-  
   --list-padding-inline: 0;
   --list-style: none;
-  
   --main-max-inline-size: none;
   --main-padding: 0;
 }
