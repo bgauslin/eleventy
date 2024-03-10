@@ -1,5 +1,6 @@
-/* Base styles for <details> elements. */
-
+/**
+ * Base styles for <details> elements.
+ */
 details {
   --summary-height: 3em;
 }
@@ -11,8 +12,10 @@ details {
   margin-block: var(--gap);
 }
 
-/* [1] Default 'display' override hides default marker. */
-/* [2] Safari needs vendor-prefix selector to hide default marker. */
+/**
+ * [1] Default 'display' override hides default marker.
+ * [2] Safari needs vendor-prefix selector to hide default marker.
+ */
 summary {
   align-items: center;
   block-size: var(--summary-height);
@@ -31,7 +34,9 @@ summary:is(:focus, :hover) {
   opacity: 1;
 }
 
-/* Custom caret to replace default marker. */
+/**
+ * Custom caret to replace default marker.
+ */
 summary::after {
   aspect-ratio: 1;
   border-block-start: 1px solid currentColor;
@@ -46,7 +51,9 @@ summary::after {
   transform: rotate(135deg);
 }
 
-/* Expandable content. */
+/**
+ * Expandable content.
+ */
 details > * {
   padding-inline: 1em;
 }

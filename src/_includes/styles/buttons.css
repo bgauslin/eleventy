@@ -1,5 +1,6 @@
-/* Links styled as buttons via class. */
-
+/**
+ * Links styled as buttons via classname.
+ */
 .button {
   aspect-ratio: 1;
   background-color: var(--link-background);

@@ -1,10 +1,14 @@
-/* Base layout overrides. */
+/**
+ * Error 404 page. Classname is set on the <body> elemment.
+ */
 .error {
   --main-max-inline-size: none;
   --main-padding: 0;
 }
 
-/* Error page content wrapper. */
+/**
+ * Error page content.
+ */
 [data-error] {
   block-size: 100dvh;
   display: grid;
@@ -22,6 +26,9 @@
   place-self: start center;
 }
 
+/**
+ * Stereogram.
+ */
 pre {
   margin: 0;
   max-inline-size: 100vw;
@@ -35,4 +42,3 @@ pre {
 pre::-webkit-scrollbar {
   display: none;
 }
-

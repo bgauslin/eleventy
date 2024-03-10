@@ -1,5 +1,6 @@
-/* Light DOM styles for <carousel-widget> slotted content. */
-
+/**
+ * Light DOM styles for <carousel-widget> and its slotted content.
+ */
 carousel-widget {
   --figcaption-max-block-size: 50dvh;
   --item-margin-block: 0;

@@ -1,10 +1,14 @@
-/* Home page. */
+/**
+ * Home page. Classname is set on the <body> element.
+ */
 .home {
   --avatar-size: 8em;
   --main-max-inline-size: 34em;
 }
 
-/* About section profile photo. */
+/**
+ * About section avatar.
+ */
 [id='about'] img {
   block-size: var(--avatar-size);
   border-radius: 100%;
@@ -16,7 +20,9 @@
   text-align: center;
 }
 
-/* The 'contact' classname is set on a <ul> element. */
+/**
+ * Contact section. Classname is set on a <ul> element.
+ */
 .contact {
   display: flex;
   gap: 0 1em;
