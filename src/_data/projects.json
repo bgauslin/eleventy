@@ -49,7 +49,7 @@
     "copy": "Breathing new life into an 1890s New Orleans shotgun house",
     "img": "shotgun-front.jpg",
     "url": "/slides/shotgun",
-    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/js/Carousel.js",
+    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
     "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },
@@ -58,7 +58,7 @@
     "copy": "Documenting an experience abroad with pen, pencil, and found materials",
     "img": "sketch-piazza.png",
     "url": "/slides/europa",
-    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/js/Carousel.js",
+    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
     "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
     "type": "architecture"
   },

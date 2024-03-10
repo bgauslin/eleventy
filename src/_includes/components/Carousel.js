@@ -1,12 +1,12 @@
-const BUTTON_INFO = [
+const BUTTONS = [
   {
     direction: 'prev',
-    label: 'Previous',
+    label: 'Previous slide',
     path: 'M15,4 L7,12 L15,20',
   },
   {
     direction: 'next',
-    label: 'Next',
+    label: 'Next slide',
     path: 'M9,4 L17,12 L9,20',
   },
 ];
@@ -40,9 +40,11 @@ class Carousel extends HTMLElement {
     this.items = this.list.querySelectorAll('li');
 
     this.total = this.items.length;
-    this.prev = -1;
-    this.next = 1;
     this.url = new URL(window.location);
+
+    this.prev = -1;
+    this.current = 0;
+    this.next = 1;
   }
   
   /**
@@ -69,7 +71,7 @@ class Carousel extends HTMLElement {
    */
   createButton(direction) {
     const button = document.createElement('button');
-    const {label, path} = BUTTON_INFO.find(button => button.direction === direction);
+    const {label, path} = BUTTONS.find(button => button.direction === direction);
 
     button.ariaLabel = label;
     button.dataset.direction = direction;
@@ -111,27 +113,26 @@ class Carousel extends HTMLElement {
       }
       
       const item = [...this.items].find(item => item === entry.target);
-      const index = [...this.items].indexOf(item);
+      this.current = [...this.items].indexOf(item);
 
       // Update address bar and DOM.
       this.url.hash = item.id;
       history.replaceState(null, '', this.url.href);
-      this.updateElements(index);
+      this.updateElements();
     }
   }
 
   /**
    * Updates controls and preloads next slide's images based on current item.
-   * @param {number} current - index of current item
    */
-  updateElements(current) {
-    this.prev = (current > 0) ? current - 1 : -1;
-    this.next = (current < this.total - 1) ? current + 1 : false;
+  updateElements() {
+    this.prev = (this.current > 0) ? this.current - 1 : -1;
+    this.next = (this.current < this.total - 1) ? this.current + 1 : false;
     
     // Update controls.
     this.prevButton.disabled = this.prev < 0;
     this.nextButton.disabled = !this.next;
-    this.counter.textContent = `${current + 1} of ${this.total}`;
+    this.counter.textContent = `${this.current + 1} of ${this.total}`;
 
     // Preload next item's images.
     if (this.next) {
@@ -144,7 +145,7 @@ class Carousel extends HTMLElement {
     for (const [index, item] of this.items.entries()) {
       const links = item.querySelectorAll('a');
       for (const link of links) {
-        if (index === current) {
+        if (index === this.current) {
           link.removeAttribute('tabindex');
         } else {
           link.setAttribute('tabindex', '-1');
@@ -154,7 +155,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Preloads images by changing their 'lading' attribute to 'eager'.
+   * Preloads images by changing their 'loading' attribute.
    * @param {HTMLImageElement[]} images  
    */
   preloadImages(images) {
@@ -192,15 +193,17 @@ class Carousel extends HTMLElement {
    */
   scrollToHash() {
     const anchor = this.url.hash.replace('#', '');
+    
     if (anchor) {
       const item = [...this.items].find(item => item.id === anchor);
-      const index = [...this.items].indexOf(item);
-      const images = this.items[index].querySelectorAll('img');
+      this.current = [...this.items].indexOf(item);
+
+      const images = item.querySelectorAll('img');
       const {left} = item.getBoundingClientRect();
 
       this.list.scrollTo(left, 0);
       this.preloadImages(images);
-      this.updateElements(index);
+      this.updateElements();
     }
   }
 
@@ -212,6 +215,7 @@ class Carousel extends HTMLElement {
   handleClick(event) {
     const path = event.composedPath();
     const direction = path[0].dataset.direction;
+    
     if (direction) {
       this.scrollToItem(direction);
     }
