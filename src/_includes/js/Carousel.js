@@ -110,14 +110,12 @@ class Carousel extends HTMLElement {
         return;
       }
       
-      for (const [index, item] of this.items.entries()) {
-        if (entry.target === item) {
-          this.updateElements(index);
-          this.url.hash = item.id;
-          history.replaceState(null, '', this.url.href);
-          break;
-        }
-      }
+      const item = [...this.items].find(item => item === entry.target);
+      const index = [...this.items].indexOf(item);
+
+      this.updateElements(index);
+      this.url.hash = item.id;
+      history.replaceState(null, '', this.url.href);
     }
   }
 
@@ -192,14 +190,12 @@ class Carousel extends HTMLElement {
   scrollToHash() {
     const anchor = this.url.hash.replace('#', '');
     if (anchor) {
-      for (const [index, item] of this.items.entries()) {
-        if (item.id === anchor) {
-          const {left} = item.getBoundingClientRect();
-          this.list.scrollTo(left, 0);
-          this.updateElements(index);
-          break;
-        }
-      }
+      const item = [...this.items].find(item => item.id === anchor);
+      const index = [...this.items].indexOf(item);
+      const {left} = item.getBoundingClientRect();
+      
+      this.list.scrollTo(left, 0);
+      this.updateElements(index);
     }
   }
 
