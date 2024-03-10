@@ -10,6 +10,6 @@ fancy-details summary::after {
   transition: transform var(--duration);
 }
 
-fancy-details > [data-state='closing'] > summary::after {
+fancy-details > [data-closing] > summary::after {
   transform: rotate(45deg);
 }

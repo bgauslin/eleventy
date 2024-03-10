@@ -39,10 +39,10 @@ class FancyDetails extends HTMLElement {
       details.style.setProperty(this.sizeProp, `${details.scrollHeight}px`);
       window.requestAnimationFrame(() => {
         details.style.removeProperty(this.sizeProp);
-        details.dataset.state = 'closing';
+        details.dataset.closing = '';
         details.addEventListener('transitionend', () => {
           details.open = false;
-          delete details.dataset.state;
+          delete details.dataset.closing;
         }, {once: true});
       });
     } else {
