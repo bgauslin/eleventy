@@ -2,7 +2,6 @@
  * Home page. Classname is set on the <body> element.
  */
 .home {
-  --avatar-size: 8em;
   --main-max-inline-size: 34em;
 }
 
