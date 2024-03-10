@@ -10,6 +10,7 @@ details {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
   margin-block: var(--gap);
+  overflow: auto;
 }
 
 /**

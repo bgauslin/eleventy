@@ -3,7 +3,6 @@
  */
 fancy-details > details { 
   block-size: var(--height, var(--summary-height));
-  overflow: auto;
   transition: block-size var(--duration);
 }
 
