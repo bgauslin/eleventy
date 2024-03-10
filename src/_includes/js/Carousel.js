@@ -1,3 +1,16 @@
+const BUTTON_INFO = [
+  {
+    direction: 'prev',
+    label: 'Previous',
+    path: 'M15,4 L7,12 L15,20',
+  },
+  {
+    direction: 'next',
+    label: 'Next',
+    path: 'M9,4 L17,12 L9,20',
+  },
+];
+
 class Carousel extends HTMLElement {
   constructor() {
     super();
@@ -41,10 +54,9 @@ class Carousel extends HTMLElement {
 
     const slot = document.createElement('slot');
     this.counter = document.createElement('div');
+    this.counter.classList.add('counter');
     this.prev = this.createButton('prev');
     this.next = this.createButton('next');
-
-    this.counter.classList.add('counter');
 
     for (const element of [slot, this.counter, this.prev, this.next]) {
       this.shadowRoot.appendChild(element);
@@ -57,14 +69,8 @@ class Carousel extends HTMLElement {
    * @returns {HTMLButtonElement}
    */
   createButton(direction) {
-    let label = 'Next';
-    let path = 'M9,4 L17,12 L9,20';
-
-    if (direction === 'prev') {
-      label = 'Previous';
-      path = 'M15,4 L7,12 L15,20';
-    }
-
+    const {label, path} = BUTTON_INFO.find(button => button.direction === direction);
+    
     const button = document.createElement('button');
     button.ariaLabel = label;
     button.title = label;
@@ -109,6 +115,7 @@ class Carousel extends HTMLElement {
           this.updateElements(index);
           this.url.hash = item.id;
           history.replaceState(null, '', this.url.href);
+          break;
         }
       }
     }
@@ -183,10 +190,10 @@ class Carousel extends HTMLElement {
    * Scrolls to individual item by ID if there's a hash in the URL on load.
    */
   scrollToHash() {
-    const hash = this.url.hash.replace('#', '');
-    if (hash) {
+    const anchor = this.url.hash.replace('#', '');
+    if (anchor) {
       for (const [index, item] of this.items.entries()) {
-        if (item.id === hash) {
+        if (item.id === anchor) {
           const {left} = item.getBoundingClientRect();
           this.list.scrollTo(left, 0);
           this.updateElements(index);
