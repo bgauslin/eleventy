@@ -15,18 +15,18 @@
   --img-aspect-ratio: 1;
   --img-object-fit: cover;
   --main-max-inline-size: 34em;
-}
 
-.slideshows figure > a {
-  grid-area: image;
-}
-
-.slideshows figcaption {
-  grid-area: blurb;
-}
-
-.slideshows p {
-  font-size: var(--font-size-small);
-  margin: 0;
-  opacity: var(--text-opacity);
+  figure > a {
+    grid-area: image;
+  }
+  
+  figcaption {
+    grid-area: blurb;
+  }
+  
+  p {
+    font-size: var(--font-size-small);
+    margin: 0;
+    opacity: var(--text-opacity);
+  }
 }
