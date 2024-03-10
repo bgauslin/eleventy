@@ -9,7 +9,7 @@ view: home
 # Ben Gauslin
 
 <fancy-details>
-  <details id="about">
+  <details>
     <summary>
       <h2>About</h2>
     </summary>
@@ -24,7 +24,7 @@ view: home
 </fancy-details>
 
 <fancy-details>
-  <details id="projects">
+  <details>
     <summary>
       <h2>Projects</h2>
     </summary>
@@ -37,7 +37,7 @@ view: home
 </fancy-details>
 
 <fancy-details>
-  <details id="contact">
+  <details>
     <summary>
       <h2>Contact</h2>
     </summary>
