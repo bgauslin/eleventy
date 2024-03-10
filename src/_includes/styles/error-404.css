@@ -7,32 +7,29 @@
   --main-grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
   --main-max-inline-size: none;
   --main-padding: 0;
-}
 
-/**
- * Error page content.
- */
-.error-404 h1 {
-  font: normal 5em / 1 monospace;
-  grid-area: heading;
-  place-self: end center;
-}
-
-.error-404 p {
-  grid-area: blurb;
-  place-self: start center;
-}
-
-.error-404 pre {
-  margin: 0;
-  max-inline-size: 100vw;
-  opacity: var(--text-opacity);
-  overflow: auto;
-  place-self: center;
-  scrollbar-width: none;
-  user-select: none;
-}
-
-.error-404 pre::-webkit-scrollbar {
-  display: none;
+  h1 {
+    font: normal 5em / 1 monospace;
+    grid-area: heading;
+    place-self: end center;
+  }
+  
+  p {
+    grid-area: blurb;
+    place-self: start center;
+  }
+  
+  pre {
+    margin: 0;
+    max-inline-size: 100vw;
+    opacity: var(--text-opacity);
+    overflow: auto;
+    place-self: center;
+    scrollbar-width: none;
+    user-select: none;
+  }
+  
+  pre::-webkit-scrollbar {
+    display: none;
+  }
 }
