@@ -10,31 +10,27 @@ carousel-widget {
   --list-grid: 1fr / auto-flow;
   --list-margin-block: 0;
   --list-overflow: scroll hidden;
-}
 
-@media (orientation: landscape) {
-  carousel-widget {
+  @media (orientation: landscape) {
     --figcaption-max-block-size: 100dvh;
     --figcaption-place-self: center;
   }
-}
 
-carousel-widget {
   block-size: 100dvh;
-}
 
-carousel-widget ol {
-  scroll-snap-type: x mandatory;
-}
+  ol {
+    scroll-snap-type: x mandatory;
+  }
 
-carousel-widget li {
-  scroll-snap-align: start;
-}
+  li {
+    scroll-snap-align: start;
+  }
 
-carousel-widget :is(ol, figcaption) {
-  scrollbar-width: none;
-}
+  :is(ol, figcaption) {
+    scrollbar-width: none;
+  }
 
-carousel-widget :is(ol, figcaption)::-webkit-scrollbar {
-  display: none;
+  :is(ol, figcaption)::-webkit-scrollbar {
+    display: none;
+  }
 }
