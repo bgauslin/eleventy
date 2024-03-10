@@ -2,7 +2,7 @@
  * Light DOM styles for adding open/close transitions to <details> elements.
  */
 fancy-details > details { 
-  block-size: var(--height, var(--summary-height));
+  block-size: var(--block-size, var(--summary-block-size));
   transition: block-size var(--duration);
 }
 

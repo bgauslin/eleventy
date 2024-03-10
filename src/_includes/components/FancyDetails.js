@@ -4,6 +4,7 @@
 class FancyDetails extends HTMLElement {
   constructor() {
     super();
+    this.sizeProp = '--block-size';
   }
 
   connectedCallback() {
@@ -35,20 +36,20 @@ class FancyDetails extends HTMLElement {
 
     if (details.open) {
       event.preventDefault();
-      details.style.setProperty('--height', `${details.scrollHeight}px`);
+      details.style.setProperty(this.sizeProp, `${details.scrollHeight}px`);
       window.requestAnimationFrame(() => {
-        details.style.removeProperty('--height');
-        details.setAttribute('data-state', 'closing');
+        details.style.removeProperty(this.sizeProp);
+        details.dataset.state = 'closing';
         details.addEventListener('transitionend', () => {
           details.open = false;
-          details.removeAttribute('data-state');
+          delete details.dataset.state;
         }, {once: true});
       });
     } else {
       window.requestAnimationFrame(() => {
-        details.style.setProperty('--height', `${details.scrollHeight}px`);
+        details.style.setProperty(this.sizeProp, `${details.scrollHeight}px`);
         details.addEventListener('transitionend', () => {
-          details.style.setProperty('--height', 'auto');
+          details.style.setProperty(this.sizeProp, 'auto');
         }, {once: true});
       });
     }

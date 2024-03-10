@@ -2,7 +2,7 @@
  * Base styles for <details> elements.
  */
 details {
-  --summary-height: 3em;
+  --summary-block-size: 3em;
 }
 
 details {
@@ -19,7 +19,7 @@ details {
  */
 summary {
   align-items: center;
-  block-size: var(--summary-height);
+  block-size: var(--summary-block-size);
   cursor: pointer;
   display: flex; /* [1] */
   opacity: var(--text-opacity);
