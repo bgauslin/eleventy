@@ -33,13 +33,12 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Initializes properties and light DOM references.
+   * Sets light DOM references and initializes properties.
    */
   setup() {
     this.list = this.querySelector('ol');
     this.items = this.list.querySelectorAll('li');
 
-    // Properties.
     this.total = this.items.length;
     this.indexPrev = -1;
     this.indexNext = 1;
@@ -47,7 +46,7 @@ class Carousel extends HTMLElement {
   }
   
   /**
-   * Creates prev-next controls and a count label in the shadow DOM.
+   * Creates a slot, prev-next buttons, and a counter.
    */
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
@@ -69,9 +68,9 @@ class Carousel extends HTMLElement {
    * @returns {HTMLButtonElement}
    */
   createButton(direction) {
-    const {label, path} = BUTTON_INFO.find(button => button.direction === direction);
-    
     const button = document.createElement('button');
+    const {label, path} = BUTTON_INFO.find(button => button.direction === direction);
+
     button.ariaLabel = label;
     button.title = label;
     button.dataset.direction = direction;
@@ -94,7 +93,7 @@ class Carousel extends HTMLElement {
       rootMargin: '0px',
       threshold: .66,
     });
-  
+
     for (const item of this.items) {
       this.observer.observe(item);
     }
@@ -113,9 +112,10 @@ class Carousel extends HTMLElement {
       const item = [...this.items].find(item => item === entry.target);
       const index = [...this.items].indexOf(item);
 
-      this.updateElements(index);
+      // Update address bar and DOM.
       this.url.hash = item.id;
       history.replaceState(null, '', this.url.href);
+      this.updateElements(index);
     }
   }
 
