@@ -1,7 +1,7 @@
 /**
-* Slideshows landing page with links to individual slideshows. Classname is
-* set on the <body> element.
-*/
+ * Slideshows landing page with links to individual slideshows. Classname is
+ * set on the <body> element.
+ */
 .slideshows {
   --figcaption-padding-block: 0;
   --figure-background: var(--background-1);
