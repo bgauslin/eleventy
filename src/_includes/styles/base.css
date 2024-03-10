@@ -130,19 +130,20 @@ h3 {
 /**
  * General links.
  */
- a {
+a {
   color: var(--link-color);
   font-weight: bold;
   outline: none;
   text-decoration: none;
-}
 
-a:visited {
-  color: var(--visited-color);
-}
-
-a:is(:focus, :hover) {
-  color: var(--focus-color);
+  &:visited {
+    color: var(--visited-color);
+  }
+  
+  &:focus,
+  &:hover {
+    color: var(--focus-color);
+  }
 }
 
 /**
