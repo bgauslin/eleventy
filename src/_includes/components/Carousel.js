@@ -283,6 +283,7 @@ class Carousel extends HTMLElement {
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
         margin-inline: -1em;
+        opacity: var(--text-opacity);
         padding-inline: 1em;
         place-content: center;
         place-self: var(--counter-place-self);
