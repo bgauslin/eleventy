@@ -46,12 +46,12 @@
 .repo {
   grid-area: repo;
   opacity: .5;
-}
 
-.repo:is(:link, :visited, :focus, :hover) {
-  color: var(--text-color);
-}
-
-.repo:is(:focus, :hover) {
-  opacity: 1;
+  &:is(:link, :visited, :focus, :hover) {
+    color: var(--text-color);
+  }
+  
+  &:is(:focus, :hover) {
+    opacity: 1;
+  }
 }
