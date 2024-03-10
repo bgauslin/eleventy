@@ -9,6 +9,7 @@ details {
   box-shadow: var(--shadow-1);
   margin-block: var(--gap);
   overflow: auto;
+  scrollbar-width: none;
 }
 
 /**
