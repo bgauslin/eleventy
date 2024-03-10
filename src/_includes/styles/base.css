@@ -22,6 +22,9 @@ body {
 }
 
 main {
+  block-size: var(--main-block-size);
+  display: var(--main-display, block);
+  grid: var(--main-grid);
   margin-inline: auto;
   max-inline-size: var(--main-max-inline-size, 80rem);
   padding: var(--main-padding, var(--gap));
@@ -122,10 +125,6 @@ figcaption {
 /**
  * Responsive media.
  */
- :where(img, svg) {
-  vertical-align: middle;
-}
-
 img {
   aspect-ratio: var(--img-aspect-ratio);
   block-size: var(--img-block-size, auto);
@@ -137,6 +136,7 @@ img {
   max-block-size: var(--img-max-block-size);
   max-inline-size: var(--img-max-inline-size);
   object-fit: var(--img-object-fit);
+  vertical-align: middle;
 }
 
 svg {

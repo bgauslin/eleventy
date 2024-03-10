@@ -1,7 +1,10 @@
 /**
- * Error 404 page. Classname is set on the <body> elemment.
+ * Error 404 page. Classname is set on the <body> element.
  */
-.error {
+.error-404 {
+  --main-block-size: 100dvh;
+  --main-display: grid;
+  --main-grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
   --main-max-inline-size: none;
   --main-padding: 0;
 }
@@ -9,27 +12,18 @@
 /**
  * Error page content.
  */
-[data-error] {
-  block-size: 100dvh;
-  display: grid;
-  grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
-}
-
-[data-error] h1 {
+.error-404 h1 {
   font: normal 5em / 1 monospace;
   grid-area: heading;
   place-self: end center;
 }
 
-[data-error] p {
+.error-404 p {
   grid-area: blurb;
   place-self: start center;
 }
 
-/**
- * Stereogram.
- */
-pre {
+.error-404 pre {
   margin: 0;
   max-inline-size: 100vw;
   opacity: var(--text-opacity);
@@ -39,6 +33,6 @@ pre {
   user-select: none;
 }
 
-pre::-webkit-scrollbar {
+.error-404 pre::-webkit-scrollbar {
   display: none;
 }
