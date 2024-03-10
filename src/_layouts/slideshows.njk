@@ -2,7 +2,7 @@
 layout: base
 ---
 <h1>{{ title }}</h1>
-{% for item in collections.slideshow -%}
+{% for item in collections.slideshow | reverse -%}
   {%- set heading = item.data.title | safe %}
   {%- set linkTitle = 'View slideshow for ' + heading %}
   {%- set imageUrl = 'https://assets.gauslin.com/images/slides/' + item.data.slug + '/' + item.data.image.src + '@thumb.webp' %}
