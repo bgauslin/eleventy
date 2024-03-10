@@ -13,7 +13,17 @@ image:
   height: 240
 ---
 <style>
-carousel-widget {
-  --figcaption-inline-size: 100%;
-}
+  carousel-widget {
+    --figcaption-inline-size: 100%;
+  }
+
+  [data-orientation='portrait'] {
+    --img-inline-size: 50%;
+  }
+
+  @media (orientation: landscape) {
+    [data-orientation='portrait'] {
+      --img-inline-size: revert;
+    }
+  }
 </style>

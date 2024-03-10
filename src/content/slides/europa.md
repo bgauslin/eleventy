@@ -13,10 +13,6 @@ image:
   height: 243
 ---
 <style>
-  carousel-widget {
-    --item-display: grid;
-  }
-
   @media (orientation: landscape) {
     carousel-widget {
       --counter-place-self: center;

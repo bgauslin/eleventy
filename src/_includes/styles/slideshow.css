@@ -10,7 +10,7 @@
   --images-inline-size: 50%;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
-  --item-display: block;
+  --item-display: grid;
   --item-margin-block: 10vh;
   --list-padding-inline: 0;
   --list-style: none;
@@ -24,9 +24,8 @@
     --figcaption-padding-inline: 0;
     --figure-grid: '. . copy images . .' / 0 var(--button-size) 2fr 3fr var(--button-size) 0;
     --images-inline-size: 75%;
-    --img-max-block-size: 100dvh;
+    --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
-    --item-display: grid;
   }
 
   figure:has([data-images='2']) {
