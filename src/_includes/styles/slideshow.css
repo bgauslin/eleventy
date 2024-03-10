@@ -14,35 +14,37 @@
   --list-style: none;
   --main-max-inline-size: none;
   --main-padding: 0;
+}
 
-  @media (orientation: landscape) {
+@media (orientation: landscape) {
+  .slideshow {
     --figcaption-padding-inline: 0;
     --figure-grid: '. images copy .' / var(--button-size) 2fr 1fr var(--button-size);
     --img-max-block-size: 100dvh;
     --img-max-inline-size: 100vh;
     --item-display: grid;
   }
-  
-  figcaption {
-    grid-area: copy;
-  }
-  
-  dl {
-    display: grid;
-    font-size: .9em;
-    gap: 0 .5em;
-    grid: auto-flow / auto 1fr;
-    margin-block: 1em;
-    opacity: var(--text-opacity);
-  }
+}
 
-  dt::after {
-    content: ':';
-  }
-  
-  dd {
-    margin: 0;
-  }
+.slideshow figcaption {
+  grid-area: copy;
+}
+
+.slideshow dl {
+  display: grid;
+  font-size: .9em;
+  gap: 0 .5em;
+  grid: auto-flow / auto 1fr;
+  margin-block: 1em;
+  opacity: var(--text-opacity);
+}
+
+.slideshow dt::after {
+  content: ':';
+}
+
+.slideshow dd {
+  margin: 0;
 }
 
 [data-images] {

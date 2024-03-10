@@ -19,25 +19,25 @@
   --list-margin-block: 0 .25em;
   --list-padding-inline: 0;
   --list-style: none;
+}
 
-  img {
-    grid-area: image;
-  }
-  
-  figcaption {
-    border-block-start: .5px solid var(--rule-color);
-    font-size: var(--font-size-small);
-    grid-area: copy;
-  }
-  
-  h3 {
-    grid-area: heading;
-  }
-  
-  p {
-    grid-area: blurb;
-    margin: 0;
-  }
+.projects img {
+  grid-area: image;
+}
+
+.projects figcaption {
+  border-block-start: .5px solid var(--rule-color);
+  font-size: var(--font-size-small);
+  grid-area: copy;
+}
+
+.projects h3 {
+  grid-area: heading;
+}
+
+.projects p {
+  grid-area: blurb;
+  margin: 0;
 }
 
 /**
@@ -46,12 +46,12 @@
 .repo {
   grid-area: repo;
   opacity: .5;
+}
 
-  &:is(:link, :visited, :focus, :hover) {
-    color: var(--text-color);
-  }
-  
-  &:is(:focus, :hover) {
-    opacity: 1;
-  }
+.repo:is(:link, :visited, :focus, :hover) {
+  color: var(--text-color);
+}
+
+.repo:is(:focus, :hover) {
+  opacity: 1;
 }

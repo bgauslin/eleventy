@@ -9,19 +9,18 @@
   grid: 1fr / 1fr;
   inline-size: var(--button-size);
   place-items: center;
+}
 
-  &:focus,
-  &:hover {
-    background-color: var(--link-color);
-    color: var(--background-0);
-  }
-  
-  &:active {
-    transform: scale(.8);
-  }
+.button:is(:focus, :hover) {
+  background-color: var(--link-color);
+  color: var(--background-0);
+}
 
-  svg {
-    aspect-ratio: 1;
-    inline-size: var(--icon-size);
-  }
+.button:active {
+  transform: scale(.8);
+}
+
+.button svg {
+  aspect-ratio: 1;
+  inline-size: var(--icon-size);
 }

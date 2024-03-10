@@ -135,15 +135,15 @@ a {
   font-weight: bold;
   outline: none;
   text-decoration: none;
+}
 
-  &:visited {
-    color: var(--visited-color);
-  }
-  
-  &:focus,
-  &:hover {
-    color: var(--focus-color);
-  }
+a:visited {
+  color: var(--visited-color);
+}
+
+a:focus,
+a:hover {
+  color: var(--focus-color);
 }
 
 /**
