@@ -140,6 +140,9 @@ class Carousel extends HTMLElement {
       this.preloadImages(images);
     }
     
+    // TODO: Refactor by getting link references at setup
+    // and checking against those instead of repeated DOM queries.
+    //
     // Disable tabbable links outside of the viewport; only enable those that
     // are visible.
     for (const [index, item] of this.items.entries()) {
@@ -196,11 +199,10 @@ class Carousel extends HTMLElement {
     
     if (anchor) {
       const item = [...this.items].find(item => item.id === anchor);
-      this.current = [...this.items].indexOf(item);
-
-      const images = item.querySelectorAll('img');
       const {left} = item.getBoundingClientRect();
-
+      const images = item.querySelectorAll('img');
+      
+      this.current = [...this.items].indexOf(item);
       this.list.scrollTo(left, 0);
       this.preloadImages(images);
       this.updateElements();
