@@ -112,7 +112,7 @@ class Carousel extends HTMLElement {
         return;
       }
       
-      const item = [...this.items].find(item => item === entry.target);
+      const item = [...this.items].find(item => item.id === entry.target.id);
       this.current = [...this.items].indexOf(item);
 
       // Update address bar and DOM.
@@ -140,15 +140,15 @@ class Carousel extends HTMLElement {
       this.preloadImages(images);
     }
     
-    // TODO: Refactor by getting link references at setup
-    // and checking against those instead of repeated DOM queries.
-    //
-    // Disable tabbable links outside of the viewport; only enable those that
-    // are visible.
+    // Disable tabbable links outside of the viewport; only enable links
+    // that are visible.
     for (const [index, item] of this.items.entries()) {
-      const links = item.querySelectorAll('a');
-      for (const link of links) {
-        link.tabIndex = (index !== this.current) ? '-1' : null;
+      for (const link of [...item.querySelectorAll('a')]) {
+        if (index === this.current) {
+          link.removeAttribute('tabindex');
+        } else {
+          link.tabIndex = '-1';
+        }
       }
     }
   }
