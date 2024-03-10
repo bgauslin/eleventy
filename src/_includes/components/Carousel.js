@@ -241,21 +241,19 @@ class Carousel extends HTMLElement {
     styles.replaceSync(`
       :host {
         --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr var(--button-size) 0;
-        --slot-grid-area: 1 / 1 / -1 / -1;
-        --counter-grid-area: 2 / 3 / 2 / 4;
-        --counter-place-self: end center;
-        --next-grid-area: 2 / 4 / 2 / 5;
         --prev-grid-area: 2 / 2 / 2 / 3;
-        
+        --next-grid-area: 2 / -2 / 2 / -3;
+        --counter-grid-area: 2 / 3 / 2 / -3;
+        --counter-place-self: end center;
       }
 
       @media (orientation: landscape) {
         :host {
           --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 2fr 3fr var(--button-size) 0;
+          --prev-grid-area: 1 / 2 / -1 / 3;
+          --next-grid-area: 1 / -2 / -1 / -3;
           --counter-grid-area: 2 / 3 / 2 / 4;
           --counter-place-self: end start;
-          --next-grid-area: 1 / 5 / 4 / 6;
-          --prev-grid-area: 1 / 2 / 4 / 3;
         }
       }
 
@@ -269,19 +267,18 @@ class Carousel extends HTMLElement {
       }
 
       ::slotted(ol) {
-        grid-area: var(--slot-grid-area);
+        grid-area: 1 / 1 / -1 / -1;
         z-index: 1;
       }
       
       :is(.counter, button) {
+        backdrop-filter: blur(6px);
         block-size: var(--button-size);
+        border-radius: var(--button-size);
         z-index: 2;
       }
 
       .counter {
-        backdrop-filter: blur(4px);
-        block-size: var(--button-size);
-        border-radius: var(--button-size);
         display: grid;
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
@@ -293,18 +290,13 @@ class Carousel extends HTMLElement {
       
       button {
         appearance: none;
-        aspect-ratio: 1;
-        background-color: var(--background-1);
+        background-color: var(--button-background);
         border: none;
-        border-radius: var(--button-size);
         box-shadow: var(--shadow-1);
         color: var(--text-color);
         cursor: pointer;
-        display: grid;
-        grid: 1fr / 1fr;
-        margin: 0;
+        no-margin: 0;
         outline: none;
-        place-items: center;
         place-self: center;
         transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
       }
@@ -321,6 +313,13 @@ class Carousel extends HTMLElement {
 
       button[disabled] {
         opacity: 0;
+      }
+
+      [data-direction] {
+        aspect-ratio: 1;
+        display: grid;
+        grid: 1fr / 1fr;
+        place-items: center;
       }
 
       [data-direction='prev'] {
