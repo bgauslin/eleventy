@@ -148,11 +148,7 @@ class Carousel extends HTMLElement {
     for (const [index, item] of this.items.entries()) {
       const links = item.querySelectorAll('a');
       for (const link of links) {
-        if (index === this.current) {
-          link.removeAttribute('tabindex');
-        } else {
-          link.setAttribute('tabindex', '-1');
-        }
+        link.tabIndex = (index !== this.current) ? '-1' : null;
       }
     }
   }
