@@ -23,7 +23,7 @@ image:
 
   @media (orientation: landscape) {
     [data-orientation='portrait'] {
-      --img-inline-size: revert;
+      --img-inline-size: 50vh;
     }
   }
 </style>
