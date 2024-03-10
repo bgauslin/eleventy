@@ -70,7 +70,7 @@ a:is(:focus, :hover) {
  */
 ul,
 ol {
-  display: var(--list-display);
+  display: var(--list-display, block);
   gap: var(--list-gap);
   grid: var(--list-grid);
   inline-size: var(--list-inline-size);
@@ -83,7 +83,7 @@ ol {
 li {
   display: var(--item-display);
   inline-size: var(--item-inline-size);
-  margin-block: var(--item-margin-block);
+  margin-block: var(--item-margin-block, revert);
 }
 
 /**
@@ -96,7 +96,7 @@ figure {
   display: grid;
   gap: var(--figure-gap, var(--gap));
   grid: var(--figure-grid);
-  margin-block: var(--figure-margin-block);
+  margin-block: var(--figure-margin-block, revert);
   margin-inline: var(--figure-margin-inline);
   overflow: var(--figure-overflow);
   padding-block: var(--figure-padding-block);
@@ -105,12 +105,17 @@ figure {
 }
 
 figcaption {
+  display: var(--figcaption-display);
+  gap: var(--figcaption-gap);
+  grid: var(--figcaption-grid);
+  inline-size: var(--figcaption-inline-size);
   margin: 0 auto;
   max-block-size: var(--figcaption-max-block-size);
   max-inline-size: var(--figcaption-max-inline-size);
   overflow: var(--figcaption-overflow);
   padding-block: var(--figcaption-padding-block);
   padding-inline: var(--figcaption-padding-inline);
+  place-items: var(--figcaption-place-items);
   place-self: var(--figcaption-place-self);
 }
 
@@ -121,6 +126,15 @@ figcaption {
   block-size: auto;
   inline-size: 100%;
   vertical-align: middle;
+}
+
+img {
+  aspect-ratio: var(--img-aspect-ratio);
+  border-radius: var(--img-border-radius);
+  margin-block: var(--img-margin-block);
+  max-block-size: var(--img-max-block-size);
+  max-inline-size: var(--img-max-inline-size);
+  object-fit: var(--img-object-fit);
 }
 
 svg {

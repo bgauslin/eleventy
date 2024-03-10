@@ -2,33 +2,37 @@
  * Home page projects section. Classname is set on a <ul> element.
  */
 .projects {
+  --figcaption-display: grid;
+  --figcaption-gap: 0 1em;
+  --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
+  --figcaption-inline-size: 100%;
   --figcaption-padding-block: 1em;
   --figcaption-padding-inline: 0 .75em;
+  --figcaption-place-items: center start;
+
   --figure-gap: 0 1em;
-  --figure-grid: 'img copy' / 4em 1fr;
+  --figure-grid: 'image copy' / 4em 1fr;
+  --figure-margin-block: 0;
   --figure-padding-inline: 1em 0;
   --figure-place-items: center;
+
+  --img-aspect-ratio: 1;
+  --img-border-radius: .25em;
+  --img-margin-block: .5em;
+
   --list-margin-block: 0 .25em;
   --list-padding-inline: 0;
   --list-style: none;
 }
 
 .projects img {
-  aspect-ratio: 1;
-  border-radius: .25em;
-  grid-area: img;
-  margin-block: .5em;
+  grid-area: image;
 }
 
 .projects figcaption {
-  align-items: center;
   border-block-start: .5px solid var(--rule-color);
-  display: grid;
   font-size: var(--font-size-small);
-  gap: 0 1em;
-  grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
   grid-area: copy;
-  inline-size: 100%;
 }
 
 .projects h3 {

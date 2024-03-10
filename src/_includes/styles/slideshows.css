@@ -12,6 +12,8 @@
   --figure-overflow: hidden;
   --figure-place-items: center;
   --figure-size: 10em;
+  --img-aspect-ratio: 1;
+  --img-object-fit: cover;
   --main-max-inline-size: 34em;
 }
 
@@ -21,11 +23,6 @@
 
 .slideshows figcaption {
   grid-area: blurb;
-}
-
-.slideshows img {
-  aspect-ratio: 1;
-  object-fit: cover;
 }
 
 .slideshows p {

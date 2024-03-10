@@ -1,16 +1,22 @@
 /**
- * Individual slideshow. CLassname is set on the <body> element.
+ * Individual slideshow. Classname is set on the <body> element.
  */
 .slideshow {
   --figcaption-max-inline-size: 36em;
   --figcaption-padding-block: var(--gap) var(--button-size);
   --figcaption-padding-inline: var(--gap);
+
   --figure-grid: 'images' 'copy' / 1fr;
+  
   --img-max-block-size: min(800px, 100vw);
+  --img-object-fit: contain;
+  
   --item-display: block;
   --item-margin-block: 10vh;
+  
   --list-padding-inline: 0;
   --list-style: none;
+  
   --main-max-inline-size: none;
   --main-padding: 0;
 }
@@ -25,13 +31,6 @@
   }
 }
 
-.slideshow figcaption {
-  grid-area: copy;
-}
-
-/**
- * Images.
- */
 [data-images] {
   display: grid;
   gap: var(--gap);
@@ -45,15 +44,10 @@
   place-self: center;
 }
 
-.slideshow img {
-  max-block-size: var(--img-max-block-size);
-  max-inline-size: var(--img-max-inline-size);
-  object-fit: contain;
+.slideshow figcaption {
+  grid-area: copy;
 }
 
-/**
- * Media metadata.
- */
 .slideshow dl {
   display: grid;
   font-size: .9em;
