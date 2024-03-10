@@ -1,10 +1,14 @@
+/* Base styles for <details> elements. */
+
 details {
   --summary-height: 3em;
+}
+
+details {
   background: var(--background-1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
   margin-block: var(--gap);
-  overflow: auto;
 }
 
 /* [1] Default 'display' override hides default marker. */
@@ -36,7 +40,6 @@ summary::after {
   inline-size: .375em;
   margin-inline: auto 0;
   transform: rotate(45deg);
-  transition: transform var(--duration);
 }
 
 [open] > summary::after {

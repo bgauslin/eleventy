@@ -2,7 +2,12 @@
 
 fancy-details > details { 
   block-size: var(--height, var(--summary-height));
+  overflow: auto;
   transition: block-size var(--duration);
+}
+
+fancy-details summary::after {
+  transition: transform var(--duration);
 }
 
 fancy-details > [data-state='closing'] > summary::after {
