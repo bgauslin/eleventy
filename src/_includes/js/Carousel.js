@@ -40,8 +40,8 @@ class Carousel extends HTMLElement {
     this.items = this.list.querySelectorAll('li');
 
     this.total = this.items.length;
-    this.indexPrev = -1;
-    this.indexNext = 1;
+    this.prev = -1;
+    this.next = 1;
     this.url = new URL(window.location);
   }
   
@@ -54,10 +54,10 @@ class Carousel extends HTMLElement {
     const slot = document.createElement('slot');
     this.counter = document.createElement('div');
     this.counter.classList.add('counter');
-    this.prev = this.createButton('prev');
-    this.next = this.createButton('next');
+    this.prevButton = this.createButton('prev');
+    this.nextButton = this.createButton('next');
 
-    for (const element of [slot, this.counter, this.prev, this.next]) {
+    for (const element of [slot, this.counter, this.prevButton, this.nextButton]) {
       this.shadowRoot.appendChild(element);
     }
   }
@@ -72,8 +72,9 @@ class Carousel extends HTMLElement {
     const {label, path} = BUTTON_INFO.find(button => button.direction === direction);
 
     button.ariaLabel = label;
-    button.title = label;
     button.dataset.direction = direction;
+    button.title = label;
+    button.type = 'button';
     
     button.innerHTML = `
       <svg aria-hidden="true" viewbox="0 0 24 24">
@@ -121,27 +122,28 @@ class Carousel extends HTMLElement {
 
   /**
    * Updates controls and preloads next slide's images based on current item.
-   * @param {number} indexCurrent - current item
+   * @param {number} current - index of current item
    */
-  updateElements(indexCurrent) {
-    this.indexPrev = (indexCurrent > 0) ? indexCurrent - 1 : -1;
-    this.indexNext = (indexCurrent < this.total - 1) ? indexCurrent + 1 : false;
+  updateElements(current) {
+    this.prev = (current > 0) ? current - 1 : -1;
+    this.next = (current < this.total - 1) ? current + 1 : false;
     
     // Update controls.
-    this.prev.disabled = this.indexPrev < 0;
-    this.next.disabled = !this.indexNext;
-    this.counter.textContent = `${indexCurrent + 1} of ${this.total}`;
+    this.prevButton.disabled = this.prev < 0;
+    this.nextButton.disabled = !this.next;
+    this.counter.textContent = `${current + 1} of ${this.total}`;
 
+    // TODO: Refactor current/next image handling.
     // Load current item's images in case there's a hash in the URL on load.
-    const imagesCurrent = this.items[indexCurrent].querySelectorAll('img');
-    for (const image of imagesCurrent) {
+    let images = this.items[current].querySelectorAll('img');
+    for (const image of images) {
       image.setAttribute('loading', 'eager');
     }
 
     // Preload next item's images.
-    if (this.indexNext) {
-      const imagesNext = this.items[this.indexNext].querySelectorAll('img');    
-      for (const image of imagesNext) {
+    if (this.next) {
+      images = this.items[this.next].querySelectorAll('img');    
+      for (const image of images) {
         image.setAttribute('loading', 'eager');
       }
     }
@@ -149,9 +151,9 @@ class Carousel extends HTMLElement {
     // Disable tabbable links outside of the viewport; only enable those that
     // are visible.
     for (const [index, item] of this.items.entries()) {
-      let links = item.querySelectorAll('a');
+      const links = item.querySelectorAll('a');
       for (const link of links) {
-        if (index === indexCurrent) {
+        if (index === current) {
           link.removeAttribute('tabindex');
         } else {
           link.setAttribute('tabindex', '-1');
@@ -168,12 +170,12 @@ class Carousel extends HTMLElement {
     let offset = 0;
 
     if (direction === 'prev') {
-      const {width} = this.items[this.indexPrev].getBoundingClientRect();
+      const {width} = this.items[this.prev].getBoundingClientRect();
       offset = -width;
     }
     
     if (direction === 'next') {
-      const {x} = this.items[this.indexNext].getBoundingClientRect();
+      const {x} = this.items[this.next].getBoundingClientRect();
       offset = x;
     }
     
