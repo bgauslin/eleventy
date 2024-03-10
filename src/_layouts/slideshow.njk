@@ -6,15 +6,18 @@ layout: base
 
 {%- macro renderImage(image, slug, loading) %}
   {%- set imageUrl = domain + imagePath + slug + '/' + image.src %}
-  {%- set small = imageUrl + '@small.webp' %}
-  {%- set medium = imageUrl + '@medium.webp' %}
-  {%- set large = imageUrl + '@large.webp' %}
+  {%- set small = imageUrl + '@small.webp 600w' %}
+  {%- set medium = imageUrl + '@medium.webp 900w' %}
+  {%- set large = imageUrl + '@large.webp 1200w' %}
+  {%- set sizes = '(min-width: 1440px) 900px, 100vw' %}
+  {%- set orientation = 'landscape' if image.height < image.width else 'portrait' %}
   <img
     alt=""
+    data-orientation="{{ orientation }}"
     loading="{{ loading }}"
     src="{{ medium }}"
-    srcset="{{ small }} 600w, {{ medium }} 900w, {{ large }} 1200w"
-    sizes="(min-width: 1440px) 900px, 100vw"
+    srcset="{{ small }}, {{ medium }}, {{ large }}"
+    sizes="{{ sizes }}"
     {%- if image.width %} width="{{ image.width }}"{% endif %}
     {%- if image.height %} height="{{ image.height }}"{% endif %}>
 {%- endmacro -%}
