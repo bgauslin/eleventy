@@ -69,11 +69,15 @@ a:is(:focus, :hover) {
  * Media container.
  */
 figure {
+  background: var(--figure-background);
+  border-radius: var(--figure-border-radius);
+  box-shadow: var(--figure-box-shadow);
   display: grid;
-  gap: var(--figure-gap);
+  gap: var(--figure-gap, var(--gap));
   grid: var(--figure-grid);
   margin-block: var(--figure-margin-block);
   margin-inline: var(--figure-margin-inline);
+  overflow: var(--figure-overflow);
   padding-block: var(--figure-padding-block);
   padding-inline: var(--figure-padding-inline);
   place-items: var(--figure-place-items);

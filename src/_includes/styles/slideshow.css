@@ -11,7 +11,6 @@
 @media (orientation: landscape) {
   .slideshow {
     --figcaption-padding-inline: 0;
-    --figure-gap: var(--gap);
     --figure-grid: '. images copy .' / var(--button-size) 2fr 1fr var(--button-size);
     --img-max-block-size: 100dvh;
     --img-max-inline-size: 100vh;
