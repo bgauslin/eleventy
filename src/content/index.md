@@ -4,7 +4,7 @@ permalink: index.html
 
 title: Ben Gauslin
 description: Ben’s home page on the World Wide Web
-view: home
+classname: home
 ---
 # Ben Gauslin
 

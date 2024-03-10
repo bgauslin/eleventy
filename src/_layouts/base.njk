@@ -1,26 +1,26 @@
 {%- set css -%}
   {%- include 'styles/vars.css' -%}
   {%- include 'styles/base.css' -%}
-  {%- if view == 'home' -%}
+  {%- if classname == 'home' -%}
     {%- include 'styles/home.css' -%}
     {%- include 'styles/buttons.css' -%}
     {%- include 'styles/details.css' -%}
     {%- include 'styles/projects.css' -%}
     {%- include 'components/fancy-details.css' -%}
-  {%- elif view == 'slideshows' -%}
+  {%- elif classname == 'slideshows' -%}
     {%- include 'styles/slideshows.css' -%}
-  {%- elif view == 'slideshow' -%}
+  {%- elif classname == 'slideshow' -%}
     {%- include 'styles/slideshow.css' -%}
     {%- include 'components/carousel.css' -%}
-  {%- elif view == 'error' -%}
+  {%- elif classname == 'error-404' -%}
     {% include 'styles/error-404.css' %}
   {% endif %}
 {%- endset -%}
 
 {%- set js -%}
-  {%- if view == 'home' -%}
+  {%- if classname == 'home' -%}
     {%- include 'components/FancyDetails.js' -%}
-  {%- elif view == 'slideshow' -%}
+  {%- elif classname == 'slideshow' -%}
     {%- include 'components/Carousel.js' -%}
   {%- endif -%}
 {%- endset -%}
@@ -37,7 +37,7 @@
     <link rel="preconnect" href="https://assets.gauslin.com">
     <style>{{ css | cssmin | safe }}</style>
   </head>
-  <body{% if view %} class="{{ view }}"{% endif %}>
+  <body{% if classname %} class="{{ classname }}"{% endif %}>
     <main>
       {{ content | safe }}
     </main>
