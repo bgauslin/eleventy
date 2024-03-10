@@ -7,12 +7,12 @@
 }
 
 img[src*='selfie'] {
-  block-size: var(--avatar-size);
-  display: block;
-  border-radius: 100%;
-  inline-size: var(--avatar-size);
-  margin-block: var(--gap);
-  margin-inline: auto;
+  --img-block-size: 8em;
+  --img-border-radius: 100%;
+  --img-display: block;
+  --img-inline-size: 8em;
+  --img-margin-block: var(--gap);
+  --img-margin-inline: auto;
 }
 
 .contact {

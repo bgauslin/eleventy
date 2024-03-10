@@ -123,22 +123,26 @@ figcaption {
  * Responsive media.
  */
  :where(img, svg) {
-  block-size: auto;
-  inline-size: 100%;
   vertical-align: middle;
 }
 
 img {
   aspect-ratio: var(--img-aspect-ratio);
+  block-size: var(--img-block-size, auto);
   border-radius: var(--img-border-radius);
+  display: var(--img-display, initial);
+  inline-size: var(--img-inline-size, 100%);
   margin-block: var(--img-margin-block);
+  margin-inline: var(--img-margin-inline);
   max-block-size: var(--img-max-block-size);
   max-inline-size: var(--img-max-inline-size);
   object-fit: var(--img-object-fit);
 }
 
 svg {
+  block-size: auto;
   fill: currentColor;
+  inline-size: 100%;
 }
 
 /**
