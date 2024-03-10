@@ -1,26 +1,27 @@
 {%- set css -%}
-  {%- include 'css/vars.css' -%}
-  {%- include 'css/base.css' -%}
+  {%- include 'styles/vars.css' -%}
+  {%- include 'styles/base.css' -%}
   {%- if view == 'home' -%}
-    {%- include 'css/home.css' -%}
-    {%- include 'css/buttons.css' -%}
-    {%- include 'css/details.css' -%}
-    {%- include 'css/projects.css' -%}
+    {%- include 'styles/home.css' -%}
+    {%- include 'styles/buttons.css' -%}
+    {%- include 'styles/details.css' -%}
+    {%- include 'styles/projects.css' -%}
+    {%- include 'components/fancy-details.css' -%}
   {%- elif view == 'slideshows' -%}
-    {%- include 'css/slideshows.css' -%}
+    {%- include 'styles/slideshows.css' -%}
   {%- elif view == 'slideshow' -%}
-    {%- include 'css/slideshow.css' -%}
-    {%- include 'css/carousel.css' -%}
+    {%- include 'styles/slideshow.css' -%}
+    {%- include 'components/carousel.css' -%}
   {%- elif view == 'error' -%}
-    {% include 'css/error-404.css' %}
+    {% include 'styles/error-404.css' %}
   {% endif %}
 {%- endset -%}
 
 {%- set js -%}
   {%- if view == 'home' -%}
-    {%- include 'js/FancyDetails.js' -%}
+    {%- include 'components/FancyDetails.js' -%}
   {%- elif view == 'slideshow' -%}
-    {%- include 'js/Carousel.js' -%}
+    {%- include 'components/Carousel.js' -%}
   {%- endif -%}
 {%- endset -%}
 

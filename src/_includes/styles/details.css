@@ -51,13 +51,3 @@ details > * {
 summary + * {
   margin-block-start: 0;
 }
-
-/* Custom element wrapper. */
-fancy-details > details { 
-  block-size: var(--height, var(--summary-height));
-  transition: block-size var(--duration);
-}
-
-fancy-details > [data-state='closing'] > summary::after {
-  transform: rotate(45deg);
-}

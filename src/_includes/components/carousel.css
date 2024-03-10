@@ -3,7 +3,6 @@
 carousel-widget {
   --figcaption-max-block-size: 50dvh;
   --item-margin-block: 0;
-  block-size: 100dvh;
 }
 
 @media (orientation: landscape) {
@@ -11,6 +10,10 @@ carousel-widget {
     --figcaption-max-block-size: 100dvh;
     --figcaption-place-self: center;
   }
+}
+
+carousel-widget {
+  block-size: 100dvh;
 }
 
 carousel-widget :is(ol, li) {

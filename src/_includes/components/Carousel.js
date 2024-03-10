@@ -133,19 +133,10 @@ class Carousel extends HTMLElement {
     this.nextButton.disabled = !this.next;
     this.counter.textContent = `${current + 1} of ${this.total}`;
 
-    // TODO: Refactor current/next image handling.
-    // Load current item's images in case there's a hash in the URL on load.
-    let images = this.items[current].querySelectorAll('img');
-    for (const image of images) {
-      image.setAttribute('loading', 'eager');
-    }
-
     // Preload next item's images.
     if (this.next) {
-      images = this.items[this.next].querySelectorAll('img');    
-      for (const image of images) {
-        image.setAttribute('loading', 'eager');
-      }
+      const images = this.items[this.next].querySelectorAll('img');    
+      this.preloadImages(images);
     }
     
     // Disable tabbable links outside of the viewport; only enable those that
@@ -159,6 +150,16 @@ class Carousel extends HTMLElement {
           link.setAttribute('tabindex', '-1');
         }
       }
+    }
+  }
+
+  /**
+   * Preloads images by changing their 'lading' attribute to 'eager'.
+   * @param {HTMLImageElement[]} images  
+   */
+  preloadImages(images) {
+    for (const image of images) {
+      image.setAttribute('loading', 'eager');
     }
   }
 
@@ -194,9 +195,11 @@ class Carousel extends HTMLElement {
     if (anchor) {
       const item = [...this.items].find(item => item.id === anchor);
       const index = [...this.items].indexOf(item);
+      const images = this.items[index].querySelectorAll('img');
       const {left} = item.getBoundingClientRect();
-      
+
       this.list.scrollTo(left, 0);
+      this.preloadImages(images);
       this.updateElements(index);
     }
   }
@@ -280,14 +283,6 @@ class Carousel extends HTMLElement {
         z-index: 3;
       }
       
-      [data-direction='prev'] {
-        grid-area: var(--prev-grid-area);
-      }
-      
-      [data-direction='next'] {
-        grid-area: var(--next-grid-area);
-      }
-
       button {
         appearance: none;
         aspect-ratio: 1;
@@ -307,7 +302,8 @@ class Carousel extends HTMLElement {
         z-index: 2;
       }
       
-      button:is(:focus, :hover) {
+      button:focus,
+      button:hover {
         background-color: var(--text-color);
         color: var(--background-0);
       }
@@ -318,6 +314,14 @@ class Carousel extends HTMLElement {
 
       button[disabled] {
         opacity: 0;
+      }
+
+      [data-direction='prev'] {
+        grid-area: var(--prev-grid-area);
+      }
+      
+      [data-direction='next'] {
+        grid-area: var(--next-grid-area);
       }
 
       svg {

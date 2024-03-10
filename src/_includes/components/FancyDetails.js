@@ -31,24 +31,24 @@ class FancyDetails extends HTMLElement {
       return;
     }
 
-    const element = event.target.closest('details');
+    const details = event.target.closest('details');
 
-    if (element.open) {
+    if (details.open) {
       event.preventDefault();
-      element.style.setProperty('--height', `${element.scrollHeight}px`);
+      details.style.setProperty('--height', `${details.scrollHeight}px`);
       window.requestAnimationFrame(() => {
-        element.style.removeProperty('--height');
-        element.setAttribute('data-state', 'closing');
-        element.addEventListener('transitionend', () => {
-          element.open = false;
-          element.removeAttribute('data-state');
+        details.style.removeProperty('--height');
+        details.setAttribute('data-state', 'closing');
+        details.addEventListener('transitionend', () => {
+          details.open = false;
+          details.removeAttribute('data-state');
         }, {once: true});
       });
     } else {
       window.requestAnimationFrame(() => {
-        element.style.setProperty('--height', `${element.scrollHeight}px`);
-        element.addEventListener('transitionend', () => {
-          element.style.setProperty('--height', 'auto');
+        details.style.setProperty('--height', `${details.scrollHeight}px`);
+        details.addEventListener('transitionend', () => {
+          details.style.setProperty('--height', 'auto');
         }, {once: true});
       });
     }

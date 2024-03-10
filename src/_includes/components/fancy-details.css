@@ -1,0 +1,10 @@
+/* Light DOM styles for adding open/close transitions to <details> elements. */
+
+fancy-details > details { 
+  block-size: var(--height, var(--summary-height));
+  transition: block-size var(--duration);
+}
+
+fancy-details > [data-state='closing'] > summary::after {
+  transform: rotate(45deg);
+}
