@@ -43,7 +43,7 @@
 }
 
 /**
- * Image container for better layout control.
+ * Container <div> for better layout control if there are multiple images.
  */
 [data-images] {
   display: grid;
