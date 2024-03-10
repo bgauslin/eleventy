@@ -1,18 +1,21 @@
+/**
+* Slideshows landing page with links to individual slideshows. Classname is
+* set on the <body> element.
+*/
 .slideshows {
-  --main-max-inline-size: 34em;
+  --figure-gap: var(--gap);
+  --figure-grid: 'image blurb .' var(--figure-size) / var(--figure-size) 1fr 0;
+  --figure-margin-block: var(--gap);
+  --figure-place-items: center;
   --figure-size: 10em;
+  --main-max-inline-size: 34em;
 }
 
 .slideshows figure {
   background: var(--background-1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-1);
-  gap: var(--gap);
-  display: grid;
-  grid: 'image blurb .' var(--figure-size) / var(--figure-size) 1fr 0;
-  margin-block: var(--gap);
   overflow: hidden;
-  place-items: center;
 }
 
 .slideshows figure > a {

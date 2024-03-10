@@ -1,5 +1,6 @@
-/* Global elements. */
-
+/**
+ * Global elements.
+ */
 html {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -26,9 +27,11 @@ main {
   padding: var(--main-padding, var(--gap));
 }
 
-/* Headings. If vars are undefined, the 'font-size'
-   and 'margin' properties default to 1em and 0. */
-
+/**
+ * Headings.
+ * If vars are undefined, the 'font-size' and 'margin' properties default
+ * to 1em and 0 repectively.
+ */
 h1 {
   font-size: var(--h1-font-size);
   margin: var(--h1-margin);
@@ -44,7 +47,9 @@ h3 {
   margin: var(--h3-margin);
 }
 
-/* Generic links. */
+/**
+ * General links.
+ */
 a {
   color: var(--link-color);
   font-weight: bold;
@@ -60,9 +65,28 @@ a:is(:focus, :hover) {
   color: var(--focus-color);
 }
 
-/* Responsive media. */
+/**
+ * Media container.
+ */
+figure {
+  display: grid;
+  gap: var(--figure-gap);
+  grid: var(--figure-grid);
+  margin-block: var(--figure-margin-block);
+  margin-inline: var(--figure-margin-inline);
+  padding-block: var(--figure-padding-block);
+  padding-inline: var(--figure-padding-inline);
+  place-items: var(--figure-place-items);
+}
 
-:where(img, svg) {
+figcaption {
+  margin: 0 auto;
+}
+
+/**
+ * Responsive media.
+ */
+ :where(img, svg) {
   block-size: auto;
   inline-size: 100%;
   vertical-align: middle;
@@ -72,18 +96,9 @@ svg {
   fill: currentColor;
 }
 
-/* Media layout resets/defaults. */
-
-figure {
-  margin: 0;
-}
-
-figcaption {
-  margin: 0 auto;
-}
-
-/* Only apply transitions on devices that support hover. */
-
+/**
+ * Transitions are only appled on devices that support hover.
+ */
 @media (any-hover: hover) {
   a {
     transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);

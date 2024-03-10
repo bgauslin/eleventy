@@ -1,17 +1,15 @@
-/* The 'projects' classname is set on a <ul> element. */
+/**
+ * Home page projects section. Classname is set on a <ul> element.
+ */
 .projects {
   list-style: none;
   margin-block-end: .25em;
   padding: 0;
-}
 
-.projects figure {
-  align-items: center;
-  display: grid;
-  gap: 0 1em;
-  grid: 'img copy' / 4em 1fr;
-  margin: 0;
-  padding-inline: 1em 0;
+  --figure-gap: 0 1em;
+  --figure-grid: 'img copy' / 4em 1fr;
+  --figure-padding-inline: 1em 0;
+  --figure-place-items: center;
 }
 
 .projects img {
@@ -43,7 +41,9 @@
   margin: 0;
 }
 
-/* Icon link for GitHub repos. */
+/**
+ * Icon link for GitHub repos.
+ */
 .repo {
   grid-area: repo;
   opacity: .5;

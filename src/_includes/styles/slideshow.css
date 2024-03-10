@@ -1,3 +1,6 @@
+/**
+ * Individual slideshow. CLassname is set on the <body> element.
+ */
 .slideshow {
   --figure-grid: 'images' 'copy' / 1fr;
   --img-max-block-size: min(800px, 100vw);
@@ -26,12 +29,6 @@
   margin-block: var(--item-margin-block, 10vh);
 }
 
-.slideshow figure {
-  display: grid;
-  gap: var(--figure-gap);
-  grid: var(--figure-grid);
-}
-
 .slideshow figcaption {
   grid-area: copy;
   max-inline-size: 36em;
@@ -39,7 +36,9 @@
   padding-inline: var(--figcaption-padding-inline, var(--gap));
 }
 
-/* Images container. */
+/**
+ * Images.
+ */
 [data-images] {
   display: grid;
   gap: var(--gap);
@@ -59,6 +58,9 @@
   object-fit: contain;
 }
 
+/**
+ * Media metadata.
+ */
 .slideshow dl {
   display: grid;
   font-size: .9em;
