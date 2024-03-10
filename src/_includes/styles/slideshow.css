@@ -2,6 +2,9 @@
  * Individual slideshow. CLassname is set on the <body> element.
  */
 .slideshow {
+  --figcaption-max-inline-size: 36em;
+  --figcaption-padding-block: var(--gap) var(--button-size);
+  --figcaption-padding-inline: var(--gap);
   --figure-grid: 'images' 'copy' / 1fr;
   --img-max-block-size: min(800px, 100vw);
   --list-padding-inline: 0;
@@ -27,9 +30,6 @@
 
 .slideshow figcaption {
   grid-area: copy;
-  max-inline-size: 36em;
-  padding-block: var(--gap) var(--button-size);
-  padding-inline: var(--figcaption-padding-inline, var(--gap));
 }
 
 /**

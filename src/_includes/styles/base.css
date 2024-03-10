@@ -98,6 +98,12 @@ figure {
 
 figcaption {
   margin: 0 auto;
+  max-block-size: var(--figcaption-max-block-size);
+  max-inline-size: var(--figcaption-max-inline-size);
+  overflow: var(--figcaption-overflow);
+  padding-block: var(--figcaption-padding-block, initial);
+  padding-inline: var(--figcaption-padding-inline, initial);
+  place-self: var(--figcaption-place-self);
 }
 
 /**

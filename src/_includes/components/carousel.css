@@ -3,6 +3,7 @@
  */
 carousel-widget {
   --figcaption-max-block-size: 50dvh;
+  --figcaption-overflow: auto;
   --item-margin-block: 0;
 
   --list-display: grid;
@@ -21,31 +22,23 @@ carousel-widget {
   block-size: 100dvh;
 }
 
+carousel-widget :is(ol, figcaption) {
+  scrollbar-width: none;
+}
+
+carousel-widget :is(ol, figcaption)::-webkit-scrollbar {
+  display: none;
+}
+
 carousel-widget :is(ol, li) {
   inline-size: 100vw;
 }
 
 carousel-widget ol {
   overflow: scroll hidden;
-  scrollbar-width: none;
   scroll-snap-type: x mandatory;
-}
-
-carousel-widget ol::-webkit-scrollbar {
-  display: none;
 }
 
 carousel-widget li {
   scroll-snap-align: start;
-}
-
-carousel-widget figcaption {
-  max-block-size: var(--figcaption-max-block-size);
-  overflow: auto;
-  place-self: var(--figcaption-place-self);
-  scrollbar-width: none;
-}
-
-carousel-widget figcaption::-webkit-scrollbar {
-  display: none;
 }
