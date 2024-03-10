@@ -4,6 +4,9 @@
 carousel-widget {
   --figcaption-max-block-size: 50dvh;
   --item-margin-block: 0;
+
+  --list-display: grid;
+  --list-grid: 1fr / auto-flow;
   --list-margin-block: 0;
 }
 
@@ -23,8 +26,6 @@ carousel-widget :is(ol, li) {
 }
 
 carousel-widget ol {
-  display: grid;
-  grid: 1fr / auto-flow;
   overflow: scroll hidden;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
