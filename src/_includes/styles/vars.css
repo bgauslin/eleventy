@@ -12,7 +12,7 @@
   --text-opacity: .75;
 
   /* Theming. */
-  --background-0: #GhostWhite;
+  --background-0: GhostWhite;
   --background-1: white;
   --focus-color: OrangeRed;
   --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */

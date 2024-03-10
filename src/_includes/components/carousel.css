@@ -4,10 +4,8 @@
 carousel-widget {
   --figcaption-max-block-size: 50dvh;
   --figcaption-overflow: auto;
-  
   --item-inline-size: 100vw;
   --item-margin-block: 0;
-  
   --list-display: grid;
   --list-grid: 1fr / auto-flow;
   --list-margin-block: 0;
