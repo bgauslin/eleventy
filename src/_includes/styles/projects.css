@@ -2,6 +2,8 @@
  * Home page projects section. Classname is set on a <ul> element.
  */
 .projects {
+  --figcaption-padding-block: 1em;
+  --figcaption-padding-inline: 0 .75em;
   --figure-gap: 0 1em;
   --figure-grid: 'img copy' / 4em 1fr;
   --figure-padding-inline: 1em 0;
@@ -27,8 +29,6 @@
   grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
   grid-area: copy;
   inline-size: 100%;
-  padding-block: 1em;
-  padding-inline: 0 .75em;
 }
 
 .projects h3 {

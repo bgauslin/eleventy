@@ -7,6 +7,14 @@
 }
 
 /**
+ * Contact section.
+ */
+ .contact {
+  --list-display: flex;
+  --list-gap: 0 1em;
+}
+
+/**
  * About section avatar.
  */
 [id='about'] img {
@@ -18,14 +26,4 @@
 [id='about'] p:has(img) {
   margin-block: var(--gap);
   text-align: center;
-}
-
-/**
- * Contact section.
- */
-.contact {
-  --list-display: flex;
-  --list-gap: 0 1em;
-  --list-padding-inline: 0;
-  --list-style: none;
 }

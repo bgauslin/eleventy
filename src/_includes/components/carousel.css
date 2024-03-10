@@ -8,8 +8,6 @@ carousel-widget {
   --item-margin-block: 0;
   --list-display: grid;
   --list-grid: 1fr / auto-flow;
-  --list-inline-size: 100vw;
-  --list-margin-block: 0;
   --list-overflow: scroll hidden;
 }
 

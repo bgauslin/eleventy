@@ -75,7 +75,7 @@ ol {
   grid: var(--list-grid);
   inline-size: var(--list-inline-size);
   list-style: var(--list-style);
-  margin-block: var(--list-margin-block);
+  margin-block: var(--list-margin-block, revert);
   overflow: var(--list-overflow);
   padding-inline: var(--list-padding-inline);
 }
