@@ -17,7 +17,7 @@ html {
 body {
   background: var(--background-0);
   color: var(--text-color);
-  font: clamp(.875em, .75em + .5vw, 1.125em) / 1.4 var(--font-family);
+  font: clamp(.875em, .75em + .5vw, 1em) / 1.4 var(--font-family);
   margin: 0;
 }
 
