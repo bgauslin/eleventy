@@ -16,15 +16,8 @@ class FancyDetails extends HTMLElement {
   }
 
   /**
-   * When opened, a CSS var is set directly on the <details> element to force
-   * a height transition. When the transtion completes, the var is set to
-   * 'auto' to ensure element dimensions change as expected on resize.
-   * 
-   * When closed, a data attribute and pixel value height are set to force a
-   * transition, and the 'open' attribute isn't removed until after it ends.
-   * Otherwise, the default display is 'none' for content when a <details>
-   * element is closed, and we want to prevent that until transitions end, so
-   * we hijack the click, do stuff, then close the element manually.
+   * Sets and removes attributes to trigger opening/closing transitions on
+   * <details> child element.
    * @param {Event} event
    */
   handleClick(event) {
@@ -35,11 +28,20 @@ class FancyDetails extends HTMLElement {
     const details = event.target.closest('details');
 
     if (details.open) {
+      // Hijack click since 'open' attribute needs to be set after closing
+      // transition ends. Immediately removing 'open' attribute sets
+      // contents' display to 'none' and we don't want that just yet.
       event.preventDefault();
+
+      // Set var from 'auto' to pixel value for height transition to occur.
       details.style.setProperty(this.sizeProp, `${details.scrollHeight}px`);
+
+      // Remove var on next tick and set data-attribute to trigger transition.
       window.requestAnimationFrame(() => {
         details.style.removeProperty(this.sizeProp);
         details.dataset.closing = '';
+
+        // Remove 'open' and 'data-closing' attributes after transition ends.
         details.addEventListener('transitionend', () => {
           details.open = false;
           delete details.dataset.closing;
@@ -47,7 +49,11 @@ class FancyDetails extends HTMLElement {
       });
     } else {
       window.requestAnimationFrame(() => {
+        // Set height var on next tick to trigger opening transition.
         details.style.setProperty(this.sizeProp, `${details.scrollHeight}px`);
+
+        // After transition ends, set var's value to 'auto' which ensures
+        // <details> has fluid height on resize.
         details.addEventListener('transitionend', () => {
           details.style.setProperty(this.sizeProp, 'auto');
         }, {once: true});
