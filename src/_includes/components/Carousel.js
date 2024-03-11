@@ -272,6 +272,7 @@ class Carousel extends HTMLElement {
       }
       
       :is(.counter, button) {
+        -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
         block-size: var(--button-size);
         border-radius: var(--button-size);
