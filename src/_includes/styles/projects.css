@@ -4,9 +4,9 @@
 .projects {
   --figcaption-display: grid;
   --figcaption-gap: 0 1em;
-  --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
+  --figcaption-grid: 'heading repo' 1fr 'blurb repo' 2.8em / 1fr var(--icon-size);
   --figcaption-inline-size: 100%;
-  --figcaption-padding-block: 1em;
+  --figcaption-padding-block: .875em;
   --figcaption-padding-inline: 0 .75em;
   --figcaption-place-items: center start;
   --figure-gap: 0 1em;
@@ -16,7 +16,7 @@
   --figure-place-items: center;
   --img-aspect-ratio: 1;
   --img-border-radius: .25em;
-  --list-margin-block: 0 .25em;
+  --list-margin-block: 0 .5em;
   --list-padding-inline: 0;
   --list-style: none;
 }
@@ -36,8 +36,13 @@
 }
 
 .projects p {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
   grid-area: blurb;
+  -webkit-line-clamp: 2;
   margin: 0;
+  overflow: hidden;
+  place-self: start;
 }
 
 /**
