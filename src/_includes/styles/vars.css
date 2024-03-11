@@ -3,6 +3,7 @@
 :root {
   /* Layout, typography. */
   --button-size: max(44px, 3em);
+  --body-font: clamp(.875em, .75em + .5vw, 1em) / 1.4 var(--font-family);
   --border-radius: .5em;
   --duration: .25s;
   --font-family: system-ui, sans-serif;

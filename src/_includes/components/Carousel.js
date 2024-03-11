@@ -266,7 +266,6 @@ class Carousel extends HTMLElement {
         --prev-grid-area: 2 / 2 / 2 / 3;
         --next-grid-area: 2 / -2 / 2 / -3;
         --counter-grid-area: 2 / 3 / 2 / -3;
-        --counter-place-self: end center;
       }
 
       @media (orientation: landscape) {
@@ -274,8 +273,7 @@ class Carousel extends HTMLElement {
           --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
           --prev-grid-area: 1 / 2 / -1 / 3;
           --next-grid-area: 1 / -2 / -1 / -3;
-          --counter-grid-area: 2 / 3 / 2 / 4;
-          --counter-place-self: end start;
+          --counter-grid-area: 2 / 3 / 2 / -3;
         }
       }
 
@@ -305,11 +303,10 @@ class Carousel extends HTMLElement {
         display: grid;
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
-        margin-inline: -1em;
         opacity: var(--text-opacity);
         padding-inline: 1em;
         place-content: center;
-        place-self: var(--counter-place-self);
+        place-self: center;
       }
       
       button {
