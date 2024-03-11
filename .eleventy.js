@@ -33,6 +33,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/favicon.svg');
   eleventyConfig.addPassthroughCopy({'src/img/*.*': 'img'});
 
+  // Show IP address for device testing.
+  eleventyConfig.setServerOptions({
+    showAllHosts: true,	
+  });
+
   // Configuration options.
   return {
     dir: {
