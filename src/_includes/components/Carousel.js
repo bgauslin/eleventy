@@ -123,25 +123,40 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Updates controls and preloads next slide's images based on current item.
+   * Updates controls. preloads next slide's images, and disables tabbable
+   * elements based on current item.
    */
   updateElements() {
-    this.prev = (this.current > 0) ? this.current - 1 : -1;
-    this.next = (this.current < this.total - 1) ? this.current + 1 : false;
-    
-    // Update controls.
-    this.prevButton.disabled = this.prev < 0;
-    this.nextButton.disabled = !this.next;
+    // Update counter.
     this.counter.textContent = `${this.current + 1} of ${this.total}`;
 
-    // Preload next item's images.
+    // Update prev/next indexes.
+    this.prev = (this.current > 0) ? this.current - 1 : -1;
+    this.next = (this.current < this.total - 1) ? this.current + 1 : false;
+
+    // Update prev-next buttons state and attributes.
+    this.prevButton.disabled = this.prev < 0;
+    this.nextButton.disabled = !this.next;
+
+    if (this.prev > 0) {
+      const prevTitle = this.items[this.prev].querySelector('h2').textContent;
+      this.prevButton.ariaLabel = `Previous slide: ${prevTitle}`;
+      this.prevButton.title = prevTitle;
+    }
+
     if (this.next) {
-      const images = this.items[this.next].querySelectorAll('img');    
+      const nextItem = this.items[this.next];
+      const nextTitle = nextItem.querySelector('h2').textContent;
+      const images = nextItem.querySelectorAll('img');
+
+      this.nextButton.ariaLabel = `Next slide: ${nextTitle}`;
+      this.nextButton.title = nextTitle;
       this.preloadImages(images);
     }
     
+    
     // Disable tabbable links outside of the viewport; only enable links
-    // that are visible.
+    // for current item in viewport.
     for (const [index, item] of this.items.entries()) {
       for (const link of [...item.querySelectorAll('a')]) {
         if (index === this.current) {
@@ -188,7 +203,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls to individual item by ID if there's a hash in the URL on load.
+   * Scrolls to individual item if there's a valid hash in the URL on page load.
    */
   scrollToHash() {
     const anchor = this.url.hash.replace('#', '');
@@ -200,6 +215,7 @@ class Carousel extends HTMLElement {
     if (!item) {
       return;
     }
+
     const {left} = item.getBoundingClientRect();
     const images = item.querySelectorAll('img');
     
@@ -306,8 +322,7 @@ class Carousel extends HTMLElement {
         transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
       }
       
-      button:focus,
-      button:hover {
+      button:is(:focus, :hover) {
         background-color: var(--text-color);
         color: var(--background-0);
       }
