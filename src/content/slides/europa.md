@@ -14,7 +14,7 @@ image:
 ---
 <style>
   @media (orientation: landscape) {
-    carousel-widget {
+    slideshow-carousel {
       --counter-place-self: center;
     }
   }

@@ -347,5 +347,5 @@ class Carousel extends HTMLElement {
   }
 }
 
-customElements.define('carousel-widget', Carousel);
+customElements.define('slideshow-carousel', Carousel);
 

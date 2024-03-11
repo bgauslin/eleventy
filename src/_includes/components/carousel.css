@@ -1,7 +1,7 @@
 /**
- * Light DOM styles for <carousel-widget> and its slotted content.
+ * Light DOM styles for <slideshow-carousel> and its slotted content.
  */
-carousel-widget {
+slideshow-carousel {
   --figcaption-max-block-size: 50dvh;
   --figcaption-overflow: auto;
   --item-inline-size: 100vw;
@@ -13,28 +13,28 @@ carousel-widget {
 }
 
 @media (orientation: landscape) {
-  carousel-widget {
+  slideshow-carousel {
     --figcaption-max-block-size: 100dvh;
     --figcaption-place-self: center;
   }
 }
 
-carousel-widget {
+slideshow-carousel {
   block-size: 100dvh;
 }
 
-carousel-widget ol {
+slideshow-carousel ol {
   scroll-snap-type: x mandatory;
 }
 
-carousel-widget li {
+slideshow-carousel li {
   scroll-snap-align: start;
 }
 
-carousel-widget :is(ol, figcaption) {
+slideshow-carousel :is(ol, figcaption) {
   scrollbar-width: none;
 }
 
-carousel-widget :is(ol, figcaption)::-webkit-scrollbar {
+slideshow-carousel :is(ol, figcaption)::-webkit-scrollbar {
   display: none;
 }

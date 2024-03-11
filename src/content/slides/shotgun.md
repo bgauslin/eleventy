@@ -13,7 +13,7 @@ image:
   height: 240
 ---
 <style>
-  carousel-widget {
+  slideshow-carousel {
     --figcaption-inline-size: 100%;
   }
 

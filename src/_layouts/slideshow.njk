@@ -22,7 +22,7 @@ layout: base
     {%- if image.height %} height="{{ image.height }}"{% endif %}>
 {%- endmacro -%}
 
-<carousel-widget>
+<slideshow-carousel>
   <ol>
   {% for item in collections[slug] -%}
     <li id="{{ item.data.slug }}">
@@ -51,6 +51,6 @@ layout: base
     </li>
   {%- endfor %}
   </ol>
-</carousel-widget>
+</slideshow-carousel>
 
 {{ content | safe }}
