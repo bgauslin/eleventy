@@ -46,6 +46,7 @@ ol {
 }
 
 li {
+  block-size: var(--item-block-size);
   display: var(--item-display);
   inline-size: var(--item-inline-size);
   margin-block: var(--item-margin-block, revert);
