@@ -271,7 +271,7 @@ class Carousel extends HTMLElement {
 
       @media (orientation: landscape) {
         :host {
-          --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 2fr 3fr var(--button-size) 0;
+          --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
           --prev-grid-area: 1 / 2 / -1 / 3;
           --next-grid-area: 1 / -2 / -1 / -3;
           --counter-grid-area: 2 / 3 / 2 / 4;

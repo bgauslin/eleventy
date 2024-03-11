@@ -22,7 +22,7 @@
   .slideshow {
     --figcaption-padding-block: var(--gap) var(--button-size);
     --figcaption-padding-inline: 0;
-    --figure-grid: '. . copy images . .' / 0 var(--button-size) 2fr 3fr var(--button-size) 0;
+    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
     --images-inline-size: 75%;
     --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
