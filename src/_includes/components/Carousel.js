@@ -48,7 +48,7 @@ class Carousel extends HTMLElement {
   }
   
   /**
-   * Creates a slot, prev-next buttons, and a counter.
+   * Creates a slot, counter, and prev-next buttons.
    */
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
@@ -59,7 +59,8 @@ class Carousel extends HTMLElement {
     this.prevButton = this.createButton('prev');
     this.nextButton = this.createButton('next');
 
-    for (const element of [slot, this.counter, this.prevButton, this.nextButton]) {
+    const elements = [slot, this.counter, this.prevButton, this.nextButton];
+    for (const element of elements) {
       this.shadowRoot.appendChild(element);
     }
   }
@@ -88,7 +89,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Sets up Intersection Observer to watch list items.
+   * Sets up Intersection Observer to watch all list items and set the
+   * current item for updating controls and URL hash.
    */
   watch() {
     this.observer = new IntersectionObserver(this.update.bind(this), {
@@ -103,7 +105,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * IntersectionObserver callback that updates the controls and URL.
+   * IntersectionObserver callback that updates the controls and URL based on
+   * current item.
    * @param {IntersectionObserverEntry[]} entries - observed items
    */
   update(entries) {
@@ -123,7 +126,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Updates controls. preloads next slide's images, and disables tabbable
+   * Updates controls, preloads next slide's images, and disables tabbable
    * elements based on current item.
    */
   updateElements() {
@@ -153,8 +156,7 @@ class Carousel extends HTMLElement {
       this.nextButton.title = nextTitle;
       this.preloadImages(images);
     }
-    
-    
+
     // Disable tabbable links outside of the viewport; only enable links
     // for current item in viewport.
     for (const [index, item] of this.items.entries()) {
@@ -179,7 +181,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls item into view based on scroll direction.
+   * Smooth scrolls item into view based on direction.
    * @param {string} direction - 'prev' or 'next'
    */
   scrollToItem(direction) {
@@ -226,8 +228,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls next or previous item into view on button click and only accepts
-   * clicks from buttons with a data-attribute.
+   * Smooth scrolls next or previous item into view on button click and only
+   * accepts clicks from buttons with valid data-attribute.
    * @param {Event} event
    */
   handleClick(event) {
@@ -240,7 +242,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls item into view with left and right arrows for better a11y.
+   * Smooth scrolls item into view with left and right arrows for improved a11y.
    * @param {KeyboardEvent} event
    */
   handleKey(event) {
@@ -254,7 +256,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Renders encapsulated styles for shadow DOM.
+   * Renders encapsulated styles into the shadow DOM.
    */
   shadowStyles() {
     const styles = new CSSStyleSheet();
