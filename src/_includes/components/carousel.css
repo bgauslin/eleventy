@@ -4,6 +4,7 @@
 slideshow-carousel {
   --figcaption-max-block-size: 50dvh;
   --figcaption-overflow: auto;
+  --figcaption-padding-block: 0 calc(var(--button-size) + var(--gap));
   --item-inline-size: 100vw;
   --item-margin-block: 0;
   --list-display: grid;
@@ -14,8 +15,20 @@ slideshow-carousel {
 
 @media (orientation: landscape) {
   slideshow-carousel {
+    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
     --figcaption-max-block-size: 100dvh;
+    --figcaption-padding-block: var(--gap) var(--button-size);
     --figcaption-place-self: center;
+  }
+
+  slideshow-carousel figure:has([data-images='2']) {
+    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
+  }
+}
+
+@media (orientation: landscape) and (width < 800px) {
+  slideshow-carousel {
+    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
   }
 }
 

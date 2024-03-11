@@ -3,7 +3,7 @@
  */
 .slideshow {
   --figcaption-max-inline-size: 36em;
-  --figcaption-padding-block: 0 calc(var(--button-size) + var(--gap));
+  --figcaption-padding-block: 0;
   --figcaption-padding-inline: var(--gap);
   --figure-grid: 'images' 'copy' / 1fr;
   --figure-margin-block: 0;
@@ -20,22 +20,16 @@
 
 @media (orientation: landscape) {
   .slideshow {
-    --figcaption-padding-block: var(--gap) var(--button-size);
     --figcaption-padding-inline: 0;
-    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
+    --figcaption-place-self: center;
+    --figure-grid: '. copy images .' / 0 1fr 3fr 0;
     --images-inline-size: 75%;
     --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
   }
 
   figure:has([data-images='2']) {
-    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
-  }
-}
-
-@media (orientation: landscape) and (width < 800px) {
-  .slideshow {
-    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
+    --figure-grid: '. copy images .' / 0 1fr 1fr 0;
   }
 }
 
