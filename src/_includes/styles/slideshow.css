@@ -2,36 +2,40 @@
  * Individual slideshow. Classname is set on the <body> element.
  */
 .slideshow {
-  --figcaption-grid-area: 2 / 1 / 2 / 1;
-  --figcaption-max-inline-size: 36em;
-  --figcaption-padding-block: 0;
-  --figcaption-padding-inline: var(--gap);
+  --main-max-inline-size: none;
+  --main-padding: 0;
+  /* Container list. */
+  --list-padding-inline: 0;
+  --list-style: none;
+  /* Container item. */
+  --item-display: grid;
+  --item-margin-block: 10vh;
+  /* Individual slide. */
   --figure-grid: auto auto / 1fr;
   --figure-margin-block: 0;
+  /* Slide images. */
   --images-grid-area: 1 / 1 / 1 / 1;
   --images-inline-size: 50%;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
-  --item-display: grid;
-  --item-margin-block: 10vh;
-  --list-padding-inline: 0;
-  --list-style: none;
-  --main-max-inline-size: none;
-  --main-padding: 0;
+  /* Slide copy. */
+  --figcaption-grid-area: 2 / 1 / 2 / 1;
+  --figcaption-max-inline-size: 36em;
+  --figcaption-padding-block: 0;
+  --figcaption-padding-inline: var(--gap);
 }
 
 @media (orientation: landscape) {
   .slideshow {
-    --figcaption-padding-inline: 0;
-    --figcaption-place-self: center start;
+    --figure-grid: 1fr / 1fr 2fr;
     --figure-padding-inline: var(--gap);
+    --images-grid-area: 1 / 2 / 1 / 2;
     --images-inline-size: 50%;
     --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
-
-    --figure-grid: 1fr / 1fr 2fr;
     --figcaption-grid-area: 1 / 1 / 1 / 1;
-    --images-grid-area: 1 / 2 / 1 / 2;
+    --figcaption-padding-inline: 0;
+    --figcaption-place-self: center start;
   }
 }
 
