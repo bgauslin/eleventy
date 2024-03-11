@@ -262,15 +262,13 @@ class Carousel extends HTMLElement {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       :host {
-        --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr var(--button-size) 0;
-        --prev-grid-area: 2 / 2 / 2 / 3;
-        --next-grid-area: 2 / -2 / 2 / -3;
-        --counter-grid-area: 2 / 3 / 2 / -3;
+        --prev-grid-area: 3 / 2 / 3 / 3;
+        --next-grid-area: 3 / -2 / 3 / -3;
+        --counter-grid-area: 3 / 3 / 3 / -3;
       }
 
       @media (orientation: landscape) {
         :host {
-          --grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
           --prev-grid-area: 1 / 2 / -1 / 3;
           --next-grid-area: 1 / -2 / -1 / -3;
           --counter-grid-area: 2 / 3 / 2 / -3;
