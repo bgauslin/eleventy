@@ -192,17 +192,21 @@ class Carousel extends HTMLElement {
    */
   scrollToHash() {
     const anchor = this.url.hash.replace('#', '');
-    
-    if (anchor) {
-      const item = [...this.items].find(item => item.id === anchor);
-      const {left} = item.getBoundingClientRect();
-      const images = item.querySelectorAll('img');
-      
-      this.current = [...this.items].indexOf(item);
-      this.list.scrollTo(left, 0);
-      this.preloadImages(images);
-      this.updateElements();
+    if (!anchor) {
+      return;
     }
+
+    const item = [...this.items].find(item => item.id === anchor);
+    if (!item) {
+      return;
+    }
+    const {left} = item.getBoundingClientRect();
+    const images = item.querySelectorAll('img');
+    
+    this.current = [...this.items].indexOf(item);
+    this.list.scrollTo(left, 0);
+    this.preloadImages(images);
+    this.updateElements();
   }
 
   /**
@@ -297,7 +301,6 @@ class Carousel extends HTMLElement {
         box-shadow: var(--shadow-1);
         color: var(--text-color);
         cursor: pointer;
-        no-margin: 0;
         outline: none;
         place-self: center;
         transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
