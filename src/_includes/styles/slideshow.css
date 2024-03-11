@@ -33,6 +33,12 @@
   }
 }
 
+@media (orientation: landscape) and (width < 800px) {
+  .slideshow {
+    --figure-grid: '. . copy images . .' / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
+  }
+}
+
 [data-images] {
   grid-area: images;
 }
