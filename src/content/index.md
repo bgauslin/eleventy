@@ -21,9 +21,7 @@ classname: home
     ![](/img/selfie.jpg)
 
   </details>
-</fancy-details>
 
-<fancy-details>
   <details>
     <summary>
       <h2>Projects</h2>
@@ -34,9 +32,7 @@ classname: home
     {% include 'projects.njk' %}
 
   </details>
-</fancy-details>
 
-<fancy-details>
   <details>
     <summary>
       <h2>Contact</h2>

@@ -3,6 +3,7 @@
  */
 .home {
   --main-display: grid;
+  --main-gap: 0;
   --main-grid: auto-flow / 1fr;
   --main-max-inline-size: 34em;
 }
