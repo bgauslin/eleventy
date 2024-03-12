@@ -15,6 +15,7 @@ image:
 <style>
   slideshow-carousel {
     --figcaption-inline-size: 100%;
+    --figcaption-place-self: start center;
   }
 
   [data-orientation='portrait'] {
@@ -22,6 +23,10 @@ image:
   }
 
   @media (orientation: landscape) {
+    slideshow-carousel {
+      --figcaption-place-self: center;
+    }
+
     [data-orientation='portrait'] {
       --img-inline-size: 50vh;
     }

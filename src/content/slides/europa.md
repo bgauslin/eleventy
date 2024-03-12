@@ -13,6 +13,10 @@ image:
   height: 243
 ---
 <style>
+  slideshow-carousel {
+    --figcaption-place-self: center;
+  }
+
   @media (orientation: landscape) {
     slideshow-carousel {
       --counter-place-self: center;
