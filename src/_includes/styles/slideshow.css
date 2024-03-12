@@ -2,22 +2,23 @@
  * Individual slideshow. Classname is set on the <body> element.
  */
 .slideshow {
+  /* Site-wide <main> element. */
   --main-max-inline-size: none;
   --main-padding: 0;
-  /* Container list. */
-  --list-padding-inline: 0;
-  --list-style: none;
+
   /* Container item. */
   --item-display: grid;
   --item-margin-block: 10vh;
-  /* Individual slide. */
+
+  /* Slide. */
   --figure-grid: auto auto / 1fr;
-  --figure-margin-block: 0;
+
   /* Slide images. */
   --images-grid-area: 1 / 1 / 1 / 1;
   --images-inline-size: 50%;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
+
   /* Slide copy. */
   --figcaption-grid-area: 2 / 1 / 2 / 1;
   --figcaption-max-inline-size: 36em;
@@ -27,45 +28,53 @@
 
 @media (orientation: landscape) {
   .slideshow {
+    /* Slide. */
     --figure-grid: 1fr / 1fr 2fr;
     --figure-padding-inline: var(--gap);
+    
+    /* Slide images. */
     --images-grid-area: 1 / 2 / 1 / 2;
     --images-inline-size: 50%;
     --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
+    
+    /* Slide copy. */
     --figcaption-grid-area: 1 / 1 / 1 / 1;
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center start;
   }
 }
 
-@media (orientation: landscape) and (width < 800px) {
+/**
+ * Small devices in landscaoe orientation get smaller type for visual balance.
+ */
+@media (orientation: landscape) and (width < 840px) and (height < 480px) {
   :root {
-    --body-font: .75em / 1.4 var(--font-family);
+    --body-font: .875em / 1.4 var(--font-family);
   }
 }
 
-[data-images] {
-  grid-area: var(--images-grid-area);
-}
-
-.slideshow figcaption {
-  grid-area: var(--figcaption-grid-area);
-}
-
 /**
- * Container <div> for better layout control if there are multiple images.
+ * Slide images.
  */
-[data-images] {
+ [data-images] {
   display: grid;
   gap: var(--gap);
   grid: auto-flow / 1fr;
+  grid-area: var(--images-grid-area);
   place-items: center;
 }
 
 [data-images='2'] {
   inline-size: var(--images-inline-size);
   place-self: center;
+}
+
+/**
+ * Slide copy.
+ */
+.slideshow figcaption {
+  grid-area: var(--figcaption-grid-area);
 }
 
 /**
