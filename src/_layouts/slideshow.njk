@@ -23,7 +23,7 @@ layout: base
 {%- endmacro -%}
 
 <slideshow-carousel>
-  <ol>
+  <ol role="list">
   {% for item in collections[slug] -%}
     <li id="{{ item.data.slug }}">
       <figure>
