@@ -35,12 +35,12 @@ main {
  */
 ul,
 ol {
-  display: var(--list-display, block);
+  display: var(--list-display);
   gap: var(--list-gap);
   grid: var(--list-grid);
   inline-size: var(--list-inline-size);
   list-style: var(--list-style);
-  margin-block: var(--list-margin-block, revert);
+  margin-block: var(--list-margin-block);
   overflow: var(--list-overflow);
   padding-inline: var(--list-padding-inline);
 }
@@ -49,7 +49,7 @@ li {
   block-size: var(--item-block-size);
   display: var(--item-display);
   inline-size: var(--item-inline-size);
-  margin-block: var(--item-margin-block, revert);
+  margin-block: var(--item-margin-block);
 }
 
 /**
@@ -62,7 +62,7 @@ figure {
   display: grid;
   gap: var(--figure-gap, var(--gap));
   grid: var(--figure-grid);
-  margin-block: var(--figure-margin-block, revert);
+  margin-block: var(--figure-margin-block);
   margin-inline: var(--figure-margin-inline);
   overflow: var(--figure-overflow);
   padding-block: var(--figure-padding-block);
@@ -92,7 +92,7 @@ img {
   aspect-ratio: var(--img-aspect-ratio);
   block-size: var(--img-block-size, auto);
   border-radius: var(--img-border-radius);
-  display: var(--img-display, initial);
+  display: var(--img-display);
   inline-size: var(--img-inline-size, 100%);
   margin-block: var(--img-margin-block);
   margin-inline: var(--img-margin-inline);
@@ -110,8 +110,6 @@ svg {
 
 /**
  * Headings.
- * If vars are undefined, the 'font-size' and 'margin' properties default
- * to 1em and 0 repectively.
  */
 h1 {
   font-size: var(--h1-font-size);
