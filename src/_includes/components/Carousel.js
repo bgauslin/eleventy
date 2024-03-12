@@ -78,7 +78,6 @@ class Carousel extends HTMLElement {
     button.dataset.direction = direction;
     button.title = label;
     button.type = 'button';
-    
     button.innerHTML = `
       <svg aria-hidden="true" viewbox="0 0 24 24">
         <path d="${path}"/>
@@ -137,23 +136,26 @@ class Carousel extends HTMLElement {
     this.prev = (this.current > 0) ? this.current - 1 : -1;
     this.next = (this.current < this.total - 1) ? this.current + 1 : false;
 
-    // Update prev-next buttons state and attributes.
+    // Update prev-next buttons state.
     this.prevButton.disabled = this.prev < 0;
     this.nextButton.disabled = !this.next;
 
-    if (this.prev > 0) {
+    // Update prev button attributes.
+    if (this.prev >= 0) {
       const prevTitle = this.items[this.prev].querySelector('h2').textContent;
       this.prevButton.ariaLabel = `Previous slide: ${prevTitle}`;
       this.prevButton.title = prevTitle;
     }
 
+    // Update next button attributes and preload next item's images.
     if (this.next) {
       const nextItem = this.items[this.next];
-      const nextTitle = nextItem.querySelector('h2').textContent;
-      const images = nextItem.querySelectorAll('img');
 
+      const nextTitle = nextItem.querySelector('h2').textContent;
       this.nextButton.ariaLabel = `Next slide: ${nextTitle}`;
       this.nextButton.title = nextTitle;
+
+      const images = nextItem.querySelectorAll('img');
       this.preloadImages(images);
     }
 
