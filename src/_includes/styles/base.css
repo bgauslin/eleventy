@@ -74,6 +74,7 @@ figcaption {
   display: var(--figcaption-display);
   gap: var(--figcaption-gap);
   grid: var(--figcaption-grid);
+  grid-area: var(--figcaption-grid-area);
   inline-size: var(--figcaption-inline-size);
   margin-block: var(--figcaption-margin-block);
   margin-inline: var(--figcaption-margin-inline);

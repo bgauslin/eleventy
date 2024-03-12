@@ -55,7 +55,7 @@
 /**
  * Slide images.
  */
- [data-images] {
+[data-images] {
   display: grid;
   gap: var(--gap);
   grid: auto-flow / 1fr;

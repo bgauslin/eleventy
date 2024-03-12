@@ -19,6 +19,7 @@
   --figcaption-display: grid;
   --figcaption-gap: 0 var(--gap);
   --figcaption-grid: 'heading repo' 1fr 'blurb repo' 2.8em / 1fr var(--icon-size);
+  --figcaption-grid-area: copy;
   --figcaption-inline-size: 100%;
   --figcaption-padding-block: .875em;
   --figcaption-padding-inline: 0 .75em;
@@ -32,7 +33,6 @@
 .projects figcaption {
   border-block-start: .5px solid var(--rule-color);
   font-size: var(--font-size-small);
-  grid-area: copy;
 }
 
 .projects h3 {

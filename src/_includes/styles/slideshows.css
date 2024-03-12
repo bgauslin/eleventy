@@ -15,6 +15,9 @@
   --figure-overflow: hidden;
   --figure-place-items: center;
   --figure-size: 10em;
+
+  /* Slideshow blurb. */
+  --figcaption-grid-area: blurb;
   
   /* Slideshow thumbnail. */
   --img-aspect-ratio: 1;
@@ -23,10 +26,6 @@
 
 .slideshows figure > a {
   grid-area: image;
-}
-
-.slideshows figcaption {
-  grid-area: blurb;
 }
 
 .slideshows p {
