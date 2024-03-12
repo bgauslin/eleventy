@@ -23,13 +23,13 @@ class Carousel extends HTMLElement {
     this.scrollToHash();
     this.watch();
     this.addEventListener('click', this.handleClick);
-    this.addEventListener('keypress', this.handleKey);
+    document.addEventListener('keypress', this.handleKey);
   }
 
   disconnectedCallback() {
     this.observer.disconnect();
     this.removeEventListener('click', this.handleClick);
-    this.removeEventListener('keypress', this.handleKey);
+    document.removeEventListener('keypress', this.handleKey);
   }
 
   /**
@@ -318,6 +318,7 @@ class Carousel extends HTMLElement {
 
       button[disabled] {
         opacity: 0;
+        pointer-events: none;
       }
 
       [data-direction] {
