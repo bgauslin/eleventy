@@ -1,5 +1,5 @@
 /**
- * Global elements.
+ * Native elements.
  */
 html {
   -webkit-tap-highlight-color: transparent;
@@ -17,15 +17,15 @@ html {
 body {
   background: var(--background-0);
   color: var(--text-color);
-  font: var(--body-font);
-  margin: 0;
+  font: var(--font);
+  margin: 0;  /* Hard reset since it will never change. */
 }
 
 main {
   block-size: var(--main-block-size);
   display: var(--main-display, block);
   grid: var(--main-grid);
-  margin-inline: auto;
+  margin-inline: var(--main-margin-inline, auto);
   max-inline-size: var(--main-max-inline-size, 80rem);
   padding: var(--main-padding, var(--gap));
 }
@@ -59,7 +59,7 @@ figure {
   background: var(--figure-background);
   border-radius: var(--figure-border-radius);
   box-shadow: var(--figure-box-shadow);
-  display: grid;
+  display: var(--figure-display);
   gap: var(--figure-gap, var(--gap));
   grid: var(--figure-grid);
   margin-block: var(--figure-margin-block);
@@ -75,7 +75,8 @@ figcaption {
   gap: var(--figcaption-gap);
   grid: var(--figcaption-grid);
   inline-size: var(--figcaption-inline-size);
-  margin: 0 auto;
+  margin-block: var(--figcaption-margin-block);
+  margin-inline: var(--figcaption-margin-inline);
   max-block-size: var(--figcaption-max-block-size);
   max-inline-size: var(--figcaption-max-inline-size);
   overflow: var(--figcaption-overflow);
@@ -86,7 +87,7 @@ figcaption {
 }
 
 /**
- * Responsive media.
+ * Media with responsive defaults for 'block-size' and 'inline-size'.
  */
 img {
   aspect-ratio: var(--img-aspect-ratio);
@@ -99,7 +100,7 @@ img {
   max-block-size: var(--img-max-block-size);
   max-inline-size: var(--img-max-inline-size);
   object-fit: var(--img-object-fit);
-  vertical-align: middle;
+  vertical-align: var(--img-vertical-align);
 }
 
 svg {

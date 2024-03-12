@@ -22,7 +22,6 @@
   /* Slide copy. */
   --figcaption-grid-area: 2 / 1 / 2 / 1;
   --figcaption-max-inline-size: 36em;
-  --figcaption-padding-block: 0;
   --figcaption-padding-inline: var(--gap);
 }
 
@@ -30,7 +29,6 @@
   .slideshow {
     /* Slide. */
     --figure-grid: 1fr / 1fr 2fr;
-    --figure-padding-inline: var(--gap);
     
     /* Slide images. */
     --images-grid-area: 1 / 2 / 1 / 2;
@@ -50,7 +48,7 @@
  */
 @media (orientation: landscape) and (width < 840px) and (height < 480px) {
   :root {
-    --body-font: .875em / 1.4 var(--font-family);
+    --font: .875em / 1.4 var(--font-family);
   }
 }
 
