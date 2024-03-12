@@ -29,25 +29,30 @@
   </a>
 {% endmacro -%}
 
-<ul class="projects" role="list">
-{% for project in projects -%}
-  <li>
-    <figure>
-      {%- call linkify(project.url, project.heading, -1) -%}
-        <img src="/img/{{ project.img }}" alt="">
-      {%- endcall -%}
-      <figcaption>
-        <h3>
-          {%- call linkify(project.url, project.heading) -%}
-            {{- project.heading -}}
-          {%- endcall -%}
-        </h3>
-        <p>{{ project.copy }}</p>
-        {%- if project.repo -%}
-          {{ githubify(project.tech, project.repo) }}
-        {%- endif -%}
-      </figcaption>
-    </figure>
-  </li>
+<section class="projects">
+{% for section in projects -%}
+  <h3>{{ section.heading }}</h3>
+  <ul role="list">
+  {% for project in section.items -%}
+    <li>
+      <figure>
+        {%- call linkify(project.url, project.heading, -1) -%}
+          <img src="/img/{{ project.img }}" alt="">
+        {%- endcall -%}
+        <figcaption>
+          <h4>
+            {%- call linkify(project.url, project.heading) -%}
+              {{- project.heading -}}
+            {%- endcall -%}
+          </h4>
+          <p>{{ project.copy }}</p>
+          {%- if project.repo -%}
+            {{ githubify(project.tech, project.repo) }}
+          {%- endif -%}
+        </figcaption>
+      </figure>
+    </li>
+  {%- endfor %}
+  </ul>
 {%- endfor %}
-</ul>
+</section>

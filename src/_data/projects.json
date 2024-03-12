@@ -1,93 +1,97 @@
 [
   {
-    "heading": "Powers Of Ten",
-    "copy": "Web adaptation of the film by Charles and Ray Eames",
-    "img": "ten-galaxy.jpg",
-    "url": "https://ten.gauslin.com",
-    "repo": "https://github.com/bgauslin/ten/tree/main/src",
-    "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"],
-    "type": "web"
+    "heading": "Web apps",
+    "items": [
+      {
+        "heading": "Powers Of Ten",
+        "copy": "Web adaptation of the film by Charles and Ray Eames",
+        "img": "ten-galaxy.jpg",
+        "url": "https://ten.gauslin.com",
+        "repo": "https://github.com/bgauslin/ten/tree/main/src",
+        "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"]
+      },
+      {
+        "heading": "Clock",
+        "copy": "Composition of nine clock faces reveal patterns over time",
+        "img": "clock-icon.png",
+        "url": "https://clock.gauslin.com",
+        "repo": "https://github.com/bgauslin/clock/tree/main/src",
+        "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"]
+      },
+      {
+        "heading": "Calorie Calculator",
+        "copy": "App for determining daily calorie needs",
+        "img": "calories-icon.png",
+        "url": "https://calories.gauslin.com",
+        "repo": "https://github.com/bgauslin/calories/tree/main/src",
+        "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
+      },
+      {
+        "heading": "Moon",
+        "copy": "Tracking app for moorise, moonset, sunrise, sunset, and lunar phase based on location",
+        "img": "moon-icon.png",
+        "url": "https://moon.gauslin.com",
+        "repo": "https://github.com/bgauslin/moon/tree/main/src",
+        "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
+      },
+      {
+        "heading": "Compound Interest Calculator",
+        "copy": "Simple calculator with support for multiple currencies",
+        "img": "interest-icon.png",
+        "url": "https://interest.gauslin.com",
+        "repo": "https://github.com/bgauslin/interest/tree/main/src",
+        "tech": ["TypeScript", "Web Components", "Lit", "Sass"]
+      }
+    ]
   },
   {
-    "heading": "Clock",
-    "copy": "Composition of nine clock faces reveal patterns over time",
-    "img": "clock-icon.png",
-    "url": "https://clock.gauslin.com",
-    "repo": "https://github.com/bgauslin/clock/tree/main/src",
-    "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"],
-    "type": "web"
+    "heading": "Architecture",
+    "items": [
+      {
+        "heading": "Shotgun House Renovation",
+        "copy": "Breathing new life into an 1890s New Orleans shotgun house",
+        "img": "shotgun-front.jpg",
+        "url": "/slides/shotgun",
+        "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
+        "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"]
+      },
+      {
+        "heading": "Travel Sketches and Collages",
+        "copy": "Documenting an experience abroad with pen, pencil, and found materials",
+        "img": "sketch-piazza.png",
+        "url": "/slides/europa",
+        "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
+        "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"]
+      },
+      {
+        "heading": "House for an Art Collector",
+        "copy": "Project Architect at Shafer Architects in Chicago",
+        "img": "hfac-hall.jpg",
+        "url": "https://sckarchitecture.com/house-for-an-art-collector"
+      }
+    ]
   },
   {
-    "heading": "Calorie Calculator",
-    "copy": "App for determining daily calorie needs",
-    "img": "calories-icon.png",
-    "url": "https://calories.gauslin.com",
-    "repo": "https://github.com/bgauslin/calories/tree/main/src",
-    "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"],
-    "type": "web"
-  },
-  {
-    "heading": "Moon",
-    "copy": "Tracking app for moorise, moonset, sunrise, sunset, and lunar phase based on location",
-    "img": "moon-icon.png",
-    "url": "https://moon.gauslin.com",
-    "repo": "https://github.com/bgauslin/moon/tree/main/src",
-    "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"],
-    "type": "web"
-  },
-  {
-    "heading": "Compound Interest Calculator",
-    "copy": "Simple calculator with support for multiple currencies",
-    "img": "interest-icon.png",
-    "url": "https://interest.gauslin.com",
-    "repo": "https://github.com/bgauslin/interest/tree/main/src",
-    "tech": ["TypeScript", "Web Components", "Lit", "Sass"],
-    "type": "web"
-  },
-  {
-    "heading": "Shotgun House Renovation",
-    "copy": "Breathing new life into an 1890s New Orleans shotgun house",
-    "img": "shotgun-front.jpg",
-    "url": "/slides/shotgun",
-    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-    "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
-    "type": "architecture"
-  },
-  {
-    "heading": "Travel Sketches and Collages",
-    "copy": "Documenting an experience abroad with pen, pencil, and found materials",
-    "img": "sketch-piazza.png",
-    "url": "/slides/europa",
-    "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-    "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"],
-    "type": "architecture"
-  },
-  {
-    "heading": "House for an Art Collector",
-    "copy": "Project Architect at Shafer Architects in Chicago",
-    "img": "hfac-hall.jpg",
-    "url": "https://sckarchitecture.com/house-for-an-art-collector",
-    "type": "architecture"
-  },
-  {
-    "heading": "The Pietasters",
-    "copy": "Drummer and co-founder of 8-piece ska band with over 30 years of shows and recordings",
-    "img": "piestomp.jpg",
-    "url": "https://en.wikipedia.org/wiki/The_Pietasters",
-    "type": "music"
-  },
-  {
-    "heading": "Twelve Modern",
-    "copy": "Drummer for experimental band that only performed live and never rehearsed",
-    "img": "twelve-modern.jpg",
-    "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
-    "type": "music"
-  },
-  {
-    "heading": "Thump Daddy",
-    "copy": "Drummer and transcriber for 5-piece Memphis-based party band",
-    "img": "thumpdaddy.png",
-    "url": "https://southeasternattractions.com/thump-daddy/",
-    "type": "music"
+    "heading": "Music",
+    "items": [
+      {
+        "heading": "The Pietasters",
+        "copy": "Drummer and co-founder of 8-piece ska band with over 30 years of shows and recordings",
+        "img": "piestomp.jpg",
+        "url": "https://en.wikipedia.org/wiki/The_Pietasters"
+      },
+      {
+        "heading": "Twelve Modern",
+        "copy": "Drummer for experimental band that only performed live and never rehearsed",
+        "img": "twelve-modern.jpg",
+        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
+      },
+      {
+        "heading": "Thump Daddy",
+        "copy": "Drummer and transcriber for 5-piece Memphis-based party band",
+        "img": "thumpdaddy.png",
+        "url": "https://southeasternattractions.com/thump-daddy/"
+      }
+    ]
   }
 ]
