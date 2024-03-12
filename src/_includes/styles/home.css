@@ -17,4 +17,5 @@ img[src*='selfie'] {
 .contact {
   --list-display: flex;
   --list-gap: 0 1em;
+  --list-margin-block: var(--gap);
 }
