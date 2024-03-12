@@ -54,6 +54,7 @@ slideshow-carousel {
   }
 }
 
+/* Snappable container and items. */
 slideshow-carousel ol {
   scroll-snap-type: x mandatory;
 }
@@ -62,6 +63,7 @@ slideshow-carousel li {
   scroll-snap-align: start;
 }
 
+/* Hide scrollbars of overflow elements. */
 slideshow-carousel :is(ol, figcaption) {
   scrollbar-width: none;
 }
