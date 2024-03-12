@@ -2,7 +2,6 @@
  * Error 404 page. Classname is set on the <body> element.
  */
 .error-404 {
-  --main-block-size: 100dvh;
   --main-display: grid;
   --main-grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
   --main-max-inline-size: none;

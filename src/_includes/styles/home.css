@@ -2,6 +2,8 @@
  * Home page. Classname is set on the <body> element.
  */
 .home {
+  --main-display: grid;
+  --main-grid: auto-flow / 1fr;
   --main-max-inline-size: 34em;
 }
 
