@@ -42,9 +42,12 @@
   grid-area: image;
 }
 
+.projects figcaption {
+  font-size: var(--font-size-small);
+}
+
 .projects li:not(:first-child) figcaption {
   border-block-start: .5px solid var(--rule-color);
-  font-size: var(--font-size-small);
 }
 
 .projects h4 {
