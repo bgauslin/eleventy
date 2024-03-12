@@ -3,7 +3,13 @@
  */
 fancy-details > details { 
   block-size: var(--block-size, var(--summary-block-size));
+  overflow: auto;
+  scrollbar-width: none;
   transition: block-size var(--duration);
+}
+
+fancy-details > details::-webkit-scrollbar {
+  display: none;
 }
 
 fancy-details summary::after {
