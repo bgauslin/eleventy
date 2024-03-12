@@ -76,14 +76,10 @@ class Carousel extends HTMLElement {
 
     button.ariaLabel = label;
     button.dataset.direction = direction;
+    button.innerHTML = `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
     button.title = label;
     button.type = 'button';
-    button.innerHTML = `
-      <svg aria-hidden="true" viewbox="0 0 24 24">
-        <path d="${path}"/>
-      </svg>
-    `;
-    
+
     return button;
   }
 
