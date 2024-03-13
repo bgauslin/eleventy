@@ -37,7 +37,7 @@ class Carousel extends HTMLElement {
    */
   setup() {
     this.list = this.querySelector('ol');
-    this.items = this.list.querySelectorAll('li');
+    this.items = [...this.list.querySelectorAll('li')];
 
     this.total = this.items.length;
     this.url = new URL(window.location);
@@ -111,8 +111,8 @@ class Carousel extends HTMLElement {
         return;
       }
       
-      const item = [...this.items].find(item => item.id === entry.target.id);
-      this.current = [...this.items].indexOf(item);
+      const item = this.items.find(item => item.id === entry.target.id);
+      this.current = this.items.indexOf(item);
 
       // Update address bar and DOM.
       this.url.hash = item.id;
@@ -212,7 +212,7 @@ class Carousel extends HTMLElement {
       return;
     }
 
-    const item = [...this.items].find(item => item.id === anchor);
+    const item = this.items.find(item => item.id === anchor);
     if (!item) {
       return;
     }
