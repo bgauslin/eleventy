@@ -8,7 +8,7 @@ class FancyDetails extends HTMLElement {
   constructor() {
     super();
 
-    this.allDetails = this.querySelectorAll('details');
+    this.allDetails = [...this.querySelectorAll('details')];
     this.sizeProp = '--block-size';
   }
 
@@ -52,7 +52,7 @@ class FancyDetails extends HTMLElement {
 
       // Close other <details> elements if accordion behavior is enabled.
       if (this.accordion) {
-        for (const element of [...this.allDetails]) {
+        for (const element of this.allDetails) {
           if (details !== element && element.open) {
             this.fancyClose(element);
           }
@@ -107,8 +107,10 @@ class FancyDetails extends HTMLElement {
    */
   saveState() {
     const saved = [];
-    for (const details of [...this.allDetails]) {
-      saved.push(details.open);
+    for (const details of this.allDetails) {
+      if (details.open) {
+        saved.push(details.id);
+      }
     }
     localStorage.setItem(STORAGE_ITEM, JSON.stringify(saved));
   }
@@ -122,8 +124,8 @@ class FancyDetails extends HTMLElement {
       return;
     }
 
-    for (const [index, details] of this.allDetails.entries()) {
-      if (saved[index]) {
+    for (const details of this.allDetails) {
+      if (saved.includes(details.id)) {
         details.open = true;
         details.style.setProperty(this.sizeProp, 'auto');
       }
