@@ -7,8 +7,17 @@ class FancyDetails extends HTMLElement {
     this.sizeProp = '--block-size';
   }
 
+  static observedAttributes = ['accordion', 'saved'];
+
   connectedCallback() {
+    this.allDetails = this.querySelectorAll('details');
     this.addEventListener('click', this.handleClick);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'accordion') {
+      this.accordion = this.hasAttribute('accordion');
+    }
   }
 
   disconnectedCallback() {
@@ -27,14 +36,23 @@ class FancyDetails extends HTMLElement {
     
     const details = event.target.closest('details');
     
+    // Hijack click since 'open' attribute needs to be set after closing
+    // transition ends. Immediately removing 'open' attribute sets
+    // contents' display to 'none' and we don't want that just yet.
     if (details.open) {
-      // Hijack click since 'open' attribute needs to be set after closing
-      // transition ends. Immediately removing 'open' attribute sets
-      // contents' display to 'none' and we don't want that just yet.
       event.preventDefault();
       this.fancyClose(details);
     } else {
       this.fancyOpen(details);
+
+      // Close other <details> elements if accordion behavior is enabled.
+      if (this.accordion) {
+        for (const element of [...this.allDetails]) {
+          if (details !== element && element.open) {
+            this.fancyClose(element);
+          }
+        }
+      }
     }
   }
   

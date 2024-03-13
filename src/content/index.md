@@ -8,7 +8,7 @@ classname: home
 ---
 # Ben Gauslin
 
-<fancy-details>
+<fancy-details accordion>
   <details>
     <summary>
       <h2>About</h2>
