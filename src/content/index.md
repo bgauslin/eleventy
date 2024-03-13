@@ -9,7 +9,7 @@ classname: home
 # Ben Gauslin
 
 <fancy-details accordion>
-  <details>
+  <details id="about">
     <summary>
       <h2>About</h2>
     </summary>
@@ -22,7 +22,7 @@ classname: home
 
   </details>
 
-  <details>
+  <details id="projects">
     <summary>
       <h2>Projects</h2>
     </summary>
@@ -33,7 +33,7 @@ classname: home
 
   </details>
 
-  <details>
+  <details id="contact">
     <summary>
       <h2>Contact</h2>
     </summary>
