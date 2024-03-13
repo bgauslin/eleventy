@@ -1,16 +1,21 @@
+/** Name of localStorare item for saved state. */
+const STORAGE_ITEM = 'open';
+
 /**
  * Extends <details> elements with open/close transitions.
  */
 class FancyDetails extends HTMLElement {
   constructor() {
     super();
+
+    this.allDetails = this.querySelectorAll('details');
     this.sizeProp = '--block-size';
   }
 
-  static observedAttributes = ['accordion', 'saved'];
+  static observedAttributes = ['accordion'];
 
   connectedCallback() {
-    this.allDetails = this.querySelectorAll('details');
+    this.restoreState();
     this.addEventListener('click', this.handleClick);
   }
 
@@ -57,6 +62,24 @@ class FancyDetails extends HTMLElement {
   }
   
   /**
+   * Opens a <details> element with a transition.
+   * @param {HTMLDetailsElement} element
+   */
+  fancyOpen(element) {
+    window.requestAnimationFrame(() => {
+      // Set height var on next tick to trigger opening transition.
+      element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
+
+      // After transition ends, set var's value to 'auto' which ensures
+      // <details> has fluid height on resize.
+      element.addEventListener('transitionend', () => {
+        element.style.setProperty(this.sizeProp, 'auto');
+        this.saveState();
+      }, {once: true});
+    });
+  }
+
+  /**
    * Closes a <details> element with a transition.
    * @param {HTMLDetailsElement} element
    */
@@ -73,25 +96,38 @@ class FancyDetails extends HTMLElement {
       element.addEventListener('transitionend', () => {
         element.open = false;
         delete element.dataset.closing;
+        this.saveState();
       }, {once: true});
     });
   }
 
   /**
-   * Opens a <details> element with a transition..
-   * @param {HTMLDetailsElement} element
+   * Saves state of opened <details> elements to localStorage for restoring
+   * on page load.
    */
-  fancyOpen(element) {
-    window.requestAnimationFrame(() => {
-      // Set height var on next tick to trigger opening transition.
-      element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
+  saveState() {
+    const saved = [];
+    for (const details of [...this.allDetails]) {
+      saved.push(details.open);
+    }
+    localStorage.setItem(STORAGE_ITEM, JSON.stringify(saved));
+  }
+  
+  /**
+   * Restores 'open' state of <details> elements from localStorage.
+   */
+  restoreState() {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_ITEM));
+    if (!saved) {
+      return;
+    }
 
-      // After transition ends, set var's value to 'auto' which ensures
-      // <details> has fluid height on resize.
-      element.addEventListener('transitionend', () => {
-        element.style.setProperty(this.sizeProp, 'auto');
-      }, {once: true});
-    });
+    for (const [index, details] of this.allDetails.entries()) {
+      if (saved[index]) {
+        details.open = true;
+        details.style.setProperty(this.sizeProp, 'auto');
+      }
+    }
   }
 }
 
