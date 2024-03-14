@@ -2,74 +2,74 @@
   {
     "heading": "Web Apps",
     "id": "web",
-    "description": "A selection of browser-based apps built with Web Components.",
+    "description": "Web apps built with web components, browser APIs, and W3C standards.",
     "items": [
       {
         "heading": "Powers Of Ten",
-        "copy": "Web adaptation of the film by Charles and Ray Eames",
+        "copy": "Web adaptation of the film by Charles and Ray Eames.",
         "img": "ten-galaxy.jpg",
         "url": "https://ten.gauslin.com",
         "repo": "https://github.com/bgauslin/ten/tree/main/src",
-        "tech": ["TypeScript", "Lit", "SVG", "Sass"]
+        "tags": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
         "heading": "Clock",
-        "copy": "Composition of nine clock faces reveal patterns over time",
+        "copy": "A grid of clock faces reveal patterns over time.",
         "img": "clock-icon.png",
         "url": "https://clock.gauslin.com",
         "repo": "https://github.com/bgauslin/clock/tree/main/src",
-        "tech": ["TypeScript", "Lit", "SVG", "Sass"]
+        "tags": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
         "heading": "Calorie Calculator",
-        "copy": "App for determining daily calorie needs",
+        "copy": "App for determining daily calorie needs.",
         "img": "calories-icon.png",
         "url": "https://calories.gauslin.com",
         "repo": "https://github.com/bgauslin/calories/tree/main/src",
-        "tech": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
+        "tags": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
       },
       {
         "heading": "Moon",
-        "copy": "Tracking app for moorise, moonset, sunrise, sunset, and lunar phase based on location",
+        "copy": "Location-based app for moorise, moonset, and lunar phase.",
         "img": "moon-icon.png",
         "url": "https://moon.gauslin.com",
         "repo": "https://github.com/bgauslin/moon/tree/main/src",
-        "tech": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
+        "tags": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
       },
       {
         "heading": "Compound Interest Calculator",
-        "copy": "Simple calculator with support for multiple currencies",
+        "copy": "Calculator app with support for multiple currencies.",
         "img": "interest-icon.png",
         "url": "https://interest.gauslin.com",
         "repo": "https://github.com/bgauslin/interest/tree/main/src",
-        "tech": ["TypeScript", "Lit", "Sass"]
+        "tags": ["TypeScript", "Lit", "Sass"]
       }
     ]
   },
   {
     "heading": "Architecture Projects",
     "id": "architecture",
-    "description": "Explorations of light, space, and structure through building construction.",
+    "description": "Explorations of light, space, and structure.",
     "items": [
       {
         "heading": "Shotgun House Renovation",
-        "copy": "Breathing new life into an 1890s New Orleans shotgun house",
+        "copy": "Breathing new life into an 1890s barge board shotgun house.",
         "img": "shotgun-front.jpg",
         "url": "/slides/shotgun",
         "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-        "tech": ["Web Components", "Plain JS", "CSS3"]
+        "tags": ["Web Components", "Plain JS", "CSS3"]
       },
       {
         "heading": "Travel Sketches and Collages",
-        "copy": "Documenting an experience abroad with pen, pencil, and found materials",
+        "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
         "img": "sketch-piazza.png",
         "url": "/slides/europa",
         "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-        "tech": ["Web Components", "Plain JS", "CSS3"]
+        "tags": ["Web Components", "Plain JS", "CSS3"]
       },
       {
         "heading": "House for an Art Collector",
-        "copy": "Project Architect through all construction phases while at Shafer Architects in Chicago",
+        "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
         "img": "hfac-hall.jpg",
         "url": "https://sckarchitecture.com/house-for-an-art-collector"
       }
@@ -82,19 +82,19 @@
     "items": [
       {
         "heading": "The Pietasters",
-        "copy": "Co-founder of 8-piece ska band with a 30+ year career",
+        "copy": "Co-founder of 8-piece ska band with a 30-year career.",
         "img": "piestomp.jpg",
         "url": "https://en.wikipedia.org/wiki/The_Pietasters"
       },
       {
         "heading": "Thump Daddy",
-        "copy": "5-piece Memphis party band with 4-hour performances",
+        "copy": "5-piece party band with 4-hour performances.",
         "img": "thumpdaddy.png",
         "url": "https://southeasternattractions.com/thump-daddy/"
       },
       {
         "heading": "Twelve Modern",
-        "copy": "Experimental/improvisational group that never rehearsed",
+        "copy": "Experimental 5-piece group that never rehearsed.",
         "img": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
       }
