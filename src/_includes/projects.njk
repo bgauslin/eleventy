@@ -45,11 +45,11 @@
           <img src="/img/{{ project.img }}" alt="">
         {%- endcall -%}
         <figcaption>
-          <h4>
+          <h3>
             {%- call linkify(project.url, project.heading) -%}
               {{- project.heading -}}
             {%- endcall -%}
-          </h4>
+          </h3>
           <p>{{ project.copy }}</p>
           {%- if project.repo -%}
             {{ githubify(project.tech, project.repo) }}
