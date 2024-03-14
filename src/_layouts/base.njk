@@ -18,7 +18,8 @@
 {%- endset -%}
 
 {%- set js -%}
-  {%- if classname == 'home' -%}
+  {%- include 'components/ExternalLinks.js' -%}
+  {%- if classname == 'home' -%}  
     {%- include 'components/FancyDetails.js' -%}
   {%- elif classname == 'slideshow' -%}
     {%- include 'components/Carousel.js' -%}
@@ -41,6 +42,7 @@
     <main>
       {{ content | safe }}
     </main>
-    {% if js %}<script>{{ js | jsmin | safe }}</script>{% endif -%}
+    <external-links></external-links>
+    <script>{{ js | jsmin | safe }}</script>
   </body>
 </html>

@@ -2,8 +2,6 @@
   <a
     href="{{ href }}"
     title="View {{ title }} (opens in new window)"
-    target="_blank"
-    rel="noopener"
     {%- if tabindex %} tabindex="{{ tabindex }}"{% endif %}>
     {{- caller() -}}
   </a>
@@ -20,8 +18,6 @@
     aria-label="{{ label }}"
     class="repo"
     href="{{ repo }}"
-    rel="noopener"
-    target="_blank"
     title="{{ label }}">
     <svg aria-hidden="true" viewbox="0 0 24 24">
       <path d="{{ icons['github'] }}"/>
@@ -52,7 +48,7 @@
           </h3>
           <p>{{ project.copy }}</p>
           {%- if project.repo -%}
-            {{ githubify(project.tech, project.repo) }}
+            {{ githubify(project.tags, project.repo) }}
           {%- endif -%}
         </figcaption>
       </figure>
