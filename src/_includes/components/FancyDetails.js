@@ -1,20 +1,15 @@
-/** Name of localStorare item for saved state. */
-const STORAGE_ITEM = 'open';
-
 /**
  * Extends <details> elements with open/close transitions.
  */
 class FancyDetails extends HTMLElement {
   constructor() {
     super();
-
-    this.allDetails = [...this.querySelectorAll('details')];
-    this.sizeProp = '--block-size';
   }
 
   static observedAttributes = ['accordion'];
 
   connectedCallback() {
+    this.setup();
     this.restoreState();
     this.addEventListener('click', this.handleClick);
   }
@@ -27,6 +22,22 @@ class FancyDetails extends HTMLElement {
 
   disconnectedCallback() {
     this.removeEventListener('click', this.handleClick);
+  }
+
+  /**
+   * Gets element references and provides open <details> elements with a
+   * var that sets their height.
+   */
+  setup() {
+    this.allDetails = [...this.querySelectorAll('details')];
+    this.sizeProp = '--block-size';
+    this.storageItem = 'open';
+    
+    for (const details of this.allDetails) {
+      if (details.open) {
+        details.style.setProperty(this.sizeProp, 'auto');
+      }
+    }
   }
 
   /**
@@ -112,19 +123,25 @@ class FancyDetails extends HTMLElement {
         saved.push(details.id);
       }
     }
-    localStorage.setItem(STORAGE_ITEM, JSON.stringify(saved));
+    localStorage.setItem(this.storageItem, JSON.stringify(saved));
   }
   
   /**
    * Restores 'open' state of <details> elements from localStorage.
    */
   restoreState() {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_ITEM));
+    const saved = JSON.parse(localStorage.getItem(this.storageItem));
     if (!saved) {
       return;
     }
 
     for (const details of this.allDetails) {
+      // Reset any hard-coded open elements.
+      if (this.accordion) {
+        details.open = false;
+      }
+
+      // Restore previously saved state.
       if (saved.includes(details.id)) {
         details.open = true;
         details.style.setProperty(this.sizeProp, 'auto');
