@@ -46,7 +46,7 @@ class FancyDetails extends HTMLElement {
    * @param {Event} event
    */
   handleClick(event) {
-    if (event.target.tagName !== 'SUMMARY') {
+    if (!event.target.closest('summary')) {
       return;
     }
     
