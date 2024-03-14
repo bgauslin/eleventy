@@ -17,6 +17,10 @@ class FancyDetails extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'accordion') {
       this.accordion = this.hasAttribute('accordion');
+
+      if (oldValue === '' && !newValue) {
+        history.replaceState(null, '', '.');
+      }
     }
   }
 
@@ -32,6 +36,7 @@ class FancyDetails extends HTMLElement {
     this.allDetails = [...this.querySelectorAll('details')];
     this.sizeProp = '--block-size';
     this.storageItem = 'open';
+    this.url = new URL(window.location);
     
     for (const details of this.allDetails) {
       if (details.open) {
@@ -85,7 +90,7 @@ class FancyDetails extends HTMLElement {
       // <details> has fluid height on resize.
       element.addEventListener('transitionend', () => {
         element.style.setProperty(this.sizeProp, 'auto');
-        this.saveState();
+        this.saveState(element);
       }, {once: true});
     });
   }
@@ -95,6 +100,10 @@ class FancyDetails extends HTMLElement {
    * @param {HTMLDetailsElement} element
    */
   fancyClose(element) {
+    if (this.accordion) {
+      history.replaceState(null, '', '.');
+    }
+
     window.requestAnimationFrame(() => {
       // Set var from 'auto' to pixel value for height transition to occur.
       element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
@@ -108,7 +117,7 @@ class FancyDetails extends HTMLElement {
         element.addEventListener('transitionend', () => {
           element.open = false;
           delete element.dataset.closing;
-          this.saveState();
+          this.saveState(element);
         }, {once: true});
       });
     });
@@ -117,36 +126,49 @@ class FancyDetails extends HTMLElement {
   /**
    * Saves state of opened <details> elements to localStorage for restoring
    * on page load.
+   * @param {HTMLDetailsElement} element
    */
-  saveState() {
-    const saved = [];
-    for (const details of this.allDetails) {
-      if (details.open) {
-        saved.push(details.id);
+  saveState(element) {
+    if (this.accordion) {
+      if (element.open) {
+        history.replaceState(null, '', `#${element.id}`);
       }
+      localStorage.removeItem(this.storageItem);
+    } else {
+      const saved = [];
+      for (const details of this.allDetails) {
+        if (details.open) {
+          saved.push(details.id);
+        }
+      }
+      localStorage.setItem(this.storageItem, JSON.stringify(saved));
     }
-    localStorage.setItem(this.storageItem, JSON.stringify(saved));
   }
   
   /**
-   * Restores 'open' state of <details> elements from localStorage.
+   * Restores 'open' state of <details> elements from URL hash for accordion
+   * behavior, or from localStorage otherwise. If there's a valid hash, but
+   * no accordion behavior, the element whose ID matches the hash will be
+   * open, regardless of its localStorage state.
    */
   restoreState() {
-    const saved = JSON.parse(localStorage.getItem(this.storageItem));
-    if (!saved) {
-      return;
+    const hash = this.url.hash.replace('#', '');
+    const current = this.allDetails.find(element => element.id === hash);
+
+    if (current) {
+      current.style.setProperty(this.sizeProp, 'auto');
+      current.open = true;
     }
 
-    for (const details of this.allDetails) {
-      // Reset any hard-coded open elements.
-      if (this.accordion) {
-        details.open = false;
-      }
-
-      // Restore previously saved state.
-      if (saved.includes(details.id)) {
-        details.open = true;
-        details.style.setProperty(this.sizeProp, 'auto');
+    if (!this.accordion && !current) {
+      const saved = JSON.parse(localStorage.getItem(this.storageItem));
+      if (saved) {
+        for (const details of this.allDetails) {
+          if (saved.includes(details.id)) {
+            details.open = true;
+            details.style.setProperty(this.sizeProp, 'auto');
+          }
+        }
       }
     }
   }
