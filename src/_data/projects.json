@@ -7,15 +7,15 @@
       {
         "heading": "Powers Of Ten",
         "copy": "Web adaptation of the film by Charles and Ray Eames.",
-        "img": "ten-galaxy.jpg",
+        "img": "ten.jpg",
         "url": "https://ten.gauslin.com",
         "repo": "https://github.com/bgauslin/ten/tree/main/src",
         "tags": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
         "heading": "Clock",
-        "copy": "A grid of clock faces reveal patterns over time.",
-        "img": "clock-icon.png",
+        "copy": "A grid of nine faces reveals patterns over time.",
+        "img": "clock.png",
         "url": "https://clock.gauslin.com",
         "repo": "https://github.com/bgauslin/clock/tree/main/src",
         "tags": ["TypeScript", "Lit", "SVG", "Sass"]
@@ -23,23 +23,23 @@
       {
         "heading": "Calorie Calculator",
         "copy": "App for determining daily calorie needs.",
-        "img": "calories-icon.png",
+        "img": "calories.png",
         "url": "https://calories.gauslin.com",
         "repo": "https://github.com/bgauslin/calories/tree/main/src",
         "tags": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
       },
       {
         "heading": "Moon",
-        "copy": "Location-based app for moorise, moonset, and lunar phase.",
-        "img": "moon-icon.png",
+        "copy": "Location-based app for moorise, moonset, and phase.",
+        "img": "moon.png",
         "url": "https://moon.gauslin.com",
         "repo": "https://github.com/bgauslin/moon/tree/main/src",
         "tags": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
       },
       {
         "heading": "Compound Interest Calculator",
-        "copy": "Basic calculator app with support for multiple currencies.",
-        "img": "interest-icon.png",
+        "copy": "App with support for multiple currencies.",
+        "img": "interest.png",
         "url": "https://interest.gauslin.com",
         "repo": "https://github.com/bgauslin/interest/tree/main/src",
         "tags": ["TypeScript", "Lit", "Sass"]
@@ -49,7 +49,7 @@
   {
     "heading": "Architecture",
     "id": "architecture",
-    "description": "Explorations of light, space, and structure through construction and representation.",
+    "description": "Explorations of light, space, and structure through materials and media.",
     "items": [
       {
         "heading": "Barge Board Shotgun Renovation",
@@ -66,7 +66,7 @@
       {
         "heading": "Travel Sketches and Collages",
         "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
-        "img": "sketch-piazza.png",
+        "img": "sketch-piazza.jpg",
         "url": "/slides/europa"
       }
     ]
@@ -74,7 +74,7 @@
   {
     "heading": "Music",
     "id": "music",
-    "description": "Selection of bands I’ve recorded, performed, and/or toured with as a drummer.",
+    "description": "Some bands I’ve recorded, performed, and/or toured with as a drummer.",
     "items": [
       {
         "heading": "The Pietasters",
@@ -83,16 +83,22 @@
         "url": "https://en.wikipedia.org/wiki/The_Pietasters"
       },
       {
-        "heading": "Thump Daddy",
-        "copy": "5-piece party band with energetic (and exhausting) 4-hour shows.",
-        "img": "thumpdaddy.png",
-        "url": "https://southeasternattractions.com/thump-daddy/"
+        "heading": "SomNoSom",
+        "copy": "Drum, bass, and keyboard tracks recorded across state lines and timezones.",
+        "img": "somnosom.jpg",
+        "url": "https://bentaylorsfinesthour.bandcamp.com/track/stop-look-think-2"
       },
       {
         "heading": "Twelve Modern",
         "copy": "5-piece post-rock band that only performed live and unrehearsed.",
         "img": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
+      },
+      {
+        "heading": "Thump Daddy",
+        "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
+        "img": "thumpdaddy.png",
+        "url": "https://southeasternattractions.com/thump-daddy/"
       }
     ]
   }
