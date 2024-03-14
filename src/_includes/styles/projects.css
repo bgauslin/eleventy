@@ -26,6 +26,19 @@
   --figcaption-place-items: center start;
 }
 
+details:has(.projects) {
+  --details-border-radius: 0;
+  --details-margin-block: 1px;
+}
+
+details:has(.projects):nth-child(2) {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+details:has(.projects):nth-child(4) {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
 .projects img {
   grid-area: image;
 }

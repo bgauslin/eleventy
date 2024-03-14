@@ -17,12 +17,12 @@
   /* Theming. */
   --background-0: GhostWhite;
   --background-1: white;
+  --box-shadow: rgba(0, 0, 0, 0.15) 0 0 4px;
   --button-background: white;
   --focus-color: OrangeRed;
   --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */
   --link-color: DodgerBlue;
   --rule-color: rgba(0, 0, 0, .2);
-  --shadow-1: rgba(0, 0, 0, 0.15) 0 0 4px;
   --text-color: black;
   --visited-color: RebeccaPurple;
 }
@@ -32,12 +32,12 @@
     /* Dark mode theming. */
     --background-0: black;
     --background-1: rgb(34, 34, 34);
+    --box-shadow: none;
     --button-background: rgba(255, 255, 255, .2);
     --focus-color: DarkOrange;
     --link-background: rgba(100, 149, 237, .2);  /* CornflowerBlue */
     --link-color: CornflowerBlue;
     --rule-color: rgba(255, 255, 255, .2);
-    --shadow-1: rgba(255, 255, 255, .15) 0 0 0 1px;
     --text-color: Gainsboro;
     --visited-color: MediumPurple;
   }
