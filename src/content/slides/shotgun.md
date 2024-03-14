@@ -5,8 +5,8 @@ slug: shotgun
 tags: slideshow
 classname: slideshow
 
-title: Shotgun House Renovation
-description: Breathing new life into an 1890s New Orleans shotgun house
+title: Barge Board Shotgun Renovation
+description: Breathing new life into an 1890s barge board shotgun house.
 image:
   src: after-exterior-nw-completed
   width: 320

@@ -6,7 +6,7 @@ tags: slideshow
 classname: slideshow
 
 title: Travel Sketches and Collages
-description: Documenting travel abroad with pen, pencil, and found materials
+description: Documenting travel abroad with pen, pencil, and found materials.
 image:
   src: sketch-parc-de-la-villette
   width: 320

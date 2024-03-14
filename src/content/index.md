@@ -16,7 +16,7 @@ classname: home
 
     Hello, I’m a former Chicago architect and ex-Google engineer who currently lives in New Orleans.
     
-    I was formally trained as a percussionist, have a degree in Architecture, and started teaching myself code during the Dot-com Bubble; you can check out some of the stuff I’ve made below.
+    I’m formally trained as a percussionist, have a degree in Architecture, and began teaching myself code during the Dot-com Bubble.
     
     When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and the electric bass.
 

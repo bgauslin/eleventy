@@ -1,8 +1,8 @@
 [
   {
-    "heading": "Web applications",
+    "heading": "Web",
     "id": "web",
-    "description": "Web apps built with web components, browser APIs, and W3C standards.",
+    "description": "Browser-based apps made with web components, native APIs, and W3C standards.",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -38,7 +38,7 @@
       },
       {
         "heading": "Compound Interest Calculator",
-        "copy": "Calculator app with support for multiple currencies.",
+        "copy": "Basic calculator app with support for multiple currencies.",
         "img": "interest-icon.png",
         "url": "https://interest.gauslin.com",
         "repo": "https://github.com/bgauslin/interest/tree/main/src",
@@ -47,54 +47,50 @@
     ]
   },
   {
-    "heading": "Architectural work",
+    "heading": "Architecture",
     "id": "architecture",
-    "description": "Explorations of light, space, and structure.",
+    "description": "Explorations of light, space, and structure through construction and representation.",
     "items": [
       {
-        "heading": "Shotgun House Renovation",
+        "heading": "Barge Board Shotgun Renovation",
         "copy": "Breathing new life into an 1890s barge board shotgun house.",
         "img": "shotgun-front.jpg",
-        "url": "/slides/shotgun",
-        "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-        "tags": ["Web Components", "Plain JS", "CSS3"]
-      },
-      {
-        "heading": "Travel Sketches and Collages",
-        "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
-        "img": "sketch-piazza.png",
-        "url": "/slides/europa",
-        "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-        "tags": ["Web Components", "Plain JS", "CSS3"]
+        "url": "/slides/shotgun"
       },
       {
         "heading": "House for an Art Collector",
         "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
         "img": "hfac-hall.jpg",
         "url": "https://sckarchitecture.com/house-for-an-art-collector"
+      },
+      {
+        "heading": "Travel Sketches and Collages",
+        "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
+        "img": "sketch-piazza.png",
+        "url": "/slides/europa"
       }
     ]
   },
   {
     "heading": "Music",
     "id": "music",
-    "description": "Some bands I’ve recorded, performed, and/or toured with as drummer over the years.",
+    "description": "Selection of bands I’ve recorded, performed, and/or toured with as a drummer.",
     "items": [
       {
         "heading": "The Pietasters",
-        "copy": "Co-founder of 8-piece ska band with a 30-year career.",
+        "copy": "Co-founder of 8-piece ska band with a career spanning over 30 years.",
         "img": "piestomp.jpg",
         "url": "https://en.wikipedia.org/wiki/The_Pietasters"
       },
       {
         "heading": "Thump Daddy",
-        "copy": "5-piece party band with 4-hour performances.",
+        "copy": "5-piece party band with energetic (and exhausting) 4-hour shows.",
         "img": "thumpdaddy.png",
         "url": "https://southeasternattractions.com/thump-daddy/"
       },
       {
         "heading": "Twelve Modern",
-        "copy": "Experimental 5-piece group that never rehearsed.",
+        "copy": "5-piece post-rock band that only performed live and unrehearsed.",
         "img": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
       }
