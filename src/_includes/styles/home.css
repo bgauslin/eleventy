@@ -8,12 +8,12 @@
   --main-max-inline-size: 34em;
 }
 
-img[src*='selfie'] {
+.avatar {
   --img-block-size: 8em;
   --img-border-radius: 100%;
   --img-display: block;
   --img-inline-size: 8em;
-  --img-margin-block: var(--gap);
+  --img-margin-block: 2em;
   --img-margin-inline: auto;
 }
 
