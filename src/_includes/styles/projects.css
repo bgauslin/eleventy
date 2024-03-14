@@ -1,6 +1,20 @@
 /**
- * Home page projects section. Classname is set on a <ul> element.
+ * Home page projects section.
  */
+ details:has(.projects) {
+  --details-border-radius: 0;
+  --details-margin-block: 1px;
+}
+
+details:has(.projects):nth-child(2) {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+details:has(.projects):nth-child(4) {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+/* Classname is set on parent list element. */
 .projects {
   /* Container for all projects. */
   --list-display: block;
@@ -14,29 +28,23 @@
   /* Project thumbnail. */
   --img-aspect-ratio: 1;
   --img-border-radius: .25em;
+  --img-margin-block: .5em;
 
   /* Project blurb and links. */
   --figcaption-display: grid;
   --figcaption-gap: 0 var(--gap);
-  --figcaption-grid: 'heading repo' 1fr 'blurb repo' 2.8em / 1fr var(--icon-size);
+  --figcaption-grid: 'heading' 'blurb' / 1fr;
   --figcaption-grid-area: copy;
   --figcaption-inline-size: 100%;
-  --figcaption-padding-block: .875em;
-  --figcaption-padding-inline: 0 .75em;
+  --figcaption-padding-block: .75em;
+  --figcaption-padding-inline: 0 1.5em;
   --figcaption-place-items: center start;
+  --figcaption-place-self: stretch;
 }
 
-details:has(.projects) {
-  --details-border-radius: 0;
-  --details-margin-block: 1px;
-}
-
-details:has(.projects):nth-child(2) {
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-}
-
-details:has(.projects):nth-child(4) {
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
+.projects:has(.repo) {
+  --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
+  --figcaption-padding-inline: 0 .75em;
 }
 
 .projects img {
@@ -50,6 +58,7 @@ details:has(.projects):nth-child(4) {
 
 .projects h3 {
   grid-area: heading;
+  place-self: end start;
 }
 
 .projects p {
