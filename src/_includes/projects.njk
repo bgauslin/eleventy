@@ -1,7 +1,7 @@
 {%- macro linkify(href, title, tabindex=null) %}
   <a
     href="{{ href }}"
-    title="View {{ title }} (opens in new window)"
+    title="View {{ title }}"
     {%- if tabindex %} tabindex="{{ tabindex }}"{% endif %}>
     {{- caller() -}}
   </a>

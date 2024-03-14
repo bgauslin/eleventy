@@ -11,6 +11,7 @@ class ExternalLinks extends HTMLElement {
 	
 	connectedCallback() {
 		this.disabled = this.hasAttribute('disabled');
+		this.note = ' (opens in new window)';
 		this.links = [...document.querySelectorAll('a')];
 
 		if (!this.disabled) {
@@ -52,6 +53,7 @@ class ExternalLinks extends HTMLElement {
 				link.target = '_blank';
 				link.rel = 'noopener';
         link.classList.add('external');
+				link.title += this.note;
 			}
 		}
 	}
@@ -67,6 +69,8 @@ class ExternalLinks extends HTMLElement {
 
 		for (const link of this.links) {
 			if (link.classList.contains('external')) {
+				const title = link.title.replace(this.note, '');
+				link.title = title;
 				link.removeAttribute('target');
 				link.removeAttribute('rel');
 				link.classList.remove('external');
