@@ -1,6 +1,6 @@
 [
   {
-    "heading": "Web Apps",
+    "heading": "Web applications",
     "id": "web",
     "description": "Web apps built with web components, browser APIs, and W3C standards.",
     "items": [
@@ -47,7 +47,7 @@
     ]
   },
   {
-    "heading": "Architecture Projects",
+    "heading": "Architectural work",
     "id": "architecture",
     "description": "Explorations of light, space, and structure.",
     "items": [
