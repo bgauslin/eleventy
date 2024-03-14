@@ -53,12 +53,8 @@ details:has(.projects):nth-child(4) {
 }
 
 .projects p {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
   grid-area: blurb;
-  -webkit-line-clamp: 2;
   margin: 0;
-  overflow: hidden;
   place-self: start;
 }
 
