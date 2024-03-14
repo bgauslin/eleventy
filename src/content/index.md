@@ -22,16 +22,7 @@ classname: home
 
   </details>
 
-  <details id="projects">
-    <summary>
-      <h2>Projects</h2>
-    </summary>
-
-    A selection of apps built with Web Components alongside a few architecture and music projects.
-
-    {% include 'projects.njk' %}
-
-  </details>
+  {% include 'projects.njk' %}
 
   <details id="contact">
     <summary>

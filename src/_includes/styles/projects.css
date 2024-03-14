@@ -26,31 +26,16 @@
   --figcaption-place-items: center start;
 }
 
-.projects h3 {
-  border-block-end: .5px solid var(--rule-color);
-  font-size: var(--font-size-small);
-  font-weight: normal;
-  letter-spacing: .25em;
-  margin-inline: var(--gap) 0;
-  opacity: var(--text-opacity);
-  padding-block: .75em;
-  padding-inline: 0 var(--gap);
-  text-transform: uppercase;
-}
-
 .projects img {
   grid-area: image;
 }
 
 .projects figcaption {
+  border-block-start: .5px solid var(--rule-color);
   font-size: var(--font-size-small);
 }
 
-.projects li:not(:first-child) figcaption {
-  border-block-start: .5px solid var(--rule-color);
-}
-
-.projects h4 {
+.projects h3 {
   grid-area: heading;
 }
 

@@ -1,6 +1,8 @@
 [
   {
-    "heading": "Web apps",
+    "heading": "Web Apps",
+    "id": "web",
+    "description": "A selection of browser-based apps built with Web Components.",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -8,7 +10,7 @@
         "img": "ten-galaxy.jpg",
         "url": "https://ten.gauslin.com",
         "repo": "https://github.com/bgauslin/ten/tree/main/src",
-        "tech": ["TypeScript", "Web Components", "JSON", "Lit", "SVG", "Sass"]
+        "tech": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
         "heading": "Clock",
@@ -16,7 +18,7 @@
         "img": "clock-icon.png",
         "url": "https://clock.gauslin.com",
         "repo": "https://github.com/bgauslin/clock/tree/main/src",
-        "tech": ["TypeScript", "Web Components", "Lit", "SVG", "Sass"]
+        "tech": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
         "heading": "Calorie Calculator",
@@ -40,12 +42,14 @@
         "img": "interest-icon.png",
         "url": "https://interest.gauslin.com",
         "repo": "https://github.com/bgauslin/interest/tree/main/src",
-        "tech": ["TypeScript", "Web Components", "Lit", "Sass"]
+        "tech": ["TypeScript", "Lit", "Sass"]
       }
     ]
   },
   {
-    "heading": "Architecture",
+    "heading": "Architecture Projects",
+    "id": "architecture",
+    "description": "Explorations of light, space, and structure through building construction.",
     "items": [
       {
         "heading": "Shotgun House Renovation",
@@ -53,7 +57,7 @@
         "img": "shotgun-front.jpg",
         "url": "/slides/shotgun",
         "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-        "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"]
+        "tech": ["Web Components", "Plain JS", "CSS3"]
       },
       {
         "heading": "Travel Sketches and Collages",
@@ -61,11 +65,11 @@
         "img": "sketch-piazza.png",
         "url": "/slides/europa",
         "repo": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js",
-        "tech": ["Web Components", "Vanilla JS", "Vanilla CSS"]
+        "tech": ["Web Components", "Plain JS", "CSS3"]
       },
       {
         "heading": "House for an Art Collector",
-        "copy": "Project Architect at Shafer Architects in Chicago",
+        "copy": "Project Architect through all construction phases while at Shafer Architects in Chicago",
         "img": "hfac-hall.jpg",
         "url": "https://sckarchitecture.com/house-for-an-art-collector"
       }
@@ -73,24 +77,26 @@
   },
   {
     "heading": "Music",
+    "id": "music",
+    "description": "Some bands I’ve recorded, performed, and/or toured with as drummer over the years.",
     "items": [
       {
         "heading": "The Pietasters",
-        "copy": "Drummer and co-founder of 8-piece ska band with over 30 years of shows and recordings",
+        "copy": "Co-founder of 8-piece ska band with a 30+ year career",
         "img": "piestomp.jpg",
         "url": "https://en.wikipedia.org/wiki/The_Pietasters"
       },
       {
-        "heading": "Twelve Modern",
-        "copy": "Drummer for experimental band that only performed live and never rehearsed",
-        "img": "twelve-modern.jpg",
-        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
-      },
-      {
         "heading": "Thump Daddy",
-        "copy": "Drummer and transcriber for 5-piece Memphis-based party band",
+        "copy": "5-piece Memphis party band with 4-hour performances",
         "img": "thumpdaddy.png",
         "url": "https://southeasternattractions.com/thump-daddy/"
+      },
+      {
+        "heading": "Twelve Modern",
+        "copy": "Experimental/improvisational group that never rehearsed",
+        "img": "twelve-modern.jpg",
+        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
       }
     ]
   }
