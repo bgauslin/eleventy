@@ -95,20 +95,22 @@ class FancyDetails extends HTMLElement {
    * @param {HTMLDetailsElement} element
    */
   fancyClose(element) {
-    // Set var from 'auto' to pixel value for height transition to occur.
-    element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
-
-    // Remove var on next tick and set data-attribute to trigger transition.
     window.requestAnimationFrame(() => {
-      element.style.removeProperty(this.sizeProp);
-      element.dataset.closing = '';
+      // Set var from 'auto' to pixel value for height transition to occur.
+      element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
 
-      // Remove 'open' and 'data-closing' attributes after transition ends.
-      element.addEventListener('transitionend', () => {
-        element.open = false;
-        delete element.dataset.closing;
-        this.saveState();
-      }, {once: true});
+      // Remove var on next tick and set data-attribute to trigger transition.
+      window.requestAnimationFrame(() => {
+        element.style.removeProperty(this.sizeProp);
+        element.dataset.closing = '';
+
+        // Remove 'open' and 'data-closing' attributes after transition ends.
+        element.addEventListener('transitionend', () => {
+          element.open = false;
+          delete element.dataset.closing;
+          this.saveState();
+        }, {once: true});
+      });
     });
   }
 
