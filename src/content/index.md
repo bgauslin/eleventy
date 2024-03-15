@@ -8,7 +8,7 @@ classname: home
 ---
 # Ben Gauslin
 
-<fancy-details accordion>
+<details-plus accordion>
   <details id="about">
     <summary>
       <h2>About</h2>
@@ -36,7 +36,7 @@ classname: home
     {% include 'contact.njk' %}
 
   </details>
-</fancy-details>
+</details-plus>
 
 [bubble]: https://en.wikipedia.org/wiki/Dot-com_bubble "Wikipedia article about the dot-com boom and bust of the late 90s"
 [vieux-carre]: https://en.wikipedia.org/wiki/French_Quarter "Wikipedia article about the New Orleans French Quarter"

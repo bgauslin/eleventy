@@ -92,6 +92,27 @@ class DetailsPlus extends HTMLElement {
   }
 
   /**
+   * Updates URL hash if accordion is enabled; otherwise saves a list of opened
+   * <details> elements to localStorage for restoring on page load.
+   * @param {?HTMLDetailsElement} element
+   */
+  saveState(element) {
+    if (element && this.accordion) {
+      if (element.open) {
+        this.updateURL(element.id);
+      }
+    } else {
+      const saved = [];
+      for (const details of this.allDetails) {
+        if (details.open) {
+          saved.push(details.id);
+        }
+      }
+      localStorage.setItem(this.storageItem, JSON.stringify(saved));
+    }
+  }
+
+  /**
    * Sets and removes attributes to trigger opening/closing transitions on
    * <details> child element.
    * @param {Event} event
@@ -167,27 +188,6 @@ class DetailsPlus extends HTMLElement {
         }, {once: true});
       });
     });
-  }
-
-  /**
-   * Updates URL hash if accordion is enabled; otherwise saves a list of opened
-   * <details> elements to localStorage for restoring on page load.
-   * @param {?HTMLDetailsElement} element
-   */
-  saveState(element) {
-    if (element && this.accordion) {
-      if (element.open) {
-        this.updateURL(element.id);
-      }
-    } else {
-      const saved = [];
-      for (const details of this.allDetails) {
-        if (details.open) {
-          saved.push(details.id);
-        }
-      }
-      localStorage.setItem(this.storageItem, JSON.stringify(saved));
-    }
   }
 
   /**
