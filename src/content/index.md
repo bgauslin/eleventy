@@ -14,11 +14,17 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m a classically trained percussionist with a [degree in Architecture][vt-arch] who began teaching myself code during the [dot-com bubble][bubble].
+    Hello, I’m a classically trained percussionist with a
+    [degree in Architecture][vt-arch] who began teaching myself code during 
+    the [dot-com bubble][bubble].
 
-    I’ve worked in small and medium-sized Chicago architecture studios, was a Senior UXE at Google for five years, and currently live in New Orleans.
+    I was a Senior UXE at Google for five years, worked in small and
+    medium-sized Chicago architecture studios, and currently live in
+    New Orleans.
 
-    When I’m not renovating my 140-year old house in the [Vieux Carré][vieux-carre], I spend quality time with friends, family, and a StingRay bass.
+    When I’m not renovating my 140-year old house in the
+    [Vieux Carré][vieux-carre], I spend quality time with friends, family,
+    and the electric bass.
 
     <img src="img/selfie.jpg" alt="" class="avatar">
 
@@ -38,6 +44,7 @@ classname: home
   </details>
 </details-plus>
 
+
 [bubble]: https://en.wikipedia.org/wiki/Dot-com_bubble "Wikipedia article about the dot-com boom and bust of the late 90s"
-[vieux-carre]: https://en.wikipedia.org/wiki/French_Quarter "Wikipedia article about the New Orleans French Quarter"
+[vieux-carre]: https://en.wikipedia.org/wiki/French_Quarter "Wikipedia article about New Orleans’ French Quarter"
 [vt-arch]: https://arch.vt.edu/ "College of Architecture at Virginia Tech"
