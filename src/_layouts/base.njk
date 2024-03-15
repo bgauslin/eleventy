@@ -6,7 +6,7 @@
     {%- include 'styles/buttons.css' -%}
     {%- include 'styles/details.css' -%}
     {%- include 'styles/projects.css' -%}
-    {%- include 'components/fancy-details.css' -%}
+    {%- include 'components/details-plus.css' -%}
   {%- elif classname == 'slideshows' -%}
     {%- include 'styles/slideshows.css' -%}
   {%- elif classname == 'slideshow' -%}
@@ -20,7 +20,7 @@
 {%- set js -%}
   {%- include 'components/ExternalLinks.js' -%}
   {%- if classname == 'home' -%}  
-    {%- include 'components/FancyDetails.js' -%}
+    {%- include 'components/DetailsPlus.js' -%}
   {%- elif classname == 'slideshow' -%}
     {%- include 'components/Carousel.js' -%}
   {%- endif -%}
