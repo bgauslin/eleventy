@@ -14,11 +14,11 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m a former Chicago architect and ex-Google engineer who currently lives in New Orleans.
-    
-    I’m formally trained as a percussionist, have a [degree in Architecture][vt-arch], and began teaching myself code during the [dot-com bubble][bubble].
-    
-    When I’m not renovating my 140-year old house in the [Vieux Carré][vieux-carre], I spend quality time with friends, family, and the electric bass.
+    Hello, I’m a classically trained percussionist with a [degree in Architecture][vt-arch] who began teaching myself code during the [dot-com bubble][bubble].
+
+    I’ve worked in small and medium-sized Chicago architecture studios, was a Senior UXE at Google for five years, and currently live in New Orleans.
+
+    When I’m not renovating my 140-year old house in the [Vieux Carré][vieux-carre], I spend quality time with friends, family, and a StingRay bass.
 
     <img src="img/selfie.jpg" alt="" class="avatar">
 
