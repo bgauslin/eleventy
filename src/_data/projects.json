@@ -2,7 +2,7 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Browser-based apps made with web components, native APIs, and W3C standards.",
+    "description": "Browser-based widgets and progressive web apps (PWA) made with web components, native APIs, and W3C standards.",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -14,7 +14,7 @@
       },
       {
         "heading": "Clock",
-        "copy": "A grid of nine faces reveals patterns over time.",
+        "copy": "A grid of clock faces that reveal patterns over time.",
         "img": "clock.png",
         "url": "https://clock.gauslin.com",
         "repo": "https://github.com/bgauslin/clock/tree/main/src",
@@ -22,7 +22,7 @@
       },
       {
         "heading": "Calorie Calculator",
-        "copy": "App for determining daily calorie needs.",
+        "copy": "PWA for determining daily calorie needs.",
         "img": "calories.png",
         "url": "https://calories.gauslin.com",
         "repo": "https://github.com/bgauslin/calories/tree/main/src",
@@ -30,7 +30,7 @@
       },
       {
         "heading": "Moon",
-        "copy": "Location-based app for moorise, moonset, and phase.",
+        "copy": "PWA for location-based moorise, moonset, and lunar phase.",
         "img": "moon.png",
         "url": "https://moon.gauslin.com",
         "repo": "https://github.com/bgauslin/moon/tree/main/src",
@@ -38,7 +38,7 @@
       },
       {
         "heading": "Compound Interest Calculator",
-        "copy": "App with support for multiple currencies.",
+        "copy": "Web app with support for multiple currencies.",
         "img": "interest.png",
         "url": "https://interest.gauslin.com",
         "repo": "https://github.com/bgauslin/interest/tree/main/src",
