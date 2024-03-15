@@ -1,5 +1,5 @@
 ---
-layout: ten-intro.json
+layout: ten/intro.json
 permalink: api/ten/intro.json
 
 title: Powers of Ten
