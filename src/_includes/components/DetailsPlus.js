@@ -94,7 +94,7 @@ class DetailsPlus extends HTMLElement {
   /**
    * Updates URL hash if accordion is enabled; otherwise saves a list of opened
    * <details> elements to localStorage for restoring on page load.
-   * @param {?HTMLDetailsElement} element
+   * @param {HTMLDetailsElement} [element]
    */
   saveState(element) {
     if (element && this.accordion) {
@@ -146,7 +146,7 @@ class DetailsPlus extends HTMLElement {
   
   /**
    * Opens a <details> element with a transition.
-   * @param {!HTMLDetailsElement} element
+   * @param {HTMLDetailsElement} element
    */
   fancyOpen(element) {
     window.requestAnimationFrame(() => {
@@ -164,7 +164,7 @@ class DetailsPlus extends HTMLElement {
 
   /**
    * Closes a <details> element with a transition.
-   * @param {!HTMLDetailsElement} element
+   * @param {HTMLDetailsElement} element
    */
   fancyClose(element) {
     if (this.accordion) {
@@ -193,7 +193,7 @@ class DetailsPlus extends HTMLElement {
   /**
    * Helper method that updates browser history with hash in URL if an ID is
    * provided; otherwise removes the hash (if it exists) and resets URL.
-   * @param {?string} id - <details> element ID
+   * @param {string} [id] - <details> element ID
    */
   updateURL(id) {
     const hash = id ? `#${id}` : '.';
