@@ -59,7 +59,6 @@ li {
 figure {
   background: var(--figure-background);
   border-radius: var(--figure-border-radius);
-  box-shadow: var(--figure-box-shadow);
   display: var(--figure-display);
   gap: var(--figure-gap, var(--gap));
   grid: var(--figure-grid);

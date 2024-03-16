@@ -11,7 +11,6 @@
   /* Slideshow. */
   --figure-background: var(--background-1);
   --figure-border-radius: var(--border-radius);
-  --figure-box-shadow: var(--box-shadow);
   --figure-grid: 'image blurb .' var(--figure-size) / var(--figure-size) 1fr 0;
   --figure-margin-block: 0;
   --figure-overflow: hidden;

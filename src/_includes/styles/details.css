@@ -6,7 +6,6 @@ details {
 
   background: var(--background-1);
   border-radius: var(--details-border-radius, var(--border-radius)); 
-  box-shadow: var(--details-box-shadow, var(--box-shadow));
   margin-block: var(--details-margin-block, var(--gap));
   overflow: auto; /* TODO: Remove/refactor(?) */
 }
