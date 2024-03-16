@@ -1,20 +1,7 @@
 /**
  * Home page projects section.
+ * Classname is set on list element.
  */
- details:has(.projects) {
-  --details-border-radius: 0;
-  --details-margin-block: 2px;
-}
-
-details:has(.projects):nth-child(2) {
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-}
-
-details:has(.projects):nth-child(4) {
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
-
-/* Classname is set on parent list element. */
 .projects {
   /* Container for all projects. */
   --list-display: block;
@@ -45,6 +32,19 @@ details:has(.projects):nth-child(4) {
 .projects:has(.repo) {
   --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
   --figcaption-padding-inline: 0 .75em;
+}
+
+details:has(.projects) {
+  --details-border-radius: 0;
+  --details-margin-block: 2px;
+}
+
+details:has(.projects):nth-child(2) {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+details:has(.projects):nth-child(4) {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 .projects img {
