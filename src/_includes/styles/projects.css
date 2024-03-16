@@ -3,7 +3,7 @@
  */
  details:has(.projects) {
   --details-border-radius: 0;
-  --details-margin-block: 1px;
+  --details-margin-block: 2px;
 }
 
 details:has(.projects):nth-child(2) {
