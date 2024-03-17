@@ -7,7 +7,7 @@
   --duration: .25s;
   --figure-display: grid;
   --font: clamp(.875em, .75em + .5vw, 1em) / 1.4 var(--font-family);
-  --font-family: system-ui, sans-serif;
+  --font-family: 'Avenir Variable', sans-serif;
   --font-size-small: .9em;
   --gap: 1em;
   --icon-size: max(24px, 1.75em);
