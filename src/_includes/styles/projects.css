@@ -53,7 +53,6 @@ details:has(.projects):nth-child(4) {
 
 .projects figcaption {
   border-block-start: .5px solid var(--rule-color);
-  font-size: var(--font-size-small);
 }
 
 .projects h3 {
@@ -62,6 +61,7 @@ details:has(.projects):nth-child(4) {
 }
 
 .projects p {
+  font-size: var(--font-size-small);
   grid-area: blurb;
   margin: 0;
   place-self: start;
