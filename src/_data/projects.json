@@ -2,7 +2,7 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Browser-based widgets and progressive web apps (PWA) made with web components, native APIs, and W3C standards.",
+    "description": "Web widgets and progressive web apps made with <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Web_components\" title=\"MDN documentation\">Web Components</a> and <a href=\"https://www.w3.org/standards/\" title=\"Why W3C web standards?\">W3C web standards</a>.",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -83,22 +83,22 @@
         "url": "https://en.wikipedia.org/wiki/The_Pietasters"
       },
       {
+        "heading": "Thump Daddy",
+        "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
+        "img": "thumpdaddy.png",
+        "url": "https://southeasternattractions.com/thump-daddy/"
+      },
+      {
         "heading": "SomNoSom",
-        "copy": "Drum, bass, and keyboard tracks recorded across state lines and timezones.",
+        "copy": "Recording isolated drum, bass, and keyboard tracks across timezones.",
         "img": "somnosom.jpg",
         "url": "https://bentaylorsfinesthour.bandcamp.com/track/stop-look-think-2"
       },
       {
         "heading": "Twelve Modern",
-        "copy": "5-piece post-rock band that only performed live and unrehearsed.",
+        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
         "img": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
-      },
-      {
-        "heading": "Thump Daddy",
-        "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
-        "img": "thumpdaddy.png",
-        "url": "https://southeasternattractions.com/thump-daddy/"
       }
     ]
   }

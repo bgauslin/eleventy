@@ -14,20 +14,16 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m a classically trained percussionist with a
-    [degree in Architecture][vt-arch] who began teaching myself code during 
+    Hello, I’m an ex-Google engineer and former Chicago architect who currently
+    lives in New Orleans.
+    
+    After formal training on percussion, drumset, and bass guitar, I earned a
+    [degree in Architecture][vt-arch] and began teaching myself code during
     the [dot-com bubble][bubble].
-
-    I was a Senior UXE at Google for five years, worked in small and
-    medium-sized Chicago architecture studios, and currently live in
-    New Orleans.
-
-    When I’m not renovating my 140-year old house in the
-    [Vieux Carré][vieux-carre], I spend quality time with friends, family,
-    and the electric bass.
+    
+    I craft apps, spaces, and songs...
 
     <img src="img/selfie.jpg" alt="" class="avatar">
-
   </details>
 
   {% include 'projects.njk' %}
