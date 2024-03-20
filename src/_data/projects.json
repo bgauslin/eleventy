@@ -13,20 +13,20 @@
         "tags": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
-        "heading": "Clock",
-        "copy": "A grid of clock faces that reveal patterns over time.",
-        "img": "clock.png",
-        "url": "https://clock.gauslin.com",
-        "repo": "https://github.com/bgauslin/clock/tree/main/src",
-        "tags": ["TypeScript", "Lit", "SVG", "Sass"]
-      },
-      {
         "heading": "Calorie Calculator",
         "copy": "PWA for determining daily calorie needs.",
         "img": "calories.png",
         "url": "https://calories.gauslin.com",
         "repo": "https://github.com/bgauslin/calories/tree/main/src",
         "tags": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
+      },
+      {
+        "heading": "Clock",
+        "copy": "A grid of clock faces that reveal patterns over time.",
+        "img": "clock.png",
+        "url": "https://clock.gauslin.com",
+        "repo": "https://github.com/bgauslin/clock/tree/main/src",
+        "tags": ["TypeScript", "Lit", "SVG", "Sass"]
       },
       {
         "heading": "Moon",
