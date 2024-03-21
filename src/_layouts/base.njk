@@ -19,6 +19,7 @@
 
 {%- set js -%}
   {%- include 'components/ExternalLinks.js' -%}
+  {%- include 'components/TouchyButtons.js' -%}
   {%- if classname == 'home' -%}  
     {%- include 'components/DetailsPlus.js' -%}
   {%- elif classname == 'slideshow' -%}
@@ -45,6 +46,7 @@
       {{ content | safe }}
     </main>
     <external-links></external-links>
+    <touchy-buttons></touchy-buttons>
     <script>{{ js | jsmin | safe }}</script>
   </body>
 </html>
