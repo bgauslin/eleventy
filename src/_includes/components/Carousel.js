@@ -312,16 +312,20 @@ class Carousel extends HTMLElement {
       }
       
       button:focus-visible {
-        background-color: var(--link-color);
-        border-color: var(--link-color);
+        background-color: var(--text-color);
+        border: transparent;
         color: var(--fill-0);
       }
 
       @media (any-hover: hover) {
         button:hover {
-          background-color: var(--link-color);
-          border-color: var(--link-color);
+          background-color: var(--text-color);
+          border-color: transparent;
           color: var(--fill-0);
+        }
+        
+        button:active {
+          transform: scale(.8);
         }
       }
 
@@ -350,7 +354,7 @@ class Carousel extends HTMLElement {
       }
 
       svg {
-        block-size: var(--button-icon-size);
+        block-size: 24px;
         fill: none;
         pointer-events: none;
         stroke: currentColor;
