@@ -5,9 +5,10 @@ details {
   --summary-block-size: 3em;
 
   background: var(--fill-1);
+  border: var(--border, none);
   border-radius: var(--details-border-radius, var(--border-radius)); 
   margin-block: var(--details-margin-block, var(--gap));
-  overflow: auto; /* TODO: Remove/refactor(?) */
+  overflow: auto;
 }
 
 /**

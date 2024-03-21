@@ -25,16 +25,15 @@
 
   /* Theming. */
   --backdrop-filter: blur(6px);
-  --border-color: var(--gray3);
+  --border: 1px solid var(--gray5);
   --fill-0: var(--gray6);
   --fill-1: white;
-  --fill-1a: rgba(white, .75);
+  --fill-1a: rgba(255, 255, 255, .75);
   --fill-2: var(--gray5);
   --fill-2a: rgba(229, 229, 234, .75);
   --focus-color: OrangeRed;
   --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */
   --link-color: DodgerBlue;
-  --rule-color: rgba(0, 0, 0, .2);
   --text-color: black;
   --visited-color: RebeccaPurple;
 }
@@ -59,7 +58,6 @@
     --focus-color: DarkOrange;
     --link-background: rgba(100, 149, 237, .2);  /* CornflowerBlue */
     --link-color: CornflowerBlue;
-    --rule-color: rgba(255, 255, 255, .2);
     --text-color: Gainsboro;
     --visited-color: MediumPurple;
   }

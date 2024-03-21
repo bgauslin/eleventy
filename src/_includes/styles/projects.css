@@ -36,10 +36,12 @@
 
 details:has(.projects) {
   --details-border-radius: 0;
-  --details-margin-block: 2px;
+  --details-margin-block: 0;
+  border-block-start: none;
 }
 
 details:has(.projects):nth-child(2) {
+  border-block-start: var(--details-border);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
@@ -52,7 +54,7 @@ details:has(.projects):nth-child(4) {
 }
 
 .projects figcaption {
-  border-block-start: .5px solid var(--rule-color);
+  border-block-start: .5px solid var(--gray3);
 }
 
 .projects h3 {

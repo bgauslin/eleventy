@@ -295,7 +295,7 @@ class Carousel extends HTMLElement {
       button {
         appearance: none;
         background-color: var(--fill-1a);
-        border: none;
+        border: var(--border);
         color: var(--text-color);
         cursor: pointer;
         outline: none;
