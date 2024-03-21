@@ -2,25 +2,34 @@
  * Links styled as buttons via classname.
  */
 .button {
-  aspect-ratio: 1;
-  background-color: var(--link-background);
-  border-radius: var(--button-size);
-  display: grid;
-  grid: 1fr / 1fr;
-  inline-size: var(--button-size);
-  place-items: center;
+  --link-aspect-ratio: 1;
+  --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */
+  --link-border-radius: var(--button-size);
+  --link-focus-background: var(--link-color);
+  --link-focus-color: var(--fill-0);
+  --link-display: grid;
+  --link-grid: 1fr / 1fr;
+  --link-inline-size: var(--button-size);
+  --link-place-items: center;
 }
 
-.button:is(:focus, :hover) {
-  background-color: var(--link-color);
-  color: var(--fill-0);
+@media (prefers-color-scheme: dark) {
+  .button {
+    --link-background: rgba(100, 149, 237, .2);  /* CornflowerBlue */
+  }
 }
 
-.button:active {
+.button[data-touched] {
   transform: scale(.8);
+}
+
+@media (any-hover: hover) {
+  .button:active {
+    transform: scale(.8);
+  }
 }
 
 .button svg {
   aspect-ratio: 1;
-  inline-size: var(--icon-size);
+  inline-size: var(--button-icon-size);
 }

@@ -311,7 +311,7 @@ class Carousel extends HTMLElement {
         transition: background-color var(--transition), border var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
       }
       
-      button:focus {
+      button:focus-visible {
         background-color: var(--link-color);
         border-color: var(--link-color);
         color: var(--fill-0);
@@ -325,7 +325,7 @@ class Carousel extends HTMLElement {
         }
       }
 
-      button:active {
+      button[data-touched] {
         transform: scale(.8);
       }
 
@@ -350,7 +350,7 @@ class Carousel extends HTMLElement {
       }
 
       svg {
-        block-size: var(--icon-size);
+        block-size: var(--button-icon-size);
         fill: none;
         pointer-events: none;
         stroke: currentColor;

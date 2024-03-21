@@ -116,6 +116,7 @@ svg {
   block-size: auto;
   fill: currentColor;
   inline-size: 100%;
+  pointer-events: none;
 }
 
 /**
@@ -149,18 +150,26 @@ h4 {
  * General links.
  */
 a {
+  aspect-ratio: var(--link-aspect-ratio);
+  background-color: var(--link-background);
+  border-radius: var(--link-border-radius);
   color: var(--link-color);
+  display: var(--link-display, inline);
+  grid: var(--link-grid);
+  inline-size: var(--link-inline-size);
   outline: none;
+  place-items: center;
   text-decoration: none;
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
 }
 
 a:visited {
-  color: var(--visited-color);
+  color: var(--link-visited-color);
 }
 
-a:focus,
-a:hover {
-  color: var(--focus-color);
+a:focus-visible {
+  background-color: var(--link-focus-background);
+  color: var(--link-focus-color);
 }
 
 /**
@@ -168,7 +177,13 @@ a:hover {
  */
 @media (any-hover: hover) {
   a {
-    transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
+    transition: background-color var(--transition), color var(--transition),
+        opacity var(--transition), transform var(--transition);
+  }
+
+  a:hover {
+    background-color: var(--link-focus-background);
+    color: var(--link-focus-color);
   }
 
   svg {

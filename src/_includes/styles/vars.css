@@ -2,14 +2,14 @@
 
 :root {
   /* Layout and typography; native default overrides. */
-  --button-size: 44px;
   --border-radius: .5em;
+  --button-size: 44px;
+  --button-icon-size: 28px;
   --figure-display: grid;
   --font: clamp(.875em, .75em + 1vw, 1.125em) / 1.4 var(--font-family);
   --font-family: 'Avenir Variable', sans-serif;
   --font-size-small: .9em;
   --gap: 1em;
-  --icon-size: max(24px, 1.75em);
   --text-opacity: .7;
   --transition: .3s;
 
@@ -31,12 +31,13 @@
   --fill-1a: rgba(255, 255, 255, .7);
   --fill-2: var(--gray5);
   --fill-2a: rgba(229, 229, 234, .7);
-  --focus-color: OrangeRed;
-  --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */
   --link-color: DodgerBlue;
+  --link-focus-color: OrangeRed;
+  --link-visited-color: RebeccaPurple;
   --text-color: black;
-  --visited-color: RebeccaPurple;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -56,10 +57,10 @@
     --fill-2: var(--gray5);
     --fill-2a: rgba(44, 44, 46, .1);
     --fill-3: var(--gray3);
-    --focus-color: DarkOrange;
-    --link-background: rgba(100, 149, 237, .2);  /* CornflowerBlue */
-    --link-color: CornflowerBlue;
     --text-color: Gainsboro;
-    --visited-color: MediumPurple;
+
+    --link-color: CornflowerBlue;
+    --link-focus-color: DarkOrange;
+    --link-visited-color: MediumPurple;
   }
 }

@@ -30,7 +30,7 @@
 }
 
 .projects:has(.repo) {
-  --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--icon-size);
+  --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--button-icon-size);
   --figcaption-padding-inline: 0 .75em;
 }
 
@@ -79,10 +79,17 @@ details[id='music'] {
   opacity: .5;
 }
 
-.repo:is(:link, :visited, :focus, :hover) {
+.repo:is(:link, :visited, :focus) {
   color: var(--text-color);
 }
 
-.repo:is(:focus, :hover) {
+.repo:focus {
   opacity: 1;
+}
+
+@media (any-hover: hover) {
+  .repo:hover {
+    color: var(--text-color);
+    opacity: 1;
+  }
 }
