@@ -54,12 +54,16 @@ class Carousel extends HTMLElement {
     this.attachShadow({mode: 'open'});
 
     const slot = document.createElement('slot');
-    this.counter = document.createElement('div');
-    this.counter.classList.add('counter');
+
+    const counter = document.createElement('div');
+    counter.classList.add('counter');
+    this.counter = document.createElement('span');
+    counter.appendChild(this.counter);
+
     this.prevButton = this.createButton('prev');
     this.nextButton = this.createButton('next');
 
-    const elements = [slot, this.counter, this.prevButton, this.nextButton];
+    const elements = [slot, counter, this.prevButton, this.nextButton];
     for (const element of elements) {
       this.shadowRoot.appendChild(element);
     }
@@ -284,12 +288,16 @@ class Carousel extends HTMLElement {
 
       .counter {
         display: grid;
+        background-color: var(--fill-0a);
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
-        opacity: var(--text-opacity);
         padding-inline: 1em;
         place-content: center;
         place-self: center;
+      }
+
+      .counter span {
+        opacity: var(--text-opacity);
       }
       
       button {
