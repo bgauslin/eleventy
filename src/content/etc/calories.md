@@ -2,17 +2,7 @@
 layout: etc/calories.json
 permalink: api/etc/calories.json
 ---
-# About this app
-
-First, a disclaimer. I am not a medical, health, or nutrition professional. I’m just a developer who wanted to get in better shape.
-
-I found the math behind caloric intake and weight loss interesting, so I decided to make a more user-friendly calorie calculator than the ones I found online.
-
-I hope you find it helpful, and thanks for stopping by!
-
-—Ben Gauslin
-
-Now on to the math…
+# How the calories are calculated
 
 ## Formulas
 
@@ -72,5 +62,12 @@ By varying your caloric intake from day to day (i.e., “zig-zagging”), your m
 
 1200 is the minimum recommended number of calories to consume per day. Going below this number is not a wise move and this calculator will warn you if you select an unhealthy exercise and weight loss combination.
 
+## Disclaimer
 
-[bmr-formulas]: https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas
+I am not a medical, health, or nutrition professional. I’m just a developer who wanted to get in better shape.
+
+I found the math behind caloric intake and weight loss interesting, so I decided to make a more user-friendly calorie calculator than the ones I found online.
+
+I hope you find it helpful, and thanks for stopping by!
+
+—Ben Gauslin
