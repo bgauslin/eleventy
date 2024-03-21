@@ -37,8 +37,6 @@
   --text-color: black;
 }
 
-
-
 @media (prefers-color-scheme: dark) {
   :root {
     /* Dark mode grays. */
@@ -57,10 +55,9 @@
     --fill-2: var(--gray5);
     --fill-2a: rgba(44, 44, 46, .1);
     --fill-3: var(--gray3);
-    --text-color: Gainsboro;
-
     --link-color: CornflowerBlue;
     --link-focus-color: DarkOrange;
     --link-visited-color: MediumPurple;
+    --text-color: Gainsboro;
   }
 }
