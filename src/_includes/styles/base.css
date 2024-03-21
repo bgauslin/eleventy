@@ -160,7 +160,6 @@ a {
   outline: none;
   place-items: center;
   text-decoration: none;
-  transition: background-color var(--transition), color var(--transition), transform var(--transition);
 }
 
 a:visited {
@@ -170,6 +169,10 @@ a:visited {
 a:focus-visible {
   background-color: var(--link-focus-background);
   color: var(--link-focus-color);
+}
+
+a:active {
+  color: var(--link-active-color, var(--link-focus-color));
 }
 
 /**
