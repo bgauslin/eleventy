@@ -14,10 +14,23 @@
   --img-vertical-align: middle;
   --text-opacity: .75;
 
+  /* Grays via Apple HIG. */
+  /* @see https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color */
+  --gray1: rgb(142, 142, 147);
+  --gray2: rgb(174, 174, 178);
+  --gray3: rgb(199, 199, 204);
+  --gray4: rgb(209, 209, 214);
+  --gray5: rgb(229, 229, 234);
+  --gray6: rgb(242, 242, 247);
+
   /* Theming. */
-  --background-0: GhostWhite;
-  --background-1: white;
-  --button-background: white;
+  --backdrop-filter: blur(6px);
+  --border-color: var(--gray3);
+  --fill-0: var(--gray6);
+  --fill-1: white;
+  --fill-1a: rgba(white, .75);
+  --fill-2: var(--gray5);
+  --fill-2a: rgba(229, 229, 234, .75);
   --focus-color: OrangeRed;
   --link-background: rgba(30, 144, 255, .2);  /* DodgerBlue */
   --link-color: DodgerBlue;
@@ -28,10 +41,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Dark mode grays. */
+    --gray1: rgb(142, 142, 147);
+    --gray2: rgb(99, 99, 102);
+    --gray3: rgb(72, 72, 74);
+    --gray4: rgb(58, 58, 60);
+    --gray5: rgb(44, 44, 46);
+    --gray6: rgb(28, 28, 30);
+
     /* Dark mode theming. */
-    --background-0: black;
-    --background-1: rgb(34, 34, 34);
-    --button-background: rgba(255, 255, 255, .2);
+    --fill-0: black;
+    --fill-1: var(--gray6);
+    --fill-1a: rgba(28, 28, 30, .5);
+    --fill-2: var(--gray5);
+    --fill-2a: rgba(44, 44, 46, .5);
+    --fill-3: var(--gray3);
     --focus-color: DarkOrange;
     --link-background: rgba(100, 149, 237, .2);  /* CornflowerBlue */
     --link-color: CornflowerBlue;

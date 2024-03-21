@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  background: var(--background-0);
+  background: var(--fill-0);
   color: var(--text-color);
   font: var(--font);
   font-variation-settings: 'wght' 500;

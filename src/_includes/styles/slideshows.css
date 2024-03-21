@@ -9,7 +9,7 @@
   --main-max-inline-size: 34em;
 
   /* Slideshow. */
-  --figure-background: var(--background-1);
+  --figure-background: var(--fill-1);
   --figure-border-radius: var(--border-radius);
   --figure-grid: 'image blurb .' var(--figure-size) / var(--figure-size) 1fr 0;
   --figure-margin-block: 0;

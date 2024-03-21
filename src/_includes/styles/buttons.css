@@ -13,7 +13,7 @@
 
 .button:is(:focus, :hover) {
   background-color: var(--link-color);
-  color: var(--background-0);
+  color: var(--fill-0);
 }
 
 .button:active {
