@@ -2,17 +2,16 @@
 
 :root {
   /* Layout and typography; native default overrides. */
-  --button-size: max(44px, 3em);
+  --button-size: 44px;
   --border-radius: .5em;
-  --duration: .25s;
   --figure-display: grid;
   --font: clamp(.875em, .75em + 1vw, 1.125em) / 1.4 var(--font-family);
   --font-family: 'Avenir Variable', sans-serif;
   --font-size-small: .9em;
   --gap: 1em;
   --icon-size: max(24px, 1.75em);
-  --img-vertical-align: middle;
-  --text-opacity: .75;
+  --text-opacity: .7;
+  --transition: .3s;
 
   /* Grays via Apple HIG. */
   /* @see https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color */

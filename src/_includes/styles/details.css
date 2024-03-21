@@ -22,7 +22,7 @@ summary {
   display: flex; /* [1] */
   opacity: var(--text-opacity);
   outline: none;
-  transition: opacity var(--duration) ease;
+  transition: opacity var(--transition) ease;
 }
 
 summary::-webkit-details-marker {

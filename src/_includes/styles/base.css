@@ -109,7 +109,7 @@ img {
   max-block-size: var(--img-max-block-size);
   max-inline-size: var(--img-max-inline-size);
   object-fit: var(--img-object-fit);
-  vertical-align: var(--img-vertical-align);
+  vertical-align: middle;
 }
 
 svg {
@@ -168,10 +168,10 @@ a:hover {
  */
 @media (any-hover: hover) {
   a {
-    transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
+    transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
   }
 
   svg {
-    transition: fill var(--duration);
+    transition: fill var(--transition);
   }
 }

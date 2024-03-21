@@ -300,17 +300,19 @@ class Carousel extends HTMLElement {
         cursor: pointer;
         outline: none;
         place-self: center;
-        transition: background-color var(--duration), color var(--duration), opacity var(--duration), transform var(--duration);
+        transition: background-color var(--transition), border var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
       }
       
       button:focus {
-        background-color: var(--text-color);
+        background-color: var(--link-color);
+        border-color: var(--link-color);
         color: var(--fill-0);
       }
 
       @media (any-hover: hover) {
         button:hover {
-          background-color: var(--text-color);
+          background-color: var(--link-color);
+          border-color: var(--link-color);
           color: var(--fill-0);
         }
       }

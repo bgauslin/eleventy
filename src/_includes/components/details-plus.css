@@ -5,7 +5,7 @@ details-plus > details {
   block-size: var(--block-size, var(--summary-block-size));
   overflow: auto;
   scrollbar-width: none;
-  transition: block-size var(--duration);
+  transition: block-size var(--transition);
 }
 
 details-plus > details::-webkit-scrollbar {
@@ -13,7 +13,7 @@ details-plus > details::-webkit-scrollbar {
 }
 
 details-plus summary::after {
-  transition: transform var(--duration);
+  transition: transform var(--transition);
 }
 
 details-plus > [data-closing] > summary::after {
