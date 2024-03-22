@@ -9,40 +9,60 @@
         "copy": "Web adaptation of the film by Charles and Ray Eames.",
         "img": "ten.jpg",
         "url": "https://ten.gauslin.com",
-        "repo": "https://github.com/bgauslin/ten/tree/main/src",
-        "tags": ["TypeScript", "Lit", "SVG", "Sass"]
+        "button": {
+          "label": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/ten/tree/main/src",
+          "tags": ["TypeScript", "Lit", "SVG", "Sass"]
+        }
       },
       {
         "heading": "Calorie Calculator",
         "copy": "PWA for determining daily calorie needs.",
         "img": "calories.png",
         "url": "https://calories.gauslin.com",
-        "repo": "https://github.com/bgauslin/calories/tree/main/src",
-        "tags": ["TypeScript", "Custom Elements", "Pug", "Stylus"]
+        "button": {
+          "label": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/calories/tree/main/src",
+          "tags": ["TypeScript", "Custom Elements", "Sass"]
+        }
       },
       {
         "heading": "Clock",
         "copy": "A grid of clock faces that reveal patterns over time.",
         "img": "clock.png",
         "url": "https://clock.gauslin.com",
-        "repo": "https://github.com/bgauslin/clock/tree/main/src",
-        "tags": ["TypeScript", "Lit", "SVG", "Sass"]
+        "button": {
+          "label": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/clock/tree/main/src",
+          "tags": ["TypeScript", "Lit", "SVG", "Sass"]
+        }
       },
       {
         "heading": "Moon",
         "copy": "PWA for location-based moorise, moonset, and lunar phase.",
         "img": "moon.png",
         "url": "https://moon.gauslin.com",
-        "repo": "https://github.com/bgauslin/moon/tree/main/src",
-        "tags": ["TypeScript", "Custom Elements", "Pug", "SVG", "Stylus"]
+        "button": {
+          "label": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/moon/tree/main/src",
+          "tags": ["TypeScript", "Custom Elements", "SVG", "Sass"]
+        }
       },
       {
         "heading": "Compound Interest Calculator",
         "copy": "Web app with support for multiple currencies.",
         "img": "interest.png",
         "url": "https://interest.gauslin.com",
-        "repo": "https://github.com/bgauslin/interest/tree/main/src",
-        "tags": ["TypeScript", "Lit", "Sass"]
+        "button": {
+          "label": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/interest/tree/main/src",
+          "tags": ["TypeScript", "Lit", "Sass"]
+        }
       }
     ]
   },
