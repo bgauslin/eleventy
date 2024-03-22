@@ -8,7 +8,7 @@ permalink: api/etc/calories.json
 
 ### Basal Metabolic Rate
 
-First, your Basal Metabolic Rate (BMR) is calculated with the Mifflin St. Jeor equation based on your height, weight, age, and sex. BMR is how many calories your body needs to function while at rest.
+First, your <a href='https://en.wikipedia.org/wiki/Basal_metabolic_rate'>Basal Metabolic Rate (BMR)</a> is calculated with the Mifflin St. Jeor equation based on your height, weight, age, and sex. BMR is how many calories your body needs to function while at rest.
 
 ### Total Daily Energy Expenditure
 
