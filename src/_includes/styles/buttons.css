@@ -19,7 +19,8 @@
   }
 }
 
-.button[data-touched] {
+.button.touch {
+  --link-focus-color: var(--link-color);
   transform: scale(.8);
 }
 

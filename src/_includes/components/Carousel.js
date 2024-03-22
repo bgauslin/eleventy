@@ -329,7 +329,7 @@ class Carousel extends HTMLElement {
         }
       }
 
-      button[data-touched] {
+      button.touch {
         transform: scale(.8);
       }
 

@@ -160,6 +160,7 @@ a {
   outline: none;
   place-items: center;
   text-decoration: none;
+  transition: transform var(--transition);
 }
 
 a:visited {

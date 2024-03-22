@@ -18,20 +18,19 @@ class TouchyButtons extends HTMLElement {
   touchstart(event) {
     const composed = event.composedPath();
     this.target = composed[0];
-    console.log('touchstart', this.target);
 
     if (this.target.tagName === 'BUTTON' ||
         this.target.classList.contains('button')) {
-      console.log(`${this.target} touched!`);
-      this.target.dataset.touched = '';
+      this.target.classList.add('touch');
     }
   }
 
   touchend() {
-    console.log('touchend', this.target);
-    delete this.target.dataset.touched;
-    [...document.querySelectorAll('[data-touched]')].forEach(link => {
-      delete link.dataset.touched;
+    this.target.classList.remove('touch');
+
+    // In case of touchmove.
+    [...document.querySelectorAll('.touch')].forEach(link => {
+      link.classList.remove('touch');
     });
   }
 }
