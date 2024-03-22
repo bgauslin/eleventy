@@ -29,8 +29,8 @@
   --figcaption-place-self: stretch;
 }
 
-.projects:has(.repo) {
-  --figcaption-grid: 'heading repo' 'blurb repo' / 1fr var(--button-icon-size);
+.projects:has(.icon-button) {
+  --figcaption-grid: 'heading icon' 'blurb icon' / 1fr var(--button-icon-size);
   --figcaption-padding-inline: 0 .75em;
 }
 
@@ -72,23 +72,23 @@ details[id='music'] {
 }
 
 /**
- * Icon link for GitHub repos.
+ * Icon button for additional link.
  */
-.repo {
-  grid-area: repo;
+.icon-button {
+  grid-area: icon;
   opacity: .5;
 }
 
-.repo:is(:link, :visited, :focus) {
+.icon-button:is(:link, :visited, :focus) {
   color: var(--text-color);
 }
 
-.repo:focus {
+.icon-button:focus {
   opacity: 1;
 }
 
 @media (any-hover: hover) {
-  .repo:hover {
+  .icon-button:hover {
     color: var(--text-color);
     opacity: 1;
   }

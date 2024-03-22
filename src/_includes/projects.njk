@@ -7,20 +7,20 @@
   </a>
 {% endmacro -%}
 
-{%- macro githubify(list, repo) %}
+{%- macro iconButton(button) %}
   {%- set list -%}
-    {%- for item in list -%}
+    {%- for item in button.tags -%}
       {% if loop.last %}and {% endif %}{{ item }}{% if not loop.last %}, {% endif %}
     {%- endfor -%}
   {%- endset -%}
-  {%- set label = "View code on GitHub: " + list -%}
+  {%- set label = button.label + " " + list -%}
   <a
     aria-label="{{ label }}"
-    class="repo"
-    href="{{ repo }}"
+    class="icon-button"
+    href="{{ button.url }}"
     title="{{ label }}">
     <svg aria-hidden="true" viewbox="0 0 24 24">
-      <path d="{{ icons['github'] }}"/>
+      <path d="{{ icons[button.icon] }}"/>
     </svg>
   </a>
 {% endmacro -%}
@@ -47,8 +47,8 @@
             {%- endcall -%}
           </h3>
           <p>{{ project.copy }}</p>
-          {%- if project.repo -%}
-            {{ githubify(project.tags, project.repo) }}
+          {%- if project.button -%}
+            {{ iconButton(project.button) }}
           {%- endif -%}
         </figcaption>
       </figure>
