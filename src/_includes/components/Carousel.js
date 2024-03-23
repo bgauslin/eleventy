@@ -330,9 +330,6 @@ class Carousel extends HTMLElement {
       }
 
       button.touch {
-        background-color: var(--text-color);
-        border-color: transparent;
-        color: var(--fill-0);
         transform: scale(.8);
       }
 
