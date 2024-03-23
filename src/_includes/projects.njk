@@ -1,19 +1,24 @@
 {%- macro linkify(href, title, tabindex=null) %}
   <a
     href="{{ href }}"
-    title="View {{ title }}"
+    title="{{ title }}"
     {%- if tabindex %} tabindex="{{ tabindex }}"{% endif %}>
     {{- caller() -}}
   </a>
 {% endmacro -%}
 
 {%- macro iconButton(button) %}
-  {%- set list -%}
-    {%- for item in button.tags -%}
-      {% if loop.last %}and {% endif %}{{ item }}{% if not loop.last %}, {% endif %}
-    {%- endfor -%}
-  {%- endset -%}
-  {%- set label = button.label + " " + list -%}
+  {%- if button.tags -%}
+    {%- set list -%}
+      {%- for item in button.tags -%}
+        {% if loop.last %}and {% endif %}{{ item }}{% if not loop.last %}, {% endif %}
+      {%- endfor -%}
+    {%- endset -%}
+    {%- set label = button.label + ": " + list -%}
+  {%- else -%}
+    {%- set label = button.label -%}
+  {%- endif -%}
+
   <a
     aria-label="{{ label }}"
     class="icon-button"
@@ -37,12 +42,12 @@
   {% for project in section.items -%}
     <li>
       <figure>
-        {%- call linkify(project.url, project.heading, -1) -%}
+        {%- call linkify(project.url, project.label, -1) -%}
           <img src="/img/{{ project.img }}" alt="">
         {%- endcall -%}
         <figcaption>
           <h3>
-            {%- call linkify(project.url, project.heading) -%}
+            {%- call linkify(project.url, project.label) -%}
               {{- project.heading -}}
             {%- endcall -%}
           </h3>

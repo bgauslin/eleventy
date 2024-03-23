@@ -9,20 +9,22 @@
         "copy": "Web adaptation of the film by Charles and Ray Eames.",
         "img": "ten.jpg",
         "url": "https://ten.gauslin.com",
+        "label": "View the app at ten.gauslin.com",
         "button": {
-          "label": "GitHub",
+          "label": "View code on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/ten/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
       {
-        "heading": "Calorie Calculator",
+        "heading": "Calories",
         "copy": "PWA for determining daily calorie needs.",
         "img": "calories.png",
         "url": "https://calories.gauslin.com",
+        "label": "View the app at calories.gauslin.com",
         "button": {
-          "label": "GitHub",
+          "label": "View code on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/calories/tree/main/src",
           "tags": ["TypeScript", "Custom Elements", "Sass"]
@@ -33,8 +35,9 @@
         "copy": "A grid of clock faces that reveal patterns over time.",
         "img": "clock.png",
         "url": "https://clock.gauslin.com",
+        "label": "View the app at clock.gauslin.com",
         "button": {
-          "label": "GitHub",
+          "label": "View code on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/clock/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
@@ -45,20 +48,22 @@
         "copy": "PWA for location-based moorise, moonset, and lunar phase.",
         "img": "moon.png",
         "url": "https://moon.gauslin.com",
+        "label": "View the app at moon.gauslin.com",
         "button": {
-          "label": "GitHub",
+          "label": "View code on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/moon/tree/main/src",
           "tags": ["TypeScript", "Custom Elements", "SVG", "Sass"]
         }
       },
       {
-        "heading": "Compound Interest Calculator",
+        "heading": "Compound Interest",
         "copy": "Web app with support for multiple currencies.",
         "img": "interest.png",
         "url": "https://interest.gauslin.com",
+        "label": "View the app at interest.gauslin.com",
         "button": {
-          "label": "GitHub",
+          "label": "View code on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/interest/tree/main/src",
           "tags": ["TypeScript", "Lit", "Sass"]
@@ -75,19 +80,22 @@
         "heading": "Barge Board Shotgun Renovation",
         "copy": "Breathing new life into an 1890s barge board shotgun house.",
         "img": "shotgun-front.jpg",
-        "url": "/slides/shotgun"
+        "url": "/slides/shotgun",
+        "label": "View slideshow"
       },
       {
         "heading": "House for an Art Collector",
         "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
         "img": "hfac-hall.jpg",
-        "url": "https://sckarchitecture.com/house-for-an-art-collector"
+        "url": "https://sckarchitecture.com/house-for-an-art-collector",
+        "label": "View project on the SCK Architecture website"
       },
       {
         "heading": "Travel Sketches and Collages",
         "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
         "img": "sketch-piazza.jpg",
-        "url": "/slides/europa"
+        "url": "/slides/europa",
+        "label": "View slideshow"
       }
     ]
   },
@@ -100,25 +108,39 @@
         "heading": "The Pietasters",
         "copy": "Co-founder of 8-piece ska band with a career spanning over 30 years.",
         "img": "piestomp.jpg",
-        "url": "https://en.wikipedia.org/wiki/The_Pietasters"
+        "url": "https://en.wikipedia.org/wiki/The_Pietasters",
+        "label": "View Wikipedia article",
+        "button": {
+          "label": "Listen to the Piestomp album on Apple Music",
+          "icon": "headphones",
+          "url": "https://music.apple.com/us/album/the-pietasters/279772735"
+        }
       },
       {
         "heading": "Thump Daddy",
         "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
         "img": "thumpdaddy.png",
-        "url": "https://southeasternattractions.com/thump-daddy/"
+        "url": "https://southeasternattractions.com/thump-daddy/",
+        "label": "View the song list and demo video",
+        "button": {
+          "label": "Listen to the demo on Bandcamp",
+          "icon": "headphones",
+          "url": "https://thumpdaddy.bandcamp.com/album/get-thumped"
+        }
       },
       {
         "heading": "SomNoSom",
         "copy": "Recording isolated drum, bass, and keyboard tracks across timezones.",
         "img": "somnosom.jpg",
-        "url": "https://bentaylorsfinesthour.bandcamp.com/track/stop-look-think-2"
+        "url": "https://bentaylorsfinesthour.bandcamp.com/track/stop-look-think-2",
+        "label": "Listen to the Stop Look Think track on Bandcamp"
       },
       {
         "heading": "Twelve Modern",
         "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
         "img": "twelve-modern.jpg",
-        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts"
+        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
+        "label": "Listen to the Like Ghosts album on Bandcamp"
       }
     ]
   }
