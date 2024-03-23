@@ -19,7 +19,7 @@
       },
       {
         "heading": "Calories",
-        "copy": "PWA for determining daily calorie needs.",
+        "copy": "PWA for calculating daily calorie needs.",
         "img": "calories.png",
         "url": "https://calories.gauslin.com",
         "label": "View the app at calories.gauslin.com",
@@ -81,7 +81,24 @@
         "copy": "Breathing new life into an 1890s barge board shotgun house.",
         "img": "shotgun-front.jpg",
         "url": "/slides/shotgun",
-        "label": "View slideshow"
+        "label": "View slideshow",
+        "button": {
+          "label": "View code for the carousel web component on GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js"
+        }
+      },
+      {
+        "heading": "Travel Sketches and Collages",
+        "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
+        "img": "sketch-piazza.jpg",
+        "url": "/slides/europa",
+        "label": "View slideshow",
+        "button": {
+          "label": "View code for the carousel web component on GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/11ty/blob/main/src/_includes/components/Carousel.js"
+        }
       },
       {
         "heading": "House for an Art Collector",
@@ -89,13 +106,6 @@
         "img": "hfac-hall.jpg",
         "url": "https://sckarchitecture.com/house-for-an-art-collector",
         "label": "View project on the SCK Architecture website"
-      },
-      {
-        "heading": "Travel Sketches and Collages",
-        "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
-        "img": "sketch-piazza.jpg",
-        "url": "/slides/europa",
-        "label": "View slideshow"
       }
     ]
   },
@@ -108,24 +118,24 @@
         "heading": "The Pietasters",
         "copy": "Co-founder of 8-piece ska band with a career spanning over 30 years.",
         "img": "piestomp.jpg",
-        "url": "https://en.wikipedia.org/wiki/The_Pietasters",
-        "label": "View Wikipedia article",
+        "url": "https://music.apple.com/us/album/the-pietasters/279772735",
+        "label": "Listen to the Piestomp album on Apple Music",
         "button": {
-          "label": "Listen to the Piestomp album on Apple Music",
-          "icon": "headphones",
-          "url": "https://music.apple.com/us/album/the-pietasters/279772735"
+          "label": "View Wikipedia article about The Pietasters",
+          "icon": "info",
+          "url": "https://en.wikipedia.org/wiki/The_Pietasters"
         }
       },
       {
         "heading": "Thump Daddy",
         "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
         "img": "thumpdaddy.png",
-        "url": "https://southeasternattractions.com/thump-daddy/",
-        "label": "View the song list and demo video",
+        "url": "https://thumpdaddy.bandcamp.com/album/get-thumped",
+        "label": "Listen to the demo on Bandcamp",
         "button": {
-          "label": "Listen to the demo on Bandcamp",
-          "icon": "headphones",
-          "url": "https://thumpdaddy.bandcamp.com/album/get-thumped"
+          "url": "https://southeasternattractions.com/thump-daddy/",  
+          "icon": "info",
+          "label": "View the song list and demo video"
         }
       },
       {
