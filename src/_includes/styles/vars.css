@@ -49,12 +49,12 @@
 
     /* Dark mode theming. */
     --fill-0: black;
-    --fill-0a: rgba(0, 0, 0, .1);
+    --fill-0a: rgba(0, 0, 0, .7);
     --fill-1: var(--gray6);
-    --fill-1a: rgba(28, 28, 30, .1);
+    --fill-1a: rgba(28, 28, 30, .7);
     --fill-2: var(--gray5);
-    --fill-2a: rgba(44, 44, 46, .1);
-    --fill-3: var(--gray3);
+    --fill-2a: rgba(44, 44, 46, .7);
+    --fill-3: var(--gray4);
     --link-color: CornflowerBlue;
     --link-focus-color: DarkOrange;
     --link-visited-color: MediumPurple;
