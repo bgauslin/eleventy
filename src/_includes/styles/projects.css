@@ -71,25 +71,7 @@ details[id='music'] {
   place-self: start;
 }
 
-/**
- * Icon button for additional link.
- */
-.icon-button {
+.projects .icon-button {
   grid-area: icon;
-  opacity: .5;
 }
 
-.icon-button:is(:link, :visited, :focus) {
-  color: var(--text-color);
-}
-
-.icon-button:focus {
-  opacity: 1;
-}
-
-@media (any-hover: hover) {
-  .icon-button:hover {
-    color: var(--text-color);
-    opacity: 1;
-  }
-}
