@@ -8,7 +8,6 @@ details {
   border: var(--border, none);
   border-radius: var(--details-border-radius, var(--border-radius)); 
   margin-block: var(--details-margin-block, var(--gap));
-  overflow: auto;
 }
 
 /**

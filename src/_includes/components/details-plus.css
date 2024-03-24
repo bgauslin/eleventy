@@ -3,7 +3,7 @@
  */
 details-plus > details { 
   block-size: var(--block-size, var(--summary-block-size));
-  overflow: auto;
+  overflow: hidden;
   scrollbar-width: none;
   transition: block-size var(--transition);
 }
