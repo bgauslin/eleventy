@@ -279,8 +279,6 @@ class Carousel extends HTMLElement {
       }
       
       :is(button, .counter) {
-        -webkit-backdrop-filter: var(--backdrop-filter);
-        backdrop-filter: var(--backdrop-filter);
         block-size: var(--button-size);
         border-radius: var(--button-size);
         z-index: 2;
@@ -288,13 +286,13 @@ class Carousel extends HTMLElement {
 
       button {
         appearance: none;
-        background-color: var(--fill-2a);
+        background-color: var(--fill-2);
         border: none;
         color: var(--text-color);
         cursor: pointer;
         outline: none;
         place-self: center;
-        transition: background-color var(--transition), border var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
+        transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
       }
       
       button:focus-visible {
@@ -347,7 +345,7 @@ class Carousel extends HTMLElement {
 
       .counter {
         display: grid;
-        background-color: var(--fill-0a);
+        background-color: var(--fill-0);
         font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
         padding-inline: 1em;
