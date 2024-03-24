@@ -75,3 +75,9 @@ details[id='music'] {
   grid-area: icon;
 }
 
+svg.info path {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}

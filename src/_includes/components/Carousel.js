@@ -278,7 +278,7 @@ class Carousel extends HTMLElement {
         z-index: 1;
       }
       
-      :is(.counter, button) {
+      :is(button, .counter) {
         -webkit-backdrop-filter: var(--backdrop-filter);
         backdrop-filter: var(--backdrop-filter);
         block-size: var(--button-size);
@@ -286,24 +286,10 @@ class Carousel extends HTMLElement {
         z-index: 2;
       }
 
-      .counter {
-        display: grid;
-        background-color: var(--fill-0a);
-        font-size: var(--font-size-small);
-        grid-area: var(--counter-grid-area);
-        padding-inline: 1em;
-        place-content: center;
-        place-self: center;
-      }
-
-      .counter span {
-        opacity: var(--text-opacity);
-      }
-      
       button {
         appearance: none;
-        background-color: var(--fill-1a);
-        border: var(--border);
+        background-color: var(--fill-2a);
+        border: none;
         color: var(--text-color);
         cursor: pointer;
         outline: none;
@@ -313,14 +299,12 @@ class Carousel extends HTMLElement {
       
       button:focus-visible {
         background-color: var(--text-color);
-        border: transparent;
         color: var(--fill-0);
       }
 
       @media (any-hover: hover) {
         button:hover {
           background-color: var(--text-color);
-          border-color: transparent;
           color: var(--fill-0);
         }
         
@@ -338,27 +322,41 @@ class Carousel extends HTMLElement {
         pointer-events: none;
       }
 
-      [data-direction] {
+      button[data-direction] {
         aspect-ratio: 1;
         display: grid;
         grid: 1fr / 1fr;
         place-items: center;
       }
 
-      [data-direction='prev'] {
+      button[data-direction='prev'] {
         grid-area: var(--prev-grid-area);
       }
       
-      [data-direction='next'] {
+      button[data-direction='next'] {
         grid-area: var(--next-grid-area);
       }
 
-      svg {
+      button svg {
         block-size: 24px;
         fill: none;
         pointer-events: none;
         stroke: currentColor;
         stroke-width: 3px;
+      }
+
+      .counter {
+        display: grid;
+        background-color: var(--fill-0a);
+        font-size: var(--font-size-small);
+        grid-area: var(--counter-grid-area);
+        padding-inline: 1em;
+        place-content: center;
+        place-self: center;
+      }
+
+      .counter span {
+        opacity: var(--text-opacity);
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
