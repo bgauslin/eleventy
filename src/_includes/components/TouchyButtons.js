@@ -6,8 +6,8 @@ class TouchyButtons extends HTMLElement {
   }
 
   connectedCallback() {
-    document.addEventListener('touchstart', this.start);
-    document.addEventListener('touchend', this.end);
+    document.addEventListener('touchstart', this.start, {passive: true});
+    document.addEventListener('touchend', this.end, {passive: true});
   }
 
   disconnectedCallback() {
