@@ -21,6 +21,7 @@ summary {
   display: flex; /* [1] */
   opacity: var(--text-opacity);
   outline: none;
+  padding-inline: 1em 1.25em;
   transition: opacity var(--transition) ease;
 }
 
@@ -52,7 +53,7 @@ summary::after {
 /**
  * Expandable content.
  */
-details > :is(summary, p) {
+details > p {
   padding-inline: 1em;
 }
 
