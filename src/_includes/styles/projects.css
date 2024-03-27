@@ -30,7 +30,7 @@
 }
 
 .projects:has(.icon-button) {
-  --figcaption-grid: 'heading icon' 'blurb icon' / 1fr var(--button-icon-size);
+  --figcaption-grid: 'heading icon' 'blurb blurb' / 1fr var(--button-icon-size);
   --figcaption-padding-inline: 0 .75em;
 }
 
@@ -61,14 +61,12 @@ details[id='music'] {
 
 .projects h3 {
   grid-area: heading;
-  place-self: end start;
 }
 
 .projects p {
   font-size: var(--font-size-small);
   grid-area: blurb;
   margin: 0;
-  place-self: start;
 }
 
 .projects .icon-button {
