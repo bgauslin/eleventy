@@ -2,11 +2,11 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Web widgets and progressive web apps made with <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Web_components\" title=\"MDN documentation\">Web Components</a> and <a href=\"https://www.w3.org/standards/\" title=\"Why W3C web standards?\">W3C web standards</a>.",
+    "description": "Web apps built with <a href=\"http://vanilla-js.com/\" title=\"A fast, lightweight, cross-platform framework for building powerful applications\">Vanilla JS</a>, <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Web_components\" title=\"MDN documentation\">Web Components</a>, and <a href=\"https://www.w3.org/standards/\" title=\"Why W3C web standards?\">W3C web standards</a>.",
     "items": [
       {
         "heading": "Powers Of Ten",
-        "copy": "Web adaptation of the film by Charles and Ray Eames.",
+        "copy": "Adaptation of the film by Charles and Ray Eames.",
         "img": "ten.jpg",
         "url": "https://ten.gauslin.com",
         "label": "View the app at ten.gauslin.com",
@@ -19,7 +19,7 @@
       },
       {
         "heading": "Calories",
-        "copy": "PWA for calculating daily calorie needs.",
+        "copy": "Calculator for daily calorie needs.",
         "img": "calories.png",
         "url": "https://calories.gauslin.com",
         "label": "View the app at calories.gauslin.com",
@@ -45,7 +45,7 @@
       },
       {
         "heading": "Moon",
-        "copy": "PWA for location-based moorise, moonset, and lunar phase.",
+        "copy": "Location-based moorise, moonset, and lunar phase.",
         "img": "moon.png",
         "url": "https://moon.gauslin.com",
         "label": "View the app at moon.gauslin.com",
@@ -58,7 +58,7 @@
       },
       {
         "heading": "Compound Interest",
-        "copy": "Web app with support for multiple currencies.",
+        "copy": "Calculator with support for multiple currencies.",
         "img": "interest.png",
         "url": "https://interest.gauslin.com",
         "label": "View the app at interest.gauslin.com",
@@ -112,13 +112,6 @@
         "label": "Listen to the Piestomp album on Apple Music"
       },
       {
-        "heading": "Twelve Modern",
-        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
-        "img": "twelve-modern.jpg",
-        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
-        "label": "Listen to the Like Ghosts album on Bandcamp"
-      },
-      {
         "heading": "SomNoSom",
         "copy": "Recording isolated drum, bass, and keyboard tracks across timezones.",
         "img": "somnosom.jpg",
@@ -131,6 +124,13 @@
         "img": "thumpdaddy.png",
         "url": "https://thumpdaddy.bandcamp.com/album/get-thumped",
         "label": "Listen to the demo on Bandcamp"
+      },
+      {
+        "heading": "Twelve Modern",
+        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
+        "img": "twelve-modern.jpg",
+        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
+        "label": "Listen to the Like Ghosts album on Bandcamp"
       }
     ]
   }
