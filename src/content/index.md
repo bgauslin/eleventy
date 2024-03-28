@@ -15,13 +15,7 @@ classname: home
     </summary>
 
     Hello, I’m an ex-Google engineer and former Chicago architect who currently
-    lives in New Orleans.
-    
-    After formal training on percussion, drumset, and bass guitar, I earned a
-    [degree in Architecture][vt-arch] and began teaching myself code during
-    the [dot-com bubble][bubble].
-    
-    I craft apps, spaces, and songs...
+    lives in New Orleans. I develop apps, design buildings, and make music.
 
     <img src="img/selfie.jpg" alt="" class="avatar">
   </details>
