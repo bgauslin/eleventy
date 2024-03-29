@@ -14,12 +14,9 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m an ex-Google engineer and former Chicago architect who currently
-    lives in New Orleans.
-    
-    I develop apps, design buildings, and make music.
+    Hello, I’m an ex-Google engineer and former Chicago architect who currently lives in New Orleans. I develop apps, design buildings, and make music.
 
-    When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and electric bass.
+    When I’m not renovating my 140-year old house in the Vieux Carré, I spend quality time with friends, family, and the electric bass.
 
     <img src="img/selfie.jpg" alt="" class="avatar">
   </details>
