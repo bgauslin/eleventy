@@ -5,7 +5,7 @@ details-plus > details {
   block-size: var(--block-size, var(--summary-block-size));
   overflow: hidden;
   scrollbar-width: none;
-  transition: block-size var(--transition) ease-in;
+  transition: block-size var(--transition);
 }
 
 details-plus > details::-webkit-scrollbar {
