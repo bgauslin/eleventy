@@ -1,9 +1,13 @@
 /**
  * Light DOM styles for adding open/close transitions to <details> elements.
  */
-details-plus > details { 
+details-plus:defined > details { 
   block-size: var(--block-size, var(--summary-block-size));
   overflow: hidden;
+  will-change: block-size;
+}
+
+details-plus > details {
   scrollbar-width: none;
   transition: block-size var(--transition);
 }
