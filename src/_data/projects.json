@@ -2,7 +2,7 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Web apps built with <a href=\"http://vanilla-js.com/\" title=\"A fast, lightweight, cross-platform framework for building powerful applications\">Vanilla JS</a> and <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Web_components\" title=\"MDN documentation\">Web Components</a>.",
+    "description": "Web apps built with TypeScript and Web Components.",
     "items": [
       {
         "heading": "Powers Of Ten",
