@@ -19,6 +19,7 @@
 
   /* Slideshow blurb. */
   --figcaption-grid-area: blurb;
+  --figcaption-place-self: center start;
   
   /* Slideshow thumbnail. */
   --img-aspect-ratio: 1;
