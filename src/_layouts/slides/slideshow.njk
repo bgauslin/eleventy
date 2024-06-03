@@ -4,13 +4,21 @@ layout: base
 {%- set domain = 'https://assets.gauslin.com' -%}
 {%- set imagePath = '/images/' -%}
 
+ {# TODO: Fine-tune responsive image sizes for portrait vs. landscape. #}
 {%- macro renderImage(image, slug, loading) %}
   {%- set imageUrl = domain + imagePath + slug + '/' + image.src %}
-  {%- set small = imageUrl + '@small.webp 600w' %}
-  {%- set medium = imageUrl + '@medium.webp 900w' %}
-  {%- set large = imageUrl + '@large.webp 1200w' %}
-  {%- set sizes = '(min-width: 1440px) 900px, 100vw' %}
   {%- set orientation = 'landscape' if image.height < image.width else 'portrait' %}
+  {%- if orientation == 'portrait' -%}
+    {%- set small = imageUrl + '@small.webp 400w' %}
+    {%- set medium = imageUrl + '@medium.webp 600w' %}
+    {%- set large = imageUrl + '@large.webp 900w' %}
+    {%- set sizes = '(min-width: 1440px) 600px, 66vw' %}
+  {%- else -%}
+    {%- set small = imageUrl + '@small.webp 600w' %}
+    {%- set medium = imageUrl + '@medium.webp 900w' %}
+    {%- set large = imageUrl + '@large.webp 1200w' %}
+    {%- set sizes = '(min-width: 1440px) 900px, 100vw' %}
+  {%- endif -%}
   <img
     alt=""
     data-orientation="{{ orientation }}"
