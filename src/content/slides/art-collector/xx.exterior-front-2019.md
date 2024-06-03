@@ -1,8 +1,8 @@
 ---
-slug: exterior-front-3
+slug: from-street
 title: Exterior from the street
 images:
-  - src: exterior-oblique
+  - src: exterior-front-2019
     width: 900
     height: 600
 ---

@@ -1,5 +1,5 @@
 ---
-slug: kitchen-detail
+slug: counter-detail
 title: Detail at Kitchen counter
 images:
   - src: kitchen-detail-corner

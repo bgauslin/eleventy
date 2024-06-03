@@ -1,5 +1,5 @@
 ---
-slug: kitchen-pantry
+slug: pantry-closed
 title: Kitchen pantry
 images:
   - src: kitchen-pantry-closed
