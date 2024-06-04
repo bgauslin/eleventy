@@ -1,19 +1,18 @@
-const BUTTONS = [
-  {
-    direction: 'prev',
-    label: 'Previous slide',
-    path: 'M15,4 L7,12 L15,20',
-  },
-  {
-    direction: 'next',
-    label: 'Next slide',
-    path: 'M9,4 L17,12 L9,20',
-  },
-];
-
 class Carousel extends HTMLElement {
   constructor() {
     super();
+    this.buttons = [
+      {
+        direction: 'prev',
+        label: 'Previous slide',
+        path: 'M15,4 L7,12 L15,20',
+      },
+      {
+        direction: 'next',
+        label: 'Next slide',
+        path: 'M9,4 L17,12 L9,20',
+      },
+    ];
   }
 
   connectedCallback() {
@@ -76,7 +75,7 @@ class Carousel extends HTMLElement {
    */
   createButton(direction) {
     const button = document.createElement('button');
-    const {label, path} = BUTTONS.find(button => button.direction === direction);
+    const {label, path} = this.buttons.find(button => button.direction === direction);
 
     button.ariaLabel = label;
     button.dataset.direction = direction;
