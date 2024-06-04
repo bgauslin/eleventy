@@ -1,3 +1,6 @@
+/**
+ * Adds/removes a 'class' attribute to touch targets for CSS transitions.
+ */	
 class TouchyButtons extends HTMLElement {
   constructor() {
     super();
@@ -16,8 +19,7 @@ class TouchyButtons extends HTMLElement {
   }
 
   touchstart(event) {
-    const composed = event.composedPath();
-    this.target = composed[0];
+    this.target = event.composedPath()[0];
 
     if (this.target.tagName === 'BUTTON' ||
         this.target.classList.contains('button')) {

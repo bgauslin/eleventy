@@ -1,3 +1,7 @@
+/**
+ * Carousel web component that reflects slides in a shadow DOM slot and adds
+ * buttons and a counter.
+ */
 class Carousel extends HTMLElement {
   constructor() {
     super();
@@ -235,9 +239,7 @@ class Carousel extends HTMLElement {
    * @param {Event} event
    */
   handleClick(event) {
-    const path = event.composedPath();
-    const direction = path[0].dataset.direction;
-    
+    const direction = event.composedPath()[0].dataset.direction;
     if (direction) {
       this.scrollToItem(direction);
     }
