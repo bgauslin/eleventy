@@ -1,7 +1,7 @@
 [
   {
-    "heading": "Web",
-    "id": "web",
+    "heading": "Code",
+    "id": "code",
     "description": "Web apps built with TypeScript and Web Components.",
     "items": [
       {
@@ -18,16 +18,16 @@
         }
       },
       {
-        "heading": "Calories",
-        "copy": "Calculator for daily calorie needs.",
-        "img": "calories.png",
-        "url": "https://calories.gauslin.com",
-        "label": "View the app at calories.gauslin.com",
+        "heading": "Moon",
+        "copy": "Location-based moorise, moonset, and lunar phase.",
+        "img": "moon.png",
+        "url": "https://moon.gauslin.com",
+        "label": "View the app at moon.gauslin.com",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/calories/tree/main/src",
-          "tags": ["TypeScript", "Custom Elements", "Sass"]
+          "url": "https://github.com/bgauslin/moon/tree/main/src",
+          "tags": ["TypeScript", "Custom Elements", "SVG", "Sass"]
         }
       },
       {
@@ -44,16 +44,16 @@
         }
       },
       {
-        "heading": "Moon",
-        "copy": "Location-based moorise, moonset, and lunar phase.",
-        "img": "moon.png",
-        "url": "https://moon.gauslin.com",
-        "label": "View the app at moon.gauslin.com",
+        "heading": "Calories",
+        "copy": "Calculator for daily calorie needs.",
+        "img": "calories.png",
+        "url": "https://calories.gauslin.com",
+        "label": "View the app at calories.gauslin.com",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/moon/tree/main/src",
-          "tags": ["TypeScript", "Custom Elements", "SVG", "Sass"]
+          "url": "https://github.com/bgauslin/calories/tree/main/src",
+          "tags": ["TypeScript", "Custom Elements", "Sass"]
         }
       },
       {
