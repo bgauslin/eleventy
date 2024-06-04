@@ -4,6 +4,7 @@ permalink: slides/shotgun.html
 slug: shotgun
 tags: slideshow
 classname: slideshow
+order: 1
 
 title: Barge Board Shotgun Renovation
 description: Breathing new life into an 1890s barge board shotgun house.

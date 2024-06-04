@@ -8,13 +8,25 @@ module.exports = (eleventyConfig) => {
       new Nunjucks.FileSystemLoader('src/_includes'));
   eleventyConfig.setLibrary('njk', nunjucksEnvironment);
 
+  // Custom ordering of slideshows on 'slides' landing page.
+  eleventyConfig.addCollection('slideshow', (collection) =>
+    collection
+      .getAll()
+      .filter((item) => {
+        return 'order' in item.data;
+      })
+      .sort((a, b) => {
+        return (a.data.order || 0) - (b.data.order || 0);
+      })
+  );
+
   // CSS minification.  
   eleventyConfig.addFilter('cssmin', (code) => {
     return new CleanCSS({}).minify(code).styles;
   });
 
   // JS minification.
-  eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (
+  eleventyConfig.addNunjucksAsyncFilter('jsmin', async () => (
     code,
     callback
   ) {

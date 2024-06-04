@@ -4,6 +4,7 @@ permalink: slides/europa.html
 slug: europa
 tags: slideshow
 classname: slideshow
+order: 2
 
 title: Travel Sketches and Collages
 description: Documenting travel abroad with pen, pencil, and found materials.
