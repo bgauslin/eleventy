@@ -1,5 +1,5 @@
 const CleanCSS = require('clean-css');
-const { minify } = require('terser');
+const {minify} = require('terser');
 const Nunjucks = require('nunjucks');
 
 module.exports = (eleventyConfig) => {
@@ -26,10 +26,7 @@ module.exports = (eleventyConfig) => {
   });
 
   // JS minification.
-  eleventyConfig.addNunjucksAsyncFilter('jsmin', async () => (
-    code,
-    callback
-  ) {
+  eleventyConfig.addNunjucksAsyncFilter('jsmin', async (code, callback) => {
     try {
       const minified = await minify(code);
       callback(null, minified.code);
