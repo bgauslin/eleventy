@@ -39,7 +39,7 @@ details:has(.projects) {
   --details-margin-block: 0;
 }
 
-details[id='web'] {
+details[id='code'] {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
