@@ -5,13 +5,13 @@ layout: base
 {% for item in collections.slideshow -%}
   {%- set heading = item.data.title | safe %}
   {%- set linkTitle = 'View slideshow for ' + heading %}
-  {%- set imageUrl = 'https://assets.gauslin.com/images/' + item.data.slug + '/' + item.data.image.src + '@small.webp' %}
+  {%- set imagePath = '/images/' + item.data.slug + '/' + item.data.image.src + '@small.webp' %}
   {%- set imageWidth = item.data.image.width %}
   {%- set imageHeight = item.data.image.height %}
   {%- set permalink = item.data.permalink | replace('.html', '') %}
   <figure>
     <a href="/{{ permalink }}" title="{{ linkTitle }}" tabindex="-1">
-      <img alt="" src="{{ imageUrl }}" width="{{ imageWidth }}" height="{{ imageHeight }}">
+      <img alt="" src="{{ imagePath }}" width="{{ imageWidth }}" height="{{ imageHeight }}">
     </a>
     <figcaption> 
       <h2>
