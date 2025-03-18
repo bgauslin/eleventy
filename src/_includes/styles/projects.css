@@ -25,12 +25,12 @@
   --figcaption-inline-size: 100%;
   --figcaption-padding-block: .75em;
   --figcaption-padding-inline: 0 1.5em;
-  --figcaption-place-items: center start;
+  --figcaption-place-items: end start;
   --figcaption-place-self: stretch;
 }
 
 .projects:has(.icon-button) {
-  --figcaption-grid: 'heading icon' 'blurb blurb' / 1fr var(--button-icon-size);
+  --figcaption-grid: 'heading icon' 'blurb icon' / 1fr var(--button-icon-size);
   --figcaption-padding-inline: 0 .75em;
 }
 
@@ -59,18 +59,25 @@ details[id='music'] {
   border-block-start: .5px solid var(--gray3);
 }
 
+.projects :where(h3, p) {
+  font-size: var(--font-size-small);
+  line-height: 1.4;
+}
+
 .projects h3 {
+  align-self: end;
   grid-area: heading;
 }
 
 .projects p {
-  font-size: var(--font-size-small);
+  align-self: start;
   grid-area: blurb;
   margin: 0;
 }
 
 .projects .icon-button {
   grid-area: icon;
+  place-self: center;
 }
 
 svg.info path {
