@@ -16,7 +16,7 @@ classname: home
 
     Hello, I’m an ex-Google engineer and former Chicago architect who currently lives in Madrid.
 
-    <img src="img/selfie.jpg" alt="" class="avatar">
+    <img src="images/selfie.jpg" alt="" class="avatar">
   </details>
 
   {% include 'projects.njk' %}

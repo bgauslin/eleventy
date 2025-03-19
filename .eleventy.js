@@ -40,9 +40,9 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/.htaccess');
   eleventyConfig.addPassthroughCopy('src/apple-touch-icon.png');
   eleventyConfig.addPassthroughCopy('src/favicon.svg');
-  eleventyConfig.addPassthroughCopy({'src/files/*.*': 'files'});
-  eleventyConfig.addPassthroughCopy({'src/fonts/*.*': 'fonts'});
-  eleventyConfig.addPassthroughCopy({'src/img/*.*': 'img'});
+  eleventyConfig.addPassthroughCopy('src/files/*.*');
+  eleventyConfig.addPassthroughCopy('src/fonts/*.*');
+  eleventyConfig.addPassthroughCopy('src/images/**/*.*');
 
   // Show IP address for device testing.
   eleventyConfig.setServerOptions({
