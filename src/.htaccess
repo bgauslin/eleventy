@@ -9,8 +9,8 @@ ErrorDocument 404 /404.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 
-# Allow API access.
-<FilesMatch "\.(json)$">
+# Allow remote access to shared assets.
+<FilesMatch "\.(json|webp|woff2)$">
   Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
 
@@ -28,7 +28,7 @@ Header set Connection keep-alive
 </FilesMatch>
 
 # Browser caching for static assets.
-<FilesMatch "\.(css|jpg|jpeg|png|gif|js|ico|webp|woff2)$">
+<FilesMatch "\.(css|gif|ico|jpg|jpeg|js|png|webp|woff2)$">
   Header set Cache-Control "max-age=2592000, public"
 </FilesMatch>
 
