@@ -72,6 +72,7 @@
  * Slide copy.
  */
 .slideshow figcaption {
+  font-size: var(--font-size-small);
   grid-area: var(--figcaption-grid-area);
 }
 
