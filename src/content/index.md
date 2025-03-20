@@ -9,12 +9,18 @@ classname: home
 # Ben Gauslin
 
 <details-plus accordion>
-  <details id="about">
+  <details id="about" open>
     <summary>
       <h2>About</h2>
     </summary>
 
-    Hello, I’m an ex-Google engineer and former Chicago architect who currently lives in Madrid.
+    Hello, I’m a former Chicago architect, design professor, and Google engineer who also plays drumkit and fretless bass because why not?
+    
+    I like to make things and discover stuff and live in Madrid these days, where I am currently learning Spanish the hard way.
+    
+    <small>_...que es muy lento pero muy emocionante y mucho más valioso._</small>
+    
+    <small>_¡Bienvenidos y gracias por visitarnos!_</small>
 
     <img src="images/selfie.jpg" alt="" class="avatar">
   </details>
@@ -32,8 +38,3 @@ classname: home
 
   </details>
 </details-plus>
-
-
-[bubble]: https://en.wikipedia.org/wiki/Dot-com_bubble "Wikipedia article about the dot-com boom and bust of the late 90s"
-[vieux-carre]: https://en.wikipedia.org/wiki/French_Quarter "Wikipedia article about New Orleans’ French Quarter"
-[vt-arch]: https://arch.vt.edu/ "College of Architecture at Virginia Tech"
