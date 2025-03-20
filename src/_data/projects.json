@@ -7,7 +7,7 @@
       {
         "heading": "Clock",
         "copy": "A grid of clock faces that reveal patterns over time.",
-        "img": "clock.png",
+        "image": "clock.png",
         "url": "/clock/",
         "label": "View the Clock app",
         "button": {
@@ -20,7 +20,7 @@
       {
         "heading": "Moon",
         "copy": "Location-based moorise, moonset, and lunar phase.",
-        "img": "moon.png",
+        "image": "moon.png",
         "url": "/moon/",
         "label": "View the Moon app",
         "button": {
@@ -33,7 +33,7 @@
       {
         "heading": "Powers Of Ten",
         "copy": "Adaptation of the film by Charles and Ray Eames.",
-        "img": "ten.jpg",
+        "image": "ten.jpg",
         "url": "/ten/",
         "label": "View the Powers Of Ten app",
         "button": {
@@ -46,7 +46,7 @@
       {
         "heading": "Calories",
         "copy": "Calculator for daily calorie needs.",
-        "img": "calories.png",
+        "image": "calories.png",
         "url": "/calories/",
         "label": "View the Calories app",
         "button": {
@@ -59,7 +59,7 @@
       {
         "heading": "Compound Interest",
         "copy": "Calculator with support for multiple currencies.",
-        "img": "interest.png",
+        "image": "interest.png",
         "url": "/interest/",
         "label": "View the Compound Interest app",
         "button": {
@@ -79,21 +79,21 @@
       {
         "heading": "Barge Board Shotgun Renovation",
         "copy": "Breathing new life into an 1890s barge board shotgun house.",
-        "img": "shotgun-front.jpg",
+        "image": "shotgun-front.jpg",
         "url": "/slides/shotgun",
         "label": "View slideshow"
       },
       {
         "heading": "Travel Sketches and Collages",
         "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
-        "img": "sketch-piazza.jpg",
+        "image": "sketch-piazza.jpg",
         "url": "/slides/europa",
         "label": "View slideshow"
       },
       {
         "heading": "House for an Art Collector",
         "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
-        "img": "hfac-hall.jpg",
+        "image": "hfac-hall.jpg",
         "url": "https://sckarchitecture.com/house-for-an-art-collector",
         "label": "View project on the SCK Architecture website"
       }
@@ -107,28 +107,28 @@
       {
         "heading": "The Pietasters",
         "copy": "Co-founder of 8-piece ska band with a career spanning over 30 years.",
-        "img": "piestomp.jpg",
+        "image": "piestomp.jpg",
         "url": "https://music.apple.com/us/album/the-pietasters/279772735",
         "label": "Listen to the Piestomp album on Apple Music"
       },
       {
         "heading": "SomNoSom",
         "copy": "Recording isolated drum, bass, and keyboard tracks across timezones.",
-        "img": "somnosom.jpg",
+        "image": "somnosom.jpg",
         "url": "https://bentaylorsfinesthour.bandcamp.com/track/stop-look-think-2",
         "label": "Listen to the Stop Look Think track on Bandcamp"
       },
       {
         "heading": "Thump Daddy",
         "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
-        "img": "thumpdaddy.png",
+        "image": "thumpdaddy.png",
         "url": "https://thumpdaddy.bandcamp.com/album/get-thumped",
         "label": "Listen to the demo on Bandcamp"
       },
       {
         "heading": "Twelve Modern",
         "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
-        "img": "twelve-modern.jpg",
+        "image": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
         "label": "Listen to the Like Ghosts album on Bandcamp"
       }
