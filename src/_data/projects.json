@@ -1,19 +1,19 @@
 [
   {
-    "heading": "Code",
-    "id": "code",
-    "description": "Web apps built with TypeScript and Web Components.",
+    "heading": "Web Apps",
+    "id": "web",
+    "description": "Standalone browser-based applications made with Web Components and TypeScript.",
     "items": [
       {
-        "heading": "Powers Of Ten",
-        "copy": "Adaptation of the film by Charles and Ray Eames.",
-        "img": "ten.jpg",
-        "url": "/ten/",
-        "label": "View the Powers Of Ten app",
+        "heading": "Clock",
+        "copy": "A grid of clock faces that reveal patterns over time.",
+        "img": "clock.png",
+        "url": "/clock/",
+        "label": "View the Clock app",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/ten/tree/main/src",
+          "url": "https://github.com/bgauslin/clock/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
@@ -31,15 +31,15 @@
         }
       },
       {
-        "heading": "Clock",
-        "copy": "A grid of clock faces that reveal patterns over time.",
-        "img": "clock.png",
-        "url": "/clock/",
-        "label": "View the Clock app",
+        "heading": "Powers Of Ten",
+        "copy": "Adaptation of the film by Charles and Ray Eames.",
+        "img": "ten.jpg",
+        "url": "/ten/",
+        "label": "View the Powers Of Ten app",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/clock/tree/main/src",
+          "url": "https://github.com/bgauslin/ten/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
