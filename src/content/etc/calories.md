@@ -1,6 +1,6 @@
 ---
-layout: etc/calories.json
-permalink: api/etc/calories.json
+layout: calories.json
+permalink: api/calories.json
 ---
 # How the calories are calculated
 

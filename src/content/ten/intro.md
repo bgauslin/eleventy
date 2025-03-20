@@ -1,6 +1,6 @@
 ---
-layout: ten/intro.json
-permalink: api/ten/intro.json
+layout: ten-intro.json
+permalink: api/ten-intro.json
 
 title: Powers of Ten
 tagline: About the Relative Size of Things in the Universe

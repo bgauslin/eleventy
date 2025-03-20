@@ -1,5 +1,5 @@
 ---
-layout: slides/slideshow
+layout: slideshow
 permalink: slides/europa.html
 slug: europa
 tags: slideshow

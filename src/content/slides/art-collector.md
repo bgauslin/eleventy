@@ -1,5 +1,5 @@
 ---
-layout: slides/slideshow
+layout: slideshow
 permalink: slides/art-collector.html
 slug: art-collector
 tags: slideshow
