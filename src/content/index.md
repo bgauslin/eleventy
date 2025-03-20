@@ -18,9 +18,7 @@ classname: home
     
     I like to make things and discover stuff and live in Madrid these days, where I am currently learning Spanish the hard way.
     
-    <small>_...que es muy lento pero muy emocionante y mucho más valioso._</small>
-    
-    <small>_¡Bienvenidos y gracias por visitarnos!_</small>
+    <small>_...que es muy lento pero muy emocionante y mucho más valioso. ¡Bienvenidos y gracias por visitarme!_</small>
 
     <img src="images/selfie.jpg" alt="" class="avatar">
   </details>
