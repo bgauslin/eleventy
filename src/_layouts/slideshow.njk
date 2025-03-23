@@ -41,7 +41,10 @@ layout: base
     
         <figcaption>
           <h2>{{ item.data.title }}</h2>
+          
+          {%- if item.data.content -%}
           {{ item.data.content | safe }}
+          {%- endif -%}
           
           {%- if item.data.media and item.data.size %}
           <dl>
