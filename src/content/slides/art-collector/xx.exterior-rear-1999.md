@@ -6,4 +6,4 @@ images:
     width: 900
     height: 706
 ---
-Slide content goes here.
+🤔
