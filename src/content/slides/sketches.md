@@ -1,12 +1,12 @@
 ---
 layout: slideshow
-permalink: architecture/europa.html
-slug: europa
+permalink: architecture/sketches.html
+slug: sketches
 tags: slideshow
 classname: slideshow
 
-title: Travel Sketches and Collages
-description: Documenting travel abroad with pen, pencil, and found materials.
+title: Travel Sketches
+description: Documenting European architecture with pen and pencil.
 image:
   src: sketch-parc-de-la-villette
   width: 320

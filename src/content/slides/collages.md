@@ -6,7 +6,7 @@ tags: slideshow
 classname: slideshow
 
 title: Collages
-description: PLACE DESCRIPTION HERE
+description: Storytelling via the transformation of found materials.
 image:
   src: sketch-parc-de-la-villette
   width: 320
