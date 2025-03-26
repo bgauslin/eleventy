@@ -9,14 +9,12 @@ classname: home
 # Ben Gauslin
 
 <details-plus accordion>
-  <details id="about" open>
+  <details id="about">
     <summary>
       <h2>About</h2>
     </summary>
 
-    Hello, I’m a former Chicago architect, Google engineer, and design professor who also plays drumkit and fretless bass because, well, why not?
-    
-    I like to make things and discover stuff and live in Madrid these days, where I am currently learning Spanish the hard way.
+    Hello, I’m a former Chicago architect, Google engineer, and design professor who’s currently learning Spanish the hard way while living in Madrid.
     
     <small>_...que es muy lento pero muy emocionante y mucho más valioso. ¡Bienvenidos y gracias por visitarme!_</small>
 
