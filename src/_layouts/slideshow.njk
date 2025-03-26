@@ -54,6 +54,10 @@ layout: base
             <dd>{{ item.data.size }}</dd>
           </dl>
           {%- endif %}
+
+          {%- if item.data.message %}
+            <p class="message"><small>{{ item.data.message | safe }}</small></p>
+          {%- endif %}
         </figcaption>
       </figure>    
     </li>

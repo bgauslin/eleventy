@@ -14,7 +14,7 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m a former Chicago architect, design professor, and Google engineer who also plays drumkit and fretless bass because why not?
+    Hello, I’m a former Chicago architect, Google engineer, and design professor who also plays drumkit and fretless bass because, well, why not?
     
     I like to make things and discover stuff and live in Madrid these days, where I am currently learning Spanish the hard way.
     

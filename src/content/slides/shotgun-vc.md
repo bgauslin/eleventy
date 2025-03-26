@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: slides/shotgun-vc.html
+permalink: architecture/shotgun-vc.html
 slug: shotgun-vc
 tags: slideshow
 classname: slideshow

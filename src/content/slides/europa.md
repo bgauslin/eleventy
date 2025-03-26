@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: slides/europa.html
+permalink: architecture/europa.html
 slug: europa
 tags: slideshow
 classname: slideshow

@@ -1,8 +1,8 @@
 [
   {
-    "heading": "Web Apps",
+    "heading": "Web",
     "id": "web",
-    "description": "Standalone browser-based applications made with Web Components and TypeScript.",
+    "description": "Browser-based standalone applications made with Web Components and TypeScript.",
     "items": [
       {
         "heading": "Clock",
@@ -80,21 +80,21 @@
         "heading": "Barge Board Shotgun Renovation",
         "copy": "Breathing new life into an 1890s barge board shotgun house.",
         "image": "shotgun-front.jpg",
-        "url": "/slides/shotgun",
+        "url": "/architecture/shotgun",
         "label": "View slideshow"
       },
       {
         "heading": "Travel Sketches and Collages",
         "copy": "Documenting an experience abroad with pen, pencil, and found materials.",
         "image": "sketch-piazza.jpg",
-        "url": "/slides/europa",
+        "url": "/architecture/europa",
         "label": "View slideshow"
       },
       {
         "heading": "House for an Art Collector",
         "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
         "image": "hfac-hall.jpg",
-        "url": "https://sckarchitecture.com/house-for-an-art-collector",
+        "url": "/architecture/collector",
         "label": "View project on the SCK Architecture website"
       }
     ]
