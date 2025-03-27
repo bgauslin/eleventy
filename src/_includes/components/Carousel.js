@@ -56,20 +56,28 @@ class Carousel extends HTMLElement {
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
-    const slot = document.createElement('slot');
+    this.shadowRoot.innerHTML += `
+      <slot></slot>
 
-    const counter = document.createElement('div');
-    counter.classList.add('counter');
-    this.counter = document.createElement('span');
-    counter.appendChild(this.counter);
+      ${this.createButton('prev')}
 
-    this.prevButton = this.createButton('prev');
-    this.nextButton = this.createButton('next');
+      <button class="opener">
+        <span class="counter"></span>
+      </button>
 
-    const elements = [slot, counter, this.prevButton, this.nextButton];
-    for (const element of elements) {
-      this.shadowRoot.appendChild(element);
-    }
+      ${this.createButton('next')}
+
+      <dialog>
+        <button class="closer"></button>
+      </dialog>
+    `;
+    
+    this.closer = this.shadowRoot.querySelector('.closer');
+    this.counter = this.shadowRoot.querySelector('.counter');
+    this.dialog =  this.shadowRoot.querySelector('dialog');
+    this.nextButton = this.shadowRoot.querySelector('[data-direction="next"]');
+    this.opener = this.shadowRoot.querySelector('.opener');
+    this.prevButton = this.shadowRoot.querySelector('[data-direction="prev"]');
   }
 
   /**
@@ -78,17 +86,18 @@ class Carousel extends HTMLElement {
    * @returns {HTMLButtonElement}
    */
   createButton(direction) {
-    const button = document.createElement('button');
     const {label, path} = this.buttons.find(button => button.direction === direction);
 
-    button.ariaLabel = label;
-    button.dataset.direction = direction;
-    button.disabled = true;
-    button.innerHTML = `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
-    button.title = label;
-    button.type = 'button';
-
-    return button;
+    return `
+      <button
+        aria-label="${label}"
+        data-direction="${direction}"
+        disabled
+        title="${label}"
+        type="button">
+        <svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>
+      </button>
+    `;
   }
 
   /**
@@ -239,7 +248,21 @@ class Carousel extends HTMLElement {
    * @param {Event} event
    */
   handleClick(event) {
-    const direction = event.composedPath()[0].dataset.direction;
+    const target = event.composedPath()[0];
+
+    const isOpener = target.className === 'opener';
+    if (isOpener) {
+      this.dialog.showModal();
+      return;
+    }
+
+    const isCloser = target.className === 'closer';
+    if (isCloser) {
+      this.dialog.close();
+      return;
+    }
+
+    const direction = target.dataset.direction;
     if (direction) {
       this.scrollToItem(direction);
     }
@@ -344,18 +367,14 @@ class Carousel extends HTMLElement {
         stroke-width: 3px;
       }
 
-      .counter {
-        display: grid;
-        background-color: var(--fill-0);
-        font-size: var(--font-size-small);
+      .opener {
         grid-area: var(--counter-grid-area);
         padding-inline: 1em;
-        place-content: center;
-        place-self: center;
       }
 
-      .counter span {
+      .counter {
         opacity: var(--text-opacity);
+        pointer-events: none;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
