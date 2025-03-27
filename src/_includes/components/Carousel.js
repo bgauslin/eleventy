@@ -111,7 +111,14 @@ class Carousel extends HTMLElement {
     for (const [index, item] of this.items.entries()) {
       const heading = item.querySelector('h2');
       const title = heading.textContent;
-      html += `<li><a class="thumb" href="#${item.id}" title="${title}">${index + 1}</a></li>`;
+      const image = item.querySelector('img');
+      html += `
+        <li>
+          <a class="thumb" href="#${item.id}" title="${title}">
+            <img src="${image.dataset.preview}" alt="">
+          </a>
+        </li>
+      `;
     }
     html += '</ol>';
 
@@ -436,25 +443,27 @@ class Carousel extends HTMLElement {
       }
 
       ol {
+        block-size: 100%;
         display: grid;
         gap: .25rem;
         grid: auto-flow / repeat(auto-fill, minmax(6rem, 1fr));
         grid-area: 2 / 1 / 2 / -1;
         list-style: none;
-        margin: 0;
+        margin-block: 0 1rem;
         overflow: auto;
         padding: 0;
         place-self: start stretch;
       }
       
-      li > a {
+      a {
         aspect-ratio: 1;
-        background-color: var(--fill-3);
-        color: var(--text-color);
         display: grid;
-        font: 1em / 1.1 monospace;
+        overflow: hidden;
         place-content: center;
-        text-decoration: none;
+      }
+
+      img {
+        object-fit: cover;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];

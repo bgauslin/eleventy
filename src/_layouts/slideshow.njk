@@ -16,9 +16,11 @@ layout: base
     {%- set large = path + '@large.webp 1200w' %}
     {%- set sizes = '(min-width: 1440px) 900px, 100vw' %}
   {%- endif -%}
+  {%- set thumb = path + '@thumb.webp' %}
   <img
     alt=""
     data-orientation="{{ orientation }}"
+    data-preview="{{ thumb }}"
     loading="{{ loading }}"
     src="{{ medium }}"
     srcset="{{ small }}, {{ medium }}, {{ large }}"
