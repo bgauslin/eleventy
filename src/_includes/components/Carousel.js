@@ -5,14 +5,26 @@
 class Carousel extends HTMLElement {
   constructor() {
     super();
+
+    // TODO: Update closer.path values.
     this.buttons = [
       {
-        direction: 'prev',
+        type: 'closer',
+        label: 'Return to slideshow',
+        path: 'M15,4 L7,12 L15,20',
+      },
+      {
+        type: 'opener',
+        label: 'View thumbnail images',
+        path: null,
+      },
+      {
+        type: 'prev',
         label: 'Previous slide',
         path: 'M15,4 L7,12 L15,20',
       },
       {
-        direction: 'next',
+        type: 'next',
         label: 'Next slide',
         path: 'M9,4 L17,12 L9,20',
       },
@@ -56,48 +68,54 @@ class Carousel extends HTMLElement {
   setupShadowDOM() {
     this.attachShadow({mode: 'open'});
 
-    this.shadowRoot.innerHTML += `
+    this.shadowRoot.innerHTML = `
       <slot></slot>
 
       ${this.createButton('prev')}
-
-      <button class="opener">
-        <span class="counter"></span>
-      </button>
-
       ${this.createButton('next')}
 
+      ${this.createButton('opener')}
       <dialog>
-        <button class="closer"></button>
+        ${this.createButton('closer')}
+        ${this.createThumbnails()}
       </dialog>
     `;
     
     this.closer = this.shadowRoot.querySelector('.closer');
     this.counter = this.shadowRoot.querySelector('.counter');
     this.dialog =  this.shadowRoot.querySelector('dialog');
-    this.nextButton = this.shadowRoot.querySelector('[data-direction="next"]');
+    this.nextButton = this.shadowRoot.querySelector('.next');
     this.opener = this.shadowRoot.querySelector('.opener');
-    this.prevButton = this.shadowRoot.querySelector('[data-direction="prev"]');
+    this.prevButton = this.shadowRoot.querySelector('.prev');
   }
 
   /**
    * Helper function for rendering prev-next buttons.
-   * @param {string} direction - 'prev' or 'next'
+   * @param {string} type
    * @returns {HTMLButtonElement}
    */
-  createButton(direction) {
-    const {label, path} = this.buttons.find(button => button.direction === direction);
+  createButton(type) {
+    const {label, path} = this.buttons.find(button => button.type === type);
 
-    return `
-      <button
-        aria-label="${label}"
-        data-direction="${direction}"
-        disabled
-        title="${label}"
-        type="button">
-        <svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>
-      </button>
-    `;
+    let content = `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
+    if (type === 'opener') {
+      content = '<span class="counter"></span>';
+    }
+
+    return `<button aria-label="${label}" class="${type}" title="${label}" type="button">${content}</button>`;
+  }
+
+  createThumbnails() {
+    let html = '<ol class="thumbs">';
+
+    for (const [index, item] of this.items.entries()) {
+      const heading = item.querySelector('h2');
+      const title = heading.textContent;
+      html += `<li><a class="thumb" href="#${item.id}" title="${title}">${title}</a></li>`;
+    }
+    html += '</ol>';
+
+    return html;
   }
 
   /**
@@ -249,22 +267,30 @@ class Carousel extends HTMLElement {
    */
   handleClick(event) {
     const target = event.composedPath()[0];
+    const type = target.className;
 
-    const isOpener = target.className === 'opener';
-    if (isOpener) {
-      this.dialog.showModal();
-      return;
-    }
-
-    const isCloser = target.className === 'closer';
-    if (isCloser) {
-      this.dialog.close();
-      return;
-    }
-
-    const direction = target.dataset.direction;
-    if (direction) {
-      this.scrollToItem(direction);
+    switch (type) {
+      case 'closer':
+        this.dialog.close();
+        break;
+      case 'opener':
+        this.dialog.showModal();
+        break;
+      case 'thumb':
+        const url = new URL(target.href);
+        const anchor = url.hash.replace('#', '');
+        const item = this.items.find(item => item.id === anchor);
+        this.current = [...this.items].indexOf(item);
+        this.updateElements();
+        this.dialog.close();
+        break;
+      case 'prev':
+      case 'next':
+        this.scrollToItem(type);
+        break;
+      default:
+        this.dialog.close();
+        break;
     }
   }
 
@@ -301,22 +327,23 @@ class Carousel extends HTMLElement {
         grid-area: 1 / 1 / -1 / -1;
         z-index: 1;
       }
-      
-      :is(button, .counter) {
-        block-size: var(--button-size);
-        border-radius: var(--button-size);
-        z-index: 2;
-      }
 
+      ::backdrop {
+        background: rgba(0,0,0,.7);
+      }
+      
       button {
         appearance: none;
         background-color: var(--fill-2);
+        block-size: var(--button-size);
         border: none;
+        border-radius: var(--button-size);
         color: var(--text-color);
         cursor: pointer;
         outline: none;
         place-self: center;
         transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
+        z-index: 2;
       }
       
       button:focus-visible {
@@ -344,18 +371,18 @@ class Carousel extends HTMLElement {
         pointer-events: none;
       }
 
-      button[data-direction] {
+      button:where(.prev, .next, .closer) {
         aspect-ratio: 1;
         display: grid;
         grid: 1fr / 1fr;
         place-items: center;
       }
 
-      button[data-direction='prev'] {
+      .prev {
         grid-area: var(--prev-grid-area);
       }
       
-      button[data-direction='next'] {
+      .next {
         grid-area: var(--next-grid-area);
       }
 
@@ -375,6 +402,28 @@ class Carousel extends HTMLElement {
       .counter {
         opacity: var(--text-opacity);
         pointer-events: none;
+      }
+
+      dialog {
+        border: none;
+        border-radius: .5rem;
+      }
+
+      ol {
+        display: grid;
+        gap: .5rem;
+        grid: auto-flow / repeat(auto-fill, minmax(4rem, 1fr));
+        inline-size: max(50vw, 20rem);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      li {
+        aspect-ratio: 1;
+        background: pink;
+        font: .5em / 1.1 monospace;
+        overflow: hidden;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
