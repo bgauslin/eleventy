@@ -167,7 +167,7 @@ class Carousel extends HTMLElement {
    */
   updateElements() {
     // Update counter.
-    this.counter.textContent = `${this.current + 1} of ${this.total}`;
+    this.counter.textContent = `${this.current + 1} / ${this.total}`;
 
     // Update prev/next indexes.
     this.prev = (this.current > 0) ? this.current - 1 : -1;
@@ -345,6 +345,7 @@ class Carousel extends HTMLElement {
         border-radius: var(--button-size);
         color: var(--text-color);
         cursor: pointer;
+        font: var(--font-size-small) / 1 inherit;
         outline: none;
         place-self: center;
         transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
@@ -401,7 +402,7 @@ class Carousel extends HTMLElement {
 
       .opener {
         grid-area: var(--counter-grid-area);
-        padding-inline: 1em;
+        padding-inline: 1rem;
       }
 
       .counter {
