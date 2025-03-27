@@ -5,36 +5,12 @@
 class Carousel extends HTMLElement {
   constructor() {
     super();
-
-    this.buttons = [
-      {
-        type: 'closer',
-        label: 'Return to slideshow',
-        path: 'M5,5 L19,19 M5,19 L19,5',
-      },
-      {
-        type: 'opener',
-        label: 'View thumbnail images',
-        path: null,
-      },
-      {
-        type: 'prev',
-        label: 'Previous slide',
-        path: 'M15,4 L7,12 L15,20',
-      },
-      {
-        type: 'next',
-        label: 'Next slide',
-        path: 'M9,4 L17,12 L9,20',
-      },
-    ];
   }
 
   connectedCallback() {
     this.setup();
-    this.setupShadowDOM();
     this.shadowStyles();
-    this.scrollToHash();
+    this.jumpToHash();
     this.watch();
     this.addEventListener('click', this.handleClick);
     document.addEventListener('keypress', this.handleKey);
@@ -47,22 +23,28 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Sets light DOM references and initializes properties.
+   * Sets light DOM references, initializes properties, populates shasdow DOM.
    */
   setup() {
+    // Navigation state.
+    this.prev = -1;
+    this.current = 0;
+    this.next = 1;
+
+    // Light DOM element references.
     this.list = this.querySelector('ol');
     this.items = [...this.list.querySelectorAll('li')];
     this.total = this.items.length;
 
-    this.prev = -1;
-    this.current = 0;
-    this.next = 1;
-  }
-  
-  /**
-   * Creates a slot, counter, and prev-next buttons.
-   */
-  setupShadowDOM() {
+    // Button and their attributes.
+    this.buttons = [
+      {type: 'closer', label: 'Return to slideshow', path: 'M5,5 L19,19 M5,19 L19,5'},
+      {type: 'next', label: 'Next slide', path: 'M9,4 L17,12 L9,20'},
+      {type: 'opener', label: 'View thumbnail images', path: null},
+      {type: 'prev', label: 'Previous slide', path: 'M15,4 L7,12 L15,20'},
+    ];
+
+    // Shadow DOM.
     this.attachShadow({mode: 'open'});
 
     this.shadowRoot.innerHTML = `
@@ -78,7 +60,8 @@ class Carousel extends HTMLElement {
         ${this.createThumbnails()}
       </dialog>
     `;
-    
+
+    // Shadow DOM element references.
     this.closer = this.shadowRoot.querySelector('.closer');
     this.counter = this.shadowRoot.querySelector('.counter');
     this.dialog =  this.shadowRoot.querySelector('dialog');
@@ -90,7 +73,7 @@ class Carousel extends HTMLElement {
   /**
    * Helper function for rendering prev-next buttons.
    * @param {string} type
-   * @returns {HTMLButtonElement}
+   * @returns {string}
    */
   createButton(type) {
     const {label, path} = this.buttons.find(button => button.type === type);
@@ -103,6 +86,10 @@ class Carousel extends HTMLElement {
     return `<button aria-label="${label}" class="${type}" title="${label}" type="button">${content}</button>`;
   }
 
+  /**
+   * Helper function for rendering thumbnail images.
+   * @returns {string}
+   */
   createThumbnails() {
     let html = '<ol class="thumbs">';
 
@@ -146,17 +133,18 @@ class Carousel extends HTMLElement {
    */
   update(entries) {
     for (const entry of entries) {
-      if (!entry.isIntersecting) {
-        return;
-      }
-      
+      if (!entry.isIntersecting) return;
+
+      // Set index of current slide.
       const item = this.items.find(item => item.id === entry.target.id);
       this.current = this.items.indexOf(item);
 
-      // Update address bar and DOM.
+      // Update address bar.
       const url = new URL(window.location);
       url.hash = item.id;
       history.replaceState(null, '', url.href);
+
+      // Update shadow DOM.
       this.updateElements();
     }
   }
@@ -223,7 +211,7 @@ class Carousel extends HTMLElement {
    * Smooth scrolls item into view based on direction.
    * @param {string} direction - 'prev' or 'next'
    */
-  scrollToItem(direction) {
+  scrollToSlide(direction) {
     let offset = 0;
 
     if (direction === 'prev') {
@@ -246,26 +234,37 @@ class Carousel extends HTMLElement {
   /**
    * Scrolls to individual item if there's a valid hash in the URL on page load.
    */
-  scrollToHash() {
+  jumpToHash() {
     const url = new URL(window.location);
-
-    const anchor = url.hash.replace('#', '');
-    if (!anchor) {
-      return;
+    if (url.hash) {
+      this.jumpToSlide(url.hash);
     }
+  }
 
-    const item = this.items.find(item => item.id === anchor);
-    if (!item) {
-      return;
+  /**
+   * Scrolls to slide from a thumbnail image.
+   * @param {string} hash - URL hash
+   */
+  jumpToSlide(hash) {
+    const id = hash.replace('#', '');
+    const item = this.items.find(item => item.id === id);
+
+    if (item) {
+      // Reset current index.
+      this.current = [...this.items].indexOf(item);
+
+      // Scroll the current item into view.
+      const {left} = item.getBoundingClientRect();
+      const position = (this.list.scrollLeft + left);
+      this.list.scrollTo(position, 0);
+
+      // Load neighboring images.
+      const images = item.querySelectorAll('img');
+      this.preloadImages(images);
+
+      // Update shadow DOM.
+      this.updateElements();
     }
-
-    const {left} = item.getBoundingClientRect();
-    const images = item.querySelectorAll('img');
-    
-    this.current = [...this.items].indexOf(item);
-    this.list.scrollTo(left, 0);
-    this.preloadImages(images);
-    this.updateElements();
   }
 
   /**
@@ -290,13 +289,14 @@ class Carousel extends HTMLElement {
         break;
       case 'thumb':
         event.preventDefault();
-        history.replaceState(null, '', target.href);
+        const url = new URL(target.href);
+        history.replaceState(null, '', url);
+        this.jumpToSlide(url.hash);
         this.dialog.close();
-        this.scrollToHash();
         break;
       case 'prev':
       case 'next':
-        this.scrollToItem(type);
+        this.scrollToSlide(type);
         break;
       default:
         break;
@@ -309,11 +309,11 @@ class Carousel extends HTMLElement {
    */
   handleKey(event) {
     if (event.code === 'ArrowLeft') {
-      this.scrollToItem('prev');
+      this.scrollToSlide('prev');
     }
 
     if (event.code === 'ArrowRight') {
-      this.scrollToItem('next');
+      this.scrollToSlide('next');
     }
   }
 
