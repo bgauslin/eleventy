@@ -41,7 +41,10 @@ layout: base
     
         <figcaption>
           <h2>{{ item.data.title }}</h2>
+          
+          {%- if item.data.content -%}
           {{ item.data.content | safe }}
+          {%- endif -%}
           
           {%- if item.data.media and item.data.size %}
           <dl>
@@ -50,6 +53,10 @@ layout: base
             <dt>Size</dt>
             <dd>{{ item.data.size }}</dd>
           </dl>
+          {%- endif %}
+
+          {%- if item.data.message %}
+            <p class="message"><small>{{ item.data.message | safe }}</small></p>
           {%- endif %}
         </figcaption>
       </figure>    
