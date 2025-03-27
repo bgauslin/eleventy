@@ -52,9 +52,7 @@ class Carousel extends HTMLElement {
   setup() {
     this.list = this.querySelector('ol');
     this.items = [...this.list.querySelectorAll('li')];
-
     this.total = this.items.length;
-    this.url = new URL(window.location);
 
     this.prev = -1;
     this.current = 0;
@@ -156,8 +154,9 @@ class Carousel extends HTMLElement {
       this.current = this.items.indexOf(item);
 
       // Update address bar and DOM.
-      this.url.hash = item.id;
-      history.replaceState(null, '', this.url.href);
+      const url = new URL(window.location);
+      url.hash = item.id;
+      history.replaceState(null, '', url.href);
       this.updateElements();
     }
   }
@@ -248,7 +247,9 @@ class Carousel extends HTMLElement {
    * Scrolls to individual item if there's a valid hash in the URL on page load.
    */
   scrollToHash() {
-    const anchor = this.url.hash.replace('#', '');
+    const url = new URL(window.location);
+
+    const anchor = url.hash.replace('#', '');
     if (!anchor) {
       return;
     }
@@ -288,12 +289,10 @@ class Carousel extends HTMLElement {
         this.dialog.showModal();
         break;
       case 'thumb':
-        const url = new URL(target.href);
-        const anchor = url.hash.replace('#', '');
-        const item = this.items.find(item => item.id === anchor);
-        this.current = [...this.items].indexOf(item);
-        this.updateElements();
+        event.preventDefault();
+        history.replaceState(null, '', target.href);
         this.dialog.close();
+        this.scrollToHash();
         break;
       case 'prev':
       case 'next':
@@ -429,7 +428,7 @@ class Carousel extends HTMLElement {
 
       ::backdrop {
         backdrop-filter: blur(1px);
-        background: rgba(0,0,0,.2);
+        background-color: rgba(0, 0, 0, .25);
       }
       
       h3 {
@@ -453,6 +452,10 @@ class Carousel extends HTMLElement {
         overflow: auto;
         padding: 0;
         place-self: start stretch;
+      }
+
+      li {
+        background-color: var(--fill-1);
       }
       
       a {
