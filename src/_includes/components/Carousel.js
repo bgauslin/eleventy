@@ -107,6 +107,9 @@ class Carousel extends HTMLElement {
     }
     html += '</ol>';
 
+    // Remove all whitespace.
+    html.replace('\n\n', '').replace('  ', '');
+
     return html;
   }
 
@@ -146,6 +149,115 @@ class Carousel extends HTMLElement {
 
       // Update shadow DOM.
       this.updateElements();
+    }
+  }
+
+  /**
+   * Scrolls slide into view based on click target.
+   * @param {Event} event
+   */
+  handleClick(event) {
+    const target = event.composedPath()[0];
+
+    if (['DIALOG', 'H3'].includes(target.tagName)) {
+      return;
+    }
+
+    const type = target.className;
+    switch (type) {
+      case 'closer':
+        this.dialog.close();
+        break;
+      case 'opener':
+        this.dialog.showModal();
+        break;
+      case 'thumb':
+        event.preventDefault();
+        const url = new URL(target.href);
+        history.replaceState(null, '', url);
+        this.jumpToSlide(url.hash);
+        this.dialog.close();
+        break;
+      case 'prev':
+      case 'next':
+        this.scrollToSlide(type);
+        break;
+      default:
+        break;
+    }
+  }
+
+  /**
+   * Scrolls to a slide on page load if there's a valid hash in the URL.
+   */
+  jumpToHash() {
+    const url = new URL(window.location);
+    if (url.hash) {
+      this.jumpToSlide(url.hash);
+    }
+  }
+
+  /**
+   * Scrolls to slide from a thumbnail image.
+   * @param {string} hash - URL hash
+   */
+  jumpToSlide(hash) {
+    const id = hash.replace('#', '');
+    const item = this.items.find(item => item.id === id);
+    
+    if (!item) return;
+
+    // Reset current index.
+    this.current = [...this.items].indexOf(item);
+
+    // Scroll the current slide into view.
+    const {left} = item.getBoundingClientRect();
+    const position = (this.list.scrollLeft + left);
+    this.list.scrollTo(position, 0);
+
+    // Load neighboring images.
+    const images = item.querySelectorAll('img');
+    this.preloadImages(images);
+
+    // Update shadow DOM.
+    this.updateElements();
+  }
+
+  /**
+   * Smooth scrolls item into view based on direction.
+   * @param {string} direction - 'prev' or 'next'
+   */
+  scrollToSlide(direction) {
+    let offset = 0;
+
+    if (direction === 'prev') {
+      const {width} = this.items[this.prev].getBoundingClientRect();
+      offset = -width;
+    }
+    
+    if (direction === 'next') {
+      const {x} = this.items[this.next].getBoundingClientRect();
+      offset = x;
+    }
+    
+    this.list.scrollTo({
+      top: 0,
+      left: this.list.scrollLeft + offset,
+      behavior: 'smooth',
+    });
+  }
+
+  /**
+   * Smooth scrolls item into view with left and right arrows for improved a11y.
+   * @param {KeyboardEvent} event
+   */
+  handleKey(event) {
+    if (event.code === 'ArrowLeft') {
+      this.scrollToSlide('prev');
+    }
+
+    if (event.code === 'ArrowRight') {
+      this.scrollToSlide('next');
     }
   }
 
@@ -201,121 +313,11 @@ class Carousel extends HTMLElement {
    * Preloads images by changing their 'loading' attribute.
    * @param {HTMLImageElement[]} images  
    */
-  preloadImages(images) {
-    for (const image of images) {
-      image.setAttribute('loading', 'eager');
+    preloadImages(images) {
+      for (const image of images) {
+        image.setAttribute('loading', 'eager');
+      }
     }
-  }
-
-  /**
-   * Smooth scrolls item into view based on direction.
-   * @param {string} direction - 'prev' or 'next'
-   */
-  scrollToSlide(direction) {
-    let offset = 0;
-
-    if (direction === 'prev') {
-      const {width} = this.items[this.prev].getBoundingClientRect();
-      offset = -width;
-    }
-    
-    if (direction === 'next') {
-      const {x} = this.items[this.next].getBoundingClientRect();
-      offset = x;
-    }
-    
-    this.list.scrollTo({
-      top: 0,
-      left: this.list.scrollLeft + offset,
-      behavior: 'smooth',
-    });
-  }
-
-  /**
-   * Scrolls to individual item if there's a valid hash in the URL on page load.
-   */
-  jumpToHash() {
-    const url = new URL(window.location);
-    if (url.hash) {
-      this.jumpToSlide(url.hash);
-    }
-  }
-
-  /**
-   * Scrolls to slide from a thumbnail image.
-   * @param {string} hash - URL hash
-   */
-  jumpToSlide(hash) {
-    const id = hash.replace('#', '');
-    const item = this.items.find(item => item.id === id);
-
-    if (item) {
-      // Reset current index.
-      this.current = [...this.items].indexOf(item);
-
-      // Scroll the current item into view.
-      const {left} = item.getBoundingClientRect();
-      const position = (this.list.scrollLeft + left);
-      this.list.scrollTo(position, 0);
-
-      // Load neighboring images.
-      const images = item.querySelectorAll('img');
-      this.preloadImages(images);
-
-      // Update shadow DOM.
-      this.updateElements();
-    }
-  }
-
-  /**
-   * Smooth scrolls next or previous item into view on button click and only
-   * accepts clicks from buttons with valid data-attribute.
-   * @param {Event} event
-   */
-  handleClick(event) {
-    const target = event.composedPath()[0];
-
-    if (['DIALOG', 'H3'].includes(target.tagName)) {
-      return;
-    }
-
-    const type = target.className;
-    switch (type) {
-      case 'closer':
-        this.dialog.close();
-        break;
-      case 'opener':
-        this.dialog.showModal();
-        break;
-      case 'thumb':
-        event.preventDefault();
-        const url = new URL(target.href);
-        history.replaceState(null, '', url);
-        this.jumpToSlide(url.hash);
-        this.dialog.close();
-        break;
-      case 'prev':
-      case 'next':
-        this.scrollToSlide(type);
-        break;
-      default:
-        break;
-    }
-  }
-
-  /**
-   * Smooth scrolls item into view with left and right arrows for improved a11y.
-   * @param {KeyboardEvent} event
-   */
-  handleKey(event) {
-    if (event.code === 'ArrowLeft') {
-      this.scrollToSlide('prev');
-    }
-
-    if (event.code === 'ArrowRight') {
-      this.scrollToSlide('next');
-    }
-  }
 
   /**
    * Renders encapsulated styles into the shadow DOM.
@@ -346,6 +348,7 @@ class Carousel extends HTMLElement {
         color: var(--text-color);
         cursor: pointer;
         font: var(--font-size-small) / 1 inherit;
+        font-variation-settings: 'wght' 700;
         outline: none;
         place-self: center;
         transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
@@ -402,12 +405,12 @@ class Carousel extends HTMLElement {
 
       .opener {
         grid-area: var(--counter-grid-area);
-        padding-inline: 1rem;
+        padding-inline: 1em;
       }
 
       .counter {
-        opacity: var(--text-opacity);
-        pointer-events: none;
+        NO--opacity: var(--text-opacity);
+        pointer-events: none; /* For easier/consistent event targeting. */
       }
 
       dialog {
