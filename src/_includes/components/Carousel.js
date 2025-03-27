@@ -6,12 +6,11 @@ class Carousel extends HTMLElement {
   constructor() {
     super();
 
-    // TODO: Update closer.path values.
     this.buttons = [
       {
         type: 'closer',
         label: 'Return to slideshow',
-        path: 'M15,4 L7,12 L15,20',
+        path: 'M5,5 L19,19 M5,19 L19,5',
       },
       {
         type: 'opener',
@@ -76,6 +75,7 @@ class Carousel extends HTMLElement {
 
       ${this.createButton('opener')}
       <dialog>
+        <h3>${document.title}</h3>
         ${this.createButton('closer')}
         ${this.createThumbnails()}
       </dialog>
@@ -111,7 +111,7 @@ class Carousel extends HTMLElement {
     for (const [index, item] of this.items.entries()) {
       const heading = item.querySelector('h2');
       const title = heading.textContent;
-      html += `<li><a class="thumb" href="#${item.id}" title="${title}">${title}</a></li>`;
+      html += `<li><a class="thumb" href="#${item.id}" title="${title}">${index + 1}</a></li>`;
     }
     html += '</ol>';
 
@@ -267,8 +267,12 @@ class Carousel extends HTMLElement {
    */
   handleClick(event) {
     const target = event.composedPath()[0];
-    const type = target.className;
 
+    if (['DIALOG', 'H3'].includes(target.tagName)) {
+      return;
+    }
+
+    const type = target.className;
     switch (type) {
       case 'closer':
         this.dialog.close();
@@ -289,7 +293,6 @@ class Carousel extends HTMLElement {
         this.scrollToItem(type);
         break;
       default:
-        this.dialog.close();
         break;
     }
   }
@@ -328,10 +331,6 @@ class Carousel extends HTMLElement {
         z-index: 1;
       }
 
-      ::backdrop {
-        background: rgba(0,0,0,.7);
-      }
-      
       button {
         appearance: none;
         background-color: var(--fill-2);
@@ -405,25 +404,57 @@ class Carousel extends HTMLElement {
       }
 
       dialog {
+        background-color: var(--fill-2);
         border: none;
         border-radius: .5rem;
+        color: var(--text-color);
+        inline-size: 100%;
+        max-block-size: min(30rem, 75dvh);
+        max-inline-size: min(36rem, 80dvw);
+        padding: .75rem;
+      }
+
+      dialog[open] {
+        display: grid;
+        gap: .5rem;
+        grid: var(--button-size) 1fr / 1fr var(--button-size);
+      }
+
+      ::backdrop {
+        backdrop-filter: blur(1px);
+        background: rgba(0,0,0,.2);
+      }
+      
+      h3 {
+        grid-area: 1 / 1 / 1 / 1;
+        line-height: 1.1;
+        place-self: center start;
+      }
+
+      .closer {
+        grid-area: 1 / 2 / 1 / 2;
       }
 
       ol {
         display: grid;
-        gap: .5rem;
-        grid: auto-flow / repeat(auto-fill, minmax(4rem, 1fr));
-        inline-size: max(50vw, 20rem);
+        gap: .25rem;
+        grid: auto-flow / repeat(auto-fill, minmax(6rem, 1fr));
+        grid-area: 2 / 1 / 2 / -1;
         list-style: none;
         margin: 0;
+        overflow: auto;
         padding: 0;
+        place-self: start stretch;
       }
       
-      li {
+      li > a {
         aspect-ratio: 1;
-        background: pink;
-        font: .5em / 1.1 monospace;
-        overflow: hidden;
+        background-color: var(--fill-3);
+        color: var(--text-color);
+        display: grid;
+        font: 1em / 1.1 monospace;
+        place-content: center;
+        text-decoration: none;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
