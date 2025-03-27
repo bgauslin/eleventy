@@ -204,7 +204,7 @@ class Carousel extends HTMLElement {
   jumpToSlide(hash) {
     const id = hash.replace('#', '');
     const item = this.items.find(item => item.id === id);
-    
+
     if (!item) return;
 
     // Reset current index.
@@ -348,10 +348,10 @@ class Carousel extends HTMLElement {
         color: var(--text-color);
         cursor: pointer;
         font: var(--font-size-small) / 1 inherit;
-        font-variation-settings: 'wght' 700;
         outline: none;
         place-self: center;
         transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
+        white-space: nowrap;
         z-index: 2;
       }
       
@@ -409,8 +409,7 @@ class Carousel extends HTMLElement {
       }
 
       .counter {
-        NO--opacity: var(--text-opacity);
-        pointer-events: none; /* For easier/consistent event targeting. */
+        pointer-events: none; /* For better event targeting. */
       }
 
       dialog {
@@ -471,6 +470,7 @@ class Carousel extends HTMLElement {
 
       img {
         object-fit: cover;
+        pointer-events: none; /* For better event targeting. */
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
