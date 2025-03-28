@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: architecture/collages.html
+permalink: aad/collages.html
 slug: collages
 tags: slideshow
 classname: slideshow

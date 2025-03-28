@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: architecture/collector.html
+permalink: aad/collector.html
 slug: collector
 tags: slideshow
 classname: slideshow

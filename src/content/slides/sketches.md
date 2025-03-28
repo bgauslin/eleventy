@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: architecture/sketches.html
+permalink: aad/sketches.html
 slug: sketches
 tags: slideshow
 classname: slideshow

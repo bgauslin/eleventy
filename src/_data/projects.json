@@ -1,8 +1,8 @@
 [
   {
-    "heading": "Web",
+    "heading": "Web Applications",
     "id": "web",
-    "description": "Browser-based standalone applications made with Web Components and TypeScript.",
+    "description": "Browser-based applications made with Web Components and TypeScript.",
     "items": [
       {
         "heading": "Clock",
@@ -72,36 +72,36 @@
     ]
   },
   {
-    "heading": "Architecture",
-    "id": "architecture",
-    "description": "Explorations of light, space, and structure through materials and media.",
+    "heading": "Architecture + Design",
+    "id": "aad",
+    "description": "Explorations of light and space through materials and media.",
     "items": [
       {
         "heading": "Barge Board Shotgun Renovation",
         "copy": "Breathing new life into an 1890s barge board shotgun house.",
         "image": "shotgun-front.jpg",
-        "url": "/architecture/shotgun",
+        "url": "/aad/shotgun",
         "label": "View slideshow"
       },
       {
         "heading": "House for an Art Collector",
         "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
         "image": "hfac-hall.jpg",
-        "url": "/architecture/collector",
+        "url": "/aad/collector",
         "label": "View project on the SCK Architecture website"
       },
       {
         "heading": "Travel Sketches",
         "copy": "Documenting European architecture with pen and pencil.",
         "image": "sketch-piazza.jpg",
-        "url": "/architecture/sketches",
+        "url": "/aad/sketches",
         "label": "View slideshow"
       },
       {
         "heading": "Collages",
         "copy": "Storytelling via the transformation of found materials.",
         "image": "collage.jpg",
-        "url": "/architecture/collages",
+        "url": "/aad/collages",
         "label": "View slideshow"
       }
     ]

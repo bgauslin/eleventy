@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: architecture/shotgun.html
+permalink: aad/shotgun.html
 slug: shotgun
 tags: slideshow
 classname: slideshow
