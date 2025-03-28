@@ -387,6 +387,7 @@ class Carousel extends HTMLElement {
         cursor: pointer;
         font: var(--font-size-small) / 1 inherit;
         outline: none;
+        padding: 0;
         place-self: center;
         transition: background-color var(--transition), color var(--transition), opacity var(--transition), transform var(--transition);
         white-space: nowrap;
@@ -443,6 +444,7 @@ class Carousel extends HTMLElement {
 
       .opener {
         font-size: var(--font-size-small);
+        font-variation-settings: 'wght' 600;
         grid-area: var(--counter-grid-area);
         padding-inline: 1.25rem;
       }
