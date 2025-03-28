@@ -5,6 +5,8 @@
 class Carousel extends HTMLElement {
   constructor() {
     super();
+    this.clickListener = this.handleClick.bind(this);
+    this.keyListener = this.handleKey.bind(this);
   }
 
   connectedCallback() {
@@ -12,14 +14,14 @@ class Carousel extends HTMLElement {
     this.shadowStyles();
     this.jumpToHash();
     this.watch();
-    this.addEventListener('click', this.handleClick);
-    document.addEventListener('keypress', this.handleKey);
+    document.addEventListener('click', this.clickListener);
+    document.addEventListener('keydown', this.keyListener);
   }
 
   disconnectedCallback() {
     this.observer.disconnect();
-    this.removeEventListener('click', this.handleClick);
-    document.removeEventListener('keypress', this.handleKey);
+    document.removeEventListener('click', this.clickListener);
+    document.removeEventListener('keydown', this.keyListener);
   }
 
   /**
@@ -41,7 +43,7 @@ class Carousel extends HTMLElement {
 
     // Button and their attributes.
     this.buttons = [
-      {type: 'closer', label: 'Return to slideshow', path: 'M5,5 L19,19 M5,19 L19,5'},
+      {type: 'closer', label: 'Return to slideshow', path: 'M7,7 L17,17 M7,17 L17,7'},
       {type: 'next', label: 'Next slide', path: 'M9,4 L17,12 L9,20'},
       {type: 'opener', label: 'View thumbnail images', path: null},
       {type: 'prev', label: 'Previous slide', path: 'M15,4 L7,12 L15,20'},
@@ -287,6 +289,10 @@ class Carousel extends HTMLElement {
     if (event.code === 'ArrowRight') {
       this.scrollToSlide('next');
     }
+
+    if (event.code === 'Escape' && this.open) {
+      this.toggleDialog();
+    }
   }
 
   /**
@@ -367,6 +373,10 @@ class Carousel extends HTMLElement {
         z-index: 1;
       }
 
+      * {
+        box-sizing: border-box;
+      }
+
       button {
         appearance: none;
         background-color: var(--fill-2);
@@ -424,11 +434,11 @@ class Carousel extends HTMLElement {
       }
 
       button svg {
-        block-size: 24px;
+        block-size: var(--button-icon-size);
         fill: none;
         pointer-events: none;
         stroke: currentColor;
-        stroke-width: 3px;
+        stroke-width: var(--button-stroke-width, 3px);
       }
 
       .opener {
@@ -442,16 +452,20 @@ class Carousel extends HTMLElement {
       }
 
       dialog {
+        --gap: .75rem;
+
         background-color: var(--fill-2);
         border: none;
         border-radius: .5rem;
         color: var(--text-color);
         display: grid; /* Safari needs 'display' for <dialog> transitions. */
-        grid: var(--button-size) 1fr / 1fr var(--button-size);
+        gap: var(--gap);
+        grid: auto 1fr / 1fr auto;
         inline-size: 100%;
-        max-block-size: min(30rem, 75dvh);
-        max-inline-size: min(36rem, 80dvw);
-        padding: 0;
+        max-block-size: min(30rem, 80dvh);
+        max-inline-size: min(36rem, 100dvw);
+        padding-block: var(--gap) 0;
+        padding-inline: var(--gap);
         place-self: center;
         transition: opacity var(--transition), transform var(--transition);
         z-index: 1;
@@ -469,14 +483,19 @@ class Carousel extends HTMLElement {
       h3 {
         font-size: var(--font-size-small);
         grid-area: 1 / 1 / 1 / 1;
+        margin: 0;
         max-inline-size: 100%;
         overflow: hidden;
+        padding: 0;
         place-self: center start;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
 
       .closer {
+        --button-size: var(--button-icon-size);
+        --button-stroke-width: 2px;
+
         grid-area: 1 / 2 / 1 / 2;
       }
 
@@ -487,9 +506,10 @@ class Carousel extends HTMLElement {
         grid: auto-flow / repeat(auto-fill, minmax(6rem, 1fr));
         grid-area: 2 / 1 / 2 / -1;
         list-style: none;
-        margin-block: 0 1rem;
+        margin: 0;
         overflow: auto;
-        padding-block: 0;
+        padding-block: 0 var(--gap);
+        padding-inline: 0;
         place-self: start stretch;
         scrollbar-width: none;
 
