@@ -55,8 +55,8 @@ class Carousel extends HTMLElement {
       ${this.createButton('prev')}
       ${this.createButton('next')}
       ${this.createButton('opener')}
-      <dialog inert>
-        <h3>${document.title}</h3>
+      <dialog data-fit="contain" inert>
+        <h3 class="toggle">${document.title}</h3>
         ${this.createButton('closer')}
         ${this.createThumbnails()}
       </dialog>
@@ -92,7 +92,7 @@ class Carousel extends HTMLElement {
    * @returns {string}
    */
   createThumbnails() {
-    let html = '<ol class="contain">';
+    let html = '<ol>';
 
     for (const [index, item] of this.items.entries()) {
       const heading = item.querySelector('h2');
@@ -169,6 +169,10 @@ class Carousel extends HTMLElement {
     const target = event.composedPath()[0];
     const type = target.className;
     switch (type) {
+      case 'toggle':
+        const fit = this.dialog.dataset.fit;
+        this.dialog.dataset.fit = (fit === 'cover') ? 'contain' : 'cover';
+        break;
       case 'closer':
       case 'opener':      
         this.toggleDialog();
@@ -232,7 +236,12 @@ class Carousel extends HTMLElement {
     // Scroll the current slide into view.
     const {left} = item.getBoundingClientRect();
     const position = (this.list.scrollLeft + left);
-    this.list.scrollTo(position, 0);
+
+    this.list.scrollTo({
+      top: 0,
+      left: position,
+      behavior: 'smooth',
+    });
 
     // Load neighboring images.
     const images = item.querySelectorAll('img');
@@ -492,11 +501,11 @@ class Carousel extends HTMLElement {
         vertical-align: middle;
       }
 
-      .contain img {
+      [data-fit='contain'] img {
         object-fit: contain;
       }
 
-      .cover img {
+      [data-fit='cover'] img {
         object-fit: cover;
       }
     `);
