@@ -31,6 +31,9 @@ class Carousel extends HTMLElement {
     this.current = 0;
     this.next = 1;
 
+    // Dialog state.
+    this.open = false;
+
     // Light DOM element references.
     this.list = this.querySelector('ol');
     this.items = [...this.list.querySelectorAll('li')];
@@ -49,12 +52,10 @@ class Carousel extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <slot></slot>
-
       ${this.createButton('prev')}
       ${this.createButton('next')}
-
       ${this.createButton('opener')}
-      <dialog>
+      <dialog inert>
         <h3>${document.title}</h3>
         ${this.createButton('closer')}
         ${this.createThumbnails()}
@@ -91,7 +92,7 @@ class Carousel extends HTMLElement {
    * @returns {string}
    */
   createThumbnails() {
-    let html = '<ol class="thumbs">';
+    let html = '<ol class="contain">';
 
     for (const [index, item] of this.items.entries()) {
       const heading = item.querySelector('h2');
@@ -157,33 +158,51 @@ class Carousel extends HTMLElement {
    * @param {Event} event
    */
   handleClick(event) {
-    const target = event.composedPath()[0];
+    const path = event.composedPath();
+    const isDialog = path.includes(this.dialog);
 
-    if (['DIALOG', 'H3'].includes(target.tagName)) {
+    if (!isDialog && this.open) {
+      this.toggleDialog();
       return;
     }
 
+    const target = event.composedPath()[0];
     const type = target.className;
     switch (type) {
       case 'closer':
-        this.dialog.close();
+      case 'opener':      
+        this.toggleDialog();
         break;
-      case 'opener':
-        this.dialog.showModal();
+      case 'next':
+      case 'prev':
+        this.scrollToSlide(type);
         break;
       case 'thumb':
         event.preventDefault();
         const url = new URL(target.href);
         history.replaceState(null, '', url);
         this.jumpToSlide(url.hash);
-        this.dialog.close();
-        break;
-      case 'prev':
-      case 'next':
-        this.scrollToSlide(type);
+        this.toggleDialog();
         break;
       default:
         break;
+    }
+  }
+
+  /**
+   * Opens/closes <dialog> with CSS transitions.
+   */  
+  toggleDialog() {
+    if (this.open) {
+      this.dialog.setAttribute('inert', '');
+      this.dialog.addEventListener('transitionend', () => {
+        this.dialog.close();
+        this.open = false;
+      }, {once: true});
+    } else {
+      this.dialog.removeAttribute('inert');
+      this.dialog.show();
+      this.open = true;
     }
   }
 
@@ -417,23 +436,23 @@ class Carousel extends HTMLElement {
         border: none;
         border-radius: .5rem;
         color: var(--text-color);
+        display: grid; /* Safari needs 'display' for <dialog> transitions. */
+        gap: .5rem;
+        grid: var(--button-size) 1fr / 1fr var(--button-size);
         inline-size: 100%;
         max-block-size: min(30rem, 75dvh);
         max-inline-size: min(36rem, 80dvw);
         padding: .75rem;
+        place-self: center;
+        transition: opacity .3s, transform .3s;
+        z-index: 1;
       }
 
-      dialog[open] {
-        display: grid;
-        gap: .5rem;
-        grid: var(--button-size) 1fr / 1fr var(--button-size);
+      dialog[inert] {
+        opacity: 0;
+        transform: scale(.9);
       }
 
-      ::backdrop {
-        backdrop-filter: blur(1px);
-        background-color: rgba(0, 0, 0, .25);
-      }
-      
       h3 {
         grid-area: 1 / 1 / 1 / 1;
         line-height: 1.1;
@@ -462,15 +481,23 @@ class Carousel extends HTMLElement {
       }
       
       a {
-        aspect-ratio: 1;
-        display: grid;
-        overflow: hidden;
-        place-content: center;
+        display: block;
       }
 
       img {
-        object-fit: cover;
+        aspect-ratio: 1;
+        background-color: var(--fill-1);
+        inline-size: 100%;
         pointer-events: none; /* For better event targeting. */
+        vertical-align: middle;
+      }
+
+      .contain img {
+        object-fit: contain;
+      }
+
+      .cover img {
+        object-fit: cover;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
