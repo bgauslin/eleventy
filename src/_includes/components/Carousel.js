@@ -432,8 +432,9 @@ class Carousel extends HTMLElement {
       }
 
       .opener {
+        font-size: var(--font-size-small);
         grid-area: var(--counter-grid-area);
-        padding-inline: 1em;
+        padding-inline: 1.25rem;
       }
 
       .counter {
@@ -446,14 +447,13 @@ class Carousel extends HTMLElement {
         border-radius: .5rem;
         color: var(--text-color);
         display: grid; /* Safari needs 'display' for <dialog> transitions. */
-        gap: .5rem;
         grid: var(--button-size) 1fr / 1fr var(--button-size);
         inline-size: 100%;
         max-block-size: min(30rem, 75dvh);
         max-inline-size: min(36rem, 80dvw);
-        padding: .75rem;
+        padding: 0;
         place-self: center;
-        transition: opacity .3s, transform .3s;
+        transition: opacity var(--transition), transform var(--transition);
         z-index: 1;
       }
 
@@ -462,10 +462,18 @@ class Carousel extends HTMLElement {
         transform: scale(.9);
       }
 
+      :where(h3, ol) {
+        padding-inline: .75rem;
+      }
+
       h3 {
+        font-size: var(--font-size-small);
         grid-area: 1 / 1 / 1 / 1;
-        line-height: 1.1;
+        max-inline-size: 100%;
+        overflow: hidden;
         place-self: center start;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .closer {
@@ -475,20 +483,21 @@ class Carousel extends HTMLElement {
       ol {
         block-size: 100%;
         display: grid;
-        gap: .25rem;
+        gap: .125rem;
         grid: auto-flow / repeat(auto-fill, minmax(6rem, 1fr));
         grid-area: 2 / 1 / 2 / -1;
         list-style: none;
         margin-block: 0 1rem;
         overflow: auto;
-        padding: 0;
+        padding-block: 0;
         place-self: start stretch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
 
-      li {
-        background-color: var(--fill-1);
-      }
-      
       a {
         display: block;
       }
