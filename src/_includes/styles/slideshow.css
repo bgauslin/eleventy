@@ -14,12 +14,12 @@
   --figure-grid: auto auto / 1fr;
 
   /* Slide images. */
-  --images-grid-area: 1 / 1 / 1 / 1;
+  --images-grid-area: 1 / 1;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
 
   /* Slide copy. */
-  --figcaption-grid-area: 2 / 1 / 2 / 1;
+  --figcaption-grid-area: 2 / 1;
   --figcaption-max-inline-size: 36em;
   --figcaption-padding-inline: var(--gap);
 }
@@ -30,12 +30,12 @@
     --figure-grid: 1fr / 1fr 2fr;
     
     /* Slide images. */
-    --images-grid-area: 1 / 2 / 1 / 2;
+    --images-grid-area: 1 / 2;
     --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
     
     /* Slide copy. */
-    --figcaption-grid-area: 1 / 1 / 1 / 1;
+    --figcaption-grid-area: 1 / 1;
     --figcaption-padding-inline: 0;
     --figcaption-place-self: center start;
   }
