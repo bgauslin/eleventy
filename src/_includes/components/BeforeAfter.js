@@ -9,7 +9,7 @@ class BeforeAfter extends HTMLElement {
 	}
 	
 	connectedCallback() {
-		this.renderDOM();
+		this.setup();
 		this.renderStyles();
 		this.addEventListener('click', this.clickListener);
 	}
@@ -17,24 +17,23 @@ class BeforeAfter extends HTMLElement {
 	disconnectedCallback() {
 		this.removeEventListener('click', this.clickListener);
 	}
-	
-	update() {
-		const value = this.active ? 0 : 100;
-	  this.style.setProperty('--shift', `${value}%`);
-	  this.active = !this.active;
-	}
-	
-	renderDOM() {
+
+	setup() {
 		this.attachShadow({mode: 'open'});
 		this.shadowRoot.innerHTML = '<slot></slot>';
+		this.style.setProperty('--action', '0%');
+	}
+	
+	update() {
+		let value = this.active ? 0 : 100;
+	  this.style.setProperty('--action', `${value}%`);
+	  this.active = !this.active;
 	}
 	
 	renderStyles() {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       :host {
-				--shift: 0;
-				
 				display: grid;
 				grid: 1fr / 1fr;
 				inline-size: 100%;
@@ -47,7 +46,7 @@ class BeforeAfter extends HTMLElement {
 			}
 			
 			::slotted(img:first-child) {
-				clip-path: polygon(0% 0%, var(--shift) 0%, var(--shift) 100%, 0% 100%);
+				clip-path: polygon(0% 0%, var(--action) 0%, var(--action) 100%, 0% 100%);
 			}
 		`);
 		this.shadowRoot.adoptedStyleSheets = [styles];
