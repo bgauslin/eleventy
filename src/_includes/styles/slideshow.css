@@ -15,7 +15,6 @@
 
   /* Slide images. */
   --images-grid-area: 1 / 1 / 1 / 1;
-  --images-inline-size: 50%;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
 
@@ -32,7 +31,6 @@
     
     /* Slide images. */
     --images-grid-area: 1 / 2 / 1 / 2;
-    --images-inline-size: 50%;
     --img-max-block-size: 95vh;
     --img-max-inline-size: 100vh;
     
@@ -64,8 +62,7 @@
 }
 
 [data-images='pair'] {
-  inline-size: var(--images-inline-size);
-  place-self: center;
+  grid: auto-flow / repeat(2, 1fr);
 }
 
 /**
