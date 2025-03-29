@@ -13,6 +13,7 @@ class Carousel extends HTMLElement {
     this.setup();
     this.shadowStyles();
     this.jumpToHash();
+    this.setImageFit();
     this.watch();
     document.addEventListener('click', this.clickListener);
     document.addEventListener('keydown', this.keyListener);
@@ -57,8 +58,8 @@ class Carousel extends HTMLElement {
       ${this.createButton('prev')}
       ${this.createButton('next')}
       ${this.createButton('opener')}
-      <dialog data-fit="contain" inert>
-        <h3 class="toggle">${document.title}</h3>
+      <dialog inert>
+        <h3 class="toggle"></h3>
         ${this.createButton('closer')}
         ${this.createThumbnails()}
       </dialog>
@@ -68,6 +69,7 @@ class Carousel extends HTMLElement {
     this.closer = this.shadowRoot.querySelector('.closer');
     this.counter = this.shadowRoot.querySelector('.counter');
     this.dialog =  this.shadowRoot.querySelector('dialog');
+    this.heading =  this.shadowRoot.querySelector('h3');
     this.nextButton = this.shadowRoot.querySelector('.next');
     this.opener = this.shadowRoot.querySelector('.opener');
     this.prevButton = this.shadowRoot.querySelector('.prev');
@@ -172,8 +174,7 @@ class Carousel extends HTMLElement {
     const type = target.className;
     switch (type) {
       case 'toggle':
-        const fit = this.dialog.dataset.fit;
-        this.dialog.dataset.fit = (fit === 'cover') ? 'contain' : 'cover';
+        this.setImageFit();
         break;
       case 'closer':
       case 'opener':      
@@ -193,6 +194,22 @@ class Carousel extends HTMLElement {
       default:
         break;
     }
+  }
+
+  /**
+   * Toggles between two values for setting CSS 'object-fit'.
+   */
+  setImageFit() {
+    let fit = 'contain';
+    let label = 'Aspect Ratio Grid';
+
+    if (this.dialog.dataset.fit === 'contain') {
+      fit = 'cover';
+      label = 'Square Grid';
+    }
+
+    this.dialog.dataset.fit = fit;
+    this.heading.textContent = label;
   }
 
   /**
@@ -483,6 +500,7 @@ class Carousel extends HTMLElement {
       }
 
       h3 {
+        cursor: pointer;
         font-size: var(--font-size-small);
         grid-area: 1 / 1;
         margin: 0;
