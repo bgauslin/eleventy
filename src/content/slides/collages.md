@@ -21,6 +21,11 @@ image:
     slideshow-carousel {
       --counter-place-self: center;
     }
+
+    /* Ensures portrait and landdscape are the same size. */
+    .slideshow {
+      --img-max-inline-size: 100vh; 
+    }
   }
 
   h2 + p {

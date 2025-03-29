@@ -32,7 +32,6 @@
     /* Slide images. */
     --images-grid-area: 1 / 2;
     --img-max-block-size: 95vh;
-    --img-max-inline-size: 100vh;
     
     /* Slide copy. */
     --figcaption-grid-area: 1 / 1;
