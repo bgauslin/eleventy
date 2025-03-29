@@ -45,8 +45,9 @@ class BeforeAfter extends HTMLElement {
 				transition: clip-path .3s ease-in-out;
 			}
 			
-			::slotted(img:first-child) {
+			::slotted(img:last-child) {
 				clip-path: polygon(0% 0%, var(--action) 0%, var(--action) 100%, 0% 100%);
+				z-index: 1
 			}
 		`);
 		this.shadowRoot.adoptedStyleSheets = [styles];
