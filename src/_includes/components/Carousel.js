@@ -458,24 +458,23 @@ class Carousel extends HTMLElement {
 
         background-color: var(--fill-2);
         border: none;
-        border-radius: .5rem;
         color: var(--text-color);
         display: grid; /* Safari needs 'display' for <dialog> transitions. */
         gap: var(--gap);
         grid: auto 1fr / 1fr auto;
         inline-size: 100%;
-        max-block-size: min(30rem, 80dvh);
-        max-inline-size: min(36rem, 100dvw);
+        max-block-size: 100dvh;
+        outline: none;
         padding-block: var(--gap) 0;
         padding-inline: var(--gap);
-        place-self: center;
+        place-self: start center;
         transition: opacity var(--transition), transform var(--transition);
-        z-index: 1;
+        z-index: 3;
       }
 
       dialog[inert] {
         opacity: 0;
-        transform: scale(.9);
+        transform: translateY(-100%);
       }
 
       :where(h3, ol) {
@@ -522,6 +521,18 @@ class Carousel extends HTMLElement {
 
       a {
         display: block;
+        outline: none;
+        transition: transform var(--transition);
+      }
+
+      a:focus-visible {
+        transform: scale(1.1);
+      }
+
+      @media (any-hover: hover) {
+        a:hover {
+          transform: scale(1.1);
+        }
       }
 
       img {
