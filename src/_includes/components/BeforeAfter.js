@@ -34,6 +34,7 @@ class BeforeAfter extends HTMLElement {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       :host {
+				cursor: pointer;
 				display: grid;
 				grid: 1fr / 1fr;
 				inline-size: 100%;
