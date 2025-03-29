@@ -53,7 +53,7 @@
 }
 
 /**
- * Slide images.
+ * Slide images wrapper.
  */
 [data-images] {
   display: grid;
@@ -63,7 +63,7 @@
   place-items: center;
 }
 
-[data-images='2'] {
+[data-images='pair'] {
   inline-size: var(--images-inline-size);
   place-self: center;
 }

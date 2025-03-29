@@ -32,9 +32,15 @@ layout: base
 <slideshow-carousel>
   <ol role="list">
   {% for item in collections[slug] -%}
+    
+    {# TODO: Add new 'media' field to content; remove this. #}
+    {%- if item.data.images | length == 2 -%}
+      {%- set media = 'pair' -%}
+    {%- endif -%}
+
     <li id="{{ item.data.slug }}">
       <figure>
-        <div data-images="{{ item.data.images | length }}">
+        <div data-images{%- if media -%}="{{ media }}"{%- endif -%}>
         {%- set loading = 'eager' if loop.first else 'lazy' %}
         {% for image in item.data.images -%}
           {{ renderImage(image, slug, loading) }}
