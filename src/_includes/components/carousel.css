@@ -24,9 +24,9 @@ slideshow-carousel {
 
   /* Carousel shadow DOM. */
   --grid: var(--figure-grid);
-  --counter-grid-area: 3 / 3 / 3 / -3;
-  --prev-grid-area: 3 / 2 / 3 / 3;
-  --next-grid-area: 3 / -2 / 3 / -3;
+  --counter-grid-area: 3 / 3;
+  --prev-grid-area: 3 / 2;
+  --next-grid-area: 3 / -3;
 }
 
 @media (orientation: landscape) {
