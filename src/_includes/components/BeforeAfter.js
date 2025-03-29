@@ -48,7 +48,6 @@ class BeforeAfter extends HTMLElement {
 			
 			::slotted(img:first-child) {
 				clip-path: polygon(0% 0%, var(--shift) 0%, var(--shift) 100%, 0% 100%);
-				filter: invert(); /* TODO: For testing only. Please remove. */
 			}
 		`);
 		this.shadowRoot.adoptedStyleSheets = [styles];

@@ -35,12 +35,17 @@ layout: base
     <li id="{{ item.data.slug }}">
       <figure>
         <div data-images{% if item.data.media %}="{{ item.data.media }}"{% endif %}>
+        {%- if item.data.media == 'before-after' -%}
+          <before-after>
+        {%- endif -%}
         {%- set loading = 'eager' if loop.first else 'lazy' %}
         {% for image in item.data.images -%}
           {{ renderImage(image, slug, loading) }}
         {%- endfor %}
+        {%- if item.data.media == 'before-after' -%}
+          </before-after>
+        {%- endif -%}
         </div>
-    
         <figcaption>
           <h2>{{ item.data.title }}</h2>
           
