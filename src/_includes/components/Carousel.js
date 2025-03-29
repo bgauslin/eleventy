@@ -457,6 +457,7 @@ class Carousel extends HTMLElement {
         --gap: .75rem;
 
         background-color: var(--fill-2);
+        block-size: auto;
         border: none;
         color: var(--text-color);
         display: grid; /* Safari needs 'display' for <dialog> transitions. */
@@ -526,12 +527,12 @@ class Carousel extends HTMLElement {
       }
 
       a:focus-visible {
-        transform: scale(1.1);
+        transform: scale(.9);
       }
 
       @media (any-hover: hover) {
         a:hover {
-          transform: scale(1.1);
+          transform: scale(.9);
         }
       }
 
