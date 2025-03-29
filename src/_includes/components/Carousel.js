@@ -242,7 +242,7 @@ class Carousel extends HTMLElement {
     this.list.scrollTo({
       top: 0,
       left: position,
-      behavior: 'smooth',
+      behavior: 'instant',
     });
 
     // Load neighboring images.
@@ -484,7 +484,7 @@ class Carousel extends HTMLElement {
 
       h3 {
         font-size: var(--font-size-small);
-        grid-area: 1 / 1 / 1 / 1;
+        grid-area: 1 / 1;
         margin: 0;
         max-inline-size: 100%;
         overflow: hidden;
@@ -498,7 +498,7 @@ class Carousel extends HTMLElement {
         --button-size: var(--button-icon-size);
         --button-stroke-width: 2px;
 
-        grid-area: 1 / 2 / 1 / 2;
+        grid-area: 1 / 2;
       }
 
       ol {
@@ -521,26 +521,26 @@ class Carousel extends HTMLElement {
       }
 
       a {
+        background-color: var(--fill-1);
         display: block;
         outline: none;
-        transition: transform var(--transition);
       }
 
-      a:focus-visible {
+      a:focus-visible img {
         transform: scale(.9);
       }
 
       @media (any-hover: hover) {
-        a:hover {
+        a:hover img {
           transform: scale(.9);
         }
       }
 
       img {
         aspect-ratio: 1;
-        background-color: var(--fill-1);
         inline-size: 100%;
         pointer-events: none; /* For better event targeting. */
+        transition: transform var(--transition);
         vertical-align: middle;
       }
 
