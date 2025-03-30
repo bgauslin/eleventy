@@ -46,7 +46,7 @@ layout: base
         <div data-images{% if total %}="{{ total }}"{% endif %}>
 
         {%- if item.data.before_after %}
-          <before-after type="{{ item.data.before_after.type }}">
+          <before-after>
         {%- endif %}
 
         {%- set loading = 'eager' if loop.first else 'lazy' %}

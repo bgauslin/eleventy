@@ -20,10 +20,7 @@ class BeforeAfter extends HTMLElement {
 
 	setup() {
 		this.attachShadow({mode: 'open'});
-		this.shadowRoot.innerHTML = `
-			<slot></slot>
-			<slot name="caption"><small>Click the image!</small></slot>
-		`;
+		this.shadowRoot.innerHTML = `<slot></slot>`;
 		this.style.setProperty('--action', '0%');
 	}
 	
@@ -47,26 +44,12 @@ class BeforeAfter extends HTMLElement {
 				grid-area: 1 / 1 / -1 / -1;
 				inline-size: 100%;
 				place-self: center;
-				transition: opacity .3s, clip-path .3s ease-in-out;
+				transition: opacity var(--transition);
 			}
 
 			::slotted(img:last-child) {
-				z-index: 1
-			}
-			
-			:host-context([type='wipe']) ::slotted(img:last-child) {
-				clip-path: polygon(0% 0%, var(--action) 0%, var(--action) 100%, 0% 100%);
-			}
-
-			:host-context([type='fade']) ::slotted(img:last-child) {
 				opacity: var(--action);
-			}
-				
-			small {
-				opacity: var(--text-opacity);
-				margin-block: .5rem;
-				margin-inline: 1rem;
-				text-align: center;
+				z-index: 1;
 			}
 		`);
 		this.shadowRoot.adoptedStyleSheets = [styles];
