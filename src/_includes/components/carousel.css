@@ -48,7 +48,7 @@ slideshow-carousel {
   }
 }
 
-@media (orientation: landscape) and (width < 800px) {
+@media (orientation: landscape) and (width < 960px) {
   slideshow-carousel {
     --figure-grid: auto var(--button-size) / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
   }

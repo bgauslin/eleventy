@@ -46,6 +46,7 @@ class BeforeAfter extends HTMLElement {
 			::slotted(img) {
 				grid-area: 1 / 1 / -1 / -1;
 				inline-size: 100%;
+				place-self: center;
 				transition: opacity .3s, clip-path .3s ease-in-out;
 			}
 
