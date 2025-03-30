@@ -471,28 +471,28 @@ class Carousel extends HTMLElement {
       }
 
       dialog {
-        --gap: .75rem;
+        --gap: 1rem;
 
         background-color: var(--fill-2);
         block-size: auto;
         border: none;
         color: var(--text-color);
-        display: grid; /* Safari needs 'display' for <dialog> transitions. */
+        display: grid;
         gap: var(--gap);
         grid: auto 1fr / 1fr auto;
         inline-size: 100%;
-        max-block-size: 100dvh;
+        inset-inline: 0;
+        inset-block: auto 0;
         outline: none;
         padding-block: var(--gap) 0;
         padding-inline: var(--gap);
-        place-self: start center;
-        transition: opacity var(--transition), transform var(--transition);
+        position: fixed;
+        transition: transform var(--transition);
         z-index: 3;
       }
 
       dialog[inert] {
-        opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(100%);
       }
 
       :where(h3, ol) {
