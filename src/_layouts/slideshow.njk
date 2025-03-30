@@ -36,6 +36,9 @@ layout: base
       {%- set total = null -%}
     {%- else -%}
       {%- set total = item.data.images|length -%}
+      {%- if total > 3 -%}
+        {%- set total = 3 -%}
+      {%- endif -%}
     {%- endif -%}
 
     <li id="{{ item.data.slug }}">
