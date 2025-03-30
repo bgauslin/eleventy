@@ -43,12 +43,19 @@ class BeforeAfter extends HTMLElement {
 			::slotted(img) {
 				grid-area: 1 / 1 / -1 / -1;
 				inline-size: 100%;
-				transition: clip-path .3s ease-in-out;
+			}
+
+			::slotted(img:last-child) {
+				z-index: 1
+				transition: opacity .3s, clip-path .3s ease-in-out;
 			}
 			
-			::slotted(img:last-child) {
+			:host-context([type='wipe']) ::slotted(img:last-child) {
 				clip-path: polygon(0% 0%, var(--action) 0%, var(--action) 100%, 0% 100%);
-				z-index: 1
+			}
+
+			:host-context([type='fade']) ::slotted(img:last-child) {
+				opacity: var(--action);
 			}
 		`);
 		this.shadowRoot.adoptedStyleSheets = [styles];
