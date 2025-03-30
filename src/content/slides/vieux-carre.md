@@ -1,6 +1,6 @@
 ---
 layout: slideshow
-permalink: aad/vieux-carre.html
+permalink: archdesign/vieux-carre.html
 slug: vieux-carre
 tags: slideshow
 classname: slideshow
