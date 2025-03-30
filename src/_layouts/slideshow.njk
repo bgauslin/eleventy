@@ -32,9 +32,15 @@ layout: base
 <slideshow-carousel>
   <ol role="list">
   {% for item in collections[slug] -%}
+    {%- if item.data.before_after -%}
+      {%- set total = null -%}
+    {%- else -%}
+      {%- set total = item.data.images|length -%}
+    {%- endif -%}
+
     <li id="{{ item.data.slug }}">
       <figure>
-        <div data-images{% if item.data.media %}="{{ item.data.media }}"{% endif %}>
+        <div data-images{% if total %}="{{ total }}"{% endif %}>
 
         {%- if item.data.before_after %}
           <before-after type="{{ item.data.before_after.type }}">

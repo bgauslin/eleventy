@@ -60,8 +60,12 @@
   place-items: center;
 }
 
-[data-images='pair'] {
+[data-images='2'] {
   grid: auto-flow / repeat(2, 1fr);
+}
+
+[data-images='3'] {
+  grid: auto-flow / repeat(3, 1fr);
 }
 
 /**
