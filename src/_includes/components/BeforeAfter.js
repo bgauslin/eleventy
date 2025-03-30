@@ -22,7 +22,7 @@ class BeforeAfter extends HTMLElement {
 		this.attachShadow({mode: 'open'});
 		this.shadowRoot.innerHTML = `
 			<slot></slot>
-			<slot name="label"><small>Click the image!</small></slot>
+			<slot name="caption"><small>Click the image!</small></slot>
 		`;
 		this.style.setProperty('--action', '0%');
 	}
