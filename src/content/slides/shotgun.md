@@ -18,17 +18,9 @@ image:
     --figcaption-place-self: start center;
   }
 
-  [data-orientation='portrait'] {
-    --img-inline-size: 50%;
-  }
-
   @media (orientation: landscape) {
     slideshow-carousel {
       --figcaption-place-self: center;
-    }
-
-    [data-orientation='portrait'] {
-      --img-inline-size: 50vh;
     }
   }
 </style>
