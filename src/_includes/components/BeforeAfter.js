@@ -20,7 +20,10 @@ class BeforeAfter extends HTMLElement {
 
 	setup() {
 		this.attachShadow({mode: 'open'});
-		this.shadowRoot.innerHTML = `<slot></slot>`;
+		this.shadowRoot.innerHTML = `
+			<slot></slot>
+			<p><slot name="caption">Click me!</slot></p>
+		`;
 		this.style.setProperty('--action', '0%');
 	}
 	
@@ -33,6 +36,10 @@ class BeforeAfter extends HTMLElement {
 	renderStyles() {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
+			* {
+				box-sizing: border-box;
+			}
+
       :host {
 				cursor: pointer;
 				display: grid;
@@ -50,6 +57,13 @@ class BeforeAfter extends HTMLElement {
 			::slotted(img:last-child) {
 				opacity: var(--action);
 				z-index: 1;
+			}
+
+			p {
+				font-size: var(--font-size-small);
+				margin-block: .25em;
+				opacity: var(--text-opacity);
+				text-align: center;
 			}
 		`);
 		this.shadowRoot.adoptedStyleSheets = [styles];

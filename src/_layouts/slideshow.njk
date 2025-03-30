@@ -47,6 +47,7 @@ layout: base
 
         {%- if item.data.before_after %}
           <before-after>
+            <small slot="caption">{{ item.data.before_after.caption }}</small>
         {%- endif %}
 
         {%- set loading = 'eager' if loop.first else 'lazy' %}
