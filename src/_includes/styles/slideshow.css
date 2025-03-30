@@ -58,6 +58,7 @@
   grid: auto-flow / 1fr;
   grid-area: var(--images-grid-area);
   place-items: center;
+  place-self: center;
 }
 
 [data-images='2'] {
