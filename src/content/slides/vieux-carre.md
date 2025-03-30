@@ -1,7 +1,7 @@
 ---
 layout: slideshow
-permalink: aad/shotgun-vc.html
-slug: shotgun-vc
+permalink: aad/vieux-carre.html
+slug: vieux-carre
 tags: slideshow
 classname: slideshow
 
