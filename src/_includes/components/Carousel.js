@@ -483,6 +483,7 @@ class Carousel extends HTMLElement {
         inline-size: 100%;
         inset-inline: 0;
         inset-block: auto 0;
+        max-block-size: 100dvh;
         outline: none;
         padding-block: var(--gap) 0;
         padding-inline: var(--gap);
