@@ -21,14 +21,23 @@ class BeforeAfter extends HTMLElement {
 	setup() {
 		this.attachShadow({mode: 'open'});
 		this.shadowRoot.innerHTML = `
-			<slot></slot>
-			<p><slot name="caption">Click me!</slot></p>
+			<slot name="images"></slot>
+			<p>
+				<slot name="before">Click for view after</slot>
+				<slot name="after">Return to view before</slot>
+			</p>
 		`;
+		this.before = this.shadowRoot.querySelector('[name=before]');
+		this.after = this.shadowRoot.querySelector('[name=after]');
+		
 		this.style.setProperty('--action', '0%');
+		this.after.hidden = true;
 	}
 	
 	update() {
 		let value = this.active ? 0 : 100;
+		this.before.hidden = !this.active;
+		this.after.hidden = this.active;
 	  this.style.setProperty('--action', `${value}%`);
 	  this.active = !this.active;
 	}
@@ -43,12 +52,12 @@ class BeforeAfter extends HTMLElement {
       :host {
 				cursor: pointer;
 				display: grid;
-				grid: 1fr / 1fr;
+				grid: 1fr auto / 1fr;
 				inline-size: 100%;
 			}
 
 			::slotted(img) {
-				grid-area: 1 / 1 / -1 / -1;
+				grid-area: 1 / 1;
 				inline-size: 100%;
 				place-self: center;
 				transition: opacity var(--transition);
@@ -61,7 +70,8 @@ class BeforeAfter extends HTMLElement {
 
 			p {
 				font-size: var(--font-size-small);
-				margin-block: .25em;
+				grid-area: 2 / 1;
+				margin: 0;
 				opacity: var(--text-opacity);
 				text-align: center;
 			}

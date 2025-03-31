@@ -2,7 +2,7 @@
 layout: base
 ---
 {# TODO: Fine-tune and refactor responsive image sizes for portrait vs. landscape. #}
-{%- macro renderImage(image, slug, loading) %}
+{%- macro renderImage(image, slug, loading, slot = null) %}
   {%- set path = '/images/' + slug + '/' + image.src %}
   {%- set orientation = 'landscape' if image.height < image.width else 'portrait' %}
   {%- if orientation == 'portrait' -%}
@@ -22,6 +22,7 @@ layout: base
     data-orientation="{{ orientation }}"
     data-preview="{{ thumb }}"
     loading="{{ loading }}"
+    {%- if slot %}slot="{{ slot }}"{% endif %}
     src="{{ medium }}"
     srcset="{{ small }}, {{ medium }}, {{ large }}"
     sizes="{{ sizes }}"
@@ -32,27 +33,28 @@ layout: base
 <slideshow-carousel>
   <ol role="list">
   {% for item in collections[slug] -%}
-    {%- if item.data.before_after -%}
-      {%- set total = null -%}
+    {%- if item.data.images|length == 1 or item.data.before_after -%}
+      {%- set columns = null -%}
     {%- else -%}
-      {%- set total = item.data.images|length -%}
-      {%- if total > 3 -%}
-        {%- set total = 3 -%}
+      {%- if item.data.images|length == 3 -%}
+        {%- set columns = '3-column' -%}
+      {%- else -%}
+        {%- set columns = '2-column' -%}
       {%- endif -%}
     {%- endif -%}
-
     <li id="{{ item.data.slug }}">
       <figure>
-        <div data-images{% if total %}="{{ total }}"{% endif %}>
+        <div data-images{% if columns %}="{{ columns }}"{% endif %}>
 
         {%- if item.data.before_after %}
           <before-after>
-            <small slot="caption">{{ item.data.before_after.caption }}</small>
+            <small slot="before">{{ item.data.before_after.before }}</small>
+            <small slot="after">{{ item.data.before_after.after }}</small>
         {%- endif %}
 
         {%- set loading = 'eager' if loop.first else 'lazy' %}
         {% for image in item.data.images -%}
-          {{ renderImage(image, slug, loading) }}
+          {{ renderImage(image, slug, loading, slot='images') }}
         {%- endfor %}
         
         {%- if item.data.before_after %}
