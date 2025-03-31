@@ -61,11 +61,11 @@
   place-self: center;
 }
 
-[data-images='2'] {
+[data-images='2-column'] {
   grid: auto-flow / repeat(2, 1fr);
 }
 
-[data-images='3'] {
+[data-images='3-column'] {
   grid: auto-flow / repeat(3, 1fr);
 }
 
