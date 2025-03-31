@@ -194,3 +194,10 @@ a:active {
     transition: fill var(--transition);
   }
 }
+
+a[href$='.pdf']::after {
+  content: '[PDF]';
+  font-size: 80%;
+  letter-spacing: 1px;
+  margin-inline-start: .5em;
+}
