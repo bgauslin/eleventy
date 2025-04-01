@@ -42,7 +42,7 @@ class BeforeAfter extends HTMLElement {
     this.active = !this.active;
   }
 	
-	renderStyles() {
+  renderStyles() {
     const styles = new CSSStyleSheet();
     styles.replaceSync(`
       * {
