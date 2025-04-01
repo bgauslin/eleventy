@@ -48,8 +48,8 @@ layout: base
 
         {%- if item.data.before_after %}
           <before-after>
-            <small slot="before">{{ item.data.before_after.before }}</small>
-            <small slot="after">{{ item.data.before_after.after }}</small>
+            <span slot="before">{{ item.data.before_after.before }}</span>
+            <span slot="after">{{ item.data.before_after.after }}</span>
         {%- endif %}
 
         {%- set loading = 'eager' if loop.first else 'lazy' %}

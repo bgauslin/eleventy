@@ -60,7 +60,7 @@ class BeforeAfter extends HTMLElement {
 				grid-area: 1 / 1;
 				inline-size: 100%;
 				place-self: center;
-				transition: opacity var(--transition);
+				transition: opacity .5s;
 			}
 
 			::slotted(img:last-child) {
@@ -69,9 +69,10 @@ class BeforeAfter extends HTMLElement {
 			}
 
 			p {
-				font-size: var(--font-size-small);
+				font-size: small;
+				font-weight: bold;
 				grid-area: 2 / 1;
-				margin: 0;
+				margin-block: .5rem 0;
 				opacity: var(--text-opacity);
 				text-align: center;
 			}
