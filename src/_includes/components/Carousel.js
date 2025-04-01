@@ -50,6 +50,9 @@ class Carousel extends HTMLElement {
       {type: 'prev', label: 'Previous slide', path: 'M15,4 L7,12 L15,20'},
     ];
 
+    // Project name for browser history updates.
+    this.baseTitle = document.title;
+
     // Shadow DOM.
     this.attachShadow({mode: 'open'});
 
@@ -151,6 +154,10 @@ class Carousel extends HTMLElement {
       const url = new URL(window.location);
       url.hash = item.id;
       history.replaceState(null, '', url.href);
+
+      // Update browser history.
+      const heading = item.querySelector('h2');
+      document.title = `${heading.textContent} · ${this.baseTitle}`;
 
       // Update shadow DOM.
       this.updateElements();
