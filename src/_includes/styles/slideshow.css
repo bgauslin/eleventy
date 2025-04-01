@@ -14,7 +14,7 @@
   --figure-grid: auto auto / 1fr;
 
   /* Slide images. */
-  --images-gap: .5rem;
+  --images-gap: .8vw;
   --images-grid-area: 1 / 1;
   --img-max-block-size: min(800px, 100vw);
   --img-object-fit: contain;
