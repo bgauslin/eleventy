@@ -5,15 +5,15 @@
     "description": "Browser-based applications made with Web Components and TypeScript.",
     "items": [
       {
-        "heading": "Clock",
-        "copy": "A grid of clock faces that reveal patterns over time.",
-        "image": "clock.png",
-        "url": "/clock/",
-        "label": "View the Clock app",
+        "heading": "Powers Of Ten",
+        "copy": "Adaptation of the film by Charles and Ray Eames.",
+        "image": "ten.jpg",
+        "url": "/ten/",
+        "label": "View the Powers Of Ten app",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/clock/tree/main/src",
+          "url": "https://github.com/bgauslin/ten/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
@@ -31,15 +31,15 @@
         }
       },
       {
-        "heading": "Powers Of Ten",
-        "copy": "Adaptation of the film by Charles and Ray Eames.",
-        "image": "ten.jpg",
-        "url": "/ten/",
-        "label": "View the Powers Of Ten app",
+        "heading": "Clock",
+        "copy": "A grid of clock faces that reveal patterns over time.",
+        "image": "clock.png",
+        "url": "/clock/",
+        "label": "View the Clock app",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/ten/tree/main/src",
+          "url": "https://github.com/bgauslin/clock/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
@@ -126,18 +126,18 @@
         "label": "Listen to the Stop Look Think track on Bandcamp"
       },
       {
-        "heading": "Thump Daddy",
-        "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
-        "image": "thumpdaddy.png",
-        "url": "https://thumpdaddy.bandcamp.com/album/get-thumped",
-        "label": "Listen to the demo on Bandcamp"
-      },
-      {
         "heading": "Twelve Modern",
         "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
         "image": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
         "label": "Listen to the Like Ghosts album on Bandcamp"
+      },
+      {
+        "heading": "ThumpDaddy",
+        "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
+        "image": "thumpdaddy.png",
+        "url": "https://thumpdaddy.bandcamp.com/album/get-thumped",
+        "label": "Listen to the demo on Bandcamp"
       }
     ]
   }
