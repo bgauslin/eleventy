@@ -79,6 +79,7 @@ class BeforeAfter extends HTMLElement {
         cursor: pointer;
         font: inherit;
         font-size: .75em;
+        font-variation-settings: 'wght' 600;
         outline: none;
         padding-block: .25rem;
         padding-inline: 1rem;
