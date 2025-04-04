@@ -2,16 +2,25 @@
   {
     "href": "mailto:ben@gauslin.com?subject=Hello",
     "icon": "email",
-    "label": "Send an email"
+    "label": "Send an email",
+    "enabled": true
   },
   {
     "href": "sms:5044057842",
     "icon": "sms",
-    "label": "Send a text message"
+    "label": "Send a text message",
+    "enabled": false
   },
   {
     "href": "tel:5044057842",
     "icon": "phone",
-    "label": "Make a phone call"
+    "label": "Make a phone call",
+    "enabled": true
+  },
+  {
+    "href": "https://wa.me/34605425683",
+    "icon": "whatsapp",
+    "label": "Send a message on WhatsApp",
+    "enabled": true
   }
 ]

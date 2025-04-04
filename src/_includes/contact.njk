@@ -1,5 +1,6 @@
 <ul class="contact">
 {% for link in contact -%}
+  {%- if link.enabled %}
   <li>
     <a aria-label="{{ link.label }}"
        class="button"
@@ -10,5 +11,6 @@
       </svg>
     </a>
   </li>
+  {%- endif %}
 {%- endfor %}
 </ul>
