@@ -18,7 +18,7 @@ classname: home
     
     <small>_...que es muy lento pero muy emocionante y mucho más valioso. ¡Bienvenidos y gracias por visitarme!_</small>
 
-    <img src="images/selfie.jpg" alt="" class="avatar">
+    <img src="images/home/selfie.jpg" alt="" class="avatar">
   </details>
 
   {% include 'projects.njk' %}
@@ -28,7 +28,7 @@ classname: home
       <h2>Contact</h2>
     </summary>
 
-    You can reach me via email, text, or voicemail.
+    You can reach me via email, voicemail, or on WhatsApp.
 
     {% include 'contact.njk' %}
 
