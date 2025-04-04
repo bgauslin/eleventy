@@ -9,6 +9,10 @@ ErrorDocument 404 /404.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 
+# Remove odd URL parameter by InfinityFree hosting.
+RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
+RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
+
 # Allow remote access to shared assets.
 <FilesMatch "\.(json|webp|woff2)$">
   Header set Access-Control-Allow-Origin "*"

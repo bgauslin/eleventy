@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /ten/
+Disallow: /archdesign/collector.html
