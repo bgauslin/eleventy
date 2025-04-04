@@ -24,19 +24,25 @@ class BeforeAfter extends HTMLElement {
       <slot name="images"></slot>
       <button type="button">
         <span>
-          <slot name="before">Click for view after</slot>
-          <slot name="after">Return to view before</slot>
+          <slot name="before">View after</slot>
+          <slot name="after">Vview before</slot>
         </span>
       </button>
     `;
-    this.before = this.shadowRoot.querySelector('[name=before]');
     this.after = this.shadowRoot.querySelector('[name=after]');
+    this.before = this.shadowRoot.querySelector('[name=before]');
+    this.button = this.shadowRoot.querySelector('button');
 
     this.style.setProperty('--action', '0%');
     this.after.hidden = true;
   }
 	
-  update() {
+  update(event) {
+    const path = event.composedPath();
+    console.log('path', path);
+
+    if (!path.includes(this.button)) return;
+
     let value = this.active ? 0 : 100;
     this.before.hidden = !this.active;
     this.after.hidden = this.active;
@@ -81,7 +87,7 @@ class BeforeAfter extends HTMLElement {
         font-size: .75em;
         font-variation-settings: 'wght' 600;
         outline: none;
-        padding-block: .25rem;
+        padding-block: .5rem;
         padding-inline: 1rem;
         place-self: center;
         transition: background-color var(--transition), color var(--transition), transform var(--transition);
