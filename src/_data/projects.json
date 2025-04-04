@@ -18,6 +18,19 @@
         }
       },
       {
+        "heading": "Calorie Calculator",
+        "copy": "Calculator for determining daily calorie needs.",
+        "image": "calories.png",
+        "url": "/calories/",
+        "label": "View the Calories app",
+        "button": {
+          "label": "View code on GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/calories/tree/main/src",
+          "tags": ["TypeScript", "Custom Elements", "Sass"]
+        }
+      },
+      {
         "heading": "Moon",
         "copy": "Location-based moorise, moonset, and lunar phase.",
         "image": "moon.png",
@@ -41,19 +54,6 @@
           "icon": "github",
           "url": "https://github.com/bgauslin/clock/tree/main/src",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
-        }
-      },
-      {
-        "heading": "Calories",
-        "copy": "Calculator for daily calorie needs.",
-        "image": "calories.png",
-        "url": "/calories/",
-        "label": "View the Calories app",
-        "button": {
-          "label": "View code on GitHub",
-          "icon": "github",
-          "url": "https://github.com/bgauslin/calories/tree/main/src",
-          "tags": ["TypeScript", "Custom Elements", "Sass"]
         }
       },
       {
