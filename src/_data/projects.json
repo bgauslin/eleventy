@@ -72,7 +72,7 @@
     ]
   },
   {
-    "heading": "Architecture + Design",
+    "heading": "Architecture",
     "id": "archdesign",
     "description": "Explorations of light and space through materials and media.",
     "items": [
@@ -109,7 +109,7 @@
   {
     "heading": "Music",
     "id": "music",
-    "description": "Some bands I’ve recorded, performed, and/or toured with as a drummer.",
+    "description": "A few groups I’ve recorded, performed, and/or toured with as a drummer.",
     "items": [
       {
         "heading": "The Pietasters",
@@ -126,18 +126,18 @@
         "label": "Listen to the Stop Look Think track on Bandcamp"
       },
       {
-        "heading": "Twelve Modern",
-        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
-        "image": "twelve-modern.jpg",
-        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
-        "label": "Listen to the Like Ghosts album on Bandcamp"
-      },
-      {
         "heading": "ThumpDaddy",
         "copy": "5-piece Memphis-based party band with an energetic (and exhausting) 4-hour show.",
         "image": "thumpdaddy.png",
         "url": "https://thumpdaddy.bandcamp.com/album/get-thumped",
         "label": "Listen to the demo on Bandcamp"
+      },
+      {
+        "heading": "Twelve Modern",
+        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
+        "image": "twelve-modern.jpg",
+        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
+        "label": "Listen to the Like Ghosts album on Bandcamp"
       }
     ]
   }
