@@ -28,7 +28,7 @@ classname: home
       <h2>Contact</h2>
     </summary>
 
-    You can reach me via email, voicemail, or on WhatsApp.
+    You can reach me via email, voicemail, or WhatsApp.
 
     {% include 'contact.njk' %}
 
