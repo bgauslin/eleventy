@@ -14,9 +14,11 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m a former Chicago architect, Google engineer, and design professor who’s currently learning Spanish the hard way while living in Madrid.
+    Hello, I’m a former Google engineer, Chicago architect, and design professor based in Madrid, where I am currently learning Spanish the hard way.
     
-    <small>_...que es muy lento pero muy emocionante y mucho más valioso. ¡Bienvenidos y gracias por visitarme!_</small>
+    This little website is home to some of the web, architecture, and music stuff I’ve made over the years. Please feel free to poke around.
+    
+    _¡Bienvenidos y gracias por visitarme!_
 
     <img src="images/home/selfie.jpg" alt="" class="avatar">
   </details>
