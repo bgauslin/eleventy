@@ -39,8 +39,6 @@ class BeforeAfter extends HTMLElement {
 	
   update(event) {
     const path = event.composedPath();
-    console.log('path', path);
-
     if (!path.includes(this.button)) return;
 
     let value = this.active ? 0 : 100;
