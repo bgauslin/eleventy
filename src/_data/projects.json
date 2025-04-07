@@ -13,7 +13,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/ten/tree/main/src",
+          "url": "https://github.com/bgauslin/ten/tree/main/src/js/components",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
@@ -26,7 +26,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/calories/tree/main/src",
+          "url": "https://github.com/bgauslin/calories/tree/main/src/js/components",
           "tags": ["TypeScript", "Custom Elements", "Sass"]
         }
       },
@@ -39,7 +39,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/moon/tree/main/src",
+          "url": "https://github.com/bgauslin/moon/tree/main/src/js/components",
           "tags": ["TypeScript", "Custom Elements", "SVG", "Sass"]
         }
       },
@@ -52,7 +52,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/clock/tree/main/src",
+          "url": "https://github.com/bgauslin/clock/tree/main/src/js/components",
           "tags": ["TypeScript", "Lit", "SVG", "Sass"]
         }
       },
@@ -65,7 +65,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/interest/tree/main/src",
+          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components",
           "tags": ["TypeScript", "Lit", "Sass"]
         }
       }
