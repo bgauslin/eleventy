@@ -110,6 +110,10 @@ class BeforeAfter extends HTMLElement {
         }
       }
 
+      button.touch {
+        transform: scale(.8);
+      }
+
       button span {
         opacity: .7;
         pointer-events: none;
