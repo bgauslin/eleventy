@@ -27,7 +27,7 @@ module.exports = (eleventyConfig) => {
   // Static files.
   eleventyConfig.addPassthroughCopy('src/.htaccess');
   eleventyConfig.addPassthroughCopy('src/apple-touch-icon.png');
-  eleventyConfig.addPassthroughCopy('src/favicon.svg');
+  eleventyConfig.addPassthroughCopy('src/favicon.png');
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addPassthroughCopy('src/files/*.*');
   eleventyConfig.addPassthroughCopy('src/fonts/*.*');
