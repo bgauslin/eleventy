@@ -1,4 +1,4 @@
 ---
 layout: ten.json
-permalink: api/ten.json
+permalink: _json/ten.json
 ---

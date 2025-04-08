@@ -1,6 +1,6 @@
 ---
 layout: calories.json
-permalink: api/calories.json
+permalink: _json/calories.json
 ---
 # How the calories are calculated
 
