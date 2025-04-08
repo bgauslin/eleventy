@@ -8,17 +8,7 @@
 {% endmacro -%}
 
 {%- macro iconButton(button) %}
-  {%- if button.tags -%}
-    {%- set list -%}
-      {%- for item in button.tags -%}
-        {% if loop.last %}and {% endif %}{{ item }}{% if not loop.last %}, {% endif %}
-      {%- endfor -%}
-    {%- endset -%}
-    {%- set label = button.label + ": " + list -%}
-  {%- else -%}
-    {%- set label = button.label -%}
-  {%- endif -%}
-
+  {%- set label = button.label -%}
   <a
     aria-label="{{ label }}"
     class="icon-button"

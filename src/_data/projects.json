@@ -2,7 +2,8 @@
   {
     "heading": "Web Apps",
     "id": "web",
-    "description": "Browser-based applications made with Web Components and TypeScript.",
+    "description": "Browser-based applications made with TypeScript and Web Components.",
+    "tags": ["ES6+", "Lit", "SVG", "Sass", "WAI-ARIA"],
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -13,8 +14,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/ten/tree/main/src/js/components",
-          "tags": ["TypeScript", "Lit", "SVG", "Sass"]
+          "url": "https://github.com/bgauslin/ten/tree/main/src/js/components"
         }
       },
       {
@@ -26,8 +26,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/calories/tree/main/src/js/components",
-          "tags": ["TypeScript", "Custom Elements", "Sass"]
+          "url": "https://github.com/bgauslin/calories/tree/main/src/js/components"
         }
       },
       {
@@ -39,8 +38,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/moon/tree/main/src/js/components",
-          "tags": ["TypeScript", "Custom Elements", "SVG", "Sass"]
+          "url": "https://github.com/bgauslin/moon/tree/main/src/js/components"
         }
       },
       {
@@ -52,8 +50,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/clock/tree/main/src/js/components",
-          "tags": ["TypeScript", "Lit", "SVG", "Sass"]
+          "url": "https://github.com/bgauslin/clock/tree/main/src/js/components"
         }
       },
       {
@@ -65,8 +62,7 @@
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components",
-          "tags": ["TypeScript", "Lit", "Sass"]
+          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
         }
       }
     ]
