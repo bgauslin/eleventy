@@ -392,6 +392,10 @@ class Carousel extends HTMLElement {
         place-content: center;
       }
 
+      :host:has(dialog[open]) slot {
+        pointer-events: none;
+      }
+
       ::slotted(ol) {
         grid-area: 1 / 1 / -1 / -1;
         z-index: 1;
