@@ -14,9 +14,9 @@ classname: home
       <h2>About</h2>
     </summary>
 
-    Hello, I’m an ex-Google engineer and former Chicago architect who now lives in Spain, where I am currently learning Spanish the Hard Way.
+    Hello, I’m an ex-Google engineer and former Chicago architect based in Madrid, where I am currently learning Spanish the Hard Way.
     
-    This little website is home to some of the web, architecture, and music stuff I’ve made over the years. Please feel free to poke around.
+    This little website is home to some of the web, architecture, and music stuff I’ve made over the years. Please feel free to look around.
 
     <img src="images/home/selfie.jpg" alt="" class="avatar">
 
