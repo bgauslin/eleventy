@@ -1,6 +1,7 @@
 /**
- * Carousel web component that reflects slides in a shadow DOM slot and adds
- * buttons and a counter.
+ * Carousel widget that reflects slides in a shadow DOM <slot> and adds
+ * previous/next <button> elements along with an 'X/Y' <button> that
+ * opens a <dialog> populated with thumbnail images.
  */
 class Carousel extends HTMLElement {
   constructor() {
@@ -42,7 +43,7 @@ class Carousel extends HTMLElement {
     this.items = [...this.list.querySelectorAll('li')];
     this.total = this.items.length;
 
-    // Button and their attributes.
+    // Buttons and their attributes.
     this.buttons = [
       {type: 'closer', label: 'Return to slideshow', path: 'M7,7 L17,17 M7,17 L17,7'},
       {type: 'next', label: 'Next slide', path: 'M9,4 L17,12 L9,20'},
@@ -85,7 +86,6 @@ class Carousel extends HTMLElement {
    */
   createButton(type) {
     const {label, path} = this.buttons.find(button => button.type === type);
-
     let content = `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
     if (type === 'opener') {
       content = '<span class="counter"></span>';
@@ -100,7 +100,6 @@ class Carousel extends HTMLElement {
    */
   createThumbnails() {
     let html = '<ol>';
-
     for (const [index, item] of this.items.entries()) {
       const heading = item.querySelector('h2');
       const title = heading.textContent;
@@ -114,9 +113,6 @@ class Carousel extends HTMLElement {
       `;
     }
     html += '</ol>';
-
-    // Remove all whitespace.
-    html.replace('\n\n', '').replace('  ', '');
 
     return html;
   }
@@ -209,12 +205,10 @@ class Carousel extends HTMLElement {
   setImageFit() {
     let fit = 'contain';
     let label = 'Aspect Ratio Grid';
-
     if (this.dialog.dataset.fit === 'contain') {
       fit = 'cover';
       label = 'Square Grid';
     }
-
     this.dialog.dataset.fit = fit;
     this.heading.textContent = label;
   }
@@ -262,7 +256,7 @@ class Carousel extends HTMLElement {
     // Scroll the current slide into view.
     const {left} = item.getBoundingClientRect();
     const position = (this.list.scrollLeft + left);
-
+    
     this.list.scrollTo({
       top: 0,
       left: position,
@@ -345,11 +339,9 @@ class Carousel extends HTMLElement {
     // Update next button attributes and preload next item's images.
     if (this.next) {
       const nextItem = this.items[this.next];
-
       const nextTitle = nextItem.querySelector('h2').textContent;
       this.nextButton.ariaLabel = `Next slide: ${nextTitle}`;
       this.nextButton.title = nextTitle;
-
       const images = nextItem.querySelectorAll('img');
       this.preloadImages(images);
     }
