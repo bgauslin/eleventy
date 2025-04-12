@@ -66,7 +66,7 @@
       },
       {
         "heading": "11ty",
-        "copy": "Browse the vanilla JS and CSS powering this website.",
+        "copy": "The vanilla JS and CSS that power this website.",
         "image": "this.png",
         "url": "https://github.com/bgauslin/11ty/tree/main/src/_includes/components",
         "label": "View code on GitHub",
