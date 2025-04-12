@@ -1,9 +1,8 @@
 [
   {
-    "heading": "Web Apps",
+    "heading": "Web",
     "id": "web",
     "description": "Browser-based applications made with TypeScript and Web Components.",
-    "tags": ["ES6+", "Lit", "SVG", "Sass", "WAI-ARIA"],
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -42,6 +41,18 @@
         }
       },
       {
+        "heading": "Compound Interest",
+        "copy": "Calculator with support for multiple currencies.",
+        "image": "interest.png",
+        "url": "/interest/",
+        "label": "View the Compound Interest app",
+        "button": {
+          "label": "View code on GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
+        }
+      },
+      {
         "heading": "Clock",
         "copy": "A grid of clock faces that reveal patterns over time.",
         "image": "clock.png",
@@ -54,15 +65,15 @@
         }
       },
       {
-        "heading": "Compound Interest",
-        "copy": "Calculator with support for multiple currencies.",
-        "image": "interest.png",
-        "url": "/interest/",
-        "label": "View the Compound Interest app",
+        "heading": "11ty",
+        "copy": "Browse the vanilla JS and CSS powering this website.",
+        "image": "this.png",
+        "url": "https://github.com/bgauslin/11ty/tree/main/src/_includes/components",
+        "label": "View code on GitHub",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
-          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
+          "url": "https://github.com/bgauslin/11ty/tree/main/src/_includes/components"
         }
       }
     ]
@@ -105,12 +116,12 @@
   {
     "heading": "Music",
     "id": "music",
-    "description": "A few groups I’ve recorded, performed, and/or toured with as a drummer.",
+    "description": "Some groups I’ve performed and recorded with on the drumkit.",
     "items": [
       {
         "heading": "The Pietasters",
         "copy": "Co-founder of 8-piece ska band with a career spanning over 30 years.",
-        "image": "piestomp.jpg",
+        "image": "pietasters-930.png",
         "url": "https://music.apple.com/us/album/the-pietasters/279772735",
         "label": "Listen to the Piestomp album on Apple Music"
       },
