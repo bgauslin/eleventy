@@ -59,13 +59,13 @@ class Carousel extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <slot></slot>
-      ${this.createButton('prev')}
-      ${this.createButton('next')}
-      ${this.createButton('opener')}
+      ${this.renderButton('prev')}
+      ${this.renderButton('next')}
+      ${this.renderButton('opener')}
       <dialog inert>
         <h3 class="toggle"></h3>
-        ${this.createButton('closer')}
-        ${this.createThumbnails()}
+        ${this.renderButton('closer')}
+        ${this.renderThumbnails()}
       </dialog>
     `;
 
@@ -84,7 +84,7 @@ class Carousel extends HTMLElement {
    * @param {string} type
    * @returns {string}
    */
-  createButton(type) {
+  renderButton(type) {
     const {label, path} = this.buttons.find(button => button.type === type);
     let content = `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
     if (type === 'opener') {
@@ -98,7 +98,7 @@ class Carousel extends HTMLElement {
    * Helper function for rendering thumbnail images.
    * @returns {string}
    */
-  createThumbnails() {
+  renderThumbnails() {
     let html = '<ol>';
     for (const [index, item] of this.items.entries()) {
       const heading = item.querySelector('h2');
@@ -363,11 +363,11 @@ class Carousel extends HTMLElement {
    * Preloads images by changing their 'loading' attribute.
    * @param {HTMLImageElement[]} images  
    */
-    preloadImages(images) {
-      for (const image of images) {
-        image.setAttribute('loading', 'eager');
-      }
+  preloadImages(images) {
+    for (const image of images) {
+      image.setAttribute('loading', 'eager');
     }
+  }
 
   /**
    * Renders encapsulated styles into the shadow DOM.
