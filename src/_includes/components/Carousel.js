@@ -168,14 +168,15 @@ class Carousel extends HTMLElement {
    */
   handleClick(event) {
     const path = event.composedPath();
-    const isDialog = path.includes(this.dialog);
-
-    if (!isDialog && this.open) {
+    
+    // Close the <dialog> if it's open and click is outside of it.
+    if (this.open && !path.includes(this.dialog)) {
       this.toggleDialog();
       return;
     }
 
-    const target = event.composedPath()[0];
+    // Otherwise, update UI based on click target.
+    const target = path[0];
     const type = target.className;
     switch (type) {
       case 'toggle':
