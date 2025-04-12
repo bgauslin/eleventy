@@ -27,7 +27,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Sets light DOM references, initializes properties, populates shasdow DOM.
+   * Sets light DOM references, initializes properties, populates shadow DOM.
    */
   setup() {
     // Navigation state.
@@ -161,7 +161,9 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls slide into view based on click target.
+   * One Listener to Handle Them All. For better performance and simpler a11y,
+   * and because we have a mix of light and shadow DOM, all clicks on buttons,
+   * links, whatever are routed through here for better UX control.
    * @param {Event} event
    */
   handleClick(event) {
@@ -200,7 +202,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Toggles between two values for setting CSS 'object-fit'.
+   * Toggles between two values for setting CSS 'object-fit' via data-attribute.
    */
   setImageFit() {
     let fit = 'contain';
@@ -241,7 +243,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls to slide from a thumbnail image.
+   * Scrolls to slide from a clicked thumbnail image.
    * @param {string} hash - URL hash
    */
   jumpToSlide(hash) {
@@ -296,7 +298,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Smooth scrolls item into view with left and right arrows for improved a11y.
+   * Keyboard controls for a11y and better UX.
    * @param {KeyboardEvent} event
    */
   handleKey(event) {
