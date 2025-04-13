@@ -7,8 +7,11 @@ classname: slideshow
 
 title: House for an Art Collector
 description: A modern residence for modern art.
-image:
-  src: exterior-front-1999
-  width: 480
-  height: 320
 ---
+<style>
+  .message {
+    font-size: small;
+    margin-block: 3em 0;
+    opacity: var(--text-opacity);
+  }
+</style>
