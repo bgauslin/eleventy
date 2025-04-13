@@ -194,6 +194,7 @@ class Carousel extends HTMLElement {
         event.preventDefault();
         const url = new URL(target.href);
         history.replaceState(null, '', url);
+        document.title = `${target.title} · ${this.baseTitle}`;
         this.jumpToSlide(url.hash);
         this.toggleDialog();
         break;
