@@ -2,7 +2,7 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Browser-based applications made with TypeScript and Web Components.",
+    "description": "Browser-based apps powered by TypeScript and Web Components. (All code can be viewed on GitHub.)",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -81,32 +81,32 @@
   {
     "heading": "Architecture",
     "id": "archdesign",
-    "description": "Explorations of light and space through materials and media.",
+    "description": "Explorations of light, space, and time through material and structure.",
     "items": [
       {
         "heading": "Barge Board Shotgun Renovation",
-        "copy": "Breathing new life into an 1890s barge board shotgun house.",
+        "copy": "Breathing new life into an 1890s shotgun house made of barge boards.",
         "image": "shotgun-front.jpg",
         "url": "/archdesign/shotgun",
         "label": "View slideshow"
       },
       {
         "heading": "House for an Art Collector",
-        "copy": "Project Architect for all construction phases at Shafer Architects in Chicago.",
+        "copy": "Project Architect at Shafer Architects in Chicago for all construction phases.",
         "image": "hfac-hall.jpg",
         "url": "/archdesign/collector",
-        "label": "View project on the SCK Architecture website"
+        "label": "View slideshow"
       },
       {
         "heading": "Travel Sketches",
-        "copy": "Documenting European architecture with pen and pencil.",
+        "copy": "Documenting moments in architecture with pen and pencil.",
         "image": "sketch-piazza.jpg",
         "url": "/archdesign/sketches",
         "label": "View slideshow"
       },
       {
         "heading": "Collages",
-        "copy": "Storytelling via the transformation of found materials.",
+        "copy": "Storytelling in fragments via found and discarded objects.",
         "image": "collage.jpg",
         "url": "/archdesign/collages",
         "label": "View slideshow"
