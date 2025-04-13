@@ -147,17 +147,24 @@ class Carousel extends HTMLElement {
       this.current = this.items.indexOf(item);
 
       // Update address bar.
+      const heading = item.querySelector('h2').textContent;
       const url = new URL(window.location);
       url.hash = item.id;
-      history.replaceState(null, '', url.href);
-
-      // Update browser history.
-      const heading = item.querySelector('h2');
-      document.title = `${heading.textContent} · ${this.baseTitle}`;
+      this.updateBrowser(heading, url.href);
 
       // Update shadow DOM.
       this.updateElements();
     }
+  }
+
+  /**
+   * Updates browser address bar and history list.
+   * @param {string} title 
+   * @param {string} href 
+   */
+  updateBrowser(title, href) {
+    history.replaceState(null, '', href);
+    document.title = `${title} · ${this.baseTitle}`;
   }
 
   /**
@@ -193,9 +200,8 @@ class Carousel extends HTMLElement {
       case 'thumb':
         event.preventDefault();
         const url = new URL(target.href);
-        history.replaceState(null, '', url);
-        document.title = `${target.title} · ${this.baseTitle}`;
         this.jumpToSlide(url.hash);
+        this.updateBrowser(target.title, url.href);
         this.toggleDialog();
         break;
       default:
@@ -240,6 +246,10 @@ class Carousel extends HTMLElement {
   jumpToHash() {
     const url = new URL(window.location);
     if (url.hash) {
+      const id = url.hash.replace('#', '');
+      const item = this.items.find(item => item.id === id);
+      const heading = item.querySelector('h2').textContent;
+      this.updateBrowser(heading, url.href);
       this.jumpToSlide(url.hash);
     }
   }
