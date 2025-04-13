@@ -7,10 +7,6 @@ classname: slideshow
 
 title: Collages
 description: Storytelling via the transformation of found materials.
-image:
-  src: sketch-parc-de-la-villette
-  width: 320
-  height: 243
 ---
 <style>
   slideshow-carousel {
