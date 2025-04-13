@@ -332,14 +332,17 @@ class Carousel extends HTMLElement {
     this.prevButton.disabled = this.prev < 0;
     this.nextButton.disabled = !this.next;
 
-    // Update prev button attributes.
+    // Update prev button and preload previous item's images.
     if (this.prev >= 0) {
-      const prevTitle = this.items[this.prev].querySelector('h2').textContent;
+      const prevItem = this.items[this.prev];
+      const prevTitle = prevItem.querySelector('h2').textContent;
       this.prevButton.ariaLabel = `Previous slide: ${prevTitle}`;
       this.prevButton.title = prevTitle;
+      const images = prevItem.querySelectorAll('img');
+      this.preloadImages(images);
     }
 
-    // Update next button attributes and preload next item's images.
+    // Update next button and preload next item's images.
     if (this.next) {
       const nextItem = this.items[this.next];
       const nextTitle = nextItem.querySelector('h2').textContent;
