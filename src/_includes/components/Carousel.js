@@ -1,9 +1,9 @@
 /**
- * Carousel widget that reflects slides in a shadow DOM <slot> and adds
- * previous/next <button> elements along with an 'X/Y' <button> that
+ * Web Component carousel that reflects slides in a shadow DOM <slot> and adds
+ * previous/next <button> elements along with an 'X/Y' counter <button> that
  * opens a <dialog> populated with thumbnail images.
  */
-class Carousel extends HTMLElement {
+customElements.define('g-carousel', class extends HTMLElement {
   constructor() {
     super();
     this.clickListener = this.handleClick.bind(this);
@@ -593,6 +593,4 @@ class Carousel extends HTMLElement {
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
   }
-}
-
-customElements.define('g-carousel', Carousel);
+});

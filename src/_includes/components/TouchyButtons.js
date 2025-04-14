@@ -1,7 +1,8 @@
 /**
- * Adds/removes a 'class' attribute to touch targets for CSS transitions.
+ * Singleton custom element that adds/removes a 'class' attribute on touch
+ * targets for CSS transitions.
  */	
-class TouchyButtons extends HTMLElement {
+customElements.define('touchy-buttons', class extends HTMLElement {
   constructor() {
     super();
     this.start = this.touchstart.bind(this);
@@ -35,5 +36,4 @@ class TouchyButtons extends HTMLElement {
       link.classList.remove('touch');
     });
   }
-}
-customElements.define('touchy-buttons', TouchyButtons);
+});

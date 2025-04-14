@@ -1,7 +1,9 @@
 /**
- * Custom element that transitions between two images showing different states.
+ * Web Component that transitions between two images to show different states.
+ * This component contains one <slot> for both images and two <slot>s for what
+ * the <button>'s text content should display for each state.
  */
-class BeforeAfter extends HTMLElement {
+customElements.define('before-after', class extends HTMLElement {
   constructor() {
     super();
     this.active = false;
@@ -119,6 +121,4 @@ class BeforeAfter extends HTMLElement {
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
   }
-}
-
-customElements.define('before-after', BeforeAfter);
+});

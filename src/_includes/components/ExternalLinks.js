@@ -1,8 +1,10 @@
 /**
- * Updates external links with attributes that open each link in a new
- * tab/window, and removes the attributes when disconnected or disabled.
- */	
-class ExternalLinks extends HTMLElement {
+ * Singleton custom element that updates external links in the DOM with
+ * attributes that open each link in a new tab/window. The attributes are
+ * removed when this custom element is disconnected or if it has a 'disabled'
+ * attribute.
+ */
+customElements.define('external-links', class extends HTMLElement {
   constructor() {
     super();
   }
@@ -77,6 +79,4 @@ class ExternalLinks extends HTMLElement {
       }
     }
   }
-}
-
-customElements.define('external-links', ExternalLinks);
+});

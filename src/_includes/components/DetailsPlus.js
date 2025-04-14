@@ -1,8 +1,8 @@
 /**
- * Extends <details> elements with open/close transitions and saved state via
- * URL hash or localStorage.
+ * Custom element that enhances light DOM children <details> elements with
+ * open/close transitions and saved state via URL hash or localStorage.
  */
-class DetailsPlus extends HTMLElement {
+customElements.define('details-plus', class extends HTMLElement {
   constructor() {
     super();
   }
@@ -199,6 +199,4 @@ class DetailsPlus extends HTMLElement {
     const hash = id ? `#${id}` : '.';
     history.replaceState(null, '', hash);
   }
-}
-
-customElements.define('details-plus', DetailsPlus);
+});
