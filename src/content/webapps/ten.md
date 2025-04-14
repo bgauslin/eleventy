@@ -1,4 +1,4 @@
 ---
 layout: ten.json
-permalink: _json/ten.json
+permalink: _ten/scenes.json
 ---
