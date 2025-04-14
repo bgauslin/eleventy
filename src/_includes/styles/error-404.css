@@ -3,7 +3,7 @@
  */
 .error-404 {
   --main-display: grid;
-  --main-grid: 'heading' 2fr 'blurb' 1fr 'graphic' '.' 1fr / 1fr;
+  --main-grid: 'heading' 2fr 'subheading' 1fr 'graphic' 'blurb' '.' 1fr / 1fr;
   --main-max-inline-size: none;
   --main-padding: 0;
 }
@@ -14,15 +14,24 @@
   place-self: end center;
 }
 
-.error-404 p {
-  grid-area: blurb;
+.error-404 h2 {
+  font-variation-settings: 'wght' 500;
+  grid-area: subheading;
   place-self: start center;
+}
+
+.error-404 p {
+  font-size: .9em;
+  grid-area: blurb;
+  margin: 0;
+  max-inline-size: 48ch;
+  place-self: start center;
+  text-align: center;
 }
 
 .error-404 pre {
   margin: 0;
   max-inline-size: 100vw;
-  opacity: var(--text-opacity);
   overflow: auto;
   place-self: center;
   scrollbar-width: none;
