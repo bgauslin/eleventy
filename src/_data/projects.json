@@ -2,7 +2,7 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Browser-based apps powered by TypeScript and Web Components. (All code can be viewed on GitHub.)",
+    "description": "Browser-based apps powered by TypeScript and Web Components. (All source code lives on GitHub.)",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -10,6 +10,7 @@
         "image": "ten.jpg",
         "url": "/ten/",
         "label": "View the Powers Of Ten app",
+        "size": [18.5, "MB"],
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
@@ -22,6 +23,7 @@
         "image": "calories.png",
         "url": "/calories/",
         "label": "View the Calories app",
+        "size": [127, "KB"],
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
@@ -34,6 +36,7 @@
         "image": "moon.png",
         "url": "/moon/",
         "label": "View the Moon app",
+        "size": [631, "KB"],
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
@@ -46,6 +49,7 @@
         "image": "interest.png",
         "url": "/interest/",
         "label": "View the Compound Interest app",
+        "size": [111, "KB"],
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
@@ -58,6 +62,7 @@
         "image": "clock.png",
         "url": "/clock/",
         "label": "View the Clock app",
+        "size": [102, "KB"],
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
@@ -65,11 +70,11 @@
         }
       },
       {
-        "heading": "11ty",
+        "heading": "this",
         "copy": "The vanilla JS and CSS that power this website.",
         "image": "this.png",
-        "url": "https://github.com/bgauslin/11ty/tree/main/src/_includes/components",
-        "label": "View code on GitHub",
+        "url": "404",
+        "label": "View this site’s 404 page (in case you would like to see it)",
         "button": {
           "label": "View code on GitHub",
           "icon": "github",
