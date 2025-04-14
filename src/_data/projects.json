@@ -44,19 +44,6 @@
         }
       },
       {
-        "heading": "Compound Interest",
-        "copy": "Calculator with support for multiple currencies.",
-        "image": "interest.png",
-        "url": "/interest/",
-        "label": "View the Compound Interest app",
-        "size": [111, "KB"],
-        "button": {
-          "label": "View code on GitHub",
-          "icon": "github",
-          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
-        }
-      },
-      {
         "heading": "Clock",
         "copy": "A grid of clock faces that reveal patterns over time.",
         "image": "clock.png",
@@ -67,6 +54,19 @@
           "label": "View code on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/clock/tree/main/src/js/components"
+        }
+      },
+      {
+        "heading": "Compound Interest",
+        "copy": "Calculator with support for multiple currencies.",
+        "image": "interest.png",
+        "url": "/interest/",
+        "label": "View the Compound Interest app",
+        "size": [111, "KB"],
+        "button": {
+          "label": "View code on GitHub",
+          "icon": "github",
+          "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
         }
       },
       {
