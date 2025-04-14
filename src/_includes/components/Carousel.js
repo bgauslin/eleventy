@@ -382,6 +382,13 @@ customElements.define('g-carousel', class extends HTMLElement {
           link.tabIndex = '-1';
         }
       }
+      for (const beforeAfter of [...item.querySelectorAll('before-after')]) {
+        if (index === this.current) {
+          beforeAfter.removeAttribute('inert');
+        } else {
+          beforeAfter.setAttribute('inert', '');
+        }
+      }
     }
   }
 
