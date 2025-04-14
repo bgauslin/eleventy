@@ -1,7 +1,7 @@
 /**
- * Light DOM styles for <slideshow-carousel> and its slotted content.
+ * Light DOM styles for <g-carousel> and its slotted content.
  */
-slideshow-carousel {
+g-carousel {
   /* Container list. */
   --list-display: grid;
   --list-grid: 1fr / auto-flow;
@@ -30,7 +30,7 @@ slideshow-carousel {
 }
 
 @media (orientation: landscape) {
-  slideshow-carousel {
+  g-carousel {
     /* Slide and its images. */
     --figure-grid: 1fr var(--button-size) 0 / 0 var(--button-size) 1fr 3fr var(--button-size) 0;
     --images-grid-area: 1 / 4 / -1 / 5;
@@ -49,25 +49,25 @@ slideshow-carousel {
 }
 
 @media (orientation: landscape) and (width < 960px) {
-  slideshow-carousel {
+  g-carousel {
     --figure-grid: auto var(--button-size) / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
   }
 }
 
 /* Snappable container and items. */
-slideshow-carousel ol {
+g-carousel ol {
   scroll-snap-type: x mandatory;
 }
 
-slideshow-carousel li {
+g-carousel li {
   scroll-snap-align: start;
 }
 
 /* Hide scrollbars of overflow elements. */
-slideshow-carousel :is(ol, figcaption) {
+g-carousel :is(ol, figcaption) {
   scrollbar-width: none;
 }
 
-slideshow-carousel :is(ol, figcaption)::-webkit-scrollbar {
+g-carousel :is(ol, figcaption)::-webkit-scrollbar {
   display: none;
 }

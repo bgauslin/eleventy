@@ -9,12 +9,12 @@ title: Travel Sketches
 description: Documenting European architecture with pen and pencil.
 ---
 <style>
-  slideshow-carousel {
+  g-carousel {
     --figcaption-place-self: center;
   }
 
   @media (orientation: landscape) {
-    slideshow-carousel {
+    g-carousel {
       --counter-place-self: center;
     }
   }

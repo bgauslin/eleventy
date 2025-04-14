@@ -30,7 +30,7 @@ layout: base
     {%- if image.height %} height="{{ image.height }}"{% endif %}>
 {%- endmacro -%}
 
-<slideshow-carousel>
+<g-carousel>
   <ol role="list">
   {% for item in collections[slug] -%}
     {%- if item.data.images|length == 1 or item.data.before_after -%}
@@ -85,6 +85,6 @@ layout: base
     </li>
   {%- endfor %}
   </ol>
-</slideshow-carousel>
+</g-carousel>
 
 {{ content | safe }}

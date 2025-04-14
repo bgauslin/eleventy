@@ -9,12 +9,12 @@ title: Collages
 description: Storytelling via the transformation of found materials.
 ---
 <style>
-  slideshow-carousel {
+  g-carousel {
     --figcaption-place-self: center;
   }
 
   @media (orientation: landscape) {
-    slideshow-carousel {
+    g-carousel {
       --counter-place-self: center;
     }
 

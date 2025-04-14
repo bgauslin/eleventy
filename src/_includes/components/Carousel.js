@@ -54,9 +54,8 @@ class Carousel extends HTMLElement {
     // Project name for browser history updates.
     this.baseTitle = document.title;
 
-    // Shadow DOM.
+    // Shadow DOM and its elements.
     this.attachShadow({mode: 'open'});
-
     this.shadowRoot.innerHTML = `
       <slot></slot>
       ${this.renderButton('prev')}
@@ -80,7 +79,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Helper function for rendering prev-next buttons.
+   * Helper function for rendering <button> elements.
    * @param {string} type
    * @returns {string}
    */
@@ -119,7 +118,7 @@ class Carousel extends HTMLElement {
 
   /**
    * Sets up Intersection Observer to watch all list items and set the
-   * current item for updating controls and URL hash.
+   * current item for updating controls and browser history.
    */
   watch() {
     this.observer = new IntersectionObserver(this.update.bind(this), {
@@ -241,7 +240,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls to a slide on page load if there's a valid hash in the URL.
+   * Begins with a particular slide on page load if there's a valid URL hash.
    */
   jumpToHash() {
     const url = new URL(window.location);
@@ -255,7 +254,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Scrolls to slide from a clicked thumbnail image.
+   * Scrolls instantly to slide from a clicked thumbnail image (or if there's a
+   * valid URL hash on page load/reload).
    * @param {string} hash - URL hash
    */
   jumpToSlide(hash) {
@@ -286,7 +286,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Smooth scrolls item into view based on direction.
+   * Smooth scrolls item into view based on inline direction.
    * @param {string} direction - 'prev' or 'next'
    */
   scrollToSlide(direction) {
@@ -328,8 +328,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Updates controls, preloads next slide's images, and disables tabbable
-   * elements based on current item.
+   * Updates controls, preloads neighboring slides' images, disables tabbable
+   * elements - all based on current item.
    */
   updateElements() {
     // Update counter.
@@ -595,5 +595,4 @@ class Carousel extends HTMLElement {
   }
 }
 
-customElements.define('slideshow-carousel', Carousel);
-
+customElements.define('g-carousel', Carousel);

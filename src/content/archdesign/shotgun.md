@@ -9,13 +9,13 @@ title: Barge Board Shotgun Renovation
 description: Breathing new life into an 1890s barge board shotgun house.
 ---
 <style>
-  slideshow-carousel {
+  g-carousel {
     --figcaption-inline-size: 100%;
     --figcaption-place-self: start center;
   }
 
   @media (orientation: landscape) {
-    slideshow-carousel {
+    g-carousel {
       --figcaption-place-self: center;
     }
   }
