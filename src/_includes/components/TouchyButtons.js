@@ -1,6 +1,9 @@
 /**
- * Singleton custom element that adds/removes a 'class' attribute on touch
- * targets for CSS transitions.
+ * Singleton custom element that adds/removes a 'touch' class on all touch
+ * targets in the DOM for applying CSS transitions.
+ * 
+ * @example
+ * <touchy-buttons></touchy-buttons>
  */	
 customElements.define('touchy-buttons', class extends HTMLElement {
   constructor() {

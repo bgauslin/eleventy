@@ -1,6 +1,18 @@
 /**
  * Custom element that enhances light DOM children <details> elements with
  * open/close transitions and saved state via URL hash or localStorage.
+ * 
+ * If element has an 'accordion' attribute, only one child <details> element
+ * can be open at a time and its hash is saved to localStorage. Otherwise, any
+ * number of them can be open simultaneously and the open/closed state of each
+ * is saved to localStorage.
+ * 
+ * @example
+ * <details-plus accordion>
+ *   <details></details>
+ *   <details></details>
+ *   <details></details>
+ * </details-plus>
  */
 customElements.define('details-plus', class extends HTMLElement {
   constructor() {

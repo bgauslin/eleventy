@@ -3,6 +3,13 @@
  * attributes that open each link in a new tab/window. The attributes are
  * removed when this custom element is disconnected or if it has a 'disabled'
  * attribute.
+ * 
+ * Setting/removing a 'disabled' attribute on the element will remove its
+ * updates to all external links. The element also removes its updates when
+ * removed from the DOM.
+ * 
+ * @example
+ * <external-links></external-links>
  */
 customElements.define('external-links', class extends HTMLElement {
   constructor() {

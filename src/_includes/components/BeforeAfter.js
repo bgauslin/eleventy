@@ -1,7 +1,15 @@
 /**
  * Web Component that transitions between two images to show different states.
  * This component contains one <slot> for both images and two <slot>s for what
- * the <button>'s text content should display for each state.
+ * the shadow DOM <button>'s text content should display for each state.
+ * 
+ * @example
+ * <before-after>
+ *   <img src="before.webp" alt="Image before">
+ *   <img src="after.webp" alt="Image after">
+ *   <span slot="before">View image after</span>
+ *   <span slot="after">View image before</span>
+ * </before-after>
  */
 customElements.define('before-after', class extends HTMLElement {
   constructor() {
@@ -35,7 +43,7 @@ customElements.define('before-after', class extends HTMLElement {
     this.before = this.shadowRoot.querySelector('[name=before]');
     this.button = this.shadowRoot.querySelector('button');
 
-    this.style.setProperty('--action', '0%');
+    this.style.setProperty('--after', '0%');
     this.after.hidden = true;
   }
 	
@@ -46,7 +54,7 @@ customElements.define('before-after', class extends HTMLElement {
     let value = this.active ? 0 : 100;
     this.before.hidden = !this.active;
     this.after.hidden = this.active;
-    this.style.setProperty('--action', `${value}%`);
+    this.style.setProperty('--after', `${value}%`);
     this.active = !this.active;
   }
 	
@@ -72,7 +80,7 @@ customElements.define('before-after', class extends HTMLElement {
       }
 
       ::slotted(img:last-child) {
-        opacity: var(--action);
+        opacity: var(--after);
         z-index: 1;
       }
 
