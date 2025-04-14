@@ -70,11 +70,11 @@
         }
       },
       {
-        "heading": "this",
-        "copy": "The vanilla JS and CSS that power this website.",
+        "heading": "Gauslin.com",
+        "copy": "View this website’s vanilla JS and CSS on GitHub.",
         "image": "this.png",
-        "url": "404",
-        "label": "View this site’s 404 page (in case you would like to see it)",
+        "url": null,
+        "label": null,
         "button": {
           "label": "View code on GitHub",
           "icon": "github",

@@ -1,10 +1,14 @@
 {%- macro linkify(href, title, tabindex=null) %}
+{%- if href -%}
   <a
     href="{{ href }}"
     title="{{ title }}"
     {%- if tabindex %} tabindex="{{ tabindex }}"{% endif %}>
     {{- caller() -}}
   </a>
+{%- else -%}
+  {{- caller() -}}
+{%- endif -%}
 {% endmacro -%}
 
 {%- macro iconButton(button) %}
