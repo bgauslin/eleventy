@@ -69,6 +69,10 @@ details[id='music'] {
   grid-area: heading;
 }
 
+.projects h3:not(:has(a)) {
+  opacity: var(--text-opacity);
+}
+
 .projects p {
   align-self: start;
   grid-area: blurb;
