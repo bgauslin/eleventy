@@ -55,6 +55,16 @@ details[id='music'] {
   grid-area: image;
 }
 
+@media (any-hover: hover) {
+  .projects a:has(img) {
+    transition: transform var(--transition);
+  }
+
+  .projects a:has(img):hover {
+    transform: scale(1.1);
+  }
+}
+
 .projects figcaption {
   border-block-start: .5px solid var(--gray3);
 }
