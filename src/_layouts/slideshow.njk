@@ -30,6 +30,8 @@ layout: base
     {%- if image.height %} height="{{ image.height }}"{% endif %}>
 {%- endmacro -%}
 
+{#- Restore list semantics for VoiceOver a11y via ARIA 'role' because
+the <ol> has 'list-style: none' visual styling. -#}
 <g-carousel>
   <ol role="list">
   {% for item in collections[slug] -%}

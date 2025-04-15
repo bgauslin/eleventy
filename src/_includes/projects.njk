@@ -24,6 +24,8 @@
   </a>
 {% endmacro -%}
 
+{#- [1] Restore list semantics for VoiceOver a11y via ARIA 'role' because
+the <ol> has 'list-style: none' visual styling. -#}
 {% for section in projects -%}
 <details id="{{ section.id }}">
   <summary>
@@ -32,7 +34,7 @@
 
   <p>{{ section.description | safe }}</p>
 
-  <ul role="list" class="projects">
+  <ul role="list" class="projects">{# [1] #}
   {% for project in section.items -%}
     <li>
       <figure>
