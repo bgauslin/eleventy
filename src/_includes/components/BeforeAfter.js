@@ -35,7 +35,7 @@ customElements.define('before-after', class extends HTMLElement {
       <button type="button">
         <span>
           <slot name="before">View after</slot>
-          <slot name="after">Vview before</slot>
+          <slot name="after">View before</slot>
         </span>
       </button>
     `;
