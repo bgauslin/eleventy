@@ -106,7 +106,7 @@ customElements.define('details-plus', class extends HTMLElement {
   /**
    * Updates URL hash if accordion is enabled; otherwise saves a list of opened
    * <details> elements to localStorage for restoring on page load.
-   * @param {HTMLDetailsElement} [element]
+   * @param {HTMLDetailsElement} element
    */
   saveState(element) {
     if (element && this.accordion) {
@@ -130,9 +130,7 @@ customElements.define('details-plus', class extends HTMLElement {
    * @param {Event} event
    */
   handleClick(event) {
-    if (!event.target.closest('summary')) {
-      return;
-    }
+    if (!event.target.closest('summary')) return;
     
     const target = event.target.closest('details');
     
@@ -205,7 +203,7 @@ customElements.define('details-plus', class extends HTMLElement {
   /**
    * Helper method that updates browser history with hash in URL if an ID is
    * provided; otherwise removes the hash (if it exists) and resets URL.
-   * @param {string} [id] - <details> element ID
+   * @param {string} id - <details> element ID
    */
   updateURL(id) {
     const hash = id ? `#${id}` : '.';
