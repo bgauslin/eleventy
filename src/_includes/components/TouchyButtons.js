@@ -5,11 +5,16 @@
  * @example
  * <touchy-buttons></touchy-buttons>
  */	
-customElements.define('touchy-buttons', class extends HTMLElement {
+customElements.define('touchy-buttons', class TouchyButtons extends HTMLElement {
   constructor() {
     super();
-    this.start = this.touchstart.bind(this);
-    this.end = this.touchend.bind(this);
+
+    if (!TouchyButtons.instance) {
+      TouchyButtons.instance = this;
+      this.start = this.touchstart.bind(this);
+      this.end = this.touchend.bind(this);
+    }
+    return TouchyButtons.instance;
   }
 
   connectedCallback() {

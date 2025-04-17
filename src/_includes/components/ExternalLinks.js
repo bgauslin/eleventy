@@ -11,9 +11,14 @@
  * @example
  * <external-links></external-links>
  */
-customElements.define('external-links', class extends HTMLElement {
+customElements.define('external-links', class ExternalLinks extends HTMLElement {
   constructor() {
     super();
+
+    if (!ExternalLinks.instance) {
+      ExternalLinks.instance = this;
+    }
+    return ExternalLinks.instance;
   }
   
   static observedAttributes = ['disabled'];
