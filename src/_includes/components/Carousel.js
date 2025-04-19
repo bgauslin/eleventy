@@ -365,8 +365,13 @@ customElements.define('g-carousel', class extends HTMLElement {
 
     // Update current thumbnail.
     for (const [index, link] of this.thumblinks.entries()) {
-      link.ariaCurrent = (index === this.current);
-      link.tabIndex = (index === this.current) ? -1 : 0;
+      if (index === this.current) {
+        link.ariaCurrent = '';
+        link.tabIndex = -1;
+      } else {
+        link.removeAttribute('aria-current');
+        link.removeAttribute('tabindex');
+      }
     }
     
     // Disable tabbable links outside of the viewport; only enable links
@@ -598,7 +603,7 @@ customElements.define('g-carousel', class extends HTMLElement {
         }
       }
 
-      a[aria-current='true'] {
+      a[aria-current] {
         border: 2px solid var(--text-color);
         pointer-events: none;
       }
