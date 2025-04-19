@@ -1,6 +1,6 @@
 /**
  * Web Component carousel that reflects slides in a shadow DOM <slot> and adds
- * previous/next <button> elements along with an 'X/Y' counter <button> that
+ * previous/next <button> elements along with an 'index/totol' <button> that
  * opens a <dialog> populated with thumbnail images.
  * 
  * @example
@@ -55,8 +55,8 @@ customElements.define('g-carousel', class extends HTMLElement {
     // Buttons and their attributes.
     this.buttons = [
       {type: 'closer', label: 'Return to slideshow', path: 'M7,7 L17,17 M7,17 L17,7'},
+      {type: 'counter', label: 'View thumbnail images', path: null},
       {type: 'next', label: 'Next slide', path: 'M9,4 L17,12 L9,20'},
-      {type: 'opener', label: 'View thumbnail images', path: null},
       {type: 'prev', label: 'Previous slide', path: 'M15,4 L7,12 L15,20'},
     ];
 
@@ -69,7 +69,7 @@ customElements.define('g-carousel', class extends HTMLElement {
       <slot></slot>
       ${this.renderButton('prev')}
       ${this.renderButton('next')}
-      ${this.renderButton('opener')}
+      ${this.renderButton('counter')}
       <dialog inert>
         <h3 class="toggle"></h3>
         ${this.renderButton('closer')}
@@ -83,7 +83,6 @@ customElements.define('g-carousel', class extends HTMLElement {
     this.dialog =  this.shadowRoot.querySelector('dialog');
     this.heading =  this.shadowRoot.querySelector('h3');
     this.nextButton = this.shadowRoot.querySelector('.next');
-    this.opener = this.shadowRoot.querySelector('.opener');
     this.prevButton = this.shadowRoot.querySelector('.prev');
   }
 
@@ -94,11 +93,7 @@ customElements.define('g-carousel', class extends HTMLElement {
    */
   renderButton(type) {
     const {label, path} = this.buttons.find(button => button.type === type);
-    let content = `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
-    if (type === 'opener') {
-      content = '<span class="counter"></span>';
-    }
-
+    const content = (type === 'counter') ? '' : `<svg aria-hidden="true" viewbox="0 0 24 24"><path d="${path}"/></svg>`;
     return `<button aria-label="${label}" class="${type}" title="${label}" type="button">${content}</button>`;
   }
 
@@ -198,7 +193,7 @@ customElements.define('g-carousel', class extends HTMLElement {
         this.setImageFit();
         break;
       case 'closer':
-      case 'opener':      
+      case 'counter':      
         this.toggleDialog();
         break;
       case 'next':
@@ -436,7 +431,9 @@ customElements.define('g-carousel', class extends HTMLElement {
         border-radius: var(--button-size);
         color: var(--text-color);
         cursor: pointer;
-        font: var(--font-size-small) / 1 inherit;
+        font-family: inherit;
+        font-size: var(--font-size-small);
+        font-variation-settings: 'wght' 600;
         outline: none;
         padding: 0;
         place-self: center;
@@ -467,7 +464,6 @@ customElements.define('g-carousel', class extends HTMLElement {
 
       button[disabled] {
         opacity: 0;
-        pointer-events: none;
       }
 
       button:where(.prev, .next, .closer) {
@@ -485,23 +481,21 @@ customElements.define('g-carousel', class extends HTMLElement {
         grid-area: var(--next-grid-area);
       }
 
-      button svg {
-        block-size: var(--button-icon-size);
-        fill: none;
-        pointer-events: none;
-        stroke: currentColor;
-        stroke-width: var(--button-stroke-width, 3px);
-      }
-
-      .opener {
-        font-size: var(--font-size-small);
-        font-variation-settings: 'wght' 600;
+      .counter {
         grid-area: var(--counter-grid-area);
         padding-inline: 1.25rem;
       }
 
-      .counter {
-        pointer-events: none; /* For better event targeting. */
+      svg {
+        block-size: var(--button-icon-size);
+        fill: none;
+        stroke: currentColor;
+        stroke-width: var(--button-stroke-width, 3px);
+      }
+
+      svg,
+      [disabled] {
+        pointer-events: none;
       }
     `;
 
