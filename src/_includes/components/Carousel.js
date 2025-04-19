@@ -1,6 +1,6 @@
 /**
  * Web Component carousel that reflects slides in a shadow DOM <slot> and adds
- * previous/next <button> elements along with an 'index/totol' <button> that
+ * previous/next <button> elements along with a 'current/total' <button> that
  * opens a <dialog> populated with thumbnail images.
  * 
  * @example
