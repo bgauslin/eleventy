@@ -589,17 +589,14 @@ customElements.define('g-carousel', class extends HTMLElement {
       img {
         aspect-ratio: 1;
         inline-size: 100%;
+        object-fit: var(--object-fit, contain);
         pointer-events: none; /* For better event targeting. */
         transition: transform var(--transition);
         vertical-align: middle;
       }
 
-      [data-fit='contain'] img {
-        object-fit: contain;
-      }
-
-      [data-fit='cover'] img {
-        object-fit: cover;
+      [data-fit='cover'] {
+        --object-fit: cover;
       }
     `);
     this.shadowRoot.adoptedStyleSheets = [styles];
