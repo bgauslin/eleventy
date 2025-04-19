@@ -486,15 +486,20 @@ customElements.define('g-carousel', class extends HTMLElement {
         padding-inline: 1.25rem;
       }
 
-      svg {
+      button svg {
         block-size: var(--button-icon-size);
         fill: none;
         stroke: currentColor;
         stroke-width: var(--button-stroke-width, 3px);
       }
 
-      svg,
-      [disabled] {
+      .closer {
+        --button-size: var(--button-icon-size);
+        --button-stroke-width: 2px;
+      }
+
+      button svg,
+      button[disabled] {
         pointer-events: none;
       }
     `;
@@ -547,10 +552,7 @@ customElements.define('g-carousel', class extends HTMLElement {
         white-space: nowrap;
       }
 
-      .closer {
-        --button-size: var(--button-icon-size);
-        --button-stroke-width: 2px;
-
+      button.closer {
         grid-area: 1 / 2;
       }
 
