@@ -398,11 +398,12 @@ customElements.define('g-carousel', class extends HTMLElement {
   }
 
   /**
-   * Renders encapsulated styles into the shadow DOM.
+   * Renders encapsulated styles into the shadow DOM. Each const is a "module"
+   * that gets bundled with the others (sort of like a CSS preprocessor, but 
+   * within this web component and with vanilla JS).
    */
   shadowStyles() {
-    const styles = new CSSStyleSheet();
-    styles.replaceSync(`
+    const host = `
       :host {
         block-size: 100dvh;
         display: grid;
@@ -424,7 +425,9 @@ customElements.define('g-carousel', class extends HTMLElement {
       * {
         box-sizing: border-box;
       }
+    `;
 
+    const buttons = `
       button {
         appearance: none;
         background-color: var(--fill-2);
@@ -500,7 +503,9 @@ customElements.define('g-carousel', class extends HTMLElement {
       .counter {
         pointer-events: none; /* For better event targeting. */
       }
+    `;
 
+    const dialog = `
       dialog {
         --gap: 1rem;
 
@@ -525,6 +530,10 @@ customElements.define('g-carousel', class extends HTMLElement {
 
       dialog[inert] {
         transform: translateY(100%);
+      }
+
+      dialog[data-fit='cover'] {
+        --object-fit: cover;
       }
 
       :where(h3, ol) {
@@ -594,11 +603,15 @@ customElements.define('g-carousel', class extends HTMLElement {
         transition: transform var(--transition);
         vertical-align: middle;
       }
+    `;
 
-      [data-fit='cover'] {
-        --object-fit: cover;
-      }
-    `);
-    this.shadowRoot.adoptedStyleSheets = [styles];
+    // Assemble all shadow DOM styles into a single stylesheet.
+    const styles = [];
+    for (const style of [host, buttons, dialog]) {
+      const stylesheet = new CSSStyleSheet();
+      stylesheet.replaceSync(style);
+      styles.push(stylesheet);
+    }
+    this.shadowRoot.adoptedStyleSheets = styles;
   }
 });
