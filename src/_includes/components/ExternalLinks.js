@@ -51,17 +51,14 @@ customElements.define('external-links', class ExternalLinks extends HTMLElement 
   }
   
   /**
-   * Updates links with attributes for opening in new window/tab, along with
-   * data-attribute for indicating it was updated by this custom element.
+   * Updates links with attributes for opening in new window/tab.
    * Email, phone, and text message links are never updated.
    */
   updateLinks() {
     const url = new URL(window.location);
 
     for (const link of this.links) {
-      if (['mailto', 'sms', 'tel'].includes(link.protocol.replace(':', ''))) {
-        return;
-      }
+      if (['mailto:', 'sms:', 'tel:'].includes(link.protocol)) return;
 
       if (link.hostname !== url.hostname) {
         link.target = '_blank';
@@ -77,9 +74,7 @@ customElements.define('external-links', class ExternalLinks extends HTMLElement 
    * custom element.
    */
   restoreLinks() {
-    if (!this.links) {
-      return;
-    }
+    if (!this.links) return;
 
     for (const link of this.links) {
       if (link.classList.contains('external')) {
