@@ -221,14 +221,9 @@ customElements.define('g-carousel', class extends HTMLElement {
    * Toggles between two values for setting CSS 'object-fit' via data-attribute.
    */
   setImageFit() {
-    let fit = 'contain';
-    let label = 'Aspect Ratio Grid';
-    if (this.dialog.dataset.fit === 'contain') {
-      fit = 'cover';
-      label = 'Square Grid';
-    }
+    const [fit, label] = (this.dialog.dataset.fit === 'contain') ? ['cover', 'Square'] : ['contain', 'Aspect Ratio'];
     this.dialog.dataset.fit = fit;
-    this.heading.textContent = label;
+    this.heading.textContent = `${label} Grid`;
   }
 
   /**
