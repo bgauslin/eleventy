@@ -50,7 +50,8 @@ g-carousel {
 
 @media (orientation: landscape) and (width < 960px) {
   g-carousel {
-    --figure-grid: auto var(--button-size) / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
+    /* 50/50 side-by-side layout for landscape phablet. */
+    --figure-grid: auto var(--button-size) 0 / 0 var(--button-size) 1fr 1fr var(--button-size) 0;
   }
 }
 
