@@ -12,7 +12,7 @@
         "label": "View the Powers Of Ten app",
         "size": [18.5, "MB"],
         "button": {
-          "label": "View code on GitHub",
+          "label": "View source code for Powers of Ten on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/ten/tree/main/src/js/components"
         }
@@ -25,7 +25,7 @@
         "label": "View the Calories app",
         "size": [127, "KB"],
         "button": {
-          "label": "View code on GitHub",
+          "label": "View source code for the Calorie Calculator on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/calories/tree/main/src/js/components"
         }
@@ -38,7 +38,7 @@
         "label": "View the Moon app",
         "size": [631, "KB"],
         "button": {
-          "label": "View code on GitHub",
+          "label": "View source code for the Moon app on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/moon/tree/main/src/js/components"
         }
@@ -51,7 +51,7 @@
         "label": "View the Clock app",
         "size": [102, "KB"],
         "button": {
-          "label": "View code on GitHub",
+          "label": "View source code for the Clock app on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/clock/tree/main/src/js/components"
         }
@@ -61,10 +61,10 @@
         "copy": "Calculator with support for multiple currencies.",
         "image": "interest.png",
         "url": "/interest/",
-        "label": "View the Compound Interest app",
+        "label": "View the Compound Interest Calculator app",
         "size": [111, "KB"],
         "button": {
-          "label": "View code on GitHub",
+          "label": "View source code for the Compound Interest Calculator on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
         }
@@ -76,7 +76,7 @@
         "url": null,
         "label": null,
         "button": {
-          "label": "View code on GitHub",
+          "label": "View source code for this website’s content and Web Components on GitHub",
           "icon": "github",
           "url": "https://github.com/bgauslin/11ty/tree/main/src/_includes/components"
         }
@@ -93,28 +93,28 @@
         "copy": "Breathing new life into an 1890s shotgun house made of barge boards.",
         "image": "shotgun-front.jpg",
         "url": "/archdesign/shotgun",
-        "label": "View slideshow"
+        "label": "View slideshow about the Barge Board Shotgun Renovation project"
       },
       {
         "heading": "House for an Art Collector",
         "copy": "Project Architect at Shafer Architects in Chicago for all construction phases.",
         "image": "hfac-hall.jpg",
         "url": "/archdesign/collector",
-        "label": "View slideshow"
+        "label": "View photos of the completed residence"
       },
       {
         "heading": "Travel Sketches",
         "copy": "Documenting moments in architecture with pen and pencil.",
         "image": "sketch-piazza.jpg",
         "url": "/archdesign/sketches",
-        "label": "View slideshow"
+        "label": "View a baker’s dozen of sketches"
       },
       {
         "heading": "Collages",
         "copy": "Storytelling in fragments via found and discarded objects.",
         "image": "collage.jpg",
         "url": "/archdesign/collages",
-        "label": "View slideshow"
+        "label": "View twelve collages"
       }
     ]
   },
