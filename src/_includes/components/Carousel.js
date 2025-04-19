@@ -84,6 +84,7 @@ customElements.define('g-carousel', class extends HTMLElement {
     this.heading =  this.shadowRoot.querySelector('h3');
     this.nextButton = this.shadowRoot.querySelector('.next');
     this.prevButton = this.shadowRoot.querySelector('.prev');
+    this.thumblinks = this.shadowRoot.querySelectorAll('dialog a');
   }
 
   /**
@@ -362,6 +363,12 @@ customElements.define('g-carousel', class extends HTMLElement {
       this.preloadImages(images);
     }
 
+    // Update current thumbnail.
+    for (const [index, link] of this.thumblinks.entries()) {
+      link.ariaCurrent = (index === this.current);
+      link.tabIndex = (index === this.current) ? -1 : 0;
+    }
+    
     // Disable tabbable links outside of the viewport; only enable links
     // for current item in viewport.
     for (const [index, item] of this.items.entries()) {
@@ -591,11 +598,16 @@ customElements.define('g-carousel', class extends HTMLElement {
         }
       }
 
+      a[aria-current='true'] {
+        border: 2px solid var(--text-color);
+        pointer-events: none;
+      }
+
       img {
         aspect-ratio: 1;
         inline-size: 100%;
         object-fit: var(--object-fit, contain);
-        pointer-events: none; /* For better event targeting. */
+        pointer-events: none;
         transition: transform var(--transition);
         vertical-align: middle;
       }
