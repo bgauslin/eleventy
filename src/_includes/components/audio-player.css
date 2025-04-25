@@ -1,11 +1,40 @@
-audio-player {
-  display: block;
+[data-video] {
+  --button-size: 2.75rem;
+
+  display: grid;
+  grid: auto auto / auto;
   max-inline-size: 30rem;
 }
 
-audio-player iframe {
+/* [1] Size is 1 x 1 since 0 causes slght delay on click. */
+[data-video] > iframe {
+  block-size: 1px;
+  grid-area: 1 / 1;
+  inline-size: 1px;
+  place-self: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+[data-video] > button {
+  appearance: none;
+  aspect-ratio: 1;
+  background-color: #eee; /* TODO: var() */
+  block-size: var(--button-size);
   border: none;
-  block-size: 0;
-  inline-size: 0;
-  overflow: hidden;
+  border-radius: var(--button-size);
+  cursor: pointer;
+  display: grid;
+  grid-area: 2 / 1;
+  outline: none;
+  padding: 0;
+  place-content: center;
+  place-self: center;
+}
+
+[data-video] svg {
+  block-size: auto;
+  fill: currentColor;
+  inline-size: 1.5rem;
+  pointer-events: none;
 }
