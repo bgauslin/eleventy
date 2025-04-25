@@ -75,9 +75,9 @@ function onYouTubeIframeAPIReady() {
 		const player = new YT.Player(id, {
       videoId: id,
 			events: {
-				onReady: onReady,
+        onReady: onReady,
         onStateChange: onStateChange,
-			},
+      },
       playerVars: {
         'controls': 0,
         'fs': 0,
@@ -94,7 +94,7 @@ function onYouTubeIframeAPIReady() {
  * play/pause state.
  */
 function onReady(event) {
-	videos.push(event.target);
+  videos.push(event.target);
 }
 
 function onStateChange(event) {
