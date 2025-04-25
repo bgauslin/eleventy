@@ -6,37 +6,47 @@ title: Music
 description: Music description goes here
 classname: music
 ---
-
-<av-player video="Lrle0x_DHBM"></av-player>
-<av-player video="5X-Mrc2l1d0"></av-player>
-<av-player video="ViwtNLUqkMY"></av-player>
+<div data-video="Lrle0x_DHBM"></div>
+<div data-video="5X-Mrc2l1d0"></div>
+<div data-video="ViwtNLUqkMY"></div>
 
 <style>
-av-player {
+[data-video] {
   display: grid;
   grid: auto auto / auto;
   max-inline-size: 30rem;
 }
 
-av-player > iframe {
-  aspect-ratio: 16 / 9;
-  block-size: auto;
+[data-video] > iframe {
+  block-size: 1px;
   grid-area: 1 / 1;
   inline-size: 100%;
   place-self: center;
+  pointer-events: none;
+  visibility: hidden;
 }
 
-av-player > button {
+[data-video] > button {
   appearance: none;
+  aspect-ratio: 1;
   background-color: #eee;
   block-size: 2.75rem;
   border: none;
   border-radius: 2.75rem;
   cursor: pointer;
+  display: grid;
   grid-area: 2 / 1;
   outline: none;
-  padding-inline: 1rem;
+  padding: 0;
+  place-content: center;
   place-self: center;
+}
+
+[data-video] svg {
+  block-size: auto;
+  fill: currentColor;
+  inline-size: 1.5rem;
+  pointer-events: none;
 }
 </style>
 
@@ -47,18 +57,22 @@ script.src = 'https://www.youtube.com/iframe_api';
 document.body.appendChild(script);
 
 // Get all the custom elment IDs for generating HTML and video objects.
-const elements = document.querySelectorAll('av-player');
-const ids = [...elements].map(element => element.getAttribute('video'));
+const elements = document.querySelectorAll('[data-video]');
+const ids = [...elements].map(element => element.dataset.video);
 
 // Inject elements for <iframe> replacement. The YouTube API doesn't like
 // multi-line template literals, hence the multiple lines of innerHTML.
 for (const [index, element] of elements.entries()) {
   element.innerHTML = `<div id="${ids[index]}"></div>`;
-  element.innerHTML += '<button>Play</button>';
+  element.innerHTML += `
+    <button title="Play">
+      ${renderIcon('play')}
+    </button>
+  `;
 }
 
 // Save references to all the buttons for updating their labels on click.
-const buttons = document.querySelectorAll('av-player > button');
+const buttons = document.querySelectorAll('[data-video] > button');
 
 // Single listener for all clicks.
 const clickHandler = handleClick.bind(this);
@@ -75,11 +89,11 @@ function onYouTubeIframeAPIReady() {
 		const player = new YT.Player(id, {
       videoId: id,
 			events: {
-				onReady: onReady,
-        onStateChange: onStateChange,
-			},
+        onReady: onReady,
+      },
       playerVars: {
         'controls': 0,
+        'enablejsapi': 1,
         'fs': 0,
         'playsinline': 1,
       },
@@ -94,61 +108,47 @@ function onYouTubeIframeAPIReady() {
  * play/pause state.
  */
 function onReady(event) {
-	videos.push(event.target);
-}
-
-function onStateChange(event) {
-  const state = event.data;
-  console.log('state', state);
-
-  switch (state) {
-    case 0:  // ended
-    case 2:  // paused
-      pauseAllVideos();
-      break;
-    case 1:  // playing
-      updatePlayingButton();
-      break;
-    case 3:  // buffering
-    case 5:  // video cued
-      break;
-    default:
-      break;
-  }
-}
-
-/**
- * Pauses all the videos and resets their <button> labels. 
- */
-function pauseAllVideos() {
-  buttons.forEach(button => button.textContent = 'Play');
-  videos.forEach(video => video.pauseVideo());
-}
-
-function updatePlayingButton() {
-  console.log('updatePlayingButton()');
+  videos.push(event.target);
 }
 
 /**
  * Gets the click target and updates the rest of the DOM if a play/pause
- * <button> was clicks.
+ * <button> was clicked.
  */ 
 function handleClick(event) {
   const target = event.composedPath()[0];
 
   if (target.tagName.toLowerCase() !== 'button') return;
+  
+  const button = target;
+  const iframe = button.previousElementSibling || button.nextElementSibling;
+  const active = videos.find(video => video.g.id === iframe.id);
 
-  let label = 'Pause';
-  const iframe = target.previousElementSibling || target.nextElementSibling;
-  const current = videos.find(video => video.g.id === iframe.id);
-
-  if (target.textContent === 'Play') {
-    pauseAllVideos();
-    current.playVideo();
+  if (button.title === 'Play') {
+    videos.forEach(video => video.pauseVideo());
+    buttons.forEach(button => {
+      button.title = 'Play';
+      button.innerHTML = renderIcon('play');
+    });
+    active.playVideo();
+    button.title = 'Pause';
+    button.innerHTML = renderIcon('pause');
   } else {
-    current.pauseVideo();
-    label = 'Play';
+    active.pauseVideo();
+    button.title = 'Play';
+    button.innerHTML = renderIcon('play');
   }
-  target.textContent = label;
 }
+
+function renderIcon(type) {
+  const path = (type === 'play') ? 'M6,3 L6,21 L21,12 Z' : 'M6,4 L6,20 L10,20 L10,4 M14,4 L14,20 L18,20 L18,4';
+  
+  return `
+    <svg aria-hidden="true" viewbox="0 0 24 24">
+      <path d="${path}"/>
+    </svg>
+  `;
+}
+
+
 </script>
