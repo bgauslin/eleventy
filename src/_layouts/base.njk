@@ -11,6 +11,8 @@
   {%- elif classname == 'slideshow' -%}
     {%- include 'styles/slideshow.css' -%}
     {%- include 'components/carousel.css' -%}
+  {%- elif classname == 'music' -%}
+    {% include 'components/audio-player.css' %}
   {%- elif classname == 'error-404' -%}
     {% include 'styles/error-404.css' %}
   {% endif %}
@@ -19,11 +21,13 @@
 {%- set js -%}
   {%- include 'components/ExternalLinks.js' -%}
   {%- include 'components/TouchyButtons.js' -%}
-  {%- if classname == 'home' -%}  
+  {%- if classname == 'home' -%}
     {%- include 'components/DetailsPlus.js' -%}
   {%- elif classname == 'slideshow' -%}
     {%- include 'components/BeforeAfter.js' -%}
     {%- include 'components/Carousel.js' -%}
+  {%- elif classname == 'music' -%}
+    {%- include 'components/AudioPlayer.js' -%}
   {%- endif -%}
 {%- endset -%}
 

@@ -1,0 +1,11 @@
+audio-player {
+  display: block;
+  max-inline-size: 30rem;
+}
+
+audio-player iframe {
+  border: none;
+  block-size: 0;
+  inline-size: 0;
+  overflow: hidden;
+}
