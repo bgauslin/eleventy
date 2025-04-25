@@ -49,6 +49,9 @@
     </main>
     <external-links></external-links>
     <touchy-buttons></touchy-buttons>
+    {%- if classname == 'music' %}
+    <audio-player></audio-player>
+    {% endif -%}
     <script>{{ js | jsmin | safe }}</script>
   </body>
 </html>

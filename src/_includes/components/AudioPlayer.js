@@ -1,18 +1,32 @@
 /**
- * Class that uses the YouTube iframe API to provide custom controls for music
- * tracks. This widget loads up YouTube videos, then hides the actual video so
- * that the UI can look and feel like a simple audio controller.
+ * Singleton custom element that uses the YouTube iframe API to provide custom
+ * controls for music tracks. This widget loads up YouTube videos, then hides
+ * the actual video so the UI can behave more like a simple audio controller.
  */
-class AudioPlayer {
+customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   buttons = [];
   ids = [];
   videos = [];
 
-  setup() {
+  constructor() {
+    super();
+    this.clickHandler = this.handleClick.bind(this);
+
+    if (!AudioPlayer.instance) {
+      AudioPlayer.instance = this;
+    }
+    return AudioPlayer.instance;
+  }
+
+  connectedCallback() {
     this.injectJS();
     this.renderElements();
-    this.addListeners();
     this.createVideos();
+    document.addEventListener('click', this.clickHandler);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('click', this.clickHandler);
   }
 
   /**
@@ -29,8 +43,8 @@ class AudioPlayer {
    * elements for <iframe> replacement.
    */
   renderElements() {
-    const elements = document.querySelectorAll('[data-video]');
-    this.ids = [...elements].map(element => element.dataset.video);
+    const elements = document.querySelectorAll('.player');
+    this.ids = [...elements].map(element => element.dataset.id);
 
     // The YouTube API doesn't like multi-line template literals, hence the
     // multiple/different lines of innerHTML.
@@ -41,18 +55,11 @@ class AudioPlayer {
           ${this.renderIcon('play')}
         </button>
       `;
+      element.removeAttribute('data-id');
     }
 
     // Save references to all the buttons for updating their content on click.
-    this.buttons = document.querySelectorAll('[data-video] > button');
-  }
-
-  /**
-   * Adds a single listener for all clicks.
-   */
-  addListeners() {
-    this.clickHandler = this.handleClick.bind(this);
-    document.addEventListener('click', this.clickHandler);
+    this.buttons = document.querySelectorAll('.player > button');
   }
 
   /**
@@ -61,7 +68,7 @@ class AudioPlayer {
   createVideos() {
     window.onYouTubeIframeAPIReady = () => {
       for (const id of this.ids) {
-        const player = new YT.Player(id, {
+        new YT.Player(id, {
           videoId: id,
           events: {
             onReady: this.onReady.bind(this),
@@ -135,7 +142,4 @@ class AudioPlayer {
       </svg>
     `;
   }
-}
-
-const player = new AudioPlayer;
-player.setup();
+});

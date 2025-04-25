@@ -1,4 +1,4 @@
-[data-video] {
+.player {
   --button-size: 2.75rem;
 
   display: grid;
@@ -7,7 +7,7 @@
 }
 
 /* [1] Size is 1 x 1 since 0 causes slght delay on click. */
-[data-video] > iframe {
+.player > iframe {
   block-size: 1px;
   grid-area: 1 / 1;
   inline-size: 1px;
@@ -16,7 +16,7 @@
   visibility: hidden;
 }
 
-[data-video] > button {
+.player > button {
   appearance: none;
   aspect-ratio: 1;
   background-color: #eee; /* TODO: var() */
@@ -32,7 +32,7 @@
   place-self: center;
 }
 
-[data-video] svg {
+.player svg {
   block-size: auto;
   fill: currentColor;
   inline-size: 1.5rem;
