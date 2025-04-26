@@ -3,7 +3,9 @@
   {%- include 'styles/vars.css' -%}
   {%- include 'styles/base.css' -%}
   {%- if classname == 'charts' -%}
-    {% include 'components/audio-player.css' %}
+    {%- include 'components/audio-player.css' -%}
+    {%- include 'components/carousel.css' -%}
+    {%- include 'styles/slideshow.css' -%}
   {%- elif classname == 'error-404' -%}
     {% include 'styles/error-404.css' %}
   {%- elif classname == 'home' -%}
@@ -12,8 +14,8 @@
     {%- include 'styles/details.css' -%}
     {%- include 'styles/projects.css' -%}
     {%- include 'components/details-plus.css' -%}
-    {%- include 'components/carousel.css' -%}
   {%- elif classname == 'slideshow' -%}
+    {%- include 'components/carousel.css' -%}
     {%- include 'styles/slideshow.css' -%}
   {% endif %}
 {%- endset -%}
@@ -23,6 +25,7 @@
   {%- include 'components/TouchyButtons.js' -%}
   {%- if classname == 'charts' -%}
     {%- include 'components/AudioPlayer.js' -%}
+    {%- include 'components/Carousel.js' -%}
   {%- elif classname == 'home' -%}
     {%- include 'components/DetailsPlus.js' -%}
   {%- elif classname == 'slideshow' -%}

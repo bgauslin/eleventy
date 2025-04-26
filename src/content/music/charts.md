@@ -1,5 +1,5 @@
 ---
-layout: charts
+layout: slideshow
 permalink: charts.html
 slug: charts
 classname: charts

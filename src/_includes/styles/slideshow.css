@@ -1,7 +1,8 @@
 /**
  * Individual slideshow. Classname is set on the <body> element.
  */
-.slideshow {
+ .charts,
+ .slideshow {
   /* Site-wide <main> element. */
   --main-max-inline-size: none;
   --main-padding: 0;
@@ -26,6 +27,7 @@
 }
 
 @media (orientation: landscape) {
+  .charts,
   .slideshow {
     /* Slide. */
     --figure-grid: 1fr / 1fr 2fr;
@@ -73,6 +75,7 @@
 /**
  * Slide copy.
  */
+.charts figcaption,
 .slideshow figcaption {
   font-size: var(--font-size-small);
   grid-area: var(--figcaption-grid-area);
