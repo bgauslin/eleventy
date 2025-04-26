@@ -5,11 +5,11 @@
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   buttons = [];  // <HTMLButtonElement[]>
-  current;       // HTMLElement
-  duration;      // HTMLElement
+  current;       // <HTMLElement>
+  duration;      // <HTMLElement>
   ids = [];      // <string[]>
-  interval = 0;  // number
-  percent;       // HTMLInputElement
+  interval = 0;  // <number>
+  percent;       // <HTMLInputElement>
   players = [];  // <YT.Player[]>
 
   constructor() {
@@ -112,6 +112,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
   /**
    * Tracks current time for the active video.
+   * @param {Event} event
    */
   onStateChange(event) {
     const player = event.target;
@@ -130,6 +131,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   
   /**
    * Gets references to current player's UI elements and populates them.
+   * @param {YT.Player} player
    */
   updateElements(player) {
     const iframe = `iframe[id="${player.g.id}"]`;
@@ -190,7 +192,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   /**
-   * Helper function for rendering <button> elements with an SVG icon.
+   * Helper method for rendering <button> elements with an SVG icon.
    * @param {HTMLButtonElement} button
    * @param {string} type
    */
