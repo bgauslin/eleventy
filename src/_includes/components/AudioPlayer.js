@@ -9,6 +9,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   duration;      // HTMLElement
   ids = [];      // <string[]>
   interval = 0;  // number
+  percent;       // HTMLInputElement
   players = [];  // <YT.Player[]>
 
   constructor() {
@@ -60,6 +61,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
       element.innerHTML += `
         <span data-current></span>
         <span data-duration></span>
+        <input min="0" max="100" name="percent" type="range" value="0">
       `;
 
       // Remove the value since JS is done with it, but leave the attribute
@@ -133,16 +135,17 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const iframe = `iframe[id="${player.g.id}"]`;
     this.current = document.querySelector(`${iframe} ~ [data-current]`);
     this.duration = document.querySelector(`${iframe} ~ [data-duration]`);
+    this.percent = document.querySelector(`${iframe} ~ input[type='range']`);
 
     const c = player.getCurrentTime();
     const d = player.getDuration();
     const current = this.humanTime(c);
     const duration = this.humanTime(d);
-    const percent = Math.floor((c / d) * 100);
 
     this.current.textContent = current;
-    this.current.dataset.current = percent;
     this.duration.textContent = duration;
+    this.percent.max = Math.floor(d);
+    this.percent.value = Math.floor(c);
   }
 
   /**
