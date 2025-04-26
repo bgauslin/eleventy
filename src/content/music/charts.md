@@ -1,6 +1,6 @@
 ---
 layout: charts
-permalink: charts/index.html
+permalink: charts.html
 slug: charts
 classname: charts
 
