@@ -43,10 +43,9 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * Gets all the IDs for generating Player objects and rendering HTML child
    * elements for UI controls and <iframe> replacement.
    */
-  // TODO(.player): Refactor/rethink CSS and JS attribute/selector hooks.
   renderElements() {
-    const elements = document.querySelectorAll('.player');
-    this.ids = [...elements].map(element => element.dataset.id);
+    const elements = document.querySelectorAll('[data-player]');
+    this.ids = [...elements].map(element => element.dataset.player);
 
     // The YouTube API doesn't like multi-line template literals, and it's
     // easier to set up the <button> with old-school JS, hence the mix of DOM
@@ -57,13 +56,13 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
       this.updateButton(button, 'play');
       element.appendChild(button);
 
-      // TODO(data-id): Refactor/rethink CSS and JS attribute/selector hooks.
-      element.removeAttribute('data-id');
+      // Remove the value since JS is done with it, but leave the attribute
+      // for CSS layout and style.
+      element.setAttribute('data-player', '');
     }
 
-    // TODO(.player > button): Refactor/rethink CSS and JS attribute/selector hooks.
     // Save references to all the buttons for updating their content on click.
-    this.buttons = document.querySelectorAll('.player > button');
+    this.buttons = document.querySelectorAll('[data-player] > button');
   }
 
   /**
