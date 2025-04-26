@@ -5,9 +5,11 @@
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   buttons = [];  // <HTMLButtonElement[]>
-  interval = 0;  // number
+  current;       // HTMLElement
+  duration;      // HTMLElement
   ids = [];      // <string[]>
-  videos = [];   // <YT.Player[]>
+  interval = 0;  // number
+  players = [];  // <YT.Player[]>
 
   constructor() {
     super();
@@ -55,6 +57,10 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
       const button = document.createElement('button');
       this.updateButton(button, 'play');
       element.appendChild(button);
+      element.innerHTML += `
+        <span data-current></span>
+        <span data-duration></span>
+      `;
 
       // Remove the value since JS is done with it, but leave the attribute
       // for CSS layout and style.
@@ -97,26 +103,21 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * @param {Event} event
    */
   onReady(event) {
-    this.videos.push(event.target);
+    const player = event.target;
+    this.players.push(player);
+    this.updateElements(player);
   }
 
   /**
    * Tracks current time for the active video.
    */
   onStateChange(event) {
-    const video = event.target;
-    const state = video.getPlayerState();
+    const player = event.target;
+    const state = player.getPlayerState();
 
     if (state === YT.PlayerState.PLAYING) {
-      const d = video.getDuration();
-      const duration = this.humanTime(d);
-      
-      this.interval = setInterval(() => {
-        const c = video.getCurrentTime();
-        const percent = Math.floor((c / d) * 100);
-        const current = this.humanTime(c);
-        console.log(`${current} ${duration} ${percent}%`);
-      }, 500);
+      this.updateElements(player);
+      this.interval = setInterval(() => this.updateElements(player), 500);
     }
 
     if (state === YT.PlayerState.ENDED ||
@@ -125,6 +126,25 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     }
   }
   
+  /**
+   * Gets references to current player's UI elements and populates them.
+   */
+  updateElements(player) {
+    const iframe = `iframe[id="${player.g.id}"]`;
+    this.current = document.querySelector(`${iframe} ~ [data-current]`);
+    this.duration = document.querySelector(`${iframe} ~ [data-duration]`);
+
+    const c = player.getCurrentTime();
+    const d = player.getDuration();
+    const current = this.humanTime(c);
+    const duration = this.humanTime(d);
+    const percent = Math.floor((c / d) * 100);
+
+    this.current.textContent = current;
+    this.current.dataset.current = percent;
+    this.duration.textContent = duration;
+  }
+
   /**
    * Converts a duration in seconds to human-friendly MM:SS format.
    * E.g., 272 seconds = 4:32
@@ -148,13 +168,13 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     if (event.target.tagName !== 'BUTTON') return;
     
     const button = event.target;
-    const iframe = button.previousElementSibling || button.nextElementSibling;
-    const active = this.videos.find(video => video.g.id === iframe.id);
+    const iframe = button.previousElementSibling;
+    const active = this.players.find(player => player.g.id === iframe.id);
 
     if (button.dataset.state === 'paused') {
       // Pause all videos and reset <button> elements before playing the active
       // video and updating its <button>.
-      this.videos.forEach(video => video.pauseVideo());
+      this.players.forEach(player => player.pauseVideo());
       this.buttons.forEach(button => this.updateButton(button, 'play'));
       active.playVideo();
       this.updateButton(button, 'pause');
