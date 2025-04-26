@@ -3,7 +3,6 @@
 
   display: grid;
   grid: auto auto / auto;
-  max-inline-size: 30rem;
 }
 
 /* [1] Size is 1 x 1 since 0 causes slght delay on click. */
@@ -11,7 +10,6 @@
   block-size: 1px;
   grid-area: 1 / 1;
   inline-size: 1px;
-  place-self: center;
   pointer-events: none;
   visibility: hidden;
 }
@@ -29,7 +27,6 @@
   outline: none;
   padding: 0;
   place-content: center;
-  place-self: center;
 }
 
 [data-player] > button > svg {

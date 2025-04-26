@@ -76,6 +76,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
             onReady: this.onReady.bind(this),
             onStateChange: this.onStateChange.bind(this),
           },
+          height: 180,
           playerVars: {
             'controls': 0,
             'enablejsapi': 1,
@@ -83,6 +84,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
             'playsinline': 1,
           },
           videoId: id,
+          width: 320,
         }
         new YT.Player(id, options);
       }
