@@ -1,12 +1,9 @@
 ---
-layout: base
-permalink: music/index.html
+layout: charts
+permalink: charts/index.html
+slug: charts
+classname: charts
 
-title: Music
-description: Music description goes here
-classname: music
+title: Music Charts
+description: Drum transcriptions of session masters
 ---
-
-<div data-player="Lrle0x_DHBM"></div>
-<div data-player="5X-Mrc2l1d0"></div>
-<div data-player="ViwtNLUqkMY"></div>

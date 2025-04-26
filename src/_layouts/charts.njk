@@ -1,0 +1,12 @@
+---
+layout: base
+---
+<ol role="list">
+{% for item in collections[slug] -%}
+  <li id="{{ item.data.slug }}">    
+    <h2>{{ item.data.title }}</h2>
+    <h3>{{ item.data.artist }}</h3>
+    <div data-player="{{ item.data.video }}"></div>
+  </li>
+{%- endfor %}
+</ol>

@@ -2,32 +2,32 @@
 {%- set css -%}
   {%- include 'styles/vars.css' -%}
   {%- include 'styles/base.css' -%}
-  {%- if classname == 'home' -%}
+  {%- if classname == 'charts' -%}
+    {% include 'components/audio-player.css' %}
+  {%- elif classname == 'error-404' -%}
+    {% include 'styles/error-404.css' %}
+  {%- elif classname == 'home' -%}
     {%- include 'styles/home.css' -%}
     {%- include 'styles/buttons.css' -%}
     {%- include 'styles/details.css' -%}
     {%- include 'styles/projects.css' -%}
     {%- include 'components/details-plus.css' -%}
+    {%- include 'components/carousel.css' -%}
   {%- elif classname == 'slideshow' -%}
     {%- include 'styles/slideshow.css' -%}
-    {%- include 'components/carousel.css' -%}
-  {%- elif classname == 'music' -%}
-    {% include 'components/audio-player.css' %}
-  {%- elif classname == 'error-404' -%}
-    {% include 'styles/error-404.css' %}
   {% endif %}
 {%- endset -%}
 
 {%- set js -%}
   {%- include 'components/ExternalLinks.js' -%}
   {%- include 'components/TouchyButtons.js' -%}
-  {%- if classname == 'home' -%}
+  {%- if classname == 'charts' -%}
+    {%- include 'components/AudioPlayer.js' -%}
+  {%- elif classname == 'home' -%}
     {%- include 'components/DetailsPlus.js' -%}
   {%- elif classname == 'slideshow' -%}
     {%- include 'components/BeforeAfter.js' -%}
     {%- include 'components/Carousel.js' -%}
-  {%- elif classname == 'music' -%}
-    {%- include 'components/AudioPlayer.js' -%}
   {%- endif -%}
 {%- endset -%}
 
@@ -49,7 +49,7 @@
     </main>
     <external-links></external-links>
     <touchy-buttons></touchy-buttons>
-    {%- if classname == 'music' %}
+    {%- if classname == 'charts' %}
     <audio-player></audio-player>
     {% endif -%}
     <script>{{ js | jsmin | safe }}</script>
