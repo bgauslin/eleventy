@@ -1,23 +1,23 @@
 [data-player] {
-  --button-size: 2.75rem;
+  --button-size: 2rem;
+  --padding: .5rem;
   --thumb-size: 1.25rem;
 
   background-color: var(--fill-2);
-  border-radius: calc(var(--button-size) + .75rem);
+  border-radius: calc(var(--button-size) + (var(--padding) / 2));
   display: grid;
-  gap: 0 1.5rem;
-  grid: 'iframe . . . .' 1px 'button current percent duration .' var(--button-size) / var(--button-size) 3rem 1fr 3rem 0;
-  padding-block: .75rem;
-  padding-inline: .75rem 0;
+  gap: 0 .25rem;
+  grid: 'button current percent duration' var(--button-size) / var(--button-size) 3em 1fr 3em;
+  padding-block: var(--padding);
+  padding-inline: var(--padding) 0;
   place-items: center start;
-  position: relative
 }
 
-/* [1] Size is 1 x 1 since 0 causes slght delay on click. */
+/* [1] Size is 1px since 0px causes a slght delay on click. */
 [data-player] > iframe {
-  block-size: 1px;
+  block-size: 1px; /* [1] */
   grid-area: iframe;
-  inline-size: 1px;
+  inline-size: 1px; /* [1] */
   pointer-events: none;
   visibility: hidden;
 }
@@ -41,7 +41,7 @@
 [data-player] > button > svg {
   block-size: auto;
   fill: currentColor;
-  inline-size: 1.5rem;
+  inline-size: 1.25rem;
   pointer-events: none;
 }
 
@@ -51,39 +51,12 @@
 }
 
 [data-player] > input[type='range'] {
-  accent-color: red;
-  appearance: none;
-  background: transparent;
+  accent-color: var(--text-color);
   cursor: pointer;
   grid-area: percent;
   inline-size: 100%;
 }
 
-input[type='range']::-webkit-slider-runnable-track  {
-  appearance: none;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-input[type='range']::-webkit-slider-runnable-track {
-  background: var(--gray2);
-  height: .5rem;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  aspect-ratio: 1;
-  background-color: var(--link-color);
-  block-size: var(--thumb-size);
-  border-radius: var(--thumb-size);
-  margin-block: -6px 0;
-}
-
-input[type="range"]::-moz-range-track {
-  background: var(--fill-2);
-  height: .5rem;
-}
 
 [data-player] > [data-duration] {
   grid-area: duration;
