@@ -2,36 +2,24 @@
 {%- set css -%}
   {%- include 'styles/vars.css' -%}
   {%- include 'styles/base.css' -%}
-  {%- if classname == 'charts' -%}
-    {%- include 'components/audio-player.css' -%}
-    {%- include 'components/carousel.css' -%}
-    {%- include 'styles/slideshow.css' -%}
-  {%- elif classname == 'error-404' -%}
-    {% include 'styles/error-404.css' %}
-  {%- elif classname == 'home' -%}
-    {%- include 'styles/home.css' -%}
-    {%- include 'styles/buttons.css' -%}
-    {%- include 'styles/details.css' -%}
-    {%- include 'styles/projects.css' -%}
-    {%- include 'components/details-plus.css' -%}
-  {%- elif classname == 'slideshow' -%}
-    {%- include 'components/carousel.css' -%}
-    {%- include 'styles/slideshow.css' -%}
-  {% endif %}
+  {%- include 'styles/home.css' -%}
+  {%- include 'styles/buttons.css' -%}
+  {%- include 'styles/details.css' -%}
+  {%- include 'styles/error-404.css' -%}
+  {%- include 'styles/projects.css' -%}
+  {%- include 'styles/slideshow.css' -%}
+  {%- include 'components/audio-player.css' -%}
+  {%- include 'components/carousel.css' -%}
+  {%- include 'components/details-plus.css' -%}
 {%- endset -%}
 
 {%- set js -%}
+  {%- include 'components/AudioPlayer.js' -%}
+  {%- include 'components/BeforeAfter.js' -%}
+  {%- include 'components/Carousel.js' -%}
+  {%- include 'components/DetailsPlus.js' -%}
   {%- include 'components/ExternalLinks.js' -%}
   {%- include 'components/TouchyButtons.js' -%}
-  {%- if classname == 'charts' -%}
-    {%- include 'components/AudioPlayer.js' -%}
-    {%- include 'components/Carousel.js' -%}
-  {%- elif classname == 'home' -%}
-    {%- include 'components/DetailsPlus.js' -%}
-  {%- elif classname == 'slideshow' -%}
-    {%- include 'components/BeforeAfter.js' -%}
-    {%- include 'components/Carousel.js' -%}
-  {%- endif -%}
 {%- endset -%}
 
 <!doctype html>
@@ -43,18 +31,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" href="/favicon.png">
-    <link rel="preload" as="font" type="font/woff2" href="https://gauslin.com/fonts/AvenirNext-Variable.woff2" crossorigin="crossorigin">
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/AvenirNext-Variable.woff2" crossorigin="crossorigin">
     <style>{{ css | cssmin | safe }}</style>
   </head>
   <body{% if classname %} class="{{ classname }}"{% endif %}>
     <main>
       {{ content | safe }}
     </main>
+    <audio-player></audio-player>
     <external-links></external-links>
     <touchy-buttons></touchy-buttons>
-    {%- if classname == 'charts' %}
-    <audio-player></audio-player>
-    {% endif -%}
     <script>{{ js | jsmin | safe }}</script>
   </body>
 </html>

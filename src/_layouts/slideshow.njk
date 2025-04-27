@@ -65,16 +65,12 @@ the <ol> has 'list-style: none' visual styling. -#}
         </div>
         <figcaption>
           <h2>{{ item.data.title }}</h2>
-          {%- if item.data.artist %}
-          <h3>{{ item.data.artist }}</h3>
-          {%- endif %}
-          {%- if item.data.video %}
-          <div data-player="{{ item.data.video }}"></div>
-          {%- endif %}
+
           {%- if item.data.content -%}
           {{ item.data.content | safe }}
           {%- endif -%}
           
+          {# TODO: Remove templating, update content #}
           {%- if item.data.media and item.data.size %}
           <dl>
             <dt>Media</dt>

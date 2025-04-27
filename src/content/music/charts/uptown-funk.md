@@ -1,10 +1,11 @@
 ---
 slug: uptown-funk
 title: Uptown Funk
-artist: Mark Ronson + Bruno Mars
-video: OPf0YbXqDm0
 images:
   - src: uptown-funk
     width: 600
     height: 776
 ---
+### Mark Ronson + Bruno Mars
+
+<div data-player="OPf0YbXqDm0"></div>
