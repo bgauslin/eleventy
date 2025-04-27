@@ -8,4 +8,6 @@ images:
 ---
 ### Prince
 
+Bobby Z. on drums.
+
 <div data-player="347vCib_lMs"></div>

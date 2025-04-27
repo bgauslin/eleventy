@@ -8,5 +8,7 @@ images:
 ---
 ### The Emotions
 
+Fred White of Earth, Wind & Fire on the drums.
+
 <div data-player="EbwXoN-XU5I"></div>
           

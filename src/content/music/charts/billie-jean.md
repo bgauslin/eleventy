@@ -8,4 +8,6 @@ images:
 ---
 ### Michael Jackson
 
+Leon “Ndugu” Chancler on drums.
+
 <div data-player="Zi_XLOBDo_Y"></div>

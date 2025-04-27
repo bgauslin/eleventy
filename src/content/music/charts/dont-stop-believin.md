@@ -8,4 +8,6 @@ images:
 ---
 ### Journey
 
+Steve Smith on drums.
+
 <div data-player="1k8craCGpgs"></div>

@@ -8,4 +8,6 @@ images:
 ---
 ### Earth, Wind & Fire
 
+Fred White on drums.
+
 <div data-player="Lrle0x_DHBM"></div>
