@@ -4,7 +4,7 @@ title: Best Of My Love
 artist: The Emotions
 video: EbwXoN-XU5I
 images:
-  - src: got-to-be-real-best-of-my-love
-    width: 1275
-    height: 1650
+  - src: best-of-my-love
+    width: 600
+    height: 776
 ---

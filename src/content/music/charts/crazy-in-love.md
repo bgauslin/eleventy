@@ -5,6 +5,6 @@ artist: Beyoncé + Jay-Z
 video: ViwtNLUqkMY
 images:
   - src: crazy-in-love
-    width: 1275
-    height: 1650
+    width: 600
+    height: 776
 ---

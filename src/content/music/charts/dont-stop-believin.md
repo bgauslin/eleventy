@@ -5,6 +5,6 @@ artist: Journey
 video: 1k8craCGpgs
 images:
   - src: dont-stop-believin
-    width: 1275
-    height: 1650
+    width: 600
+    height: 776
 ---

@@ -5,6 +5,6 @@ artist: Mark Ronson + Bruno Mars
 video: OPf0YbXqDm0
 images:
   - src: uptown-funk
-    width: 1275
-    height: 1650
+    width: 600
+    height: 776
 ---
