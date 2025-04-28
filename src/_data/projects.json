@@ -103,6 +103,13 @@
         "label": "View photos of the completed residence"
       },
       {
+        "heading": "Vieux Carré Renovation",
+        "copy": "Modernizing avery old house in the heart of New Orleans’ French Quarter.",
+        "image": "vieux-carre.jpg",
+        "url": "/archdesign/vieux-carre",
+        "label": "View photos of the renovation"
+      },
+      {
         "heading": "Travel Sketches",
         "copy": "Documenting moments in architecture with pen and pencil.",
         "image": "sketch-piazza.jpg",
