@@ -45,7 +45,7 @@
   pointer-events: none;
 }
 
-[data-player] > [data-current] {
+[data-player] > .current {
   grid-area: current;
   justify-self: end;
 }
@@ -58,6 +58,6 @@
 }
 
 
-[data-player] > [data-duration] {
+[data-player] > .duration {
   grid-area: duration;
 }

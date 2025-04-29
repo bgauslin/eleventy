@@ -1,20 +1,26 @@
 /**
- * Singleton custom element that uses the YouTube Iframe API to provide custom
+ * Singleton custom element that uses the YouTube IFrame API to provide custom
  * controls for music tracks. This widget loads up YouTube videos, then hides
  * the actual video so the UI can behave more like a simple audio controller.
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
-  buttons = [];  // <HTMLButtonElement[]>
-  current;       // <HTMLElement>
-  duration;      // <HTMLElement>
-  ids = [];      // <string[]>
-  interval = 0;  // <number>
-  percent;       // <HTMLInputElement>
-  players = [];  // <YT.Player[]>
+  buttons = [];     // <HTMLButtonElement[]>
+  current;          // <HTMLElement> current/elapsed time
+  duration;         // <HTMLElement> total time
+  ids = [];         // <string[]>
+  interval = 0;     // <number>
+  percent;          // <HTMLInputElement> range slider
+  players = [];     // <YT.Player[]>
+  ranges = [];      // <HTMLInputElement[]>
+  ready = false;    // <boolean>
+  seeking = false;  // <boolean>
 
   constructor() {
     super();
     this.clickHandler = this.handleClick.bind(this);
+    this.rangeHandler = this.handleRange.bind(this);
+    this.downHandler = this.handleDown.bind(this);
+    this.upHandler = this.handleUp.bind(this);
 
     if (!AudioPlayer.instance) {
       AudioPlayer.instance = this;
@@ -27,14 +33,20 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     this.renderElements();
     this.makePlayers();
     document.addEventListener('click', this.clickHandler);
+    document.addEventListener('input', this.rangeHandler);
+    ['mousedown', 'touchstart'].forEach(type => document.addEventListener(type, this.downHandler));
+    ['mouseup', 'touchend'].forEach(type => document.addEventListener(type, this.upHandler));
   }
 
   disconnectedCallback() {
     document.removeEventListener('click', this.clickHandler);
+    document.removeEventListener('input', this.rangeHandler);
+    ['mousedown', 'touchstart'].forEach(type => document.removeEventListener(type, this.downHandler));
+    ['mouseup', 'touchend'].forEach(type => document.removeEventListener(type, this.upHandler));
   }
 
   /**
-   * Attaches a <script> element to the DOM for the YouTube Iframe API.
+   * Attaches a <script> element to the DOM for the YouTube IFrame API.
    */
   injectJS() {
     const script = document.createElement('script');
@@ -51,17 +63,24 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     this.ids = [...elements].map(element => element.dataset.player);
 
     // The YouTube API doesn't like multi-line template literals, and it's
-    // easier to set up the <button> with old-school JS, hence the mix of DOM
-    // insertion types.
+    // easier to make the <button> and its reference with old-school JS, hence 
+    // the mix of DOM insertion types.
     for (const [index, element] of elements.entries()) {
-      element.innerHTML = `<div id="${this.ids[index]}"></div>`;
+      const id = this.ids[index];
+      element.innerHTML = `<div id="${id}"></div>`;
       const button = document.createElement('button');
       this.updateButton(button, 'play');
       element.appendChild(button);
       element.innerHTML += `
-        <span data-current></span>
-        <span data-duration></span>
-        <input min="0" max="100" name="percent" type="range" value="0">
+        <span class="current"></span>
+        <span class="duration"></span>
+        <input
+          data-for="${id}"
+          max="100"
+          min="0"
+          name="percent"
+          type="range"
+          value="0"/>
       `;
 
       // Remove the value since JS is done with it, but leave the attribute
@@ -69,12 +88,12 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
       element.setAttribute('data-player', '');
     }
 
-    // Save references to all the buttons for updating their content on click.
-    this.buttons = document.querySelectorAll('[data-player] > button');
+    // Make references to all <button> elements for auto-updating.
+    this.buttons = document.querySelectorAll('[data-player] > button'); 
   }
 
   /**
-   * Makes a new YT.Player for each video.
+   * Generates a new YT.Player instance for each video.
    */
   makePlayers() {
     window.onYouTubeIframeAPIReady = () => {
@@ -100,43 +119,98 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   /**
-   * Saves all the generated video objects on the page for auto-toggling their
-   * play/pause state.
+   * Saves all the generated Player instances for auto-toggling their play/pause
+   * states.
    * @param {Event} event
    */
   onReady(event) {
     const player = event.target;
     this.players.push(player);
     this.updateElements(player);
+    this.ready = true;
   }
 
   /**
-   * Tracks current time for the active video.
+   * Tracks current time for the active Player.
    * @param {Event} event
    */
-  onStateChange(event) {
+  onStateChange(event) {    
     const player = event.target;
     const state = player.getPlayerState();
 
+    // Auto-update current time.
     if (state === YT.PlayerState.PLAYING) {
       this.updateElements(player);
       this.interval = setInterval(() => this.updateElements(player), 500);
     }
 
-    if (state === YT.PlayerState.ENDED ||
-        state === YT.PlayerState.PAUSED) {
+    // Stop auto-updating current time.
+    if (state === YT.PlayerState.PAUSED ||
+        state === YT.PlayerState.ENDED) {
       clearInterval(this.interval);
+    }
+
+    // Reset everything.
+    if (state === YT.PlayerState.ENDED) {
+      player.seekTo(0);
+      player.pauseVideo();
+      this.current = this.humanTime(0);
+      const button = document.querySelector(`iframe[id="${player.g.id}"] ~ button`);
+      this.updateButton(button, 'play');
     }
   }
   
+  /**
+   * Updates the current time element as a visual indicator of user-selected
+   * time to jump to.
+   * @param {Event} event
+   */
+  handleRange(event) {
+    const {value} = event.target;
+    const time = this.humanTime(value);
+    const id = event.target.dataset.for;
+    this.current = document.querySelector(`iframe[id="${id}"] ~ .current`);
+    this.current.textContent = time;
+  }
+
+  /**
+   * Sets a guard that prevents the 'current' time from being auto-updated while
+   * user selects a different time to play.
+   * @param {Event} event
+   */
+  handleDown(event) {
+    if (event.target.type === 'range') {
+      this.seeking = true;
+    }
+  }
+
+  /**
+   * Jumps to selected time and prevents auto-playing if the player is cued up
+   * or paused. The guard is always removed on up/end events.
+   * @param {Event} event
+   */
+  handleUp(event) {
+    this.seeking = false;
+    const {type, value} = event.target;
+
+    if (type !== 'range') return;
+
+    const player = this.players.find(player => player.g.id === event.target.dataset.for);
+    const state = player.getPlayerState();
+    player.seekTo(value);
+    if (state !== YT.PlayerState.PLAYING) {
+      player.pauseVideo();
+    }
+  }
+
   /**
    * Gets references to current player's UI elements and populates them.
    * @param {YT.Player} player
    */
   updateElements(player) {
     const iframe = `iframe[id="${player.g.id}"]`;
-    this.current = document.querySelector(`${iframe} ~ [data-current]`);
-    this.duration = document.querySelector(`${iframe} ~ [data-duration]`);
+    this.current = document.querySelector(`${iframe} ~ .current`);
+    this.duration = document.querySelector(`${iframe} ~ .duration`);
     this.percent = document.querySelector(`${iframe} ~ input[type='range']`);
 
     const c = player.getCurrentTime();
@@ -144,10 +218,15 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const current = this.humanTime(c);
     const duration = this.humanTime(d);
 
-    this.current.textContent = current;
+    // Static values.
     this.duration.textContent = duration;
     this.percent.max = Math.floor(d);
-    this.percent.value = Math.floor(c);
+
+    // Dynamic values.
+    if (!this.seeking || !this.ready) {
+      this.current.textContent = current;
+      this.percent.value = Math.floor(c);
+    }
   }
 
   /**
@@ -177,14 +256,14 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const active = this.players.find(player => player.g.id === iframe.id);
 
     if (button.dataset.state === 'paused') {
-      // Pause all videos and reset <button> elements before playing the active
+      // Pause all Players and reset <button> elements before playing the active
       // video and updating its <button>.
       this.players.forEach(player => player.pauseVideo());
       this.buttons.forEach(button => this.updateButton(button, 'play'));
       active.playVideo();
       this.updateButton(button, 'pause');
     } else {
-      // All other videos should already be paused, so only the active <button>
+      // All other Players should already be paused, so only the active <button>
       // needs to be updated when its video is paused.
       active.pauseVideo();
       this.updateButton(button, 'play');
