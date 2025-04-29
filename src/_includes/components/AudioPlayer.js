@@ -186,7 +186,8 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
   /**
    * Jumps to selected time and prevents auto-playing if the player is cued up
-   * or paused. The guard is always removed on up/end events.
+   * or paused. The guard is always removed on up/end events regardless of the
+   * event target.
    * @param {Event} event
    */
   handleUp(event) {
