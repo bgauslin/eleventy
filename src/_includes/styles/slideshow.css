@@ -12,6 +12,7 @@
   --item-margin-block: 10vh;
 
   /* Slide. */
+  --figure-block-size: 100%;
   --figure-grid: auto auto / 1fr;
 
   /* Slide images. */

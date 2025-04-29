@@ -66,6 +66,7 @@ li {
  */
 figure {
   background: var(--figure-background);
+  block-size: var(--figure-block-size);
   border-radius: var(--figure-border-radius);
   display: var(--figure-display);
   gap: var(--figure-gap, var(--gap));
