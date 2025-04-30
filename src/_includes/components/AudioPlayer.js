@@ -9,8 +9,8 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   elapsed;          // <HTMLElement> current/elapsed time
   ids = [];         // <string[]>
   interval = 0;     // <number>
-  percent;          // <HTMLInputElement> range slider
   players = [];     // <YT.Player[]>
+  range;           // <HTMLInputElement> active range slider
   ranges = [];      // <HTMLInputElement[]>
   seeking = false;  // <boolean>
 
@@ -162,7 +162,8 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const iframe = `iframe[id="${player.g.id}"]`;
     const parent = document.querySelector(`${iframe}`).closest('[data-start]');
     const button = document.querySelector(`${iframe} ~ button`);
-    const range = document.querySelector(`${iframe} ~ input[type="range"]`);
+
+    this.range = document.querySelector(`${iframe} ~ input[type="range"]`);
     
     const start = parent ? parent.dataset.start : '0:00';
     const time = this.playerTime(start);
@@ -171,19 +172,18 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     player.pauseVideo();
 
     this.elapsed.textContent = start;
-    this.percent.value = time;
+    this.range.value = time;
     this.updateButton(button, 'play');
-    this.setTrackSize(range);
+    this.setTrackSize();
   }
 
   /**
-   * Updates width of the progress side of the range track.
-   * @param {HTMLInputElement} range
+   * Updates width of the elapsed side of the range track.
    */
-  setTrackSize(range) {
-    const {max, value} = range;
+  setTrackSize() {
+    const {max, value} = this.range;
     const percent = Math.floor((value / max) * 100);
-    range.style.setProperty('--elapsed', `${percent}%`);
+    this.range.style.setProperty('--elapsed', `${percent}%`);
   }
 
   /**
@@ -192,16 +192,16 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * @param {Event} event
    */
   handleRange(event) {
-    const range = event.target;
-    const {value} = range;
-    const id = range.dataset.for;
+    this.range = event.target;
+    const {value} = this.range;
+    const id = this.range.dataset.for;
 
     // Get .current element for the active Player.
     this.elapsed = document.querySelector(`iframe[id="${id}"] ~ .elapsed`);
 
     // Update the UI.
     this.elapsed.textContent = this.humanTime(value);
-    this.setTrackSize(range);
+    this.setTrackSize();
   }
 
   /**
@@ -245,7 +245,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
     this.elapsed = document.querySelector(`${selector} ~ .elapsed`);
     this.duration = document.querySelector(`${selector} ~ .duration`);
-    this.percent = document.querySelector(`${selector} ~ input[type='range']`);
+    this.range = document.querySelector(`${selector} ~ input[type='range']`);
 
     const c = player.getCurrentTime();
     const d = player.getDuration();
@@ -254,12 +254,13 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
     // Static values.
     this.duration.textContent = duration;
-    this.percent.max = Math.floor(d);
+    this.range.max = Math.floor(d);
 
     // Dynamic values.
     if (!setup && !this.seeking) {
       this.elapsed.textContent = current;
-      this.percent.value = Math.floor(c);
+      this.range.value = Math.floor(c);
+      this.setTrackSize();
     }
 
     // Set everything up on first run.
