@@ -69,16 +69,6 @@ the <ol> has 'list-style: none' visual styling. -#}
           {%- if item.data.content -%}
           {{ item.data.content | safe }}
           {%- endif -%}
-          
-          {# TODO: Remove templating, update content #}
-          {%- if item.data.media and item.data.size %}
-          <dl>
-            <dt>Media</dt>
-            <dd>{{ item.data.media }}</dd>
-            <dt>Size</dt>
-            <dd>{{ item.data.size }}</dd>
-          </dl>
-          {%- endif %}
 
           {%- if item.data.message %}
             <p class="message">{{ item.data.message | safe }}</p>
