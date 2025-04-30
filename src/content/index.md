@@ -14,13 +14,13 @@ classname: home
       <h2>About</h2>
     </summary>
     
-    Hello, I’m a former Google engineer and Chicago architect based in Madrid who’s currently learning Spanish via good old-fashioned immersion.
-
-    This little website is home to some of the web, architecture, and music stuff I’ve made over the years. Feel free to look around!
+    Hello, I’m a former Google engineer and Chicago architect, and forever a New Orleans musician.
+    
+    This little website is home to some of the web, architecture, and music stuff I’ve made over the years.
+    
+    Please feel free to look around...
 
     <img src="images/home/selfie.jpg" alt="" class="avatar">
-
-    <p class="hola">¡Bienvenidos y gracias por visitarme!</p>
   </details>
 
   {% include 'projects.njk' %}
@@ -36,11 +36,3 @@ classname: home
 
   </details>
 </details-plus>
-
-<style>
-  .hola {
-    font-size: .9em;
-    font-style: italic;
-    text-align: center;
-  }
-</style>
