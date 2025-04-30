@@ -7,7 +7,7 @@
   border-radius: calc(var(--button-size) + (var(--padding) / 2));
   display: grid;
   gap: 0 .25rem;
-  grid: 'button current percent duration' var(--button-size) / var(--button-size) 3em 1fr 3em;
+  grid: 'button elapsed percent duration' var(--button-size) / var(--button-size) 3em 1fr 3em;
   padding-block: var(--padding);
   padding-inline: var(--padding) 0;
   place-items: center start;
@@ -45,19 +45,44 @@
   pointer-events: none;
 }
 
-[data-player] > .current {
-  grid-area: current;
+[data-player] > .elapsed {
+  grid-area: elapsed;
   justify-self: end;
 }
 
+[data-player] > .duration {
+  grid-area: duration;
+}
+
 [data-player] > input[type='range'] {
-  accent-color: var(--text-color);
+  --thumb-shift: -.4rem;
+  --thumb-size: 1.2rem;
+  --track-size: .5rem;
+
+  appearance: none;
+  background: var(--gray2) linear-gradient(var(--text-color), var(--text-color)) 0 0 / var(--elapsed, 0) 100% no-repeat ;
+  border-radius: var(--track-size);
   cursor: pointer;
   grid-area: percent;
   inline-size: 100%;
+  outline: none;
 }
 
+[data-player] > input[type='range']::-webkit-slider-runnable-track {
+  appearance: none;
+  background-color: transparent;
+  block-size: var(--track-size);
+  border: none;
+  box-shadow: none;
+}
 
-[data-player] > .duration {
-  grid-area: duration;
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  background-color: var(--text-color);
+  block-size: var(--thumb-size);
+  border: 1px solid var(--gray2);
+  border-radius: var(--thumb-size);
+  box-shadow: none;
+  inline-size: var(--thumb-size);
+  margin-block: var(--thumb-shift) auto;
 }
