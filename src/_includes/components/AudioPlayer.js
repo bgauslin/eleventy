@@ -1,7 +1,7 @@
 /**
- * Singleton custom element that uses the YouTube IFrame API to provide custom
- * controls for music tracks. This widget loads up YouTube videos, then hides
- * the actual video so the UI can behave more like a simple audio controller.
+ * Singleton custom element that uses the YouTube IFrame Player API to provide
+ * custom controls for music tracks. This widget loads up YouTube videos, then
+ * hides each video so the UI can behave more like a simple audio controller.
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   buttons = [];     // <HTMLButtonElement[]>
@@ -12,7 +12,6 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   percent;          // <HTMLInputElement> range slider
   players = [];     // <YT.Player[]>
   ranges = [];      // <HTMLInputElement[]>
-  ready = false;    // <boolean>
   seeking = false;  // <boolean>
 
   constructor() {
@@ -126,8 +125,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   onReady(event) {
     const player = event.target;
     this.players.push(player);
-    this.updateElements(player);
-    this.ready = true;
+    this.updateElements(player, true);
   }
 
   /**
@@ -152,14 +150,30 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
     // Reset everything.
     if (state === YT.PlayerState.ENDED) {
-      player.seekTo(0);
-      player.pauseVideo();
-      this.current = this.humanTime(0);
-      const button = document.querySelector(`iframe[id="${player.g.id}"] ~ button`);
-      this.updateButton(button, 'play');
+      this.setupPlayer(player);
     }
   }
-  
+
+  /**
+   * Sets the starting time for a Player instance.
+   * @param {YT.Player} player
+   */
+  setupPlayer(player) {
+    const iframe = `iframe[id="${player.g.id}"]`;
+    const parent = document.querySelector(`${iframe}`).closest('[data-start]');
+    const button = document.querySelector(`${iframe} ~ button`);
+    
+    const start = parent ? parent.dataset.start : '0:00';
+    const time = this.playerTime(start);
+
+    player.seekTo(time);
+    player.pauseVideo();
+
+    this.current.textContent = start;
+    this.percent.value = time;
+    this.updateButton(button, 'play');
+  }
+
   /**
    * Updates the current time element as a visual indicator of user-selected
    * time to jump to.
@@ -207,9 +221,11 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   /**
    * Gets references to current player's UI elements and populates them.
    * @param {YT.Player} player
+   * @param {boolean=} setup
    */
-  updateElements(player) {
+  updateElements(player, setup = false) {
     const iframe = `iframe[id="${player.g.id}"]`;
+
     this.current = document.querySelector(`${iframe} ~ .current`);
     this.duration = document.querySelector(`${iframe} ~ .duration`);
     this.percent = document.querySelector(`${iframe} ~ input[type='range']`);
@@ -224,9 +240,14 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     this.percent.max = Math.floor(d);
 
     // Dynamic values.
-    if (!this.seeking || !this.ready) {
+    if (!setup && !this.seeking) {
       this.current.textContent = current;
       this.percent.value = Math.floor(c);
+    }
+
+    // Set everything up on first run.
+    if (setup) {
+      this.setupPlayer(player);
     }
   }
 
@@ -242,6 +263,19 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const seconds = (s < 10) ? `0${s}` : s;
     
     return `${minutes}:${seconds}`;
+  }
+
+  /**
+   * Converts a duration in human-friendly MM:SS format to seconds.
+   * E.g., 4:32 = 272 seconds 
+   * @param {string} duration 
+   * @returns {number}
+   */
+  playerTime(duration) {
+    if (!duration) return 0; // Bail since any zero value is falsy.
+
+    const [minutes, seconds] = duration.split(':');
+    return (parseInt(minutes) * 60) + parseInt(seconds);
   }
   
   /**
