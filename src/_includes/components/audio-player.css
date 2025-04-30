@@ -82,7 +82,7 @@ button.touch {
   grid-area: duration;  
 }
 
-/* Range slider. */
+/* Playhead scrubber. */
 [data-player] > input[type='range'] {
   --thumb-shift: -.4rem;
   --thumb-size: 1.2rem;

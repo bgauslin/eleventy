@@ -10,7 +10,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   ids = [];         // <string[]>
   interval = 0;     // <number>
   players = [];     // <YT.Player[]>
-  range;           // <HTMLInputElement> active range slider
+  range;           // <HTMLInputElement> active range scrubber
   ranges = [];      // <HTMLInputElement[]>
   seeking = false;  // <boolean>
 
@@ -71,9 +71,10 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
       this.updateButton(button, 'play');
       element.appendChild(button);
       element.innerHTML += `
-        <span class="elapsed"></span>
-        <span class="duration"></span>
+        <time class="elapsed"></time>
+        <time class="duration"></time>
         <input
+          aria-label="Move the playhead forward or backward"
           data-for="${id}"
           max="100"
           min="0"
@@ -201,6 +202,8 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
     // Update the UI.
     this.elapsed.textContent = this.humanTime(value);
+    this.elapsed.setAttribute('datetime', this.datetimeDuration(value));
+
     this.setTrackSize();
   }
 
@@ -251,14 +254,18 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const d = player.getDuration();
     const current = this.humanTime(c);
     const duration = this.humanTime(d);
+    const datetime = this.datetimeDuration(c);
 
     // Static values.
     this.duration.textContent = duration;
+    this.duration.setAttribute('datetime', this.datetimeDuration(d));
+
     this.range.max = Math.floor(d);
 
     // Dynamic values.
     if (!setup && !this.seeking) {
       this.elapsed.textContent = current;
+      this.elapsed.setAttribute('datetime', datetime);
       this.range.value = Math.floor(c);
       this.setTrackSize();
     }
@@ -281,6 +288,19 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const seconds = (s < 10) ? `0${s}` : s;
     
     return `${minutes}:${seconds}`;
+  }
+
+  /**
+   * Converts a duration in seconds to duration format.
+   * E.g., 272 seconds = T4M12S
+   * @param {string} duration 
+   * @returns {string}
+   */
+  datetimeDuration(duration) {
+    const minutes = Math.floor(duration / 60);
+    const seconds = Math.floor(duration % 60);
+
+    return `T${minutes}M${seconds}S`;
   }
 
   /**
