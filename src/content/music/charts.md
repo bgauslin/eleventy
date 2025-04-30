@@ -11,4 +11,8 @@ description: Drum transcriptions of session masters
 [data-player] {
   margin-block: 1rem;
 }
+
+a {
+  font-variation-settings: 'wght' 600;
+}
 </style>

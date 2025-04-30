@@ -8,8 +8,8 @@ images:
 ---
 ### Journey
 
-<div data-player="1k8craCGpgs"></div>
+<div data-player="1k8craCGpgs" data-start="1:14"></div>
 
-Chart starts at 1:22.
+<small>Featuring [Steve Smith](https://youtu.be/uf9R6u1IMIQ?si=aU5i2_s55hdmg-Kx&t=208 "Watch Steve play this cool drum part") on drums.</small>
 
-<small>Steve Smith on drums.</small>
+

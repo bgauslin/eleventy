@@ -10,4 +10,4 @@ images:
 
 <div data-player="Zi_XLOBDo_Y"></div>
 
-<small>Leon “Ndugu” Chancler on drums.</small>
+<small>Featuring [Leon “Ndugu” Chancler](https://wikipedia.org/wiki/Leon_%22Ndugu%22_Chancler "Leon Chancler on Wikipedia") on drums.</small>

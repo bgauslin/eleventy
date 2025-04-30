@@ -10,4 +10,4 @@ images:
 
 <div data-player="4emYaDbaJ8w"></div>
 
-<small>Chad Cromwell on drums.</small>
+<small>Featuring [Chad Cromwell](https://wikipedia.org/wiki/Chad_Cromwell "Wikipedia") on drums.</small>

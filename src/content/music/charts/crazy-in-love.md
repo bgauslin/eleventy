@@ -10,4 +10,4 @@ images:
 
 <div data-player="ViwtNLUqkMY"></div>
 
-<small>Drum samples and track by Jay-Z.</small>
+<small>Drum samples and track by [Jay-Z](https://wikipedia.org/wiki/Jay-Z "Jay-Z on Wikipedia").</small>

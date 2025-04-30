@@ -10,4 +10,4 @@ images:
 
 <div data-player="5X-Mrc2l1d0"></div>
 
-<small>John Robinson on drums.</small>
+<small>Featuring [John Robinson](https://wikipedia.org/wiki/John_Robinson_(drummer) "John Robinson on Wikipedia") on drums.</small>

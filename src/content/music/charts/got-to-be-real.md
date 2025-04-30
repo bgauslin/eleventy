@@ -10,4 +10,4 @@ images:
 
 <div data-player="fI569nw0YUQ"></div>
 
-<small>James Gadson on drums.</small>
+<small>Featuring **James Gadson** on drums.</small>

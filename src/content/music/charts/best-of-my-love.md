@@ -10,4 +10,4 @@ images:
 
 <div data-player="EbwXoN-XU5I"></div>
 
-<small>Fred White of Earth, Wind & Fire on the drums.</small>
+<small>Featuring **Fred White** of Earth, Wind & Fire on drums.</small>

@@ -10,4 +10,4 @@ images:
 
 <div data-player="4F_RCWVoL4s"></div>
 
-<small>Gene Chrisman on drums.</small>
+<small>Featuring **Gene Chrisman** on drums.</small>

@@ -8,8 +8,7 @@ images:
 ---
 ### Journey
 
-<div data-player="OMD8hBsA-RI"></div>
+<div data-player="OMD8hBsA-RI" data-start="1:26"></div>
 
-Chart starts at 1:26.
+<small>Featuring [Steve Smith](https://wikipedia.org/wiki/Steve_Smith_(drummer) "Steve Smith on Wikipedia") on drums.</small>
 
-<small>Steve Smith on drums.</small>

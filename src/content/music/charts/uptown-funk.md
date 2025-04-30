@@ -10,4 +10,4 @@ images:
 
 <div data-player="OPf0YbXqDm0"></div>
 
-<small>Drums and vocals by Bruno Mars.</small>
+<small>Featuring [Bruno Mars](https://wikipedia.org/wiki/Bruno_Mars "Bruno Mars on Wikipedia") on drums and vocals.</small>

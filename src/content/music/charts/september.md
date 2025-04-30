@@ -10,4 +10,4 @@ images:
 
 <div data-player="Gs069dndIYk"></div>
 
-<small>Fred White on drums.</small>
+<small>Featuring **Fred White** on drums.</small>
