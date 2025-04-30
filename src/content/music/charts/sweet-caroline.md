@@ -8,6 +8,6 @@ images:
 ---
 ### Neil Diamond
 
-Gene Chrisman on drums.
-
 <div data-player="4F_RCWVoL4s"></div>
+
+<small>Gene Chrisman on drums.</small>

@@ -8,9 +8,8 @@ images:
 ---
 ### Journey
 
-Steve Smith on drums.
-
-<small>Chart starts at 1:22.</small>
-
 <div data-player="1k8craCGpgs"></div>
 
+Chart starts at 1:22.
+
+<small>Steve Smith on drums.</small>

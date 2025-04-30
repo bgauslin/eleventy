@@ -8,6 +8,6 @@ images:
 ---
 ### Cheryl Lynn
 
-James Gadson on drums.
-
 <div data-player="fI569nw0YUQ"></div>
+
+<small>James Gadson on drums.</small>

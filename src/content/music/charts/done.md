@@ -8,6 +8,6 @@ images:
 ---
 ### The Band Perry
 
-Chad Cromwell on drums.
-
 <div data-player="4emYaDbaJ8w"></div>
+
+<small>Chad Cromwell on drums.</small>

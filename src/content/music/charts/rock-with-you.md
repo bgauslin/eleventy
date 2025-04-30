@@ -8,6 +8,6 @@ images:
 ---
 ### Michael Jackson
 
-John Robinson on drums.
-
 <div data-player="5X-Mrc2l1d0"></div>
+
+<small>John Robinson on drums.</small>
