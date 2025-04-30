@@ -7,9 +7,9 @@
   border-radius: calc(var(--button-size) + (var(--padding) / 2));
   display: grid;
   gap: 0 .25rem;
-  grid: 'button elapsed percent duration' var(--button-size) / var(--button-size) 3em 1fr 3em;
+  grid: 'button elapsed percent duration' var(--button-size) / var(--button-size) 2.5rem 1fr 2.5rem;
   padding-block: var(--padding);
-  padding-inline: var(--padding) 0;
+  padding-inline: var(--padding);
   place-items: center start;
 }
 
@@ -45,13 +45,16 @@
   pointer-events: none;
 }
 
-[data-player] > .elapsed {
-  grid-area: elapsed;
+[data-player] > :is(.elapsed, .duration) {
   justify-self: end;
 }
 
+[data-player] > .elapsed {
+  grid-area: elapsed;
+}
+
 [data-player] > .duration {
-  grid-area: duration;
+  grid-area: duration;  
 }
 
 [data-player] > input[type='range'] {
