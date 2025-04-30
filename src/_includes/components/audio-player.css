@@ -1,12 +1,12 @@
 [data-player] {
-  --button-size: 2rem;
-  --padding: .5rem;
+  --button-size: 2.25rem;
+  --padding: .25rem;
   --thumb-size: 1.25rem;
 
-  background-color: var(--fill-2);
+  background-color: var(--fill-1);
   border-radius: calc(var(--button-size) + (var(--padding) / 2));
   display: grid;
-  gap: 0 .25rem;
+  gap: 0 var(--padding);
   grid: 'button elapsed percent duration' var(--button-size) / var(--button-size) 2.5rem 1fr 2.5rem;
   padding-block: var(--padding);
   padding-inline: var(--padding);
@@ -22,20 +22,43 @@
   visibility: hidden;
 }
 
-/* TODO: typical button styles */
+/* Pause/Play button. */
 [data-player] > button {
   appearance: none;
   aspect-ratio: 1;
-  background-color: #eee; 
+  background-color: var(--fill-2);
   block-size: var(--button-size);
   border: none;
   border-radius: var(--button-size);
+  color: var(--text-color);
   cursor: pointer;
   display: grid;
   grid-area: button;
   outline: none;
   padding: 0;
   place-content: center;
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+button:focus-visible,
+button[data-state='playing'] {
+  background-color: var(--text-color);
+  color: var(--fill-0);
+}
+
+@media (any-hover: hover) {
+  button:hover {
+    background-color: var(--text-color);
+    color: var(--fill-0);
+  }
+  
+  button:active {
+    transform: scale(.8);
+  }
+}
+
+button.touch {
+  transform: scale(.8);
 }
 
 [data-player] > button > svg {
@@ -45,7 +68,9 @@
   pointer-events: none;
 }
 
+/* Time indicators. */
 [data-player] > :is(.elapsed, .duration) {
+  font-size: .9em;
   justify-self: end;
 }
 
@@ -57,13 +82,14 @@
   grid-area: duration;  
 }
 
+/* Range slider. */
 [data-player] > input[type='range'] {
   --thumb-shift: -.4rem;
   --thumb-size: 1.2rem;
   --track-size: .5rem;
 
   appearance: none;
-  background: var(--gray2) linear-gradient(var(--text-color), var(--text-color)) 0 0 / var(--elapsed, 0) 100% no-repeat ;
+  background: var(--fill-3) linear-gradient(var(--text-color), var(--text-color)) 0 0 / var(--elapsed, 0) 100% no-repeat ;
   border-radius: var(--track-size);
   cursor: pointer;
   grid-area: percent;
