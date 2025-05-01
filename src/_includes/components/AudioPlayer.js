@@ -4,15 +4,14 @@
  * hides each video so the UI can behave more like a simple audio controller.
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
-  buttons = [];     // <HTMLButtonElement[]>
-  duration;         // <HTMLElement>
-  elapsed;          // <HTMLElement>
-  ids = [];         // <string[]>
-  interval = 0;     // <number>
-  players = [];     // <YT.Player[]>
-  ranges = [];      // <HTMLInputElement[]>
-  scrubber;         // <HTMLInputElement>
-  seeking = false;  // <boolean>
+  buttons = [];  // <HTMLButtonElement[]>
+  duration;      // <HTMLElement>
+  elapsed;       // <HTMLElement>
+  interval = 0;  // <number>
+  players = [];  // <YT.Player[]>
+  ranges = [];   // <HTMLInputElement[]>
+  scrubber;      // <HTMLInputElement>
+  seek = false;  // <boolean>
 
   constructor() {
     super();
@@ -28,9 +27,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   connectedCallback() {
-    this.injectJS();
-    this.renderElements();
-    this.makePlayers();
+    this.setup();
     document.addEventListener('click', this.clickHandler);
     document.addEventListener('input', this.rangeHandler);
     ['mousedown', 'touchstart'].forEach(type => document.addEventListener(type, this.downHandler));
@@ -45,27 +42,25 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   /**
-   * Attaches a <script> element to the DOM for the YouTube IFrame API.
+   * Injects JS for the YouTube IFrame Player API, renders elements into the
+   * DOM, and creates Player instances.
    */
-  injectJS() {
+  setup() {
+    // Attach a <script> element to the DOM for the YouTube IFrame API.
     const script = document.createElement('script');
     script.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(script);
-  }
 
-  /**
-   * Gets all the IDs for generating Player objects and rendering HTML child
-   * elements for UI controls and <iframe> replacement.
-   */
-  renderElements() {
+    // Get all the IDs for generating Player objects and rendering HTML child
+    // elements for UI controls and <iframe> replacement.
     const elements = document.querySelectorAll('[data-player]');
-    this.ids = [...elements].map(element => element.dataset.player);
+    const ids = [...elements].map(element => element.dataset.player);
 
     // The YouTube API doesn't like multi-line template literals, and it's
     // easier to make the <button> and its reference with old-school JS, hence 
     // the mix of DOM insertion types.
     for (const [index, element] of elements.entries()) {
-      const id = this.ids[index];
+      const id = ids[index];
       element.innerHTML = `<div id="${id}"></div>`;
       const button = document.createElement('button');
       this.updateButton(button, 'play');
@@ -90,14 +85,10 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
     // Make references to all <button> elements for auto-updating.
     this.buttons = document.querySelectorAll('[data-player] > button'); 
-  }
 
-  /**
-   * Generates a new YT.Player instance for each video.
-   */
-  makePlayers() {
+    // Generate a new YT.Player instance for each video.
     window.onYouTubeIframeAPIReady = () => {
-      for (const id of this.ids) {
+      for (const id of ids) {
         const options = {
           events: {
             onReady: this.onReady.bind(this),
@@ -214,7 +205,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    */
   handleDown(event) {
     if (event.target.type === 'range') {
-      this.seeking = true;
+      this.seek = true;
     }
   }
 
@@ -225,7 +216,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * @param {Event} event
    */
   handleUp(event) {
-    this.seeking = false;
+    this.seek = false;
     const {type, value} = event.target;
 
     if (type !== 'range') return;
@@ -263,7 +254,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     this.scrubber.max = Math.floor(d);
 
     // Dynamic values.
-    if (!setup && !this.seeking) {
+    if (!setup && !this.seek) {
       this.elapsed.textContent = current;
       this.elapsed.setAttribute('datetime', datetime);
       this.scrubber.value = Math.floor(c);
