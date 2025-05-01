@@ -82,7 +82,7 @@ button.touch {
   grid-area: duration;  
 }
 
-/* Playhead scrubber. */
+/* Playhead track and scrubber. */
 [data-player] > input[type='range'] {
   --thumb-shift: -.4rem;
   --thumb-size: 1.2rem;
@@ -90,6 +90,7 @@ button.touch {
 
   appearance: none;
   background: var(--fill-3) linear-gradient(var(--text-color), var(--text-color)) 0 0 / var(--elapsed, 0) 100% no-repeat ;
+  block-size: var(--track-size);
   border-radius: var(--track-size);
   cursor: pointer;
   grid-area: percent;
@@ -97,6 +98,7 @@ button.touch {
   outline: none;
 }
 
+/* Playhead track. */
 [data-player] > input[type='range']::-webkit-slider-runnable-track {
   appearance: none;
   background-color: transparent;
@@ -105,7 +107,8 @@ button.touch {
   box-shadow: none;
 }
 
-input[type=range]::-webkit-slider-thumb {
+/* Playhead scrubber. */
+[data-player] > input[type='range']::-webkit-slider-thumb {
   appearance: none;
   background-color: var(--text-color);
   block-size: var(--thumb-size);
