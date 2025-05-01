@@ -128,7 +128,7 @@
   {
     "heading": "Music",
     "id": "music",
-    "description": "Some groups I’ve performed and recorded with on the drumkit.",
+    "description": "Some groups I’ve performed and recorded with on the drumkit alongside some song charts I’ve made.",
     "items": [
       {
         "heading": "The Pietasters",
@@ -136,13 +136,6 @@
         "image": "pietasters-930.png",
         "url": "https://music.apple.com/us/album/the-pietasters/279772735",
         "label": "Listen to the Piestomp album on Apple Music"
-      },
-      {
-        "heading": "Song Charts",
-        "copy": "Transcriptions of fun/tricky/weird bass and drum parts as recorded by the masters.",
-        "image": "charts.png",
-        "url": "charts",
-        "label": "View the bass and drums charts"
       },
       {
         "heading": "Thumpdaddy",
@@ -164,6 +157,13 @@
         "image": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
         "label": "Listen to the Like Ghosts album on Bandcamp"
+      },
+      {
+        "heading": "Song Charts",
+        "copy": "Transcriptions of fun/cool/tricky basslines and drum parts as played by masters of their craft.",
+        "image": "charts.png",
+        "url": "charts",
+        "label": "View the bass and drums charts"
       }
     ]
   }
