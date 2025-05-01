@@ -57,14 +57,20 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const ids = [...elements].map(element => element.dataset.player);
 
     // The YouTube API doesn't like multi-line template literals, and it's
-    // easier to make the <button> and its reference with old-school JS, hence 
-    // the mix of DOM insertion types.
+    // easier to make the <button> with old-school JS, hence the mix of DOM
+    // insertion types.
     for (const [index, element] of elements.entries()) {
       const id = ids[index];
+
+      // Element the API will replace with an <iframe>.
       element.innerHTML = `<div id="${id}"></div>`;
+
+      // Play/pause button.
       const button = document.createElement('button');
       this.updateButton(button, 'play');
       element.appendChild(button);
+      
+      // Scrubber.
       element.innerHTML += `
         <time class="elapsed"></time>
         <time class="duration"></time>
