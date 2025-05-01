@@ -27,9 +27,11 @@
 {#- [1] Restore list semantics for VoiceOver a11y via ARIA 'role' because
 the <ol> has 'list-style: none' visual styling. -#}
 {% for section in projects -%}
+{% set count = section.items | length -%}
 <details id="{{ section.id }}">
   <summary>
-    <h3>{{ section.heading }}</h3>  
+    <h3>{{ section.heading }}</h3>
+    <span aria-label="{{ count }} Projects">{{ count }}</span>
   </summary>
 
   <p>{{ section.description | safe }}</p>

@@ -50,6 +50,21 @@ summary::after {
   transform: rotate(135deg);
 }
 
+summary > h3 {
+  flex: 1;
+}
+
+summary > span {
+  font-size: .9em;
+  justify-self: end;
+  opacity: var(--text-opacity);
+  padding-inline: .5rem;
+}
+
+[open] > summary > span {
+  visibility: hidden;
+}
+
 /**
  * Expandable content.
  */
