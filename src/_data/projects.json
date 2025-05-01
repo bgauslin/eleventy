@@ -138,11 +138,11 @@
         "label": "Listen to the Piestomp album on Apple Music"
       },
       {
-        "heading": "Twelve Modern",
-        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
-        "image": "twelve-modern.jpg",
-        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
-        "label": "Listen to the Like Ghosts album on Bandcamp"
+        "heading": "Song Charts",
+        "copy": "Transcriptions of fun/tricky/weird bass and drum parts as recorded by the masters.",
+        "image": "charts.png",
+        "url": "charts",
+        "label": "View the bass and drums charts"
       },
       {
         "heading": "ThumpDaddy",
@@ -157,6 +157,13 @@
         "image": "somnosom.jpg",
         "url": "https://bentaylorsfinesthour.bandcamp.com/track/stop-look-think-2",
         "label": "Listen to the Stop Look Think track on Bandcamp"
+      },
+      {
+        "heading": "Twelve Modern",
+        "copy": "5-piece Chicago-based experimental group with a violinist and two drummers.",
+        "image": "twelve-modern.jpg",
+        "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
+        "label": "Listen to the Like Ghosts album on Bandcamp"
       }
     ]
   }
