@@ -5,13 +5,13 @@
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   buttons = [];     // <HTMLButtonElement[]>
-  duration;         // <HTMLElement> total time
-  elapsed;          // <HTMLElement> current/elapsed time
+  duration;         // <HTMLElement>
+  elapsed;          // <HTMLElement>
   ids = [];         // <string[]>
   interval = 0;     // <number>
   players = [];     // <YT.Player[]>
-  range;           // <HTMLInputElement> active range scrubber
   ranges = [];      // <HTMLInputElement[]>
+  scrubber;         // <HTMLInputElement>
   seeking = false;  // <boolean>
 
   constructor() {
@@ -130,20 +130,20 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   /**
-   * Tracks current time for the active Player.
+   * Tracks elapsed time for the active Player.
    * @param {Event} event
    */
   onStateChange(event) {    
     const player = event.target;
     const state = player.getPlayerState();
 
-    // Auto-update current time.
+    // Auto-update elapsed time.
     if (state === YT.PlayerState.PLAYING) {
       this.updateElements(player);
       this.interval = setInterval(() => this.updateElements(player), 500);
     }
 
-    // Stop auto-updating current time.
+    // Stop auto-updating elapsed time.
     if (state === YT.PlayerState.PAUSED ||
         state === YT.PlayerState.ENDED) {
       clearInterval(this.interval);
@@ -164,7 +164,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const parent = document.querySelector(`${iframe}`).closest('[data-start]');
     const button = document.querySelector(`${iframe} ~ button`);
 
-    this.range = document.querySelector(`${iframe} ~ input[type="range"]`);
+    this.scrubber = document.querySelector(`${iframe} ~ input[type="range"]`);
     
     const start = parent ? parent.dataset.start : '0:00';
     const time = this.playerTime(start);
@@ -173,7 +173,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     player.pauseVideo();
 
     this.elapsed.textContent = start;
-    this.range.value = time;
+    this.scrubber.value = time;
     this.updateButton(button, 'play');
     this.setTrackSize();
   }
@@ -182,22 +182,22 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * Updates width of the elapsed side of the range track.
    */
   setTrackSize() {
-    const {max, value} = this.range;
+    const {max, value} = this.scrubber;
     const percent = Math.floor((value / max) * 100);
-    this.range.style.setProperty('--elapsed', `${percent}%`);
+    this.scrubber.style.setProperty('--elapsed', `${percent}%`);
   }
 
   /**
-   * Updates the current time element as a visual indicator of user-selected
+   * Updates the elapsed time element as a visual indicator of user-selected
    * time to jump to.
    * @param {Event} event
    */
   handleRange(event) {
-    this.range = event.target;
-    const {value} = this.range;
-    const id = this.range.dataset.for;
+    this.scrubber = event.target;
+    const {value} = this.scrubber;
+    const id = this.scrubber.dataset.for;
 
-    // Get .current element for the active Player.
+    // Get element for the active Player.
     this.elapsed = document.querySelector(`iframe[id="${id}"] ~ .elapsed`);
 
     // Update the UI.
@@ -208,8 +208,8 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   /**
-   * Sets a guard that prevents the 'current' time from being auto-updated while
-   * user selects a different time to play.
+   * Sets a guard that prevents the elapsed time from auto-updating while user
+   * moves the playhead with the scrubber.
    * @param {Event} event
    */
   handleDown(event) {
@@ -239,7 +239,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   }
 
   /**
-   * Gets references to current player's UI elements and populates them.
+   * Gets references to active player's UI elements and populates them.
    * @param {YT.Player} player
    * @param {boolean=} setup
    */
@@ -248,7 +248,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
     this.elapsed = document.querySelector(`${selector} ~ .elapsed`);
     this.duration = document.querySelector(`${selector} ~ .duration`);
-    this.range = document.querySelector(`${selector} ~ input[type='range']`);
+    this.scrubber = document.querySelector(`${selector} ~ input[type='range']`);
 
     const c = player.getCurrentTime();
     const d = player.getDuration();
@@ -260,13 +260,13 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     this.duration.textContent = duration;
     this.duration.setAttribute('datetime', this.datetimeDuration(d));
 
-    this.range.max = Math.floor(d);
+    this.scrubber.max = Math.floor(d);
 
     // Dynamic values.
     if (!setup && !this.seeking) {
       this.elapsed.textContent = current;
       this.elapsed.setAttribute('datetime', datetime);
-      this.range.value = Math.floor(c);
+      this.scrubber.value = Math.floor(c);
       this.setTrackSize();
     }
 
