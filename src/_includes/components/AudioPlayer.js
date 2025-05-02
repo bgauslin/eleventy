@@ -51,7 +51,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     script.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(script);
 
-    // Get all the IDs for generating Player objects and rendering HTML child
+    // Get all the IDs for generating Player instances and rendering HTML child
     // elements for UI controls and <iframe> replacement.
     const elements = document.querySelectorAll('[data-player]');
     const ids = [...elements].map(element => element.dataset.player);
@@ -283,20 +283,18 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     const minutes = Math.floor(duration / 60);
     const s = Math.floor(duration % 60);
     const seconds = (s < 10) ? `0${s}` : s;
-    
     return `${minutes}:${seconds}`;
   }
 
   /**
    * Converts a duration in seconds to duration format.
-   * E.g., 272 seconds = T4M12S
+   * E.g., 272 seconds = T4M32S
    * @param {string} duration 
    * @returns {string}
    */
   datetimeDuration(duration) {
     const minutes = Math.floor(duration / 60);
     const seconds = Math.floor(duration % 60);
-
     return `T${minutes}M${seconds}S`;
   }
 
@@ -307,10 +305,12 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * @returns {number}
    */
   playerTime(duration) {
-    if (!duration) return 0; // Bail since any zero value is falsy.
-
-    const [minutes, seconds] = duration.split(':');
-    return (parseInt(minutes) * 60) + parseInt(seconds);
+    if (duration) {
+      const [minutes, seconds] = duration.split(':');
+      return (parseInt(minutes) * 60) + parseInt(seconds);
+    } else {
+      return 0;
+    }
   }
   
   /**
