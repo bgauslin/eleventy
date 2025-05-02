@@ -131,6 +131,13 @@
     "description": "Some groups I’ve performed and recorded with alongside some charts I made.",
     "items": [
       {
+        "heading": "Song Charts",
+        "copy": "Transcriptions of fun/cool/tricky basslines and drum parts as played by masters of their craft.",
+        "image": "charts.png",
+        "url": "charts",
+        "label": "View the bass and drums charts"
+      },
+      {
         "heading": "The Pietasters",
         "copy": "Co-founder of 8-piece ska band with a career spanning over 30 years.",
         "image": "pietasters-930.png",
@@ -157,13 +164,6 @@
         "image": "twelve-modern.jpg",
         "url": "https://twelvemodern.bandcamp.com/album/like-ghosts",
         "label": "Listen to the Like Ghosts album on Bandcamp"
-      },
-      {
-        "heading": "Song Charts",
-        "copy": "Transcriptions of fun/cool/tricky basslines and drum parts as played by masters of their craft.",
-        "image": "charts.png",
-        "url": "charts",
-        "label": "View the bass and drums charts"
       }
     ]
   }
