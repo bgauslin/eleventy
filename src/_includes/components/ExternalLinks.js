@@ -12,6 +12,10 @@
  * <external-links></external-links>
  */
 customElements.define('external-links', class ExternalLinks extends HTMLElement {
+  disabled;  /** @type {boolean} */
+  links;     /** @type {HTMLAnchorElement[]} */
+  note;      /** @type {string} */
+
   constructor() {
     super();
 
