@@ -6,6 +6,10 @@
  * <touchy-buttons></touchy-buttons>
  */	
 customElements.define('touchy-buttons', class TouchyButtons extends HTMLElement {
+  end;     /** @type {EventListenerObject} */
+  start;   /** @type {EventListenerObject} */
+  target;  /** @type {HTMLElement} */
+
   constructor() {
     super();
 
