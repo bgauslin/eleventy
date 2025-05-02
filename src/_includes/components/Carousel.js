@@ -13,6 +13,31 @@
  * </g-carousel>
  */
 customElements.define('g-carousel', class extends HTMLElement {
+  /**
+   * @typedef {Object} ButtonProps
+   * @property {string} type  - CSS class that also sets the icon.
+   * @property {string} label - Text displayed on interaction.
+   * @property {string} path  - SVG icon path.
+   */
+  baseTitle;      /** @type {string} */
+  buttons;        /** @type {ButtonProps[]} */
+  clickListener;  /** @type {EventListenerObject} */
+  closer;         /** @type {HTMLButtonElement} */
+  counter;        /** @type {HTMLButtonElement} */
+  current;        /** @type {number} */
+  dialog;         /** @type {HTMLDialogElement} */
+  heading;        /** @type {HTMLHeadingElement} */
+  items;          /** @type {HTMLLIElement[]} */
+  keyListener;    /** @type {EventListenerObject} */
+  next;           /** @type {number} */
+  nextButton;     /** @type {HTMLButtonElement} */
+  open;           /** @type {boolean} */
+  prev;           /** @type {number} */
+  prevButton;     /** @type {HTMLButtonElement} */
+  list;           /** @type {HTMLOListElement} */
+  thumblinks;     /** @type {HTMLAnchorElement[]} */
+  total;          /** @type {number} */
+
   constructor() {
     super();
     this.clickListener = this.handleClick.bind(this);
