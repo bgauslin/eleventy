@@ -15,6 +15,11 @@
  * </details-plus>
  */
 customElements.define('details-plus', class extends HTMLElement {
+  accordion;    /** @type {boolean} */ 
+  details;      /** @type {HTMLDetailsElement[]} */
+  size;         /** @type {string} */ 
+  storageItem;  /** @type {string} */ 
+
   constructor() {
     super();
   }
@@ -53,13 +58,13 @@ customElements.define('details-plus', class extends HTMLElement {
    * var that sets their height.
    */
   setup() {
-    this.allDetails = [...this.querySelectorAll('details')];
-    this.sizeProp = '--block-size';
+    this.details = [...this.querySelectorAll('details')];
+    this.size = '--block-size';
     this.storageItem = 'open';
     
-    for (const details of this.allDetails) {
+    for (const details of this.details) {
       if (details.open) {
-        details.style.setProperty(this.sizeProp, 'auto');
+        details.style.setProperty(this.size, 'auto');
       }
     }
   }
@@ -73,21 +78,21 @@ customElements.define('details-plus', class extends HTMLElement {
   restoreState() {
     const url = new URL(window.location);
     const hash = url.hash.replace('#', '');
-    const current = this.allDetails.find(element => element.id === hash);
+    const current = this.details.find(element => element.id === hash);
 
     // Open the <details> element whose ID matched URL hash.
     if (current) {
-      current.style.setProperty(this.sizeProp, 'auto');
+      current.style.setProperty(this.size, 'auto');
       current.open = true;
     
     // Otherwise, get localStorage and open the elements from prior visit.
     } else {
-      const saved = JSON.parse(localStorage.getItem(this.storageItem));
+      const saved = JSON.parse(localStorage.getItem(this.storage));
       if (saved) {
-        for (const details of this.allDetails) {
+        for (const details of this.details) {
           if (saved.includes(details.id)) {
             details.open = true;
-            details.style.setProperty(this.sizeProp, 'auto');
+            details.style.setProperty(this.size, 'auto');
           }
         }
       }
@@ -96,7 +101,7 @@ customElements.define('details-plus', class extends HTMLElement {
     // Remove localStorage if accordion is enabled; otherwise, reset URL and
     // save the single 
     if (this.accordion) {
-      localStorage.removeItem(this.storageItem);
+      localStorage.removeItem(this.storage);
     } else {
       this.updateURL();
       this.saveState();
@@ -115,12 +120,12 @@ customElements.define('details-plus', class extends HTMLElement {
       }
     } else {
       const saved = [];
-      for (const details of this.allDetails) {
+      for (const details of this.details) {
         if (details.open) {
           saved.push(details.id);
         }
       }
-      localStorage.setItem(this.storageItem, JSON.stringify(saved));
+      localStorage.setItem(this.storage, JSON.stringify(saved));
     }
   }
 
@@ -145,7 +150,7 @@ customElements.define('details-plus', class extends HTMLElement {
 
       // Close other <details> elements if accordion behavior is enabled.
       if (this.accordion) {
-        for (const details of this.allDetails) {
+        for (const details of this.details) {
           if (details.open && details !== target) {
             this.fancyClose(details);
           }
@@ -161,12 +166,12 @@ customElements.define('details-plus', class extends HTMLElement {
   fancyOpen(element) {
     window.requestAnimationFrame(() => {
       // Set height var on next tick to trigger opening transition.
-      element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
+      element.style.setProperty(this.size, `${element.scrollHeight}px`);
 
       // After transition ends, set var's value to 'auto' which ensures
       // <details> has fluid height on resize.
       element.addEventListener('transitionend', () => {
-        element.style.setProperty(this.sizeProp, 'auto');
+        element.style.setProperty(this.size, 'auto');
         this.saveState(element);
       }, {once: true});
     });
@@ -183,11 +188,11 @@ customElements.define('details-plus', class extends HTMLElement {
 
     window.requestAnimationFrame(() => {
       // Set var from 'auto' to pixel value for height transition to occur.
-      element.style.setProperty(this.sizeProp, `${element.scrollHeight}px`);
+      element.style.setProperty(this.size, `${element.scrollHeight}px`);
 
       // Remove var on next tick and set data-attribute to trigger transition.
       window.requestAnimationFrame(() => {
-        element.style.removeProperty(this.sizeProp);
+        element.style.removeProperty(this.size);
         element.dataset.closing = '';
 
         // Remove 'open' and 'data-closing' attributes after transition ends.
