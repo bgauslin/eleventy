@@ -4,17 +4,25 @@
  * hides each video so the UI can behave more like a simple audio controller.
  */
 customElements.define('audio-player', class AudioPlayer extends HTMLElement {
-  buttons = [];  // <HTMLButtonElement[]>
-  duration;      // <HTMLElement>
-  elapsed;       // <HTMLElement>
-  interval = 0;  // <number>
-  players = [];  // <YT.Player[]>
-  ranges = [];   // <HTMLInputElement[]>
-  scrubber;      // <HTMLInputElement>
-  seek = false;  // <boolean>
+  buttons;       /** @type {HTMLButtonElement[]} */
+  clickHandler;  /** @type {EventListenerObject} */
+  downHandler;   /** @type {EventListenerObject} */
+  duration;      /** @type {HTMLElement} */
+  elapsed;       /** @type {HTMLElement} */
+  interval;      /** @type {number} */
+  players;       /** @type {YT.Player[]} */
+  rangeHandler;  /** @type {EventListenerObject} */
+  ranges;        /** @type {HTMLInputElement[]} */
+  scrubber;      /** @type {HTMLInputElement} */
+  seek;          /** @type {boolean} */
+  upHandler;     /** @type {EventListenerObject} */
 
   constructor() {
     super();
+    this.buttons = [];
+    this.players = [];
+    this.ranges = [];
+    this.seek = false;
     this.clickHandler = this.handleClick.bind(this);
     this.rangeHandler = this.handleRange.bind(this);
     this.downHandler = this.handleDown.bind(this);
@@ -301,7 +309,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
   /**
    * Converts a duration in human-friendly MM:SS format to seconds.
    * E.g., 4:32 = 272 seconds 
-   * @param {string} duration 
+   * @param {?string} duration
    * @returns {number}
    */
   playerTime(duration) {
