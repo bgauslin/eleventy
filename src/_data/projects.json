@@ -2,7 +2,7 @@
   {
     "heading": "Web",
     "id": "web",
-    "description": "Browser-based apps powered by TypeScript and Web Components. (All source code lives on GitHub.)",
+    "description": "Browser-based apps powered by TypeScript and Web Components.",
     "items": [
       {
         "heading": "Powers Of Ten",
@@ -86,7 +86,7 @@
   {
     "heading": "Architecture",
     "id": "archdesign",
-    "description": "Explorations of light, space, and time through material and structure.",
+    "description": "Explorations of space and light through material and structure.",
     "items": [
       {
         "heading": "Barge Board Shotgun Renovation",
@@ -128,7 +128,7 @@
   {
     "heading": "Music",
     "id": "music",
-    "description": "Some groups I’ve performed and recorded with on the drumkit alongside some song charts I’ve made.",
+    "description": "Some groups I’ve performed and recorded with alongside some charts I made.",
     "items": [
       {
         "heading": "The Pietasters",
