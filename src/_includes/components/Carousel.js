@@ -29,12 +29,12 @@ customElements.define('g-carousel', class extends HTMLElement {
   heading;        /** @type {HTMLHeadingElement} */
   items;          /** @type {HTMLLIElement[]} */
   keyListener;    /** @type {EventListenerObject} */
+  list;           /** @type {HTMLOListElement} */
   next;           /** @type {number} */
   nextButton;     /** @type {HTMLButtonElement} */
   open;           /** @type {boolean} */
   prev;           /** @type {number} */
   prevButton;     /** @type {HTMLButtonElement} */
-  list;           /** @type {HTMLOListElement} */
   thumblinks;     /** @type {HTMLAnchorElement[]} */
   total;          /** @type {number} */
 
