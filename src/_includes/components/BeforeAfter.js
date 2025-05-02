@@ -12,6 +12,12 @@
  * </before-after>
  */
 customElements.define('before-after', class extends HTMLElement {
+  active;         /** @type {boolean} */
+  after;          /** @type {HTMLSlotElement} */
+  before;         /** @type {HTMLSlotElement} */
+  button;         /** @type {HTMLButtonElement} */
+  clickListener;  /** @type {EventListenerObject} */
+
   constructor() {
     super();
     this.active = false;
@@ -48,8 +54,7 @@ customElements.define('before-after', class extends HTMLElement {
   }
 	
   update(event) {
-    const path = event.composedPath();
-    if (!path.includes(this.button)) return;
+    if (!event.composedPath().includes(this.button)) return;
 
     let value = this.active ? 0 : 100;
     this.before.hidden = !this.active;
