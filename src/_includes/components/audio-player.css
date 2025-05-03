@@ -40,24 +40,24 @@
   transition: background-color var(--transition), color var(--transition), transform var(--transition);
 }
 
-button:focus-visible,
-button[data-state='playing'] {
+[data-player] > button:focus-visible,
+[data-player] > button[data-state='playing'] {
   background-color: var(--text-color);
   color: var(--fill-0);
 }
 
 @media (any-hover: hover) {
-  button:hover {
+  [data-player] > button:hover {
     background-color: var(--text-color);
     color: var(--fill-0);
   }
   
-  button:active {
+  [data-player] > button:active {
     transform: scale(.8);
   }
 }
 
-button.touch {
+[data-player] > button.touch {
   transform: scale(.8);
 }
 
