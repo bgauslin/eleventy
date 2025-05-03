@@ -51,7 +51,7 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
 
   /**
    * Injects JS for the YouTube IFrame Player API, renders elements into the
-   * DOM, and creates Player instances.
+   * DOM, creates Player instances.
    */
   setup() {
     // Attach a <script> element to the DOM for the YouTube IFrame API.
@@ -165,11 +165,11 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
    * @param {YT.Player} player
    */
   setupPlayer(player) {
-    const iframe = `iframe[id="${player.g.id}"]`;
-    const parent = document.querySelector(`${iframe}`).closest('[data-start]');
-    const button = document.querySelector(`${iframe} ~ button`);
-
-    this.scrubber = document.querySelector(`${iframe} ~ input[type="range"]`);
+    const selector = `iframe[id="${player.g.id}"]`;
+    
+    const parent = document.querySelector(`${selector}`).closest('[data-start]');
+    const button = document.querySelector(`${selector} ~ button`);
+    this.scrubber = document.querySelector(`${selector} ~ input[type="range"]`);
     
     const start = parent ? parent.dataset.start : '0:00';
     const time = this.playerTime(start);
@@ -208,7 +208,6 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     // Update the UI.
     this.elapsed.textContent = this.humanTime(value);
     this.elapsed.setAttribute('datetime', this.datetimeDuration(value));
-
     this.setTrackSize();
   }
 
@@ -264,7 +263,6 @@ customElements.define('audio-player', class AudioPlayer extends HTMLElement {
     // Static values.
     this.duration.textContent = duration;
     this.duration.setAttribute('datetime', this.datetimeDuration(d));
-
     this.scrubber.max = Math.floor(d);
 
     // Dynamic values.
