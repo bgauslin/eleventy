@@ -4,8 +4,8 @@ permalink: charts.html
 slug: charts
 classname: charts
 
-title: Music Charts
-description: Drum transcriptions of session masters
+title: Song Charts
+description: Transcriptions of fun/cool/tricky basslines and drum parts by session masters
 ---
 <style>
 [data-player] {
