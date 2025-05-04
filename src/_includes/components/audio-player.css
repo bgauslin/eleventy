@@ -1,7 +1,9 @@
 [data-player] {
   --button-size: 2.25rem;
   --padding: .25rem;
-  --thumb-size: 1.25rem;
+  --thumb-shift: -.35rem;
+  --thumb-size: 1.2rem;
+  --track-size: .5rem;
 
   background-color: var(--fill-1);
   border-radius: calc(var(--button-size) + (var(--padding) / 2));
@@ -84,10 +86,6 @@
 
 /* Playhead track and scrubber. */
 [data-player] > input[type='range'] {
-  --thumb-shift: -.4rem;
-  --thumb-size: 1.2rem;
-  --track-size: .5rem;
-
   appearance: none;
   background: var(--fill-3) linear-gradient(var(--text-color), var(--text-color)) 0 0 / var(--elapsed, 0) 100% no-repeat ;
   block-size: var(--track-size);
@@ -112,7 +110,6 @@
   appearance: none;
   background-color: var(--text-color);
   block-size: var(--thumb-size);
-  border: 1px solid var(--gray2);
   border-radius: var(--thumb-size);
   box-shadow: none;
   inline-size: var(--thumb-size);
