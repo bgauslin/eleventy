@@ -1,14 +1,10 @@
 {%- macro linkify(href, title, tabindex=null) %}
-{%- if href -%}
   <a
     href="{{ href }}"
     title="{{ title }}"
     {%- if tabindex %} tabindex="{{ tabindex }}"{% endif %}>
     {{- caller() -}}
   </a>
-{%- else -%}
-  {{- caller() -}}
-{%- endif -%}
 {% endmacro -%}
 
 {%- macro iconButton(button) %}
@@ -30,7 +26,7 @@ the <ol> has 'list-style: none' visual styling. -#}
 {% set count = section.items | length -%}
 <details id="{{ section.id }}">
   <summary>
-    <h3>{{ section.heading }}</h3>
+    <h2>{{ section.heading }}</h2>
     <span aria-label="{{ count }} Projects">{{ count }}</span>
   </summary>
 

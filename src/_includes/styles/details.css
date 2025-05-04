@@ -50,7 +50,7 @@ summary::after {
   transform: rotate(135deg);
 }
 
-summary > h3 {
+summary > h2 {
   flex: 1;
 }
 

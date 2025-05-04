@@ -68,18 +68,6 @@
           "icon": "github",
           "url": "https://github.com/bgauslin/interest/tree/main/src/js/components"
         }
-      },
-      {
-        "heading": "Gauslin.com",
-        "copy": "View this website’s vanilla JS and CSS on GitHub.",
-        "image": "this.png",
-        "url": null,
-        "label": null,
-        "button": {
-          "label": "View source code for this website’s content and Web Components on GitHub",
-          "icon": "github",
-          "url": "https://github.com/bgauslin/11ty/tree/main/src/_includes/components"
-        }
       }
     ]
   },
