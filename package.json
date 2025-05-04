@@ -1,7 +1,7 @@
 {
-  "name": "11ty",
+  "name": "eleventy",
   "version": "1.0.0",
-  "description": "Personal website powered by 11ty.",
+  "description": "Personal website powered by Eleventy.",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve"
