@@ -3,6 +3,7 @@
     "heading": "Web",
     "id": "web",
     "description": "Browser-based apps powered by TypeScript and Web Components.",
+    "footnote": "Gauslin.com is powered by Eleventy with <a href=\"https://github.com/bgauslin/eleventy/tree/main/src/_includes/components\" title=\"View JS source code on GitHub\">plain JS</a> and <a href=\"https://github.com/bgauslin/eleventy/tree/main/src/_includes/styles\" title=\"View CSS source code on GitHub\">vanilla CSS</a>.",
     "items": [
       {
         "heading": "Powers Of Ten",

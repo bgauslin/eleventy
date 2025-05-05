@@ -54,5 +54,8 @@ the <ol> has 'list-style: none' visual styling. -#}
     </li>
   {%- endfor %}
   </ul>
+  {% if section.footnote -%}
+  <p><small>{{ section.footnote | safe }}</small></p>
+  {% endif -%}
 </details>
-{%- endfor %}
+{% endfor -%}
