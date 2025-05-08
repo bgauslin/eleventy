@@ -14,7 +14,7 @@ classname: home
       <h2>About</h2>
     </summary>
     
-    Hello, I’m a former Google engineer and Chicago architect, and forever a New Orleans musician.
+    Hello, I’m a former Google engineer and a former Chicago architect, and forever a New Orleans musician.
     
     This little website is home to some of the web, architecture, and music stuff I’ve made over the years.
     
