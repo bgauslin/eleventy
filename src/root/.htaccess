@@ -2,21 +2,20 @@ Options -Indexes
 
 RewriteEngine on
 
+# Always use https.
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # Redirect 404s.
 ErrorDocument 404 /404.html
 
-# Remove .html extension from URL.
+# Remove .html extension.
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
 
 # Remove odd URL parameter by InfinityFree hosting.
 RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
 RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
-
-# Allow remote access to shared assets.
-<FilesMatch "\.(json|webp|woff2)$">
-  Header set Access-Control-Allow-Origin "*"
-</FilesMatch>
 
 # Set security policies.
 Header always append X-Frame-Options SAMEORIGIN
